@@ -1,0 +1,15 @@
+{
+  "schema_version": "editroom-toy-instruction-v1",
+  "edit_id": "edit_0001",
+  "room_type": "bedroom",
+  "edit_type": "INSERT",
+  "instruction": "Add one nightstand beside the bed.",
+  "target_category": "nightstand",
+  "target_ref": "nightstand_1",
+  "target_relation": {
+    "predicate": "adjacent_to",
+    "object": "bed_1"
+  },
+  "split": "train"
+}
+

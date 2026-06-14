@@ -19,7 +19,7 @@
         "schema_version": { "const": "mask-spec-v1" },
         "mask_id": { "type": "string", "minLength": 1 },
         "image_size_px": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "integer", "minimum": 1 } },
-        "items": { "type": "array", "minItems": 1, "items": { "type": "object", "required": ["type"], "properties": { "type": { "enum": ["bbox", "polygon", "instance_ref"] } }, "additionalProperties": true } }
+        "items": { "type": "array", "minItems": 1, "items": { "type": "object", "required": ["type"], "properties": { "type": { "enum": ["bbox", "polygon", "instance_ref", "old_new_union"] } }, "additionalProperties": true } }
       },
       "additionalProperties": true
     },

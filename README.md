@@ -11,17 +11,18 @@ The project is currently in the local interface and adapter construction stage.
 Completed:
 - Step 2.1 local interface audit and smoke test.
 - Step 2.2 SemLayoutDiff adapter toy-level conversion.
+- Step 2.3 EditRoom adapter toy-level conversion.
 
 Not yet completed:
 - Real 3D-FRONT / 3D-FUTURE conversion.
 - Real SemLayoutDiff output parsing.
-- EditRoom adapter.
+- Real EditRoom output parsing.
 - Qwen-VL training.
 - DiffSynth Qwen-Image inpainting training.
 - Closed-loop main experiments.
 
 Next:
-- Step 2.3 EditRoom adapter.
+- Step 2.4 server-side data field mapping.
 
 ## Local Setup
 
@@ -89,6 +90,30 @@ python tools/convert_semlayoutdiff_to_loreflection.py \
 ```
 
 See `docs/SEMLAYOUTDIFF_ADAPTER.md` for server path placeholders and real-data TODOs.
+
+## Step 2.3 EditRoom Adapter
+
+EditRoom is used as an editing pair, perturbation, and editing baseline source. It is not the LoReflection main method. The local adapter converts toy EditRoom-like before/after pairs into Planner SFT manifests and ControlNet / DiffSynth repair samples.
+
+Inspect an optional EditRoom checkout and the local toy sample:
+
+```bash
+python tools/inspect_editroom_outputs.py \
+  --editroom-root third_party/EditRoom \
+  --sample-dir examples/toy_editroom \
+  --report experiments/val50/editroom_inspect_report.json
+```
+
+Convert the toy EditRoom-like pair into LoReflection training artifacts:
+
+```bash
+python tools/convert_editroom_to_loreflection.py \
+  --input-root examples/toy_editroom \
+  --output-root outputs/editroom_toy_loreflection \
+  --mode toy
+```
+
+See `docs/EDITROOM_ADAPTER.md` for mapping details and server-side TODOs.
 
 ## Key Files
 

@@ -43,9 +43,28 @@ This means the SemLayoutDiff adapter interface is ready at toy level. It does no
 ## Next Step
 
 ### Step 2.3 EditRoom Adapter
+Status: Completed at toy level
+
+Purpose:
+Convert EditRoom-like editing pairs into LoReflection Planner SFT and DiffSynth repair samples.
+
+- `tools/inspect_editroom_outputs.py` completed.
+- `tools/convert_editroom_to_loreflection.py` completed.
+- Toy EditRoom-like before/after pair was converted into:
+  - mask_spec
+  - binary control_mask
+  - RepairPlan
+  - Planner SFT manifest
+  - ControlNet / DiffSynth repair manifest
+  - conversion report
+- `validate_all --strict` passed.
+
+Current interpretation:
+This means the EditRoom adapter interface is ready at toy level. It does not mean that real EditRoom data, real 3D-FRONT / 3D-FUTURE data, or real EditRoom model outputs have been fully connected.
+
+### Step 2.4 Server Data Mapping
 Next development task:
-Build EditRoom adapter for editing pairs, perturbation conversion, RepairPlan generation, mask_spec generation, Planner SFT manifest, and ControlNet / DiffSynth repair manifest.
+After SemLayoutDiff and EditRoom adapters are both ready at toy level, map real server-side data fields into the local LoReflection contracts.
 
 Important restriction:
 Do not connect real 3D-FRONT / 3D-FUTURE before Step 2.3 is completed. Real data integration will be handled after SemLayoutDiff and EditRoom adapters are both ready at toy level.
-

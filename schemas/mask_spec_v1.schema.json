@@ -37,8 +37,10 @@
       "type": "object",
       "required": ["type"],
       "properties": {
-        "type": { "enum": ["bbox", "polygon", "instance_ref"] },
+        "type": { "enum": ["bbox", "polygon", "instance_ref", "old_new_union"] },
         "bbox_px": { "$ref": "#/$defs/bbox" },
+        "old_bbox_px": { "$ref": "#/$defs/bbox" },
+        "new_bbox_px": { "$ref": "#/$defs/bbox" },
         "polygon_px": {
           "type": "array",
           "minItems": 3,
@@ -51,7 +53,8 @@
       "oneOf": [
         { "properties": { "type": { "const": "bbox" } }, "required": ["bbox_px"] },
         { "properties": { "type": { "const": "polygon" } }, "required": ["polygon_px"] },
-        { "properties": { "type": { "const": "instance_ref" } }, "required": ["instance_ref"] }
+        { "properties": { "type": { "const": "instance_ref" } }, "required": ["instance_ref"] },
+        { "properties": { "type": { "const": "old_new_union" } }, "required": ["old_bbox_px", "new_bbox_px"] }
       ],
       "additionalProperties": true
     }

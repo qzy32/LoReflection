@@ -11,7 +11,12 @@
     "control_image": { "type": "string", "minLength": 1 },
     "control_mask": { "type": "string", "minLength": 1 },
     "correction_prompt": { "type": "string", "minLength": 20 },
-    "repair_plan": { "type": "string" }
+    "prompt": { "type": "string", "minLength": 20 },
+    "edit_type": { "enum": ["INSERT", "DELETE", "REPLACE", "MOVE"] },
+    "mask_type": { "enum": ["bbox", "polygon", "instance_ref", "old_new_union"] },
+    "repairplan_path": { "type": "string" },
+    "repair_plan": { "type": "string" },
+    "split": { "type": "string" }
   },
   "additionalProperties": true
 }

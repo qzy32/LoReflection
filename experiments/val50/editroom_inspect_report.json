@@ -1,0 +1,21 @@
+{
+  "schema_version": "editroom-inspect-report-v1",
+  "editroom_root": "third_party\\EditRoom",
+  "sample_dir": "examples\\toy_editroom",
+  "found_files": [
+    "examples\\toy_editroom\\edit_0001\\after_layout.json",
+    "examples\\toy_editroom\\edit_0001\\before_layout.json",
+    "examples\\toy_editroom\\edit_0001\\edit_instruction.json"
+  ],
+  "missing_expected_files": [
+    "third_party\\EditRoom\\tools\\generate_perturbations.py",
+    "third_party\\EditRoom\\tools\\editroomperturb.py",
+    "third_party\\EditRoom\\tools\\generate_prompt.py",
+    "third_party\\EditRoom\\src\\train_edit.py",
+    "third_party\\EditRoom\\configs\\bedroom_sg2sc_diffusion.yaml",
+    "third_party\\EditRoom\\configs\\bedroom_sg_diffusion.yaml"
+  ],
+  "recommended_next_steps": [
+    "EditRoom repo was not found locally. This is OK for toy adapter tests; set EDITROOM_ROOT on the server."
+  ]
+}

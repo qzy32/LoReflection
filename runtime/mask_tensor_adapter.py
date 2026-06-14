@@ -73,6 +73,11 @@ def rasterize_mask_spec(mask_spec: dict, observed_lostate: dict | None = None, o
                 draw.rectangle([x0, y0, x1, y1], fill=value)
             else:
                 raise ValueError(f"instance {item['instance_ref']} has neither mask_ref nor bbox_px.")
+        elif item_type == "old_new_union":
+            old_bbox = validate_bbox(item["old_bbox_px"], width, height)
+            new_bbox = validate_bbox(item["new_bbox_px"], width, height)
+            draw.rectangle(old_bbox, fill=value)
+            draw.rectangle(new_bbox, fill=value)
         else:
             raise ValueError(f"Unsupported mask item type: {item_type}")
 

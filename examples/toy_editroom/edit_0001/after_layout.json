@@ -1,0 +1,29 @@
+{
+  "schema_version": "editroom-toy-layout-v1",
+  "layout_id": "edit_0001_after",
+  "room_type": "bedroom",
+  "image_size_px": [1024, 1024],
+  "objects": [
+    {
+      "instance_id": "bed_1",
+      "category": "bed",
+      "bbox_px": [140, 350, 500, 730]
+    },
+    {
+      "instance_id": "desk_1",
+      "category": "desk",
+      "bbox_px": [650, 180, 900, 310]
+    },
+    {
+      "instance_id": "wardrobe_1",
+      "category": "wardrobe",
+      "bbox_px": [700, 620, 920, 820]
+    },
+    {
+      "instance_id": "nightstand_1",
+      "category": "nightstand",
+      "bbox_px": [530, 490, 645, 610]
+    }
+  ]
+}
+
