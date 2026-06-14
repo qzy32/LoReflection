@@ -24,10 +24,15 @@ def resolve(path_text: str, base_dir: Path) -> Path:
     path = Path(path_text)
     if path.is_absolute():
         return path
-    by_manifest = base_dir / path
-    if by_manifest.exists():
-        return by_manifest
-    return Path.cwd() / path
+    candidates = [
+        base_dir / path,
+        base_dir.parent / path,
+        Path.cwd() / path,
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return candidates[0]
 
 
 def materialize(src: Path, dst: Path, mode: str) -> None:

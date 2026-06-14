@@ -72,6 +72,7 @@ def run_smoke(output_dir: Path) -> None:
     bbox_mask = output_dir / "control_mask_bbox.png"
     polygon_mask = output_dir / "control_mask_polygon.png"
     instance_mask = output_dir / "control_mask_instance.png"
+    old_new_union_mask = output_dir / "control_mask_old_new_union.png"
     controlnet_manifest = output_dir / "controlnet_repair_v1" / "train.json"
     planner_manifest = output_dir / "planner_sft_manifest.json"
     qwenvl_sft = output_dir / "qwenvl_sft.json"
@@ -109,6 +110,7 @@ def run_smoke(output_dir: Path) -> None:
     run([sys.executable, "runtime/mask_tensor_adapter.py", "--mask-spec", str(examples / "mask_spec_v1.json"), "--control-image", str(bad_image), "--output", str(bbox_mask)])
     run([sys.executable, "runtime/mask_tensor_adapter.py", "--mask-spec", str(polygon_spec), "--control-image", str(bad_image), "--output", str(polygon_mask)])
     run([sys.executable, "runtime/mask_tensor_adapter.py", "--mask-spec", str(instance_spec), "--observed-lostate", str(observed), "--control-image", str(bad_image), "--output", str(instance_mask)])
+    run([sys.executable, "runtime/mask_tensor_adapter.py", "--mask-spec", str(examples / "mask_spec_old_new_union_v1.json"), "--control-image", str(bad_image), "--output", str(old_new_union_mask)])
 
     run(
         [
@@ -169,6 +171,7 @@ def run_smoke(output_dir: Path) -> None:
     assert_binary_mask(bbox_mask, bad_image)
     assert_binary_mask(polygon_mask, bad_image)
     assert_binary_mask(instance_mask, bad_image)
+    assert_binary_mask(old_new_union_mask, bad_image)
 
     qwen_rows = json.loads(qwenvl_sft.read_text(encoding="utf-8"))
     assert_true(isinstance(qwen_rows, list) and qwen_rows, "Qwen-VL SFT export is empty")

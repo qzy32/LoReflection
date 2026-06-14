@@ -62,6 +62,35 @@ Convert EditRoom-like editing pairs into LoReflection Planner SFT and DiffSynth 
 Current interpretation:
 This means the EditRoom adapter interface is ready at toy level. It does not mean that real EditRoom data, real 3D-FRONT / 3D-FUTURE data, or real EditRoom model outputs have been fully connected.
 
+### Step 2.3R Regression Audit
+Status: Completed
+
+Purpose:
+Verify that Step 2.3 schema/runtime changes did not break Step 2.1 and Step 2.2, and decide whether the current toy-level interface can be frozen.
+
+Regression commands:
+- `examples/toy_samples` strict validation: PASS
+- local smoke test: PASS
+- SemLayoutDiff toy output strict validation: PASS
+- EditRoom toy output strict validation: PASS
+- Qwen-VL export check: PASS
+- DiffSynth export check: PASS
+
+Interface consistency:
+- mask_spec schema/runtime mismatch: no
+- RepairPlan schema/adapter mismatch: no
+- ControlNet/DiffSynth mapping mismatch: no
+- Qwen-VL SFT format issue: no
+- Absolute path violation: no
+
+Canonical tags:
+- Step 2.2: `step2.2-semlayoutdiff-toy-pass`
+- Step 2.3: `step2.3-editroom-toy-pass-v2`
+
+Result:
+- Recommended interface status: frozen at toy level.
+- Freeze tag: `interface-freeze-v1`
+
 ### Step 2.4 Server Data Mapping
 Next development task:
 After SemLayoutDiff and EditRoom adapters are both ready at toy level, map real server-side data fields into the local LoReflection contracts.

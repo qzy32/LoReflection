@@ -24,6 +24,19 @@ Not yet completed:
 Next:
 - Step 2.4 server-side data field mapping.
 
+## Interface Freeze Status
+
+Current toy-level interface status:
+- Step 2.1 local interface audit: passed
+- Step 2.2 SemLayoutDiff adapter: passed
+- Step 2.3 EditRoom adapter: passed
+- Step 2.3R regression audit: passed
+
+The toy-level interface can be treated as frozen only if Step 2.3R passes.
+
+Current recommendation:
+- Frozen at toy level under `interface-freeze-v1`.
+
 ## Local Setup
 
 ```bash

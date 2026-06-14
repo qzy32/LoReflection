@@ -2,6 +2,8 @@
 
 Server runs are responsible for real model and dataset work. Local code only prepares schemas, manifests, toy validation, and conversion scripts.
 
+Real server-side data conversion should start only after `interface-freeze-v1` is created. Before that, do not run real 3D-FRONT / 3D-FUTURE conversion or model training.
+
 ## Paths To Configure
 
 - `/server/path/to/3D-FRONT`
@@ -41,4 +43,3 @@ The local template is `diffusion/train_diffsynth_qwen_inpaint_lora.sh`. It is a 
 ## Baselines
 
 InstantX/Qwen-Image-ControlNet-Inpainting is reserved as a zero-shot executor baseline. Do not use it as the main training path unless the experiment plan changes.
-

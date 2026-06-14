@@ -31,6 +31,7 @@ MANIFEST_VERSIONS = {
     "semlayoutdiff-npy-placeholder-report-v1",
     "editroom-inspect-report-v1",
     "editroom-conversion-report-v1",
+    "interface-audit-report-v1",
 }
 
 

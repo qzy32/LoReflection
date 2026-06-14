@@ -1,0 +1,59 @@
+{
+  "schema_version": "interface-audit-report-v1",
+  "mask_type_schema": [
+    "bbox",
+    "instance_ref",
+    "old_new_union",
+    "polygon"
+  ],
+  "mask_type_runtime": [
+    "bbox",
+    "instance_ref",
+    "old_new_union",
+    "polygon"
+  ],
+  "mask_type_adapter_declared": [
+    "bbox",
+    "instance_ref",
+    "old_new_union"
+  ],
+  "mask_type_adapter_outputs": [
+    "bbox"
+  ],
+  "mask_type_mismatches": [],
+  "action_type_schema": [
+    "ADJUST_ORIENTATION",
+    "DELETE",
+    "INSERT",
+    "MOVE",
+    "REPLACE"
+  ],
+  "action_type_adapter_declared": [
+    "DELETE",
+    "INSERT",
+    "MOVE",
+    "REPLACE"
+  ],
+  "action_type_adapter_outputs": [
+    "INSERT"
+  ],
+  "action_type_mismatches": [],
+  "absolute_path_violations": [],
+  "diffsynth_metadata_check": {
+    "exists": true,
+    "columns_ok": true,
+    "paths_relative": true,
+    "files_exist": true,
+    "rows": 1,
+    "errors": []
+  },
+  "qwenvl_export_check": {
+    "exists": true,
+    "format_ok": true,
+    "paths_relative": true,
+    "gpt_json_ok": true,
+    "rows": 1,
+    "errors": []
+  },
+  "recommended_status": "frozen"
+}

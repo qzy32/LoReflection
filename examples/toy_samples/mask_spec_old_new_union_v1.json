@@ -1,0 +1,14 @@
+{
+  "schema_version": "mask-spec-v1",
+  "mask_id": "mask_move_union_001",
+  "image_size_px": [512, 512],
+  "items": [
+    {
+      "type": "old_new_union",
+      "old_bbox_px": [80, 120, 150, 190],
+      "new_bbox_px": [220, 260, 300, 340],
+      "value": 255
+    }
+  ]
+}
+
