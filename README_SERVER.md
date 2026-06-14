@@ -4,6 +4,31 @@ Server runs are responsible for real model and dataset work. Local code only pre
 
 Real server-side data conversion should start only after `interface-freeze-v1` is created. Before that, do not run real 3D-FRONT / 3D-FUTURE conversion or model training.
 
+## Pazhou Server Setup
+
+Use the sanitized Pazhou template:
+
+```bash
+cp server_configs/paths.pazhou.template.env server_configs/paths.local.env
+# edit paths.local.env on the server
+bash scripts/server_step3_dryrun_pazhou.sh
+```
+
+Do not commit:
+
+- `paths.local.env`
+- SSH guide files
+- passwords
+- model weights
+- datasets
+
+Recommended work roots:
+
+- A800: `/wuqingyaoa800/qiuziyan`
+- 3090: `/wuqingyao/custom_home/qiuziyan`
+
+Do not use `/home` for projects, model weights, datasets, logs, or large outputs. Current A800 usage is a direct SSH workflow, not a default Slurm workflow; do not assume `sbatch`, `salloc`, or `sinfo` as the normal path.
+
 ## Server Dry-run
 
 Before running real data conversion or training, copy:

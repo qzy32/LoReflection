@@ -118,3 +118,20 @@ After the unified toy package and server dry-run pass, prepare Step 3 server-sid
 
 Important restriction:
 Do not connect real 3D-FRONT / 3D-FUTURE, download model weights, or start training during Step 2.4.
+
+### Step 3.0 Pazhou Server Onboarding
+Status: Completed
+
+Purpose:
+Prepare sanitized server-side path templates and dry-run scripts for Pazhou A800 / 3090 without committing SSH secrets or starting training.
+
+Safety:
+- No passwords committed.
+- No model or data downloaded.
+- No training started.
+- No real 3D-FRONT conversion started.
+
+Validation:
+- `tools/check_no_secrets.py --strict`: PASS
+- Pazhou path template dry-run: PASS
+- Pazhou real source inspection template dry-run: PASS

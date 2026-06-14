@@ -1,0 +1,108 @@
+{
+  "schema_version": "server-path-check-report-v1",
+  "env_file": "server_configs/paths.pazhou.template.env",
+  "strict": false,
+  "checks": {
+    "LOREFLECTION_ROOT": {
+      "value": "/wuqingyaoa800/qiuziyan/LoReflection",
+      "configured": "yes",
+      "exists": "no",
+      "required_for_stage": "all stages",
+      "note": "path does not exist on this machine"
+    },
+    "SEMLAYOUTDIFF_ROOT": {
+      "value": "/wuqingyaoa800/qiuziyan/SemLayoutDiff",
+      "configured": "yes",
+      "exists": "no",
+      "required_for_stage": "Step 3 val50 architecture/semantic conversion",
+      "note": "path does not exist on this machine"
+    },
+    "EDITROOM_ROOT": {
+      "value": "/wuqingyaoa800/qiuziyan/EditRoom",
+      "configured": "yes",
+      "exists": "no",
+      "required_for_stage": "Step 3 editing pair conversion",
+      "note": "path does not exist on this machine"
+    },
+    "DIFFSYNTH_ROOT": {
+      "value": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio",
+      "configured": "yes",
+      "exists": "no",
+      "required_for_stage": "DiffSynth inpaint LoRA training",
+      "note": "path does not exist on this machine"
+    },
+    "QWEN_VL_REPO": {
+      "value": "/wuqingyaoa800/qiuziyan/qwen-vl-finetune",
+      "configured": "yes",
+      "exists": "no",
+      "required_for_stage": "Qwen-VL SFT training",
+      "note": "path does not exist on this machine"
+    },
+    "THREED_FRONT_ROOT": {
+      "value": "/wuqingyaoa800/qiuziyan/datasets/3D-FRONT",
+      "configured": "yes",
+      "exists": "no",
+      "required_for_stage": "real 3D-FRONT data conversion",
+      "note": "path does not exist on this machine"
+    },
+    "THREED_FUTURE_ROOT": {
+      "value": "/wuqingyaoa800/qiuziyan/datasets/3D-FUTURE",
+      "configured": "yes",
+      "exists": "no",
+      "required_for_stage": "real 3D-FUTURE asset/category mapping",
+      "note": "path does not exist on this machine"
+    },
+    "QWEN25_VL_MODEL_PATH": {
+      "value": "/wuqingyaoa800/qiuziyan/models/Qwen2.5-VL-3B-Instruct",
+      "configured": "yes",
+      "exists": "no",
+      "required_for_stage": "Qwen2.5-VL planner/reviewer training or inference",
+      "note": "path does not exist on this machine"
+    },
+    "QWEN_IMAGE_MODEL_PATH": {
+      "value": "/wuqingyaoa800/qiuziyan/models/Qwen-Image",
+      "configured": "yes",
+      "exists": "no",
+      "required_for_stage": "Qwen-Image generation/inpainting",
+      "note": "path does not exist on this machine"
+    },
+    "DIFFSYNTH_INPAINT_MODEL_PATH": {
+      "value": "/wuqingyaoa800/qiuziyan/models/Qwen-Image-Blockwise-ControlNet-Inpaint",
+      "configured": "yes",
+      "exists": "no",
+      "required_for_stage": "DiffSynth Qwen-Image inpaint training/inference",
+      "note": "path does not exist on this machine"
+    },
+    "INSTANTX_INPAINT_MODEL_PATH": {
+      "value": "/wuqingyaoa800/qiuziyan/models/InstantX-Qwen-Image-ControlNet-Inpainting",
+      "configured": "yes",
+      "exists": "no",
+      "required_for_stage": "InstantX zero-shot baseline",
+      "note": "path does not exist on this machine"
+    },
+    "OUTPUT_ROOT": {
+      "value": "/wuqingyaoa800/qiuziyan/loreflection_outputs",
+      "configured": "yes",
+      "exists": "no",
+      "required_for_stage": "server artifact output",
+      "note": "path does not exist on this machine"
+    }
+  },
+  "warnings": [
+    "LOREFLECTION_ROOT path does not exist: /wuqingyaoa800/qiuziyan/LoReflection",
+    "SEMLAYOUTDIFF_ROOT path does not exist: /wuqingyaoa800/qiuziyan/SemLayoutDiff",
+    "EDITROOM_ROOT path does not exist: /wuqingyaoa800/qiuziyan/EditRoom",
+    "DIFFSYNTH_ROOT path does not exist: /wuqingyaoa800/qiuziyan/DiffSynth-Studio",
+    "QWEN_VL_REPO path does not exist: /wuqingyaoa800/qiuziyan/qwen-vl-finetune",
+    "THREED_FRONT_ROOT path does not exist: /wuqingyaoa800/qiuziyan/datasets/3D-FRONT",
+    "THREED_FUTURE_ROOT path does not exist: /wuqingyaoa800/qiuziyan/datasets/3D-FUTURE",
+    "QWEN25_VL_MODEL_PATH path does not exist: /wuqingyaoa800/qiuziyan/models/Qwen2.5-VL-3B-Instruct",
+    "QWEN_IMAGE_MODEL_PATH path does not exist: /wuqingyaoa800/qiuziyan/models/Qwen-Image",
+    "DIFFSYNTH_INPAINT_MODEL_PATH path does not exist: /wuqingyaoa800/qiuziyan/models/Qwen-Image-Blockwise-ControlNet-Inpaint",
+    "INSTANTX_INPAINT_MODEL_PATH path does not exist: /wuqingyaoa800/qiuziyan/models/InstantX-Qwen-Image-ControlNet-Inpainting",
+    "OUTPUT_ROOT path does not exist: /wuqingyaoa800/qiuziyan/loreflection_outputs"
+  ],
+  "fatal_errors": [],
+  "dry_run": true,
+  "message": "This is a dry-run path check. No model or data was loaded."
+}

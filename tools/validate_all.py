@@ -36,6 +36,8 @@ MANIFEST_VERSIONS = {
     "unified-package-report-v1",
     "unified-package-validation-report-v1",
     "server-path-check-report-v1",
+    "real-source-inspection-report-v1",
+    "no-secrets-report-v1",
 }
 
 

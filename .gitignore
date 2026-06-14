@@ -5,6 +5,12 @@ venv/
 .env
 *.local.env
 server_configs/paths.local.env
+*pazhou_ssh*
+*ssh_guide*
+*.pem
+*.key
+id_rsa
+id_ed25519
 .DS_Store
 outputs/
 runs/
