@@ -1,0 +1,14 @@
+{
+  "schema_version": "planner-sft-manifest-v1",
+  "samples": [
+    {
+      "sample_id": "toy_planner_001",
+      "image": "examples/toy_samples/bad_layout.png",
+      "instruction": "Plan one local repair for the missing nightstand.",
+      "goal_lostate": "goal_lostate_v1.json",
+      "observed_lostate": "observed_lostate_v1.json",
+      "loreview": "loreview_v1.json",
+      "repairplan": "repairplan_v1.json"
+    }
+  ]
+}

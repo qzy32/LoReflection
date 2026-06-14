@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loreflection.local/schemas/observed_lostate_v1.schema.json",
+  "title": "Observed LoState v1",
+  "type": "object",
+  "required": ["schema_version", "state_role", "metadata", "architecture_ref", "semantic_registry_ref", "room_type", "furniture_instances"],
+  "properties": {
+    "schema_version": { "const": "observed-lostate-v1" },
+    "state_role": { "const": "observed" },
+    "metadata": { "type": "object", "required": ["task_id", "repair_round"] },
+    "architecture_ref": { "type": "object", "required": ["architecture_id"] },
+    "semantic_registry_ref": {
+      "type": "object",
+      "required": ["palette_id", "category_set", "relation_set"]
+    },
+    "room_type": { "type": "string", "minLength": 1 },
+    "furniture_instances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["instance_id", "category", "bbox_px"],
+        "properties": {
+          "instance_id": { "type": "string", "minLength": 1 },
+          "category": { "type": "string", "minLength": 1 },
+          "category_id": { "type": "integer" },
+          "bbox_px": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": { "type": "number" }
+          },
+          "area_px": { "type": "number", "minimum": 0 },
+          "mask_ref": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "measured_relations": { "type": "array", "items": { "type": "object" }, "default": [] },
+    "hard_constraint_evidence": { "type": "array", "items": { "type": "object" }, "default": [] }
+  },
+  "additionalProperties": true
+}

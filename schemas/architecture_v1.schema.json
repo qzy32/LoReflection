@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loreflection.local/schemas/architecture_v1.schema.json",
+  "title": "Architecture JSON v1",
+  "type": "object",
+  "required": ["schema_version", "architecture_id", "room_type", "coordinate_system", "boundary"],
+  "properties": {
+    "schema_version": { "const": "architecture-v1" },
+    "architecture_id": { "type": "string" },
+    "room_type": { "type": "string" },
+    "coordinate_system": { "type": "object" },
+    "coordinate_transforms": { "type": "array", "items": { "type": "object" }, "default": [] },
+    "boundary": {
+      "type": "object",
+      "required": ["polygon_m"],
+      "properties": {
+        "polygon_m": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": { "type": "number" }
+          }
+        }
+      }
+    },
+    "anchors": { "type": "array", "items": { "type": "object" }, "default": [] }
+  },
+  "additionalProperties": true
+}
+

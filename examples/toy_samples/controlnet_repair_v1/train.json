@@ -1,0 +1,14 @@
+{
+  "schema_version": "controlnet-repair-manifest-v1",
+  "samples": [
+    {
+      "schema_version": "controlnet-sample-v1",
+      "sample_id": "toy_repair_001",
+      "target_image": "examples/toy_samples/target_layout.png",
+      "control_image": "examples/toy_samples/bad_layout.png",
+      "control_mask": "examples/toy_samples/control_mask.png",
+      "correction_prompt": "A top-down fixed-palette semantic bedroom layout. The masked region contains one nightstand placed beside the bed. The bed, walls, door, window, and all non-masked regions remain unchanged.",
+      "repair_plan": "examples/toy_samples/repairplan_v1.json"
+    }
+  ]
+}

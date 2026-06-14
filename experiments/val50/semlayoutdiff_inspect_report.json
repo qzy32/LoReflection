@@ -1,0 +1,21 @@
+{
+  "schema_version": "semlayoutdiff-inspect-report-v1",
+  "semlayoutdiff_root": "third_party\\SemLayoutDiff",
+  "sample_dir": "examples\\toy_semlayoutdiff",
+  "found_files": [
+    "examples\\toy_semlayoutdiff\\room_0001\\room_meta.json",
+    "examples\\toy_semlayoutdiff\\room_0001\\semantic_objects.json"
+  ],
+  "missing_expected_files": [
+    "third_party\\SemLayoutDiff\\preprocess\\scripts\\data_processor.py",
+    "third_party\\SemLayoutDiff\\preprocess\\scripts\\data_to_npy.py",
+    "third_party\\SemLayoutDiff\\preprocess\\scripts\\pickle_threed_front_dataset.py",
+    "third_party\\SemLayoutDiff\\preprocess\\scripts\\json_threed_future_dataset.py",
+    "third_party\\SemLayoutDiff\\render_dataset_improved_mat.py",
+    "third_party\\SemLayoutDiff\\scripts\\train_sldn.py",
+    "third_party\\SemLayoutDiff\\scripts\\sample_layout.py"
+  ],
+  "recommended_next_steps": [
+    "SemLayoutDiff repo was not found locally. This is OK for toy adapter tests; set SEMLAYOUTDIFF_ROOT on the server."
+  ]
+}

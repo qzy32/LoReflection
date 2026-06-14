@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loreflection.local/schemas/goal_lostate_v1.schema.json",
+  "title": "Goal LoState v1",
+  "type": "object",
+  "required": ["schema_version", "state_role", "metadata", "architecture_ref", "semantic_registry_ref", "room_type", "furniture_slots", "desired_relations"],
+  "properties": {
+    "schema_version": { "const": "goal-lostate-v1" },
+    "state_role": { "const": "goal" },
+    "metadata": { "type": "object", "required": ["task_id", "repair_round"] },
+    "architecture_ref": { "type": "object", "required": ["architecture_id"] },
+    "semantic_registry_ref": {
+      "type": "object",
+      "required": ["palette_id", "category_set", "relation_set"]
+    },
+    "room_type": { "type": "string", "minLength": 1 },
+    "furniture_slots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["slot_id", "category", "required", "count"],
+        "properties": {
+          "slot_id": { "type": "string" },
+          "category": { "type": "string" },
+          "category_id": { "type": "integer" },
+          "required": { "type": "boolean" },
+          "count": { "type": "integer", "minimum": 0 }
+        },
+        "additionalProperties": true
+      }
+    },
+    "desired_relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["relation_id", "subject", "predicate", "object", "necessity"],
+        "properties": {
+          "relation_id": { "type": "string", "minLength": 1 },
+          "subject": { "type": "string", "minLength": 1 },
+          "predicate": { "enum": ["adjacent_to", "near", "facing", "against", "avoids", "overlaps", "blocks"] },
+          "object": { "type": "string", "minLength": 1 },
+          "object_kind": { "enum": ["furniture_slot", "architecture_anchor", "observed_instance"] },
+          "params": { "type": "object" },
+          "necessity": { "enum": ["required", "preferred"] },
+          "verification": { "type": "string" },
+          "source": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "verification_profile": { "type": "object" }
+  },
+  "additionalProperties": true
+}

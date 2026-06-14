@@ -1,0 +1,77 @@
+{
+  "schema_version": "goal-lostate-v1",
+  "state_role": "goal",
+  "metadata": {
+    "task_id": "toy_bedroom_001",
+    "repair_round": 0,
+    "created_by": "local_toy_example"
+  },
+  "architecture_ref": {
+    "architecture_id": "toy_arch_001",
+    "coordinate_transform_id": "xz_to_image_001"
+  },
+  "semantic_registry_ref": {
+    "palette_id": "indoor_palette_v1",
+    "category_set": "indoor_furniture_categories_v1",
+    "relation_set": "layout_relations_v1"
+  },
+  "room_type": "bedroom",
+  "furniture_slots": [
+    {
+      "slot_id": "slot_bed_1",
+      "category": "bed",
+      "category_id": 5,
+      "required": true,
+      "count": 1,
+      "generation_hints": [
+        {
+          "description": "against a wall away from the door",
+          "anchor_refs": ["arch:door_001"]
+        }
+      ],
+      "avoid_refs": ["arch:door_001_clearance"],
+      "source": "user_instruction"
+    },
+    {
+      "slot_id": "slot_nightstand_1",
+      "category": "nightstand",
+      "category_id": 9,
+      "required": true,
+      "count": 1,
+      "generation_hints": [
+        {
+          "description": "beside the bed",
+          "anchor_refs": ["slot_bed_1"]
+        }
+      ],
+      "avoid_refs": [],
+      "source": "room_prior"
+    }
+  ],
+  "desired_relations": [
+    {
+      "relation_id": "dr_nightstand_bed",
+      "subject": "slot_nightstand_1",
+      "predicate": "adjacent_to",
+      "object": "slot_bed_1",
+      "object_kind": "furniture_slot",
+      "params": {
+        "max_distance_m": 0.5
+      },
+      "necessity": "required",
+      "verification": "geometric_then_semantic",
+      "source": "room_prior"
+    }
+  ],
+  "verification_profile": {
+    "hard_checks": [
+      {
+        "check_id": "hc_count_match",
+        "type": "count_match",
+        "scope": "furniture_slots",
+        "severity": "error"
+      }
+    ]
+  }
+}
+

@@ -1,0 +1,21 @@
+{
+  "image_size_px": [1024, 1024],
+  "objects": [
+    {
+      "object_id": "bed_1",
+      "category": "bed",
+      "bbox_px": [130, 340, 470, 710]
+    },
+    {
+      "object_id": "nightstand_1",
+      "category": "nightstand",
+      "bbox_px": [500, 465, 610, 585]
+    },
+    {
+      "object_id": "desk_1",
+      "category": "desk",
+      "bbox_px": [650, 185, 890, 300]
+    }
+  ]
+}
+

@@ -1,0 +1,37 @@
+{
+  "schema_version": "loreview-v1",
+  "review_id": "review_toy_bedroom_001_round0",
+  "task_id": "toy_bedroom_001",
+  "repair_round": 0,
+  "alignment": [
+    {
+      "slot_id": "slot_bed_1",
+      "instance_id": "bed_1",
+      "match_type": "exact"
+    },
+    {
+      "slot_id": "slot_nightstand_1",
+      "instance_id": "nightstand_1",
+      "match_type": "exact"
+    },
+    {
+      "slot_id": null,
+      "instance_id": "chair_1",
+      "match_type": "extra"
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "extra_chair_1",
+      "issue_type": "entity_extra",
+      "severity": "warning",
+      "target_ref": "chair_1",
+      "recommended_action_type": "DELETE",
+      "track": "A"
+    }
+  ],
+  "summary": {
+    "num_issues": 1,
+    "num_hard": 0
+  }
+}

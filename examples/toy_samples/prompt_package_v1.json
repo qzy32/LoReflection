@@ -1,0 +1,27 @@
+{
+  "schema_version": "prompt-package-v1",
+  "task_id": "toy_bedroom_001",
+  "architecture_id": "toy_arch_001",
+  "architecture_image": "examples/toy_samples/arch_condition.png",
+  "positive_prompt": "A top-down fixed-palette semantic bedroom layout. Include 1 required bed, 1 required nightstand. Required layout relations: slot_nightstand_1 adjacent_to slot_bed_1. Respect walls, doors, windows, boundaries, and clearance regions. Use a top-down orthographic fixed-palette semantic map style with clean object boundaries.",
+  "negative_prompt": "photorealistic texture, perspective view, shadows, labels, text, clutter, cropped room",
+  "object_checklist": [
+    "slot_bed_1: 1 bed (required)",
+    "slot_nightstand_1: 1 nightstand (required)"
+  ],
+  "relation_checklist": [
+    "slot_nightstand_1 adjacent_to slot_bed_1 (required)"
+  ],
+  "architecture_constraints": [
+    "Keep all furniture inside the room boundary with 4 vertices.",
+    "Respect architectural wall wall_south.",
+    "Respect architectural door door_001.",
+    "Respect architectural window window_001.",
+    "Respect architectural clearance door_001_clearance."
+  ],
+  "style_constraints": [
+    "top-down orthographic semantic map",
+    "fixed-palette semantic map",
+    "clean object boundaries"
+  ]
+}

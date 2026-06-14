@@ -1,0 +1,12 @@
+schema_version: prompt-templates-v1
+generation:
+  positive_prefix: "A top-down fixed-palette semantic indoor layout."
+  negative_prompt: "photorealistic texture, perspective view, shadows, labels, text, clutter, cropped room"
+  style_constraints:
+    - "top-down orthographic semantic map"
+    - "fixed indoor palette"
+    - "clean object boundaries"
+correction:
+  prefix: "A top-down fixed-palette semantic indoor layout after local repair."
+  preservation_clause: "All non-masked furniture and architectural elements remain unchanged."
+

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loreflection.local/schemas/prompt_package_v1.schema.json",
+  "title": "Prompt Package v1",
+  "type": "object",
+  "required": ["schema_version", "task_id", "positive_prompt", "negative_prompt", "object_checklist", "relation_checklist", "architecture_constraints", "style_constraints"],
+  "properties": {
+    "schema_version": { "const": "prompt-package-v1" },
+    "task_id": { "type": "string" },
+    "architecture_image": { "type": ["string", "null"] },
+    "positive_prompt": { "type": "string" },
+    "negative_prompt": { "type": "string" },
+    "object_checklist": { "type": "array", "items": { "type": "string" } },
+    "relation_checklist": { "type": "array", "items": { "type": "string" } },
+    "architecture_constraints": { "type": "array", "items": { "type": "string" } },
+    "style_constraints": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}
+

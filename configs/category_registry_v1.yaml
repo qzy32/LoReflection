@@ -1,0 +1,32 @@
+schema_version: category-registry-v1
+category_set: indoor_furniture_categories_v1
+categories:
+  - category_id: 0
+    name: background
+  - category_id: 1
+    name: wall
+  - category_id: 2
+    name: door
+  - category_id: 3
+    name: window
+  - category_id: 4
+    name: floor
+  - category_id: 5
+    name: bed
+  - category_id: 6
+    name: wardrobe
+  - category_id: 7
+    name: desk
+  - category_id: 8
+    name: chair
+  - category_id: 9
+    name: nightstand
+relations:
+  - adjacent_to
+  - near
+  - facing
+  - against
+  - avoids
+  - overlaps
+  - blocks
+

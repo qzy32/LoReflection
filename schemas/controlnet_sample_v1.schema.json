@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loreflection.local/schemas/controlnet_sample_v1.schema.json",
+  "title": "ControlNet Repair Sample v1",
+  "type": "object",
+  "required": ["schema_version", "sample_id", "target_image", "control_image", "control_mask", "correction_prompt"],
+  "properties": {
+    "schema_version": { "const": "controlnet-sample-v1" },
+    "sample_id": { "type": "string", "minLength": 1 },
+    "target_image": { "type": "string", "minLength": 1 },
+    "control_image": { "type": "string", "minLength": 1 },
+    "control_mask": { "type": "string", "minLength": 1 },
+    "correction_prompt": { "type": "string", "minLength": 20 },
+    "repair_plan": { "type": "string" }
+  },
+  "additionalProperties": true
+}

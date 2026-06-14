@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loreflection.local/schemas/eval_representation_v1.schema.json",
+  "title": "Eval Representation v1",
+  "type": "object",
+  "required": ["schema_version", "sample_id", "room_type", "objects", "relations", "metrics"],
+  "properties": {
+    "schema_version": { "const": "eval-representation-v1" },
+    "sample_id": { "type": "string" },
+    "room_type": { "type": "string" },
+    "objects": { "type": "array", "items": { "type": "object" } },
+    "relations": { "type": "array", "items": { "type": "object" } },
+    "metrics": { "type": "object" }
+  },
+  "additionalProperties": true
+}
+

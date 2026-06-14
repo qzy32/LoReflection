@@ -1,0 +1,11 @@
+{
+  "schema_version": "perturbation-manifest-v1",
+  "samples": [
+    {
+      "sample_id": "bad_layout",
+      "clean_image": "examples/toy_samples/target_layout.png",
+      "perturbed_image": "examples/toy_samples/bad_layout.png",
+      "perturbation_type": "entity_extra"
+    }
+  ]
+}

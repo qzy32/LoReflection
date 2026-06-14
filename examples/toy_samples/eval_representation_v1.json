@@ -1,0 +1,15 @@
+{
+  "schema_version": "eval-representation-v1",
+  "sample_id": "toy_bedroom_001",
+  "room_type": "bedroom",
+  "objects": [
+    {
+      "instance_id": "bed_1",
+      "category": "bed",
+      "bbox_px": [70, 160, 250, 330]
+    }
+  ],
+  "relations": [],
+  "metrics": {}
+}
+

@@ -1,0 +1,30 @@
+{
+  "schema_version": "repairplan-v1",
+  "repair_plan_id": "repair_insert_nightstand_001",
+  "task_id": "toy_bedroom_001",
+  "repair_round": 0,
+  "action_type": "INSERT",
+  "target_ref": "slot_nightstand_1",
+  "protected_refs": ["bed_1"],
+  "mask_spec": {
+    "schema_version": "mask-spec-v1",
+    "mask_id": "mask_insert_nightstand_001",
+    "image_size_px": [512, 512],
+    "items": [
+      {
+        "type": "bbox",
+        "bbox_px": [252, 210, 325, 292],
+        "dilate_px": 4,
+        "value": 255
+      }
+    ]
+  },
+  "correction_prompt": "A top-down fixed-palette semantic bedroom layout. The masked region contains one nightstand placed beside the bed. The bed, walls, door, window, and all non-masked regions remain unchanged.",
+  "negative_prompt": "photorealistic texture, perspective view, shadows, labels, text",
+  "acceptance_criteria": [
+    "nightstand exists",
+    "nightstand is adjacent to bed",
+    "no new hard geometry violation"
+  ]
+}
+

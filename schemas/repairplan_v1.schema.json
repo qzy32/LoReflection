@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loreflection.local/schemas/repairplan_v1.schema.json",
+  "title": "RepairPlan v1",
+  "type": "object",
+  "required": ["schema_version", "repair_plan_id", "task_id", "repair_round", "action_type", "target_ref", "protected_refs", "mask_spec", "correction_prompt", "acceptance_criteria"],
+  "properties": {
+    "schema_version": { "const": "repairplan-v1" },
+    "repair_plan_id": { "type": "string", "minLength": 1 },
+    "task_id": { "type": "string", "minLength": 1 },
+    "repair_round": { "type": "integer", "minimum": 0 },
+    "action_type": { "enum": ["INSERT", "DELETE", "MOVE", "REPLACE", "ADJUST_ORIENTATION"] },
+    "target_ref": { "type": "string", "minLength": 1 },
+    "protected_refs": { "type": "array", "items": { "type": "string" }, "default": [] },
+    "mask_spec": {
+      "type": "object",
+      "required": ["schema_version", "mask_id", "image_size_px", "items"],
+      "properties": {
+        "schema_version": { "const": "mask-spec-v1" },
+        "mask_id": { "type": "string", "minLength": 1 },
+        "image_size_px": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "integer", "minimum": 1 } },
+        "items": { "type": "array", "minItems": 1, "items": { "type": "object", "required": ["type"], "properties": { "type": { "enum": ["bbox", "polygon", "instance_ref"] } }, "additionalProperties": true } }
+      },
+      "additionalProperties": true
+    },
+    "correction_prompt": { "type": "string", "minLength": 20 },
+    "negative_prompt": { "type": "string" },
+    "acceptance_criteria": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+  },
+  "additionalProperties": true
+}

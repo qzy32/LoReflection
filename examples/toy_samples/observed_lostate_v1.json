@@ -1,0 +1,37 @@
+{
+  "schema_version": "observed-lostate-v1",
+  "state_role": "observed",
+  "metadata": {
+    "task_id": "toy_bedroom_001",
+    "repair_round": 0,
+    "source_image": "examples/toy_samples/bad_layout.png"
+  },
+  "architecture_ref": {
+    "architecture_id": "toy_arch_001"
+  },
+  "semantic_registry_ref": {
+    "palette_id": "indoor_palette_v1",
+    "category_set": "indoor_furniture_categories_v1",
+    "relation_set": "layout_relations_v1"
+  },
+  "room_type": "bedroom",
+  "furniture_instances": [
+    {
+      "instance_id": "bed_1",
+      "category": "bed",
+      "category_id": 5,
+      "bbox_px": [70, 160, 250, 330],
+      "area_px": 30600
+    },
+    {
+      "instance_id": "chair_1",
+      "category": "chair",
+      "category_id": 8,
+      "bbox_px": [355, 395, 425, 455],
+      "area_px": 4200
+    }
+  ],
+  "measured_relations": [],
+  "hard_constraint_evidence": []
+}
+

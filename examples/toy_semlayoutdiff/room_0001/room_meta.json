@@ -1,0 +1,17 @@
+{
+  "room_type": "bedroom",
+  "architecture_id": "toy_sld_room_0001",
+  "boundary": [[0, 0], [4.0, 0], [4.0, 3.0], [0, 3.0]],
+  "doors": [
+    {
+      "bbox": [1.6, 0.0, 2.4, 0.15],
+      "swing": "inward"
+    }
+  ],
+  "windows": [
+    {
+      "bbox": [1.2, 2.85, 2.8, 3.0]
+    }
+  ]
+}
+

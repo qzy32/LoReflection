@@ -1,0 +1,17 @@
+{
+  "schema_version": "palette-v1",
+  "palette_id": "indoor_palette_v1",
+  "colors": {
+    "background": "#FFFFFF",
+    "wall": "#202020",
+    "door": "#D99058",
+    "window": "#5AB4E6",
+    "floor": "#F4F1E8",
+    "bed": "#4C78A8",
+    "wardrobe": "#72B7B2",
+    "desk": "#F58518",
+    "chair": "#E45756",
+    "nightstand": "#54A24B"
+  }
+}
+
