@@ -218,7 +218,7 @@ def convert_toy(input_root: Path, output_root: Path) -> dict:
             planner_samples.append(
                 {
                     "sample_id": edit_id,
-                    "image": rel(before_image, output_root),
+                    "image": rel(before_image, dirs["planner"]),
                     "instruction": instruction.get("instruction", ""),
                     "goal_lostate": rel(goal_path, dirs["planner"]),
                     "observed_lostate": rel(observed_path, dirs["planner"]),
