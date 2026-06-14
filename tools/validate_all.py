@@ -32,6 +32,10 @@ MANIFEST_VERSIONS = {
     "editroom-inspect-report-v1",
     "editroom-conversion-report-v1",
     "interface-audit-report-v1",
+    "unified-toy-package-v1",
+    "unified-package-report-v1",
+    "unified-package-validation-report-v1",
+    "server-path-check-report-v1",
 }
 
 

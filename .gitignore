@@ -3,6 +3,8 @@ __pycache__/
 .venv/
 venv/
 .env
+*.local.env
+server_configs/paths.local.env
 .DS_Store
 outputs/
 runs/

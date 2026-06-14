@@ -12,6 +12,7 @@ Completed:
 - Step 2.1 local interface audit and smoke test.
 - Step 2.2 SemLayoutDiff adapter toy-level conversion.
 - Step 2.3 EditRoom adapter toy-level conversion.
+- Step 2.4 unified toy package and server dry-run preparation.
 
 Not yet completed:
 - Real 3D-FRONT / 3D-FUTURE conversion.
@@ -22,7 +23,7 @@ Not yet completed:
 - Closed-loop main experiments.
 
 Next:
-- Step 2.4 server-side data field mapping.
+- Step 3 server-side val50 construction.
 
 ## Interface Freeze Status
 
@@ -36,6 +37,32 @@ The toy-level interface can be treated as frozen only if Step 2.3R passes.
 
 Current recommendation:
 - Frozen at toy level under `interface-freeze-v1`.
+
+## Step 2.4 Unified Toy Package
+
+After `interface-freeze-v1`, the project builds a unified toy package that simulates the future val50 / 1k data layout without using real data or model weights.
+
+```bash
+python tools/build_unified_toy_package.py \
+  --toy-root examples/toy_samples \
+  --semlayoutdiff-root outputs/semlayoutdiff_toy_loreflection \
+  --editroom-root outputs/editroom_toy_loreflection \
+  --output-root outputs/unified_toy_package_v1 \
+  --mode toy
+
+python tools/validate_unified_toy_package.py \
+  --package-root outputs/unified_toy_package_v1 \
+  --strict \
+  --report outputs/unified_toy_package_v1/reports/unified_package_validation_report.json
+```
+
+Server path dry-run:
+
+```bash
+python tools/check_server_paths.py \
+  --env-file server_configs/paths.template.env \
+  --report reports/server_path_check_report.json
+```
 
 ## Local Setup
 

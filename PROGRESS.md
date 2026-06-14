@@ -91,9 +91,30 @@ Result:
 - Recommended interface status: frozen at toy level.
 - Freeze tag: `interface-freeze-v1`
 
-### Step 2.4 Server Data Mapping
+### Step 2.4 Unified Toy Package + Server Dry-run
+Status: Completed
+
+Purpose:
+Create a unified toy-level LoReflection data package and server path dry-run utilities after `interface-freeze-v1`.
+
+Inputs:
+- `examples/toy_samples`
+- `outputs/semlayoutdiff_toy_loreflection`
+- `outputs/editroom_toy_loreflection`
+
+Outputs:
+- `outputs/unified_toy_package_v1`
+- `server_configs/paths.template.env`
+- `docs/SERVER_DRY_RUN.md`
+- `reports/server_path_check_report.json`
+
+Validation:
+- unified toy package build: PASS
+- unified toy package strict validation: PASS
+- server path dry-run with template env: PASS
+
 Next development task:
-After SemLayoutDiff and EditRoom adapters are both ready at toy level, map real server-side data fields into the local LoReflection contracts.
+After the unified toy package and server dry-run pass, prepare Step 3 server-side val50 construction.
 
 Important restriction:
-Do not connect real 3D-FRONT / 3D-FUTURE before Step 2.3 is completed. Real data integration will be handled after SemLayoutDiff and EditRoom adapters are both ready at toy level.
+Do not connect real 3D-FRONT / 3D-FUTURE, download model weights, or start training during Step 2.4.

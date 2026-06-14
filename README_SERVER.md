@@ -4,6 +4,28 @@ Server runs are responsible for real model and dataset work. Local code only pre
 
 Real server-side data conversion should start only after `interface-freeze-v1` is created. Before that, do not run real 3D-FRONT / 3D-FUTURE conversion or model training.
 
+## Server Dry-run
+
+Before running real data conversion or training, copy:
+
+```text
+server_configs/paths.template.env
+```
+
+to:
+
+```text
+server_configs/paths.local.env
+```
+
+then fill real server paths and run:
+
+```bash
+python tools/check_server_paths.py \
+  --env-file server_configs/paths.local.env \
+  --report reports/server_path_check_report.json
+```
+
 ## Paths To Configure
 
 - `/server/path/to/3D-FRONT`
