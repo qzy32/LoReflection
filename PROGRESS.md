@@ -135,3 +135,17 @@ Validation:
 - `tools/check_no_secrets.py --strict`: PASS
 - Pazhou path template dry-run: PASS
 - Pazhou real source inspection template dry-run: PASS
+
+### Step 3.2A Dataset Provenance Gap Analysis
+Status: Completed
+
+Purpose:
+Document that the current server bundle is official-like but EditRoom-provided, and freeze safe wording before converter prototype work.
+
+Result:
+- Current data source wording: `EditRoom-provided 3D-FRONT / 3D-FUTURE-based bundle`.
+- Allowed for converter prototype, field mapping, val50 prototype, and LoReflection pipeline debugging.
+- Not to be described as a freshly downloaded official raw archive.
+- Final main experiments require official raw bundle verification or explicit provenance disclosure.
+- No data download, model download, training, or full conversion was performed.
+

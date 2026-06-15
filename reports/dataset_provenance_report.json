@@ -1,0 +1,30 @@
+{
+  "schema_version": "dataset-provenance-report-v1",
+  "source_wording": "EditRoom-provided 3D-FRONT / 3D-FUTURE-based bundle",
+  "official_like": true,
+  "editroom_provided": true,
+  "preprocessed_or_derivative": true,
+  "canonical_raw_bundle_root": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT",
+  "canonical_front_scene_root": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT",
+  "canonical_future_model_root": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FUTURE-model",
+  "canonical_texture_root": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT-texture",
+  "allowed_for": [
+    "converter prototype",
+    "field mapping",
+    "val50 prototype",
+    "debugging LoReflection pipeline"
+  ],
+  "not_recommended_for": [
+    "final main experiment unless provenance is disclosed",
+    "claiming official raw dataset",
+    "strict baseline comparison without split alignment"
+  ],
+  "required_before_main_experiment": [
+    "obtain official raw bundle or verify checksums/splits against official source",
+    "document provenance",
+    "run converter regression on official or verified source",
+    "freeze train/val/test split"
+  ],
+  "can_continue_val50_prototype": true,
+  "final_experiment_policy": "only with provenance disclosure or after checksum/split verification"
+}

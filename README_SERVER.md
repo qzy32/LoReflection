@@ -90,3 +90,14 @@ The local template is `diffusion/train_diffsynth_qwen_inpaint_lora.sh`. It is a 
 ## Baselines
 
 InstantX/Qwen-Image-ControlNet-Inpainting is reserved as a zero-shot executor baseline. Do not use it as the main training path unless the experiment plan changes.
+
+## Dataset Provenance
+
+Current server-side prototype data should be described as:
+
+```text
+EditRoom-provided 3D-FRONT / 3D-FUTURE-based bundle
+```
+
+It is official-like and suitable for converter prototype / val50 prototype debugging, but it should not be described as a freshly downloaded official raw archive. Main experiments require official raw bundle verification or explicit provenance disclosure.
+

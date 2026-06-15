@@ -1,0 +1,1200 @@
+{
+  "report_version": "dataset_source_gap_analysis_v1",
+  "schema_version": "dataset-source-gap-analysis-v1",
+  "paths": {
+    "dataset_bundle": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT",
+    "front_root": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT",
+    "future_root": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FUTURE-model",
+    "texture_root": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT-texture",
+    "editroom_root": "/wuqingyaoa800/chengjiajia_datas/EditRoom"
+  },
+  "current_bundle_profile": {
+    "dataset_bundle_exists": true,
+    "scene_json_count": 6813,
+    "model_info_exists": true,
+    "model_info_error": null,
+    "model_info_count": 16563,
+    "model_directory_count": 16563,
+    "texture_directory_exists": true,
+    "extra_files": [
+      "threed_front.pkl",
+      "3D-FRONT-readme.md"
+    ],
+    "inside_editroom_datasets": true,
+    "raw_model_sample": {
+      "sample_count": 50,
+      "raw_model_obj_found": 50,
+      "normalized_model_obj_found": 0,
+      "texture_like_files_found": 50,
+      "missing_model_dirs": []
+    }
+  },
+  "classification": {
+    "official_like": true,
+    "editroom_provided": true,
+    "preprocessed_or_derivative": true,
+    "safe_wording": "EditRoom-provided 3D-FRONT / 3D-FUTURE-based bundle"
+  },
+  "official_like_evidence": {
+    "has_front_json": true,
+    "has_raw_scene_top_keys": true,
+    "common_top_level_keys": [
+      "material",
+      "furniture",
+      "uid",
+      "north_vector",
+      "mesh",
+      "version",
+      "extension",
+      "design_version",
+      "scene",
+      "code_version",
+      "jobid",
+      "materialList",
+      "groups",
+      "lights"
+    ],
+    "processed_like_fields_found": [],
+    "has_future_model_info": true,
+    "model_info_has_model_id": true,
+    "model_info_has_category": true,
+    "has_raw_model_obj": true,
+    "has_texture_root": true,
+    "sample_scenes": [
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/00004f89-9aa5-43c2-ae3c-129586be8aaa.json",
+        "relative": "00004f89-9aa5-43c2-ae3c-129586be8aaa.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "category",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/0003d406-5f27-4bbf-94cd-1cff7c310ba1.json",
+        "relative": "0003d406-5f27-4bbf-94cd-1cff7c310ba1.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/00110bde-f580-40be-b8bb-88715b338a2a.json",
+        "relative": "00110bde-f580-40be-b8bb-88715b338a2a.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/00154c06-2ee2-408a-9664-b8fd74742897.json",
+        "relative": "00154c06-2ee2-408a-9664-b8fd74742897.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/0018b6c8-c3b6-4fb8-a640-4b9b0b763254.json",
+        "relative": "0018b6c8-c3b6-4fb8-a640-4b9b0b763254.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/0023b7d1-1439-4e5c-9c7b-c34f155ee856.json",
+        "relative": "0023b7d1-1439-4e5c-9c7b-c34f155ee856.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "category",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/002c110c-9bbc-4ab4-affa-4225fb127bad.json",
+        "relative": "002c110c-9bbc-4ab4-affa-4225fb127bad.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "category",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/00321452-517d-431b-a21b-f52750684910.json",
+        "relative": "00321452-517d-431b-a21b-f52750684910.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "category",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/0032b185-4914-49e5-b973-f82271674308.json",
+        "relative": "0032b185-4914-49e5-b973-f82271674308.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/00337f71-5f56-4d82-8848-b8d194a27d4e.json",
+        "relative": "00337f71-5f56-4d82-8848-b8d194a27d4e.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/003ac11d-2abc-44f8-9836-4354e7dfa543.json",
+        "relative": "003ac11d-2abc-44f8-9836-4354e7dfa543.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "category",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/0047c3ab-951b-4182-9082-b9fbf099c142.json",
+        "relative": "0047c3ab-951b-4182-9082-b9fbf099c142.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "category",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/004f900c-468a-4f70-83cc-aa2c98875264.json",
+        "relative": "004f900c-468a-4f70-83cc-aa2c98875264.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/0054adcb-f48f-4d52-b198-321fd078caa4.json",
+        "relative": "0054adcb-f48f-4d52-b198-321fd078caa4.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/00593e46-062e-4bdd-8ee9-1043387c40f4.json",
+        "relative": "00593e46-062e-4bdd-8ee9-1043387c40f4.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "category",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/0071b16d-ed1c-498f-9fd6-74e3f8aa2fb6.json",
+        "relative": "0071b16d-ed1c-498f-9fd6-74e3f8aa2fb6.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "category",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/0071fae9-a2ce-481e-8a37-a2d307e1213d.json",
+        "relative": "0071fae9-a2ce-481e-8a37-a2d307e1213d.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/00766588-c1d9-4039-ba22-a7e037c929b9.json",
+        "relative": "00766588-c1d9-4039-ba22-a7e037c929b9.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/007c0c17-cd85-400a-bdf0-80f0e1eefe2d.json",
+        "relative": "007c0c17-cd85-400a-bdf0-80f0e1eefe2d.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/007e1443-462a-4dae-b47c-44cfc6a5a41d.json",
+        "relative": "007e1443-462a-4dae-b47c-44cfc6a5a41d.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "official_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "scene_is_dict": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "uid",
+          "valid"
+        ]
+      }
+    ],
+    "front_json_raw_likeness": {
+      "sample_count": 20,
+      "common_top_level_keys": [
+        "material",
+        "furniture",
+        "uid",
+        "north_vector",
+        "mesh",
+        "version",
+        "extension",
+        "design_version",
+        "scene",
+        "code_version",
+        "jobid",
+        "materialList",
+        "groups",
+        "lights"
+      ],
+      "raw_scene_like": true,
+      "processed_like_fields_found": []
+    },
+    "jid_model_info_match": {
+      "front_jid_count": 1511,
+      "matched_count": 98,
+      "unmatched_count": 202,
+      "match_rate": 0.3267,
+      "matched_samples": [
+        {
+          "jid": "002784db-9a83-4cdb-a842-5f141675103b",
+          "category": null,
+          "super_category": "Others"
+        },
+        {
+          "jid": "004a97c2-124f-4dd2-97da-900af7ad6ca8",
+          "category": "armchair",
+          "super_category": "Sofa"
+        },
+        {
+          "jid": "006cb2b3-e9e3-34e3-9a0e-f93fa04f344b",
+          "category": "Dining Table",
+          "super_category": "Table"
+        },
+        {
+          "jid": "00cb55ad-9b15-4263-82a9-0016b00dbcfa",
+          "category": null,
+          "super_category": "Others"
+        },
+        {
+          "jid": "0128706c-a595-405b-a9ce-47d89847bf28",
+          "category": "Floor Lamp",
+          "super_category": "Lighting"
+        },
+        {
+          "jid": "01899124-9a73-4a42-bee2-ba55f6efb8f3",
+          "category": "Barstool",
+          "super_category": "Chair"
+        },
+        {
+          "jid": "0327502e-993e-42f4-a9d3-85593c561ae7",
+          "category": "Nightstand",
+          "super_category": "Cabinet/Shelf/Desk"
+        },
+        {
+          "jid": "03375fab-55d8-48da-85dc-4d3876da4f67",
+          "category": "Bookcase / jewelry Armoire",
+          "super_category": "Cabinet/Shelf/Desk"
+        },
+        {
+          "jid": "03b5972a-0507-478e-9448-4028c37c774b",
+          "category": null,
+          "super_category": "Others"
+        },
+        {
+          "jid": "045d681b-c15f-4e25-b86d-9a759766af24",
+          "category": "Coffee Table",
+          "super_category": "Cabinet/Shelf/Desk"
+        },
+        {
+          "jid": "050ff629-dcb5-4e2b-853d-f4dbc440e20e",
+          "category": "King-size Bed",
+          "super_category": "Bed"
+        },
+        {
+          "jid": "05aca84e-9a24-45a1-b6e7-482380d34304",
+          "category": "Pendant Lamp",
+          "super_category": "Lighting"
+        },
+        {
+          "jid": "05d628ef-e510-4f6a-8862-ade7405dd3f4",
+          "category": "TV Stand",
+          "super_category": "Cabinet/Shelf/Desk"
+        },
+        {
+          "jid": "05ddba2d-6a8a-47d0-a8fc-90ebf5df2871",
+          "category": "Wardrobe",
+          "super_category": "Cabinet/Shelf/Desk"
+        },
+        {
+          "jid": "06a11496-dadc-469d-86ec-1c15fe15fa1e",
+          "category": "Ceiling Lamp",
+          "super_category": "Lighting"
+        },
+        {
+          "jid": "06bb1295-131b-471a-8e97-66251b0f79fd",
+          "category": "Ceiling Lamp",
+          "super_category": "Lighting"
+        },
+        {
+          "jid": "06dfd96e-44c4-402b-896a-c895cd537929",
+          "category": "Kids Bed",
+          "super_category": "Bed"
+        },
+        {
+          "jid": "06ed337c-0db5-40be-8114-884082e0edb4",
+          "category": "Sideboard / Side Cabinet / Console Table",
+          "super_category": "Cabinet/Shelf/Desk"
+        },
+        {
+          "jid": "074ef4d4-cb22-4a0e-a611-3a579b9b21a2",
+          "category": "Pendant Lamp",
+          "super_category": "Lighting"
+        },
+        {
+          "jid": "076491e8-2208-4c5a-ac25-53b4c423da93",
+          "category": "Dining Table",
+          "super_category": "Table"
+        }
+      ],
+      "unmatched_samples": [
+        "0035616d-7112-4e6b-a7c9-b20edb996095",
+        "00706bc5-7d35-4971-83d5-1f14bb8a0d68",
+        "007d97af-5ebf-4fc6-aac4-6168cb77b9c3",
+        "008e1607-aa1f-4c07-a45a-4e17bff042cd",
+        "00cc8b1d-b284-4108-a48f-a18c320a9d3a",
+        "011c2573-a2cb-4487-9d07-f452c1607677",
+        "01360f1e-6eb7-4e9d-a5b7-70ff0c359f92",
+        "0141d37c-ee71-4d33-b559-92a48f5110ce",
+        "0179b70b-41f2-4948-9d30-63eb0d682f38",
+        "017d359a-1363-4438-b563-2399e58e463d",
+        "020224c6-806f-45fb-9afd-e0fdb2bc89b3",
+        "0221c90e-d904-492d-a99d-00442e7c82ff",
+        "02384779-6d6f-4419-8108-58556115de71",
+        "02554923-9688-4092-8e9e-5cd5fac541f1",
+        "02593945-cfe0-410d-9fdf-eb367276d7d6",
+        "025cdd95-87c1-44d3-a51c-e6fb0825df11",
+        "028d9150-f7a2-4053-bd9c-fda3d652707c",
+        "0294d2a6-e461-4900-886f-9d6bdd92a07c",
+        "0296b172-bea4-4768-9cd5-9ec01c1761a8",
+        "029c5b3f-a828-43b8-8b5a-668754f1d162"
+      ]
+    }
+  },
+  "derivative_preprocessed_evidence": {
+    "threed_front_pkl_exists": true,
+    "readme_keyword_hits": [
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/README.md",
+        "keyword": "preprocessed"
+      },
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/README.md",
+        "keyword": "preprocessed datasets"
+      },
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/README.md",
+        "keyword": "download_dataset.py"
+      },
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/README.md",
+        "keyword": "InstructScene"
+      },
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/README.md",
+        "keyword": "editing"
+      }
+    ],
+    "editroom_related_file_candidates": [
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/threed_front.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/data2/kzheng31/EditRoom_Public/editroom_dataset/objfeat_vqvae/objfeat_bounds.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/batch_llm_command_prompt_test.jsonl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/batch_llm_plan_prompt_test.jsonl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_add-0_0.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_add-2_8.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_add-3_18.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_pose-0-0_4-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_pose-0-0_4.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_pose-0-2_12-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_pose-0-2_12.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_pose-1-0_6-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_pose-1-0_6.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_pose-1-2_14-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_pose-1-2_14.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_pose-1-3_22-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_pose-1-3_22.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_pose-2-2_16-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_pose-2-2_16.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_remove-0_0.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_remove-2_8.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_remove-3_18.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_replace-0_2-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_replace-0_2.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_replace-2_10-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_replace-2_10.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_replace-3_20-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_replace-3_20.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_add-0_4.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_add-2_8.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_add-3_0.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_add-4_14.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_add-5_18.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_pose-0-2_10-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_pose-0-2_10.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_pose-1-2_12-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_pose-1-2_12.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_pose-1-3_2-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_pose-1-3_2.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_pose-1-4_16-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_pose-1-4_16.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_pose-1-5_22-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_pose-1-5_22.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_remove-0_4.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_remove-2_8.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_remove-3_0.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_remove-4_14.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_remove-5_18.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_replace-0_6-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_replace-0_6.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_replace-5_20-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04684207-3d45-4d33-bd9d-0f66c9a45402_MasterBedroom-9404_replace-5_20.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_add-0_18.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_add-1_0.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_add-2_4.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_add-3_8.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_pose-0-3_12-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_pose-0-3_12.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_pose-1-0_22-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_pose-1-0_22.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_pose-1-1_2-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_pose-1-1_2.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_pose-1-2_6-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_pose-1-2_6.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_pose-1-3_14-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_pose-1-3_14.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_pose-2-0_24-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_pose-2-0_24.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_pose-2-3_16-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_pose-2-3_16.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_remove-0_18.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_remove-1_0.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_remove-2_4.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_remove-3_8.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_replace-0_20-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_replace-0_20.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_replace-3_10-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/04f7a09d-08be-4e6f-965d-b655e0f654fe_SecondBedroom-30034_replace-3_10.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_add-1_4.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_add-2_0.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_add-3_10.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_add-4_16.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_pose-0-3_12-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_pose-0-3_12.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_pose-0-4_20-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_pose-0-4_20.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_pose-1-1_8-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_pose-1-1_8.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_pose-1-2_2-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_pose-1-2_2.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_pose-1-3_14-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_pose-1-3_14.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_pose-1-4_22-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_pose-1-4_22.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_remove-1_4.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_remove-2_0.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_remove-3_10.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_remove-4_16.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_replace-1_6-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_replace-1_6.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_replace-4_18-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0b4abd30-b157-4ecf-a077-989285598cf2_SecondBedroom-6482_replace-4_18.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0bb3d53a-d91c-4f86-afb3-0fbf0e35d1d5_SecondBedroom-11167.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0bb3d53a-d91c-4f86-afb3-0fbf0e35d1d5_SecondBedroom-11167_add-0_18.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0bb3d53a-d91c-4f86-afb3-0fbf0e35d1d5_SecondBedroom-11167_add-1_0.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0bb3d53a-d91c-4f86-afb3-0fbf0e35d1d5_SecondBedroom-11167_add-5_8.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0bb3d53a-d91c-4f86-afb3-0fbf0e35d1d5_SecondBedroom-11167_add-6_14.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0bb3d53a-d91c-4f86-afb3-0fbf0e35d1d5_SecondBedroom-11167_pose-0-0_22-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0bb3d53a-d91c-4f86-afb3-0fbf0e35d1d5_SecondBedroom-11167_pose-0-0_22.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0bb3d53a-d91c-4f86-afb3-0fbf0e35d1d5_SecondBedroom-11167_pose-0-1_4-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0bb3d53a-d91c-4f86-afb3-0fbf0e35d1d5_SecondBedroom-11167_pose-0-1_4.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0bb3d53a-d91c-4f86-afb3-0fbf0e35d1d5_SecondBedroom-11167_pose-1-0_24-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0bb3d53a-d91c-4f86-afb3-0fbf0e35d1d5_SecondBedroom-11167_pose-1-0_24.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0bb3d53a-d91c-4f86-afb3-0fbf0e35d1d5_SecondBedroom-11167_pose-1-1_6-opposite.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0bb3d53a-d91c-4f86-afb3-0fbf0e35d1d5_SecondBedroom-11167_pose-1-1_6.pkl",
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/test_dataset/0bb3d53a-d91c-4f86-afb3-0fbf0e35d1d5_SecondBedroom-11167_pose-1-5_12-opposite.pkl"
+    ],
+    "processed_or_derivative_file_evidence": [
+      "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/threed_front.pkl"
+    ]
+  },
+  "risk": {
+    "provenance_risk": "medium",
+    "field_modification_risk": "low",
+    "split_mismatch_risk": "medium",
+    "license_reproducibility_risk": "medium",
+    "baseline_fairness_risk": "medium"
+  },
+  "usage_policy": {
+    "allowed_for": [
+      "converter prototype",
+      "field mapping",
+      "val50 prototype",
+      "debugging LoReflection pipeline"
+    ],
+    "not_recommended_for": [
+      "final main experiment unless provenance is disclosed",
+      "claiming official raw dataset",
+      "strict baseline comparison without split alignment"
+    ],
+    "required_before_main_experiment": [
+      "obtain official raw bundle or verify checksums/splits against official source",
+      "document provenance",
+      "run converter regression on official or verified source",
+      "freeze train/val/test split"
+    ]
+  },
+  "migration_plan_if_official_raw_bundle_obtained": [
+    "place official bundle under /wuqingyaoa800/qiuziyan/datasets/official_3dfront_bundle",
+    "rerun provenance check",
+    "rerun field mapping report",
+    "rerun 5-scene converter prototype",
+    "compare category histogram / jid match / room type distribution",
+    "rerun val50",
+    "only then build training 1k"
+  ],
+  "recommendation": {
+    "can_continue_val50_prototype": true,
+    "can_use_for_final_aaai_main_experiment": "only with provenance disclosure or after checksum/split verification",
+    "must_resolve_before_final_experiments": [
+      "obtain official raw bundle or verify checksums/splits against official source",
+      "document provenance",
+      "run converter regression on official or verified source",
+      "freeze train/val/test split"
+    ]
+  }
+}

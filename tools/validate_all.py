@@ -38,6 +38,9 @@ MANIFEST_VERSIONS = {
     "server-path-check-report-v1",
     "real-source-inspection-report-v1",
     "no-secrets-report-v1",
+    "dataset-source-gap-analysis-v1",
+    "dataset-provenance-report-v1",
+    "official-3dfront-bundle-check-v1",
 }
 
 

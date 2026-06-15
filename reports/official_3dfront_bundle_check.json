@@ -1,0 +1,1979 @@
+{
+  "report_version": "official_3dfront_bundle_check_v1",
+  "schema_version": "official-3dfront-bundle-check-v1",
+  "paths": {
+    "dataset_bundle": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT",
+    "front_scene": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT",
+    "front_texture": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT-texture",
+    "future_model": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FUTURE-model",
+    "semlayoutdiff_root": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509",
+    "editroom_root": "/wuqingyaoa800/chengjiajia_datas/EditRoom"
+  },
+  "bundle_structure": {
+    "status": "official-like",
+    "exists": true,
+    "children": [
+      "3D-FRONT",
+      "3D-FRONT-readme.md",
+      "3D-FRONT-texture",
+      "3D-FUTURE-model",
+      "threed_front.pkl"
+    ],
+    "front_scene_exists": true,
+    "front_texture_exists": true,
+    "future_model_exists": true,
+    "front_json_count": 6813,
+    "texture_exists": true,
+    "model_info_exists": true,
+    "future_model_dir_count": 16563,
+    "raw_model_obj_count_estimate": 16563
+  },
+  "front_json_raw_likeness": {
+    "sample_count": 20,
+    "common_top_level_keys": [
+      "extension",
+      "mesh",
+      "code_version",
+      "material",
+      "version",
+      "north_vector",
+      "uid",
+      "furniture",
+      "scene",
+      "design_version",
+      "jobid",
+      "lights",
+      "materialList",
+      "groups"
+    ],
+    "all_top_level_keys": [
+      "code_version",
+      "design_version",
+      "extension",
+      "furniture",
+      "groups",
+      "jobid",
+      "lights",
+      "material",
+      "materialList",
+      "mesh",
+      "north_vector",
+      "scene",
+      "uid",
+      "version"
+    ],
+    "raw_scene_like": true,
+    "processed_like_fields_found": [],
+    "sample_scenes": [
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/00004f89-9aa5-43c2-ae3c-129586be8aaa.json",
+        "relative": "00004f89-9aa5-43c2-ae3c-129586be8aaa.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "category",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room",
+          "boundingBox"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "nodeType",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/0003d406-5f27-4bbf-94cd-1cff7c310ba1.json",
+        "relative": "0003d406-5f27-4bbf-94cd-1cff7c310ba1.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room",
+          "boundingBox"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "nodeType",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/00110bde-f580-40be-b8bb-88715b338a2a.json",
+        "relative": "00110bde-f580-40be-b8bb-88715b338a2a.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/00154c06-2ee2-408a-9664-b8fd74742897.json",
+        "relative": "00154c06-2ee2-408a-9664-b8fd74742897.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room",
+          "boundingBox"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "nodeType",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/0018b6c8-c3b6-4fb8-a640-4b9b0b763254.json",
+        "relative": "0018b6c8-c3b6-4fb8-a640-4b9b0b763254.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room",
+          "boundingBox"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "nodeType",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/0023b7d1-1439-4e5c-9c7b-c34f155ee856.json",
+        "relative": "0023b7d1-1439-4e5c-9c7b-c34f155ee856.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "category",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room",
+          "boundingBox"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "nodeType",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/002c110c-9bbc-4ab4-affa-4225fb127bad.json",
+        "relative": "002c110c-9bbc-4ab4-affa-4225fb127bad.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "category",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room",
+          "boundingBox"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "nodeType",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/00321452-517d-431b-a21b-f52750684910.json",
+        "relative": "00321452-517d-431b-a21b-f52750684910.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "category",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room",
+          "boundingBox"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "nodeType",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/0032b185-4914-49e5-b973-f82271674308.json",
+        "relative": "0032b185-4914-49e5-b973-f82271674308.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/00337f71-5f56-4d82-8848-b8d194a27d4e.json",
+        "relative": "00337f71-5f56-4d82-8848-b8d194a27d4e.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room",
+          "boundingBox"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "nodeType",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/003ac11d-2abc-44f8-9836-4354e7dfa543.json",
+        "relative": "003ac11d-2abc-44f8-9836-4354e7dfa543.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "category",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room",
+          "boundingBox"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "nodeType",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/0047c3ab-951b-4182-9082-b9fbf099c142.json",
+        "relative": "0047c3ab-951b-4182-9082-b9fbf099c142.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "category",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/004f900c-468a-4f70-83cc-aa2c98875264.json",
+        "relative": "004f900c-468a-4f70-83cc-aa2c98875264.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room",
+          "boundingBox"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "nodeType",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/0054adcb-f48f-4d52-b198-321fd078caa4.json",
+        "relative": "0054adcb-f48f-4d52-b198-321fd078caa4.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room",
+          "boundingBox"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "nodeType",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/00593e46-062e-4bdd-8ee9-1043387c40f4.json",
+        "relative": "00593e46-062e-4bdd-8ee9-1043387c40f4.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "category",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room",
+          "boundingBox"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "nodeType",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/0071b16d-ed1c-498f-9fd6-74e3f8aa2fb6.json",
+        "relative": "0071b16d-ed1c-498f-9fd6-74e3f8aa2fb6.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "category",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room",
+          "boundingBox"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "nodeType",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/0071fae9-a2ce-481e-8a37-a2d307e1213d.json",
+        "relative": "0071fae9-a2ce-481e-8a37-a2d307e1213d.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room",
+          "boundingBox"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "nodeType",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/00766588-c1d9-4039-ba22-a7e037c929b9.json",
+        "relative": "00766588-c1d9-4039-ba22-a7e037c929b9.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room",
+          "boundingBox"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "nodeType",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/007c0c17-cd85-400a-bdf0-80f0e1eefe2d.json",
+        "relative": "007c0c17-cd85-400a-bdf0-80f0e1eefe2d.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "groups",
+          "jobid",
+          "lights",
+          "material",
+          "materialList",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "type",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room",
+          "boundingBox"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "nodeType",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      },
+      {
+        "path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT/007e1443-462a-4dae-b47c-44cfc6a5a41d.json",
+        "relative": "007e1443-462a-4dae-b47c-44cfc6a5a41d.json",
+        "top_level_keys": [
+          "code_version",
+          "design_version",
+          "extension",
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid",
+          "version"
+        ],
+        "required_raw_key_hits": [
+          "furniture",
+          "material",
+          "mesh",
+          "north_vector",
+          "scene",
+          "uid"
+        ],
+        "furniture_is_list": true,
+        "furniture_entry_keys": [
+          "aid",
+          "bbox",
+          "jid",
+          "size",
+          "sourceCategoryId",
+          "title",
+          "uid",
+          "valid"
+        ],
+        "furniture_entry_has_uid_jid": true,
+        "scene_summary": {
+          "type": "dict"
+        },
+        "scene_keys": [
+          "ref",
+          "pos",
+          "rot",
+          "scale",
+          "room"
+        ],
+        "room_children_node_candidates": [
+          "children",
+          "room",
+          "roomId"
+        ],
+        "processed_like_fields_found": []
+      }
+    ],
+    "sample_front_jids": [
+      "002784db-9a83-4cdb-a842-5f141675103b",
+      "0035616d-7112-4e6b-a7c9-b20edb996095",
+      "004a97c2-124f-4dd2-97da-900af7ad6ca8",
+      "006cb2b3-e9e3-34e3-9a0e-f93fa04f344b",
+      "00706bc5-7d35-4971-83d5-1f14bb8a0d68",
+      "007d97af-5ebf-4fc6-aac4-6168cb77b9c3",
+      "008e1607-aa1f-4c07-a45a-4e17bff042cd",
+      "00cb55ad-9b15-4263-82a9-0016b00dbcfa",
+      "00cc8b1d-b284-4108-a48f-a18c320a9d3a",
+      "011c2573-a2cb-4487-9d07-f452c1607677",
+      "0128706c-a595-405b-a9ce-47d89847bf28",
+      "01360f1e-6eb7-4e9d-a5b7-70ff0c359f92",
+      "0141d37c-ee71-4d33-b559-92a48f5110ce",
+      "0179b70b-41f2-4948-9d30-63eb0d682f38",
+      "017d359a-1363-4438-b563-2399e58e463d",
+      "01899124-9a73-4a42-bee2-ba55f6efb8f3",
+      "020224c6-806f-45fb-9afd-e0fdb2bc89b3",
+      "0221c90e-d904-492d-a99d-00442e7c82ff",
+      "02384779-6d6f-4419-8108-58556115de71",
+      "02554923-9688-4092-8e9e-5cd5fac541f1",
+      "02593945-cfe0-410d-9fdf-eb367276d7d6",
+      "025cdd95-87c1-44d3-a51c-e6fb0825df11",
+      "028d9150-f7a2-4053-bd9c-fda3d652707c",
+      "0294d2a6-e461-4900-886f-9d6bdd92a07c",
+      "0296b172-bea4-4768-9cd5-9ec01c1761a8",
+      "029c5b3f-a828-43b8-8b5a-668754f1d162",
+      "02bbbc73-41bd-4f3c-bb49-adcab35d01e6",
+      "02ea0d87-1c23-4e22-b384-3eb4845a7d3c",
+      "03074124-f58a-49b3-a79e-ea2f2597158e",
+      "031738ac-9bc3-4716-91bf-49aeec455b81",
+      "0327502e-993e-42f4-a9d3-85593c561ae7",
+      "03375fab-55d8-48da-85dc-4d3876da4f67",
+      "038efad4-8428-4124-adb8-0d1aff579008",
+      "03b5972a-0507-478e-9448-4028c37c774b",
+      "03bf4f2c-b87d-4653-a616-c98db160931b",
+      "045d681b-c15f-4e25-b86d-9a759766af24",
+      "04b291bc-081b-49bf-b392-4910577f1108",
+      "04e8b72d-4283-41b9-b187-e24f90825559",
+      "04ec88bf-c925-4916-8ad6-94e2c3185511",
+      "050ff629-dcb5-4e2b-853d-f4dbc440e20e",
+      "056074c3-58b7-4b05-84f7-f26d5fd45f3a",
+      "057cace8-421e-4b82-860a-2ca74627a3c8",
+      "05aca84e-9a24-45a1-b6e7-482380d34304",
+      "05d628ef-e510-4f6a-8862-ade7405dd3f4",
+      "05d6748a-8f27-4f04-8764-ddbe3549cd56",
+      "05ddba2d-6a8a-47d0-a8fc-90ebf5df2871",
+      "06a11496-dadc-469d-86ec-1c15fe15fa1e",
+      "06aed9a5-f37e-4eb7-b8c0-aaa3f0d490f5",
+      "06ba20e1-4ae9-4adf-ae73-d460461917ce",
+      "06bb1295-131b-471a-8e97-66251b0f79fd",
+      "06dfd96e-44c4-402b-896a-c895cd537929",
+      "06e2d991-cb66-4621-8f73-6c83db76a71b",
+      "06ed337c-0db5-40be-8114-884082e0edb4",
+      "074ef4d4-cb22-4a0e-a611-3a579b9b21a2",
+      "076491e8-2208-4c5a-ac25-53b4c423da93",
+      "079cca6e-c638-459b-9008-813b69145117",
+      "0819e416-7453-4b99-8ef1-95d6d3d22b8f",
+      "081ddd27-50bc-4aaa-a81f-57598c8ed1cb",
+      "0831aae3-7d12-44f3-9cd7-53eb1f14d0c9",
+      "0841cc39-48a5-4d18-b1b9-9123e30a297f",
+      "0855306f-0728-4914-9245-9ab7fcac9478",
+      "0876b25b-af2c-4577-bc27-fa69cb8a91a6",
+      "08857c2f-2242-4178-82e2-c2a96d735fd3",
+      "089ac3ea-b510-4235-91b8-cf6d168adf7c",
+      "08acae72-8777-4c8f-b5b1-cd8eb78a011f",
+      "08c17716-40b7-4fe0-9c37-d4272b00aaae",
+      "097cf2fd-aa67-465c-88d3-9cf5a0f89cb3",
+      "09ca4442-a66d-4b54-b8e0-039555bac372",
+      "09d273b4-c8cc-4f51-8cec-68f8838d6bb0",
+      "09e53deb-f88f-42e4-9ded-bf8f4c6845ee",
+      "0a58a1ae-1c7e-4be1-99e8-1dd4145ea5a7",
+      "0acfe96b-fa04-48ef-b9cf-9e9d50aa94d5",
+      "0af7d8a5-0b6a-4b2d-8d92-81f548116872",
+      "0b3653b4-8e36-4b16-a01b-7505251c66ae",
+      "0b8fd0fd-4f20-4d3a-bf70-e20f52b13c12",
+      "0bfc7747-1832-49a7-8599-e203db437b7f",
+      "0c008040-acbc-4c1a-9b8f-32efaf400e23",
+      "0c282314-2202-4971-bdfa-808587b41583",
+      "0cafeffa-edcc-43e4-9f66-abfe3a95675b",
+      "0ce6a44d-0f0d-439e-913a-94ede34471ca",
+      "0ddbb652-14e3-4e01-8fd5-aae213910ac2",
+      "0de7502a-ce8c-40cb-8340-d7c4c8519dab",
+      "0e578e58-146d-46ac-8421-34a953ce2a73",
+      "0e73b8cc-6265-4b2a-9e5f-834cc20bf791",
+      "0eb1bf0a-b9e3-4f17-b5cf-1cf68ef67dd9",
+      "0f058977-718c-41fd-a8b8-2a555b2681ec",
+      "0f17b0de-610d-4ed6-accc-e19c9ac0a900",
+      "0f18ec38-b28a-40e8-b751-ffc3f6df4c28",
+      "0f941a1d-27e9-42ce-8e2a-e7ffe7df63ea",
+      "0fd96a1b-25fc-4ca8-8fda-703a6cb456fc",
+      "0fe19e3f-9b23-4ae8-8a35-74d130be3ca5",
+      "100ab515-ceae-457a-98f4-0b4d37b8620c",
+      "101c5a77-5bb6-4e47-afb7-32fa00d03478",
+      "1035a994-9999-4b5f-ae39-2b43297d1968",
+      "10d8b28c-5bdb-4e06-98b7-666404ffcf9d",
+      "11067e82-855a-4f15-93f4-bd0a6ab1dc38",
+      "1149fe45-b41f-4264-8155-3e681ead2807",
+      "1163cf0b-c9be-4a84-9649-ace2f3bf0084",
+      "11661046-c288-4c28-beef-b116f09bdadf",
+      "117722b6-5301-433d-a4ab-9855fd64a7eb",
+      "117b35b6-b54f-4e9e-9494-e1a5350924f1",
+      "11a22fdb-9df5-48d5-8c29-e2846c8da804",
+      "11bbe762-9c62-4dd9-a859-d4058040c48f",
+      "123532da-e5e4-4d3a-b2a6-12e13ddc910e",
+      "123eb963-7cdd-4c44-b358-1087baf3fb36",
+      "124657d6-ce11-408e-834b-6a821d99f868",
+      "12b95733-764e-45bb-9278-86e740db1f32",
+      "13022d32-ae63-419d-85d3-36ba362ec736",
+      "13148444-7625-461d-9db4-fae186c8a9f0",
+      "1334febd-a188-4ad0-800b-6db6be0d08a4",
+      "133b3428-3227-46e7-8a5e-b58e44edddee",
+      "13499493-37d8-4227-83ef-ac00e2f22c2e",
+      "13600928-e610-4961-b012-f615d054b9b4",
+      "13c5076c-4745-4cdd-ae9d-d3fe2477cbf3",
+      "13ffef2a-bb3a-46a1-a447-923a493a4655",
+      "1407e267-3db5-44cb-b70a-c940ecae6e17",
+      "14171ad5-4284-4a1e-92bf-62e4685868a3",
+      "14483243-3183-489c-bd6b-fe502cfe32cc",
+      "144a81f0-43a2-4903-ae3c-6ffa6644db9f",
+      "149033c9-04cb-487c-984d-10cadcc4ddc0",
+      "1499573f-6546-47bd-8703-44de93f8f793",
+      "14a59652-d3af-4916-9704-613f8b594e7d",
+      "151744f2-1793-45ef-b904-7ade215b262c",
+      "1518f7e7-c0cb-44a0-988a-7db62726c846",
+      "151db382-dd86-4e8b-b115-d42d62571aed",
+      "1522b2b8-2c0b-11e8-873c-a860b626e6d0",
+      "15513a54-02c4-4bee-bfa7-9da562d28d51",
+      "15b1eb53-47d5-4fd8-9862-99654a5b3b4a",
+      "15efeb17-55c4-4ebc-a4ba-fd66bc331db3",
+      "161c86f3-1eaa-40e3-b412-900bc71d85ee",
+      "1620e95c-c9fa-4062-8dc6-014e97cf2edb",
+      "16287c31-3104-4359-8a4c-f99b51036de7",
+      "162e1aed-6e96-4503-ba3c-adfe8b07b429",
+      "162e2f3d-6839-497d-8d05-59a04388c3e1",
+      "164943ef-4f30-43de-86db-16f8bd32921e",
+      "167d46de-3632-49f4-bb09-b21f0f0d05fb",
+      "16807240-b36e-4777-aca4-03ea45f7bf9c",
+      "168701f3-c516-4a9d-b9cd-55db0e13e230",
+      "16b9e0f1-6943-4369-a642-ff9e06cef1e3",
+      "16d2fc02-283a-4341-96c7-5dc794b6615e",
+      "173bbbc1-6a51-4505-8322-6ff3a71e12c3",
+      "17a00956-2254-401a-b652-bcd4c1a71492",
+      "17e09fc6-bc1f-499e-bda0-50d1f345dc28",
+      "17e73326-9eb6-4072-a242-395934de3ebc",
+      "17ef2c7d-4b1f-4ec3-8e3f-a6e81b692611",
+      "1893ed32-fedc-4a25-9a97-f38c5a70a4f2",
+      "18c7d01a-28b0-44e8-829d-272efb815b9a",
+      "19066061-98ba-479d-b22b-584d6c4f7b69",
+      "1919418e-3329-4c71-85e4-b00c54aa2c7e",
+      "191e9864-263b-4627-875f-57506d6a2b3d",
+      "1999a300-06d3-4fe8-9829-be382d81c807",
+      "19c56518-157a-4627-a67f-31c394174c89",
+      "19e5308f-5483-4ea2-9602-1a0cdcce0b27",
+      "1a36999c-c7dd-454b-87e1-8579cd3c1cd0",
+      "1a53b2d7-0365-4a28-ab25-701633155236",
+      "1a8bb012-e069-46e6-ae70-42233eff1894",
+      "1a924a77-a08d-45cd-95b3-20308786a57d",
+      "1ad47eda-ff6e-48ae-b956-d9a06504b417",
+      "1ae49ace-919c-45c4-aaaf-a5e6066f3a09",
+      "1b0269b1-902d-455d-8960-367009395233",
+      "1b73a372-c169-42ad-b2d5-6a86c6a547ca",
+      "1b7e5ceb-c4c9-4f8e-9622-d1aa81d12104",
+      "1bb1325f-22f8-448b-9308-76c2e30d269e",
+      "1bbf88b5-359d-4210-a7ce-35ddeb2c0717",
+      "1c092622-dd26-46eb-ae80-8b43b78454a5",
+      "1c0a58fa-e523-4277-b651-3a41c8d468b7",
+      "1c3d431b-8f83-4b64-a4ef-743d4e961f76",
+      "1c43318d-b8eb-46a7-8c39-7842e745ea4e",
+      "1c6f1892-23cf-41ee-b707-7d79fca07cf3",
+      "1c9c3caa-fe73-4bcb-8255-5d19cac0f458",
+      "1cdf3496-9cd1-437c-b127-1208c00932ad",
+      "1d1967c9-eb1e-4f0a-b123-ba12c0e299aa",
+      "1d685c35-617a-4768-be87-9aa428e71416",
+      "1d967da9-badc-4d0a-acc7-21b6a9d88315",
+      "1dedd172-9399-4d74-8df0-72a6c0d98c4b",
+      "1e3525dc-f39e-49ab-b732-2677d7ccacb7",
+      "1e4a9292-837c-44ec-a990-751f203236d9",
+      "1e939ff9-6b33-4396-bf45-572c0445db9f",
+      "1eabc230-d925-47cc-9df0-b605bcecacd1",
+      "1eebceb1-bc0e-4e85-ac1c-72ce7cdead52",
+      "1f163505-239b-4791-9d8d-83f756a74d61",
+      "1f2fb048-2194-4a15-864b-b780556ef166",
+      "1f60c5c7-e582-4f34-a8d4-5b7518c77c9d",
+      "1f817fa5-954a-4c7c-bd69-3cd7d1f9f98d",
+      "1f85dc7e-f9da-4237-8fd3-7d4a87484f57",
+      "1fe97f0e-1d32-4128-becb-df2bde11c405",
+      "201c9a1e-f1ff-11e8-a33b-7020840c075d",
+      "2030bebf-581e-4d57-a049-14cde54be9a2",
+      "2046ebe0-4da4-4f51-a12f-ed2b871eddc8",
+      "2054aeaa-9ba8-43e9-b88a-a571d7adbbaa",
+      "20bd9e2e-68ed-472b-a239-fbd40f3886b6",
+      "20ca3cb8-bc09-4b6d-bacd-7faff4d32e72",
+      "20cc8dad-101b-49a3-b23d-2260a44c064a",
+      "20f62a08-ef46-41eb-9d2a-4b38f13d7176",
+      "20f90e73-6b2c-4e94-a5dc-57163d159135",
+      "210824d8-1867-49b3-9a41-4f69e06b032b",
+      "21d8eadb-84bb-4971-b15c-c8f56f174e27",
+      "2210ca84-730a-463d-9ed0-b34477a428b1",
+      "224e3bfa-1800-4d30-89eb-001315bf4682",
+      "22854104-37d9-4921-9170-29650cb055f2"
+    ]
+  },
+  "threed_future_model_info": {
+    "model_info_exists": true,
+    "model_info_error": null,
+    "model_count": 16563,
+    "entry_key_candidates": [
+      "category",
+      "material",
+      "model_id",
+      "style",
+      "super-category",
+      "theme"
+    ],
+    "id_field_candidates": [
+      "model_id"
+    ],
+    "category_field_candidates": [
+      "category",
+      "super-category"
+    ],
+    "style_theme_material_fields": [
+      "material",
+      "style",
+      "theme"
+    ],
+    "sample_models": [
+      {
+        "model_id": "f89da2db-ad8c-4582-b186-ed2a46f3cb15",
+        "super-category": "Sofa",
+        "category": "armchair",
+        "style": "Minimalist",
+        "theme": "Gold Foil",
+        "material": "Rough Cloth"
+      },
+      {
+        "model_id": "5de45849-7d1b-4378-82da-ed183b7ecc37",
+        "super-category": "Chair",
+        "category": "Lounge Chair / Cafe Chair / Office Chair",
+        "style": "Ming Qing",
+        "theme": "Floral",
+        "material": "Rough Cloth"
+      },
+      {
+        "model_id": "1ef668a9-12e0-447b-9bbc-8ae484ba8c58",
+        "super-category": "Lighting",
+        "category": "Pendant Lamp",
+        "style": "Modern",
+        "theme": null,
+        "material": null
+      },
+      {
+        "model_id": "0d3e3b3c-3f1a-47ee-8566-1052cb8635b6",
+        "super-category": "Cabinet/Shelf/Desk",
+        "category": "Coffee Table",
+        "style": "Modern",
+        "theme": "Texture Mark",
+        "material": "Wood"
+      },
+      {
+        "model_id": "16febe29-52d9-4833-a695-b09446e65512",
+        "super-category": "Cabinet/Shelf/Desk",
+        "category": "Corner/Side Table",
+        "style": "Modern",
+        "theme": "Cartoon",
+        "material": "Composite Board"
+      },
+      {
+        "model_id": "5b3eb52a-e3ed-4f13-bcb7-2564bf39d34b",
+        "super-category": "Table",
+        "category": "Dining Table",
+        "style": "Japanese",
+        "theme": "Smooth Net",
+        "material": "Composition"
+      },
+      {
+        "model_id": "3bc8343f-452b-4e67-a986-e34436c6479b",
+        "super-category": "Lighting",
+        "category": "Pendant Lamp",
+        "style": "Modern",
+        "theme": null,
+        "material": null
+      },
+      {
+        "model_id": "517709cf-79a5-3309-af40-05e0c5ec992c",
+        "super-category": "Sofa",
+        "category": "armchair",
+        "style": "Southeast Asia",
+        "theme": "Smooth Net",
+        "material": "Leather"
+      },
+      {
+        "model_id": "5347b0a9-94b1-4983-9263-e18eb3830480",
+        "super-category": "Cabinet/Shelf/Desk",
+        "category": "Coffee Table",
+        "style": "Japanese",
+        "theme": "Smooth Net",
+        "material": "Composition"
+      },
+      {
+        "model_id": "12b2dd21-c308-46e1-a375-471f67c2af77",
+        "super-category": "Bed",
+        "category": "King-size Bed",
+        "style": "Minimalist",
+        "theme": "Lines",
+        "material": "Rough Cloth"
+      }
+    ],
+    "jid_model_info_match": {
+      "front_jid_count": 1511,
+      "matched_count": 63,
+      "unmatched_count": 137,
+      "match_rate": 0.315,
+      "matched_samples": [
+        {
+          "jid": "002784db-9a83-4cdb-a842-5f141675103b",
+          "category": null,
+          "super_category": "Others"
+        },
+        {
+          "jid": "004a97c2-124f-4dd2-97da-900af7ad6ca8",
+          "category": "armchair",
+          "super_category": "Sofa"
+        },
+        {
+          "jid": "006cb2b3-e9e3-34e3-9a0e-f93fa04f344b",
+          "category": "Dining Table",
+          "super_category": "Table"
+        },
+        {
+          "jid": "00cb55ad-9b15-4263-82a9-0016b00dbcfa",
+          "category": null,
+          "super_category": "Others"
+        },
+        {
+          "jid": "0128706c-a595-405b-a9ce-47d89847bf28",
+          "category": "Floor Lamp",
+          "super_category": "Lighting"
+        },
+        {
+          "jid": "01899124-9a73-4a42-bee2-ba55f6efb8f3",
+          "category": "Barstool",
+          "super_category": "Chair"
+        },
+        {
+          "jid": "0327502e-993e-42f4-a9d3-85593c561ae7",
+          "category": "Nightstand",
+          "super_category": "Cabinet/Shelf/Desk"
+        },
+        {
+          "jid": "03375fab-55d8-48da-85dc-4d3876da4f67",
+          "category": "Bookcase / jewelry Armoire",
+          "super_category": "Cabinet/Shelf/Desk"
+        },
+        {
+          "jid": "03b5972a-0507-478e-9448-4028c37c774b",
+          "category": null,
+          "super_category": "Others"
+        },
+        {
+          "jid": "045d681b-c15f-4e25-b86d-9a759766af24",
+          "category": "Coffee Table",
+          "super_category": "Cabinet/Shelf/Desk"
+        },
+        {
+          "jid": "050ff629-dcb5-4e2b-853d-f4dbc440e20e",
+          "category": "King-size Bed",
+          "super_category": "Bed"
+        },
+        {
+          "jid": "05aca84e-9a24-45a1-b6e7-482380d34304",
+          "category": "Pendant Lamp",
+          "super_category": "Lighting"
+        },
+        {
+          "jid": "05d628ef-e510-4f6a-8862-ade7405dd3f4",
+          "category": "TV Stand",
+          "super_category": "Cabinet/Shelf/Desk"
+        },
+        {
+          "jid": "05ddba2d-6a8a-47d0-a8fc-90ebf5df2871",
+          "category": "Wardrobe",
+          "super_category": "Cabinet/Shelf/Desk"
+        },
+        {
+          "jid": "06a11496-dadc-469d-86ec-1c15fe15fa1e",
+          "category": "Ceiling Lamp",
+          "super_category": "Lighting"
+        },
+        {
+          "jid": "06bb1295-131b-471a-8e97-66251b0f79fd",
+          "category": "Ceiling Lamp",
+          "super_category": "Lighting"
+        },
+        {
+          "jid": "06dfd96e-44c4-402b-896a-c895cd537929",
+          "category": "Kids Bed",
+          "super_category": "Bed"
+        },
+        {
+          "jid": "06ed337c-0db5-40be-8114-884082e0edb4",
+          "category": "Sideboard / Side Cabinet / Console Table",
+          "super_category": "Cabinet/Shelf/Desk"
+        },
+        {
+          "jid": "074ef4d4-cb22-4a0e-a611-3a579b9b21a2",
+          "category": "Pendant Lamp",
+          "super_category": "Lighting"
+        },
+        {
+          "jid": "076491e8-2208-4c5a-ac25-53b4c423da93",
+          "category": "Dining Table",
+          "super_category": "Table"
+        }
+      ],
+      "unmatched_samples": [
+        "0035616d-7112-4e6b-a7c9-b20edb996095",
+        "00706bc5-7d35-4971-83d5-1f14bb8a0d68",
+        "007d97af-5ebf-4fc6-aac4-6168cb77b9c3",
+        "008e1607-aa1f-4c07-a45a-4e17bff042cd",
+        "00cc8b1d-b284-4108-a48f-a18c320a9d3a",
+        "011c2573-a2cb-4487-9d07-f452c1607677",
+        "01360f1e-6eb7-4e9d-a5b7-70ff0c359f92",
+        "0141d37c-ee71-4d33-b559-92a48f5110ce",
+        "0179b70b-41f2-4948-9d30-63eb0d682f38",
+        "017d359a-1363-4438-b563-2399e58e463d",
+        "020224c6-806f-45fb-9afd-e0fdb2bc89b3",
+        "0221c90e-d904-492d-a99d-00442e7c82ff",
+        "02384779-6d6f-4419-8108-58556115de71",
+        "02554923-9688-4092-8e9e-5cd5fac541f1",
+        "02593945-cfe0-410d-9fdf-eb367276d7d6",
+        "025cdd95-87c1-44d3-a51c-e6fb0825df11",
+        "028d9150-f7a2-4053-bd9c-fda3d652707c",
+        "0294d2a6-e461-4900-886f-9d6bdd92a07c",
+        "0296b172-bea4-4768-9cd5-9ec01c1761a8",
+        "029c5b3f-a828-43b8-8b5a-668754f1d162"
+      ]
+    }
+  },
+  "jid_model_info_match": {
+    "front_jid_count": 1511,
+    "matched_count": 63,
+    "unmatched_count": 137,
+    "match_rate": 0.315,
+    "matched_samples": [
+      {
+        "jid": "002784db-9a83-4cdb-a842-5f141675103b",
+        "category": null,
+        "super_category": "Others"
+      },
+      {
+        "jid": "004a97c2-124f-4dd2-97da-900af7ad6ca8",
+        "category": "armchair",
+        "super_category": "Sofa"
+      },
+      {
+        "jid": "006cb2b3-e9e3-34e3-9a0e-f93fa04f344b",
+        "category": "Dining Table",
+        "super_category": "Table"
+      },
+      {
+        "jid": "00cb55ad-9b15-4263-82a9-0016b00dbcfa",
+        "category": null,
+        "super_category": "Others"
+      },
+      {
+        "jid": "0128706c-a595-405b-a9ce-47d89847bf28",
+        "category": "Floor Lamp",
+        "super_category": "Lighting"
+      },
+      {
+        "jid": "01899124-9a73-4a42-bee2-ba55f6efb8f3",
+        "category": "Barstool",
+        "super_category": "Chair"
+      },
+      {
+        "jid": "0327502e-993e-42f4-a9d3-85593c561ae7",
+        "category": "Nightstand",
+        "super_category": "Cabinet/Shelf/Desk"
+      },
+      {
+        "jid": "03375fab-55d8-48da-85dc-4d3876da4f67",
+        "category": "Bookcase / jewelry Armoire",
+        "super_category": "Cabinet/Shelf/Desk"
+      },
+      {
+        "jid": "03b5972a-0507-478e-9448-4028c37c774b",
+        "category": null,
+        "super_category": "Others"
+      },
+      {
+        "jid": "045d681b-c15f-4e25-b86d-9a759766af24",
+        "category": "Coffee Table",
+        "super_category": "Cabinet/Shelf/Desk"
+      },
+      {
+        "jid": "050ff629-dcb5-4e2b-853d-f4dbc440e20e",
+        "category": "King-size Bed",
+        "super_category": "Bed"
+      },
+      {
+        "jid": "05aca84e-9a24-45a1-b6e7-482380d34304",
+        "category": "Pendant Lamp",
+        "super_category": "Lighting"
+      },
+      {
+        "jid": "05d628ef-e510-4f6a-8862-ade7405dd3f4",
+        "category": "TV Stand",
+        "super_category": "Cabinet/Shelf/Desk"
+      },
+      {
+        "jid": "05ddba2d-6a8a-47d0-a8fc-90ebf5df2871",
+        "category": "Wardrobe",
+        "super_category": "Cabinet/Shelf/Desk"
+      },
+      {
+        "jid": "06a11496-dadc-469d-86ec-1c15fe15fa1e",
+        "category": "Ceiling Lamp",
+        "super_category": "Lighting"
+      },
+      {
+        "jid": "06bb1295-131b-471a-8e97-66251b0f79fd",
+        "category": "Ceiling Lamp",
+        "super_category": "Lighting"
+      },
+      {
+        "jid": "06dfd96e-44c4-402b-896a-c895cd537929",
+        "category": "Kids Bed",
+        "super_category": "Bed"
+      },
+      {
+        "jid": "06ed337c-0db5-40be-8114-884082e0edb4",
+        "category": "Sideboard / Side Cabinet / Console Table",
+        "super_category": "Cabinet/Shelf/Desk"
+      },
+      {
+        "jid": "074ef4d4-cb22-4a0e-a611-3a579b9b21a2",
+        "category": "Pendant Lamp",
+        "super_category": "Lighting"
+      },
+      {
+        "jid": "076491e8-2208-4c5a-ac25-53b4c423da93",
+        "category": "Dining Table",
+        "super_category": "Table"
+      }
+    ],
+    "unmatched_samples": [
+      "0035616d-7112-4e6b-a7c9-b20edb996095",
+      "00706bc5-7d35-4971-83d5-1f14bb8a0d68",
+      "007d97af-5ebf-4fc6-aac4-6168cb77b9c3",
+      "008e1607-aa1f-4c07-a45a-4e17bff042cd",
+      "00cc8b1d-b284-4108-a48f-a18c320a9d3a",
+      "011c2573-a2cb-4487-9d07-f452c1607677",
+      "01360f1e-6eb7-4e9d-a5b7-70ff0c359f92",
+      "0141d37c-ee71-4d33-b559-92a48f5110ce",
+      "0179b70b-41f2-4948-9d30-63eb0d682f38",
+      "017d359a-1363-4438-b563-2399e58e463d",
+      "020224c6-806f-45fb-9afd-e0fdb2bc89b3",
+      "0221c90e-d904-492d-a99d-00442e7c82ff",
+      "02384779-6d6f-4419-8108-58556115de71",
+      "02554923-9688-4092-8e9e-5cd5fac541f1",
+      "02593945-cfe0-410d-9fdf-eb367276d7d6",
+      "025cdd95-87c1-44d3-a51c-e6fb0825df11",
+      "028d9150-f7a2-4053-bd9c-fda3d652707c",
+      "0294d2a6-e461-4900-886f-9d6bdd92a07c",
+      "0296b172-bea4-4768-9cd5-9ec01c1761a8",
+      "029c5b3f-a828-43b8-8b5a-668754f1d162"
+    ]
+  },
+  "future_model_files": {
+    "sample_count": 50,
+    "raw_model_obj_found": 50,
+    "normalized_model_obj_found": 0,
+    "texture_like_files_found": 50,
+    "missing_model_dirs": []
+  },
+  "editroom_context": {
+    "editroom_root_exists": true,
+    "datasets_exists": true,
+    "configs_exists": true,
+    "train_edit_exists": true,
+    "data_location_context": "inside_editroom_datasets",
+    "interpretation": "The bundle is located under EditRoom datasets. This suggests a copied or organized dataset for EditRoom use, not proof that scene/model files are modified.",
+    "impact_on_loreflection": "Can be used as a raw source if official-like consistency checks pass; keep provenance note in reports."
+  },
+  "semlayoutdiff_context": {
+    "root_exists": true,
+    "semlayoutdiff_data_role": "processed_or_rendered",
+    "raw_bundle_like": false,
+    "semantic_png_candidates": [
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/4009070_33732/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/1349315_216392/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/2575170_1086387/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/2521501_19525/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/3004251_41035/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/1404836_26483/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/3028728_3187186/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/1825107_17600/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/3735749_49409/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/2529995_124338/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/1766246_56942/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/1326040_3759067/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/1308127_574269/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/2773162_4848423/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/2462755_6955/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/2341799_100597/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/3209700_5826436/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/2463242_1649315/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/2575886_1580683/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/2736087_10128/Updated_Bottom_label_map.png",
+        "width": 1200,
+        "height": 1200,
+        "png": true
+      }
+    ],
+    "json_candidates": [
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train_plan_ids.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/conversion_summary.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/test_plan_ids.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/val_plan_ids.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/4009070_33732/Updated_Bottom_inst_anno.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/1349315_216392/Updated_Bottom_inst_anno.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/2575170_1086387/Updated_Bottom_inst_anno.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/2521501_19525/Updated_Bottom_inst_anno.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/3004251_41035/Updated_Bottom_inst_anno.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/1404836_26483/Updated_Bottom_inst_anno.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/3028728_3187186/Updated_Bottom_inst_anno.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/1825107_17600/Updated_Bottom_inst_anno.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/3735749_49409/Updated_Bottom_inst_anno.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/2529995_124338/Updated_Bottom_inst_anno.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/1766246_56942/Updated_Bottom_inst_anno.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/1326040_3759067/Updated_Bottom_inst_anno.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/1308127_574269/Updated_Bottom_inst_anno.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/2773162_4848423/Updated_Bottom_inst_anno.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/2462755_6955/Updated_Bottom_inst_anno.json",
+      "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_orient0327_v1/train/2341799_100597/Updated_Bottom_inst_anno.json"
+    ],
+    "npy_candidates": [],
+    "pkl_candidates": [],
+    "should_use_as_raw_source": "no"
+  },
+  "recommendation": {
+    "canonical_raw_bundle_root": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT",
+    "canonical_front_scene_root": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT",
+    "canonical_future_model_root": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FUTURE-model",
+    "canonical_texture_root": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/3D-FRONT/3D-FRONT-texture",
+    "use_for_loreflection": "yes",
+    "confidence": "high",
+    "notes": [
+      "Dataset bundle is inside EditRoom datasets; treat as official-like copied bundle unless file-level differences are later found.",
+      "Use SemLayoutDiff outputs as processed/rendered semantic sources, not canonical raw roots."
+    ]
+  }
+}
