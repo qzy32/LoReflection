@@ -1,0 +1,307 @@
+{
+  "atlas": {
+    "atlas": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_registry_validation_v1/palette_category_atlas.png",
+    "rois": [
+      {
+        "category": "bed",
+        "bbox_px": [
+          12,
+          12,
+          68,
+          68
+        ],
+        "RGB": [
+          76,
+          120,
+          168
+        ],
+        "HEX": "#4C78A8"
+      },
+      {
+        "category": "wardrobe",
+        "bbox_px": [
+          192,
+          12,
+          248,
+          68
+        ],
+        "RGB": [
+          114,
+          183,
+          178
+        ],
+        "HEX": "#72B7B2"
+      },
+      {
+        "category": "desk",
+        "bbox_px": [
+          372,
+          12,
+          428,
+          68
+        ],
+        "RGB": [
+          245,
+          133,
+          24
+        ],
+        "HEX": "#F58518"
+      },
+      {
+        "category": "chair",
+        "bbox_px": [
+          12,
+          92,
+          68,
+          148
+        ],
+        "RGB": [
+          228,
+          87,
+          86
+        ],
+        "HEX": "#E45756"
+      },
+      {
+        "category": "sofa",
+        "bbox_px": [
+          192,
+          92,
+          248,
+          148
+        ],
+        "RGB": [
+          178,
+          121,
+          162
+        ],
+        "HEX": "#B279A2"
+      },
+      {
+        "category": "table",
+        "bbox_px": [
+          372,
+          92,
+          428,
+          148
+        ],
+        "RGB": [
+          157,
+          117,
+          93
+        ],
+        "HEX": "#9D755D"
+      },
+      {
+        "category": "cabinet",
+        "bbox_px": [
+          12,
+          172,
+          68,
+          228
+        ],
+        "RGB": [
+          140,
+          209,
+          125
+        ],
+        "HEX": "#8CD17D"
+      },
+      {
+        "category": "tv_stand",
+        "bbox_px": [
+          192,
+          172,
+          248,
+          228
+        ],
+        "RGB": [
+          182,
+          153,
+          45
+        ],
+        "HEX": "#B6992D"
+      },
+      {
+        "category": "bookshelf",
+        "bbox_px": [
+          372,
+          172,
+          428,
+          228
+        ],
+        "RGB": [
+          73,
+          152,
+          148
+        ],
+        "HEX": "#499894"
+      },
+      {
+        "category": "nightstand",
+        "bbox_px": [
+          12,
+          252,
+          68,
+          308
+        ],
+        "RGB": [
+          84,
+          162,
+          75
+        ],
+        "HEX": "#54A24B"
+      },
+      {
+        "category": "pendant_lamp",
+        "bbox_px": [
+          192,
+          252,
+          248,
+          308
+        ],
+        "RGB": [
+          255,
+          187,
+          120
+        ],
+        "HEX": "#FFBB78"
+      },
+      {
+        "category": "ceiling_lamp",
+        "bbox_px": [
+          372,
+          252,
+          428,
+          308
+        ],
+        "RGB": [
+          255,
+          127,
+          14
+        ],
+        "HEX": "#FF7F0E"
+      },
+      {
+        "category": "lamp",
+        "bbox_px": [
+          12,
+          332,
+          68,
+          388
+        ],
+        "RGB": [
+          253,
+          180,
+          98
+        ],
+        "HEX": "#FDB462"
+      }
+    ],
+    "decode_accuracy": 1.0,
+    "unknown_roi_count": 0,
+    "decoded": [
+      {
+        "expected": "bed",
+        "decoded": "bed",
+        "ok": true
+      },
+      {
+        "expected": "wardrobe",
+        "decoded": "wardrobe",
+        "ok": true
+      },
+      {
+        "expected": "desk",
+        "decoded": "desk",
+        "ok": true
+      },
+      {
+        "expected": "chair",
+        "decoded": "chair",
+        "ok": true
+      },
+      {
+        "expected": "sofa",
+        "decoded": "sofa",
+        "ok": true
+      },
+      {
+        "expected": "table",
+        "decoded": "table",
+        "ok": true
+      },
+      {
+        "expected": "cabinet",
+        "decoded": "cabinet",
+        "ok": true
+      },
+      {
+        "expected": "tv_stand",
+        "decoded": "tv_stand",
+        "ok": true
+      },
+      {
+        "expected": "bookshelf",
+        "decoded": "bookshelf",
+        "ok": true
+      },
+      {
+        "expected": "nightstand",
+        "decoded": "nightstand",
+        "ok": true
+      },
+      {
+        "expected": "pendant_lamp",
+        "decoded": "pendant_lamp",
+        "ok": true
+      },
+      {
+        "expected": "ceiling_lamp",
+        "decoded": "ceiling_lamp",
+        "ok": true
+      },
+      {
+        "expected": "lamp",
+        "decoded": "lamp",
+        "ok": true
+      }
+    ]
+  },
+  "closest_pair": {
+    "a": "desk",
+    "b": "ceiling_lamp",
+    "rgb_distance": 15.362291495737216
+  },
+  "selected_threshold": 6.681145747868608,
+  "perturbation_results": {
+    "plus_0": {
+      "accuracy": 1.0,
+      "unknown": 0
+    },
+    "plus_1": {
+      "accuracy": 1.0,
+      "unknown": 0
+    },
+    "plus_3": {
+      "accuracy": 1.0,
+      "unknown": 0
+    },
+    "plus_5": {
+      "accuracy": 0.0,
+      "unknown": 13
+    },
+    "plus_10": {
+      "accuracy": 0.0,
+      "unknown": 13
+    },
+    "jpeg_quality_95": {
+      "status": "not_run_no_pil",
+      "policy": "PNG/lossless required for canonical semantic maps"
+    },
+    "jpeg_quality_85": {
+      "status": "not_run_no_pil",
+      "policy": "JPEG not allowed for canonical semantic maps"
+    }
+  }
+}

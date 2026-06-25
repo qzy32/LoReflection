@@ -1,5 +1,12 @@
 #!/usr/bin/env python
-"""Convert toy SemLayoutDiff semantic objects or palette maps to LoReflection fixed-palette semantic PNG."""
+"""Convert toy SemLayoutDiff semantic objects to fixed-palette semantic PNG.
+
+Status: toy compatibility adapter.
+
+This output-level adapter is retained for Step 2.2 interface regression only.
+The native real-data preprocessing pipeline reads raw 3D-FRONT / 3D-FUTURE and
+does not use this script.
+"""
 
 from __future__ import annotations
 
@@ -109,4 +116,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

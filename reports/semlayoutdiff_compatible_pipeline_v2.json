@@ -1,0 +1,12 @@
+{
+  "Bottom_contract": "Bottom_label_map/Bottom_color/Bottom_inst_anno from SemLayoutDiff data_processor.py",
+  "mapping": "room-specific to unified mapping from preprocess/metadata/unified_category_mapping_w_arch",
+  "padding": "SemLayoutDiff data_processor center padding referenced; LoReflection implementation records compatibility contract",
+  "architecture_handling": "0 void, 1 floor, 36 door, 37 window in target registry; condition registry remaps 2/3 to 36/37",
+  "bbox_compatibility_mode": "semlayoutdiff_bbox calls mask_to_bbox for baseline compatibility",
+  "footprint_loreflection_mode": "skips bbox conversion; keeps simplified footprint mask",
+  "copied_MIT_functions": [],
+  "modified_functions": [
+    "native reimplementation with source references; no GPL companion renderer copied"
+  ]
+}

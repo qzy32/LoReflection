@@ -1,171 +1,116 @@
 # LoReflection
 
-Local skeleton for the AAAI LoReflection project: a closed-loop indoor semantic layout generation and repair system built around Goal/Observed LoState, LoReview, RepairPlan, VLM mask planning, and binary ControlNet inpainting masks.
+LoReflection is a closed-loop indoor semantic layout generation and repair system built around Goal/Observed LoState, LoReview, VLM Correction Planner outputs, and Qwen/DiffSynth semantic repair.
 
-This repository is intentionally local-only at this stage. It creates schemas, validators, converters, prompt/mask utilities, and toy examples. It does not download model weights, download 3D-FRONT/3D-FUTURE, or run real training.
+The current repository state is frozen around the repair protocol described in `docs/CURRENT_PROJECT_STATE.md`.
 
-## Current Development Stage
+## Current Pipeline
 
-The project is currently in the local interface and adapter construction stage.
+User instruction + Architecture JSON
+-> Target LoState Constructor
+-> Goal LoState
+-> Qwen-Image initial semantic layout generation
+-> Programmatic State Observer
+-> Observed LoState
+-> Dual-Track Reviewer + LoRAM
+-> LoReview
+-> VLM Correction Planner
+-> RepairPlan
+-> semantic repair or parametric repair routing
 
-Completed:
-- Step 2.1 local interface audit and smoke test.
-- Step 2.2 SemLayoutDiff adapter toy-level conversion.
-- Step 2.3 EditRoom adapter toy-level conversion.
-- Step 2.4 unified toy package and server dry-run preparation.
+## Current Action Protocol
 
-Not yet completed:
-- Real 3D-FRONT / 3D-FUTURE conversion.
-- Real SemLayoutDiff output parsing.
-- Real EditRoom output parsing.
-- Qwen-VL training.
-- DiffSynth Qwen-Image inpainting training.
-- Closed-loop main experiments.
+Planner-facing canonical actions:
 
-Next:
-- Step 3 server-side val50 construction.
+- ADD
+- REMOVE
+- TRANSLATE
+- ROTATE
+- SCALE
+- REPLACE
 
-## Interface Freeze Status
+Execution routing:
 
-Current toy-level interface status:
-- Step 2.1 local interface audit: passed
-- Step 2.2 SemLayoutDiff adapter: passed
-- Step 2.3 EditRoom adapter: passed
-- Step 2.3R regression audit: passed
+- semantic_repair4: ADD, REMOVE, TRANSLATE, REPLACE
+- parametric_update: ROTATE, SCALE
 
-The toy-level interface can be treated as frozen only if Step 2.3R passes.
+ROTATE and SCALE are valid Planner actions, but they do not enter Qwen/DiffSynth semantic repair metadata. They update structured layout fields through parametric_update.
 
-Current recommendation:
-- Frozen at toy level under `interface-freeze-v1`.
+## Current Handoff
 
-## Step 2.4 Unified Toy Package
+The current VLM Planner handoff package is:
 
-After `interface-freeze-v1`, the project builds a unified toy package that simulates the future val50 / 1k data layout without using real data or model weights.
+- `outputs/current_vlm_planner_handoff/`
+- `outputs/current_vlm_planner_handoff.zip`
 
-```bash
-python tools/build_unified_toy_package.py \
-  --toy-root examples/toy_samples \
-  --semlayoutdiff-root outputs/semlayoutdiff_toy_loreflection \
-  --editroom-root outputs/editroom_toy_loreflection \
-  --output-root outputs/unified_toy_package_v1 \
-  --mode toy
+The current interface schemas are:
 
-python tools/validate_unified_toy_package.py \
-  --package-root outputs/unified_toy_package_v1 \
-  --strict \
-  --report outputs/unified_toy_package_v1/reports/unified_package_validation_report.json
-```
+- `artifacts/current_interface/repairplan.schema.json`
+- `artifacts/current_interface/mask_spec.schema.json`
+- `artifacts/current_interface/planner_input_context.schema.json`
 
-Server path dry-run:
+Validate Planner outputs with:
 
 ```bash
-python tools/check_server_paths.py \
-  --env-file server_configs/paths.template.env \
-  --report reports/server_path_check_report.json
+python tools/validate_current_repairplan.py outputs/current_vlm_planner_handoff/planner_sft_minimal_examples.jsonl --sft-jsonl
 ```
 
-## Local Setup
+## C12 Input
 
-```bash
-python -m venv .venv
-python -m pip install -r requirements-dev.txt
-```
+C12 uses real converted EditRoom semantic samples from C11.10.
 
-## Main Local Flow
+Only semantic_repair4 actions enter the Qwen/DiffSynth sanitizer path:
 
-1. Build or import `Architecture JSON`.
-2. Build a toy or server-produced `Goal LoState`.
-3. Compile a `Prompt Package` with `runtime/prompt_builder.py`.
-4. Render toy semantic images locally only for smoke tests.
-5. Observe fixed-palette semantic maps with `runtime/observer.py`.
-6. Build `LoReview` with local Track-A plus placeholder Track-B.
-7. Convert `RepairPlan.mask_spec` to a binary `control_mask` with `runtime/mask_tensor_adapter.py`.
-8. Export Planner SFT data for qwen-vl-finetune.
-9. Export repair pairs to DiffSynth `metadata.csv`.
+- ADD
+- REMOVE
+- TRANSLATE
+- REPLACE
 
-## Smoke Test
+ROTATE and SCALE remain parametric_update and are excluded from current DiffSynth metadata.
 
-From the repository root:
+See:
 
-```bash
-python tools/validate_all.py --data-root examples/toy_samples
-python data_pipeline/render_arch_condition.py --architecture examples/toy_samples/architecture_v1.json --output examples/toy_samples/arch_condition.png
-python data_pipeline/render_gt_semantic_layout.py --goal-lostate examples/toy_samples/goal_lostate_v1.json --output examples/toy_samples/target_layout.png
-python data_pipeline/generate_perturbations.py --input-image examples/toy_samples/target_layout.png --output-image examples/toy_samples/bad_layout.png --manifest examples/toy_samples/perturbations.json
-python data_pipeline/build_observed_lostate.py --image examples/toy_samples/bad_layout.png --architecture examples/toy_samples/architecture_v1.json --output examples/toy_samples/observed_from_image.json
-python data_pipeline/build_loreview.py --goal-lostate examples/toy_samples/goal_lostate_v1.json --observed-lostate examples/toy_samples/observed_from_image.json --output examples/toy_samples/loreview_from_image.json
-python runtime/mask_tensor_adapter.py --mask-spec examples/toy_samples/mask_spec_v1.json --control-image examples/toy_samples/bad_layout.png --output examples/toy_samples/control_mask.png
-python data_pipeline/build_controlnet_repair_pairs.py --target-image examples/toy_samples/target_layout.png --control-image examples/toy_samples/bad_layout.png --control-mask examples/toy_samples/control_mask.png --repairplan examples/toy_samples/repairplan_v1.json --output examples/toy_samples/controlnet_repair_v1/train.json
-python tools/export_loreflection_to_diffsynth_inpaint.py --input examples/toy_samples/controlnet_repair_v1/train.json --output-dir outputs/diffsynth_toy --mode copy
-python tools/export_to_qwenvl_sft.py --input examples/toy_samples/planner_sft_manifest.json --output outputs/qwenvl_sft_toy.json
-```
+- `docs/C12_SANITIZER_CURRENT_PLAN.md`
+- `reports/current_c12_input_manifest.json`
+- `reports/c12_sanitizer_eval.json`
+- `docs/C13_SEMANTIC_REPAIR4_OVERFIT.md`
 
-Or run the whole local pipeline at once:
+Current C12 result: `C12_PASS` after replacing the no-op semantic samples.
 
-```bash
-python tools/run_smoke_test.py
-```
+Current C13 result: semantic_repair4 small Qwen/DiffSynth overfit completed for ADD, REMOVE, TRANSLATE, REPLACE, and a 12-row mixed run. All strict model gates are currently PARTIAL, so larger semantic_repair4 training is not yet allowed.
 
-## Step 2.2 SemLayoutDiff Adapter
+Current C14.1 result: the medium diagnostic dataset was built from real EditRoom conversion candidates with 20 rows/action, and the real DiffSynth `UnifiedDataset` dry-run passed for ADD, REMOVE, TRANSLATE, REPLACE, and MIXED_80 metadata. Auto-GPU resume selected GPU2, completed REMOVE / REPLACE / TRANSLATE / ADD to 300 steps each, and completed MIXED_80 to 320 steps.
 
-SemLayoutDiff is used as a third-party preprocessing reference and architecture-conditioned semantic layout baseline source. It is not the LoReflection main method, and local adapter tests do not download 3D-FRONT, 3D-FUTURE, Blender assets, model weights, or start training.
+Current C14.2 result: sampled image evaluation is blocked by a palette/evaluator contract issue, not yet a clean model-quality conclusion. `I_target` and oracle-copyback self-tests also fail because the C14 medium semantic PNGs are not encoded with `artifacts/semantic_registry_v2/palette_frozen.json` exactly. Do not expand to 50/action or larger training until `I_bad` and `I_target` are regenerated or adapted to the current frozen palette and the evaluator self-test passes.
 
-Inspect an optional SemLayoutDiff checkout and the local toy sample:
+Current C14.3 result: the palette-fixed medium dataset v2 has been regenerated
+with exact frozen-palette RGBs using label-level old-palette to frozen-palette
+mapping. The data gate, evaluator self-test, and DiffSynth loader dry-run all
+pass. The previous C14.1 checkpoints are retained for audit but invalidated as
+model-quality evidence because they were trained/evaluated under a palette
+contract mismatch.
 
-```bash
-python tools/inspect_semlayoutdiff_outputs.py \
-  --semlayoutdiff-root third_party/SemLayoutDiff \
-  --sample-dir examples/toy_semlayoutdiff \
-  --report experiments/val50/semlayoutdiff_inspect_report.json
-```
+Final C14.4 status: the corrected `c14_4_fixedsteps` run completed on GPU0.
+REMOVE, REPLACE, TRANSLATE, and ADD each completed 300 steps and produced
+nonzero action-specific metrics. MIXED_80 also completed and was evaluated at
+step 300. REMOVE reached 0.60 sampled edit success; the other actions remain
+partial. Proceed to C15 prompt/mask/action-specific diagnosis, not 50/action.
 
-Convert the toy SemLayoutDiff-like sample into LoReflection artifacts:
+See:
 
-```bash
-python tools/convert_semlayoutdiff_to_loreflection.py \
-  --input-root examples/toy_semlayoutdiff \
-  --output-root outputs/semlayoutdiff_toy_loreflection \
-  --palette configs/palette_v1.json \
-  --mode toy
-```
-
-See `docs/SEMLAYOUTDIFF_ADAPTER.md` for server path placeholders and real-data TODOs.
-
-## Step 2.3 EditRoom Adapter
-
-EditRoom is used as an editing pair, perturbation, and editing baseline source. It is not the LoReflection main method. The local adapter converts toy EditRoom-like before/after pairs into Planner SFT manifests and ControlNet / DiffSynth repair samples.
-
-Inspect an optional EditRoom checkout and the local toy sample:
-
-```bash
-python tools/inspect_editroom_outputs.py \
-  --editroom-root third_party/EditRoom \
-  --sample-dir examples/toy_editroom \
-  --report experiments/val50/editroom_inspect_report.json
-```
-
-Convert the toy EditRoom-like pair into LoReflection training artifacts:
-
-```bash
-python tools/convert_editroom_to_loreflection.py \
-  --input-root examples/toy_editroom \
-  --output-root outputs/editroom_toy_loreflection \
-  --mode toy
-```
-
-See `docs/EDITROOM_ADAPTER.md` for mapping details and server-side TODOs.
-
-## Key Files
-
-- `schemas/`: minimal JSON Schemas for Architecture, Goal/Observed LoState, Prompt Package, LoReview, RepairPlan, mask_spec, ControlNet sample, and eval representation.
-- `runtime/prompt_builder.py`: rule-based Prompt Compiler.
-- `runtime/mask_tensor_adapter.py`: converts bbox, polygon, and instance_ref mask specs to binary masks.
-- `data_pipeline/render_arch_condition.py`: PIL-based top-down architecture renderer, no Blender required.
-- `tools/export_to_qwenvl_sft.py`: converts Planner SFT manifests to Qwen-VL `image + conversations`.
-- `tools/export_loreflection_to_diffsynth_inpaint.py`: exports LoReflection repair samples to DiffSynth `metadata.csv`.
+- `docs/C14_MEDIUM_SCALE_DIAGNOSTIC_TRAINING.md`
+- `reports/c14_autonomous_pipeline_result.json`
+- `reports/c14_1_autogpu_resume_result.json`
+- `reports/c14_2_training_inference_contract_result.json`
+- `reports/c14_2_palette_contract_check.json`
+- `reports/c14_3_palette_contract_repair_result.json`
+- `reports/c14_3_evaluator_selftest_palette_fixed.json`
+- `reports/c14_medium_data_gate.json`
+- `reports/c14_diffsynth_loader_dryrun.json`
 
 ## Boundaries
 
-- Qwen-Image, Qwen2.5-VL, qwen-vl-finetune, DiffSynth-Studio, 3D-FRONT, and 3D-FUTURE are server-side dependencies.
-- `third_party/` stores notes only unless you explicitly add wrappers.
-- Model paths and dataset paths must remain placeholders locally.
+- No model weights are stored in this repository.
+- No external datasets are stored in this repository.
+- Third-party official source checkouts and external data roots must not be deleted by repository cleanup steps.
+- Current repair-protocol documentation should use only the current action and execution-mode names above.

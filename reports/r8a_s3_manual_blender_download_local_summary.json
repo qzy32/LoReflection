@@ -1,0 +1,7 @@
+{
+  "stage": "manual_blender_download",
+  "started_at": "2026-06-17T10:47:31",
+  "rc": 18,
+  "stdout": "",
+  "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0  177M    0 1680k    0     0  2131k      0  0:01:25 --:--:--  0:01:25 2129k\r  3  177M    3 7231k    0     0  4060k      0  0:00:44  0:00:01  0:00:43 4058k\r  4  177M    4 8543k    0     0  4449k      0  0:00:40  0:00:01  0:00:39 4447k\ncurl: (18) transfer closed with 177166286 bytes remaining to read\n"
+}

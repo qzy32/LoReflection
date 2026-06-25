@@ -1,0 +1,442 @@
+{
+  "schema_version": "current-c12-input-manifest-v1",
+  "source": "C12.1 repaired real converted EditRoom semantic samples, round2 strict REPLACE",
+  "semantic_repair4_actions": [
+    "ADD",
+    "REMOVE",
+    "TRANSLATE",
+    "REPLACE"
+  ],
+  "parametric_update_actions": [
+    "ROTATE",
+    "SCALE"
+  ],
+  "semantic_repair4_metadata_rows": 12,
+  "semantic_repair4_samples": [
+    {
+      "sample_id": "add_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ADD",
+      "remote_sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "I_bad": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_bad.png",
+      "I_target": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_target.png",
+      "control_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/control_mask.png",
+      "mask_spec": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/mask_spec_current.json",
+      "repairplan": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/repairplan_current.json",
+      "prompt": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/prompt.txt",
+      "metadata_row": {
+        "image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_target.png",
+        "blockwise_controlnet_image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_bad.png",
+        "blockwise_controlnet_inpaint_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/control_mask.png",
+        "prompt": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. ADD exactly one dressing_table inside the white target region and preserve all black regions."
+      },
+      "observer_status": "PASS",
+      "oracle_composite_status": "PASS",
+      "palette_validity": "PASS",
+      "same_class_merge": true,
+      "source_category": null,
+      "target_category": "dressing_table",
+      "mask_area_ratio": 0.009860992431640625,
+      "changed_pixels_inside_mask": null,
+      "changed_ratio_inside_mask": null,
+      "category_mapping_status": "PASS"
+    },
+    {
+      "sample_id": "c12_1_add_dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18",
+      "action": "ADD",
+      "remote_sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_add_dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18",
+      "I_bad": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_add_dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18/I_bad.png",
+      "I_target": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_add_dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18/I_target.png",
+      "control_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_add_dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18/control_mask.png",
+      "mask_spec": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_add_dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18/mask_spec_current.json",
+      "repairplan": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_add_dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18/repairplan_current.json",
+      "prompt": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_add_dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18/prompt.txt",
+      "metadata_row": {
+        "image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_add_dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18/I_target.png",
+        "blockwise_controlnet_image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_add_dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18/I_bad.png",
+        "blockwise_controlnet_inpaint_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_add_dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18/control_mask.png",
+        "prompt": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. ADD exactly one tv_stand inside the white target region and preserve all black regions."
+      },
+      "observer_status": "UNKNOWN",
+      "oracle_composite_status": "PASS",
+      "palette_validity": "PASS",
+      "same_class_merge": false,
+      "changed_pixels_inside_mask": 6916,
+      "changed_ratio_inside_mask": 0.6468387579498691,
+      "category_mapping_status": "PASS",
+      "replacement_for": "add_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas"
+    },
+    {
+      "sample_id": "add_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ADD",
+      "remote_sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "I_bad": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_bad.png",
+      "I_target": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_target.png",
+      "control_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/control_mask.png",
+      "mask_spec": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/mask_spec_current.json",
+      "repairplan": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/repairplan_current.json",
+      "prompt": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/prompt.txt",
+      "metadata_row": {
+        "image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_target.png",
+        "blockwise_controlnet_image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_bad.png",
+        "blockwise_controlnet_inpaint_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/control_mask.png",
+        "prompt": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. ADD exactly one double_bed inside the white target region and preserve all black regions."
+      },
+      "observer_status": "PASS",
+      "oracle_composite_status": "PASS",
+      "palette_validity": "PASS",
+      "same_class_merge": true,
+      "source_category": null,
+      "target_category": "double_bed",
+      "mask_area_ratio": 0.0610198974609375,
+      "changed_pixels_inside_mask": null,
+      "changed_ratio_inside_mask": null,
+      "category_mapping_status": "PASS"
+    },
+    {
+      "sample_id": "remove_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "REMOVE",
+      "remote_sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "I_bad": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_bad.png",
+      "I_target": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_target.png",
+      "control_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/control_mask.png",
+      "mask_spec": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/mask_spec_current.json",
+      "repairplan": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/repairplan_current.json",
+      "prompt": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/prompt.txt",
+      "metadata_row": {
+        "image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_target.png",
+        "blockwise_controlnet_image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_bad.png",
+        "blockwise_controlnet_inpaint_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/control_mask.png",
+        "prompt": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. REMOVE the extra dressing_table inside the white source region and restore valid floor/background."
+      },
+      "observer_status": "PASS",
+      "oracle_composite_status": "PASS",
+      "palette_validity": "PASS",
+      "same_class_merge": false,
+      "source_category": "dressing_table",
+      "target_category": null,
+      "mask_area_ratio": 0.009860992431640625,
+      "changed_pixels_inside_mask": null,
+      "changed_ratio_inside_mask": null,
+      "category_mapping_status": "PASS"
+    },
+    {
+      "sample_id": "c12_1_remove_473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8",
+      "action": "REMOVE",
+      "remote_sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_remove_473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8",
+      "I_bad": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_remove_473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8/I_bad.png",
+      "I_target": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_remove_473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8/I_target.png",
+      "control_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_remove_473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8/control_mask.png",
+      "mask_spec": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_remove_473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8/mask_spec_current.json",
+      "repairplan": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_remove_473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8/repairplan_current.json",
+      "prompt": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_remove_473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8/prompt.txt",
+      "metadata_row": {
+        "image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_remove_473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8/I_target.png",
+        "blockwise_controlnet_image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_remove_473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8/I_bad.png",
+        "blockwise_controlnet_inpaint_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_remove_473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8/control_mask.png",
+        "prompt": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. REMOVE the extra nightstand inside the white source region and restore valid floor/background."
+      },
+      "observer_status": "UNKNOWN",
+      "oracle_composite_status": "PASS",
+      "palette_validity": "PASS",
+      "same_class_merge": false,
+      "changed_pixels_inside_mask": 1015,
+      "changed_ratio_inside_mask": 0.4422657952069717,
+      "category_mapping_status": "PASS",
+      "replacement_for": "remove_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas"
+    },
+    {
+      "sample_id": "remove_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "REMOVE",
+      "remote_sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "I_bad": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_bad.png",
+      "I_target": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_target.png",
+      "control_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/control_mask.png",
+      "mask_spec": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/mask_spec_current.json",
+      "repairplan": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/repairplan_current.json",
+      "prompt": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/prompt.txt",
+      "metadata_row": {
+        "image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_target.png",
+        "blockwise_controlnet_image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_bad.png",
+        "blockwise_controlnet_inpaint_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/control_mask.png",
+        "prompt": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. REMOVE the extra double_bed inside the white source region and restore valid floor/background."
+      },
+      "observer_status": "PASS",
+      "oracle_composite_status": "PASS",
+      "palette_validity": "PASS",
+      "same_class_merge": false,
+      "source_category": "double_bed",
+      "target_category": null,
+      "mask_area_ratio": 0.0610198974609375,
+      "changed_pixels_inside_mask": null,
+      "changed_ratio_inside_mask": null,
+      "category_mapping_status": "PASS"
+    },
+    {
+      "sample_id": "translate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "TRANSLATE",
+      "remote_sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "I_bad": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_bad.png",
+      "I_target": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_target.png",
+      "control_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/control_mask.png",
+      "mask_spec": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/mask_spec_current.json",
+      "repairplan": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/repairplan_current.json",
+      "prompt": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/prompt.txt",
+      "metadata_row": {
+        "image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_target.png",
+        "blockwise_controlnet_image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_bad.png",
+        "blockwise_controlnet_inpaint_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/control_mask.png",
+        "prompt": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. TRANSLATE the dressing_table by clearing the old region and painting exactly one object in the new region."
+      },
+      "observer_status": "PASS",
+      "oracle_composite_status": "PASS",
+      "palette_validity": "PASS",
+      "same_class_merge": true,
+      "source_category": "dressing_table",
+      "target_category": "dressing_table",
+      "mask_area_ratio": 0.009860992431640625,
+      "changed_pixels_inside_mask": null,
+      "changed_ratio_inside_mask": null,
+      "category_mapping_status": "PASS"
+    },
+    {
+      "sample_id": "c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12",
+      "action": "TRANSLATE",
+      "remote_sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12",
+      "I_bad": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12/I_bad.png",
+      "I_target": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12/I_target.png",
+      "control_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12/control_mask.png",
+      "mask_spec": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12/mask_spec_current.json",
+      "repairplan": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12/repairplan_current.json",
+      "prompt": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12/prompt.txt",
+      "metadata_row": {
+        "image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12/I_target.png",
+        "blockwise_controlnet_image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12/I_bad.png",
+        "blockwise_controlnet_inpaint_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12/control_mask.png",
+        "prompt": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. TRANSLATE the double_bed by clearing the old region and painting exactly one object in the new region."
+      },
+      "observer_status": "UNKNOWN",
+      "oracle_composite_status": "PASS",
+      "palette_validity": "PASS",
+      "same_class_merge": false,
+      "changed_pixels_inside_mask": 16227,
+      "changed_ratio_inside_mask": 0.6849725622625581,
+      "category_mapping_status": "PASS",
+      "replacement_for": "translate_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas"
+    },
+    {
+      "sample_id": "translate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "TRANSLATE",
+      "remote_sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "I_bad": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_bad.png",
+      "I_target": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_target.png",
+      "control_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/control_mask.png",
+      "mask_spec": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/mask_spec_current.json",
+      "repairplan": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/repairplan_current.json",
+      "prompt": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/prompt.txt",
+      "metadata_row": {
+        "image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_target.png",
+        "blockwise_controlnet_image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/I_bad.png",
+        "blockwise_controlnet_inpaint_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/control_mask.png",
+        "prompt": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. TRANSLATE the dressing_table by clearing the old region and painting exactly one object in the new region."
+      },
+      "observer_status": "PASS",
+      "oracle_composite_status": "PASS",
+      "palette_validity": "PASS",
+      "same_class_merge": true,
+      "source_category": "dressing_table",
+      "target_category": "dressing_table",
+      "mask_area_ratio": 0.01678466796875,
+      "changed_pixels_inside_mask": null,
+      "changed_ratio_inside_mask": null,
+      "category_mapping_status": "PASS"
+    },
+    {
+      "sample_id": "c12_1_replace_round2_1_ce51b1c1-72b8-4812-a291-30bf97c07aa1_Bedroom-32206_replace-7_12",
+      "action": "REPLACE",
+      "remote_sample_dir": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_1_ce51b1c1-72b8-4812-a291-30bf97c07aa1_Bedroom-32206_replace-7_12",
+      "I_bad": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_1_ce51b1c1-72b8-4812-a291-30bf97c07aa1_Bedroom-32206_replace-7_12/I_bad.png",
+      "I_target": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_1_ce51b1c1-72b8-4812-a291-30bf97c07aa1_Bedroom-32206_replace-7_12/I_target.png",
+      "control_mask": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_1_ce51b1c1-72b8-4812-a291-30bf97c07aa1_Bedroom-32206_replace-7_12/control_mask.png",
+      "mask_spec": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_1_ce51b1c1-72b8-4812-a291-30bf97c07aa1_Bedroom-32206_replace-7_12/mask_spec_current.json",
+      "repairplan": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_1_ce51b1c1-72b8-4812-a291-30bf97c07aa1_Bedroom-32206_replace-7_12/repairplan_current.json",
+      "prompt": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_1_ce51b1c1-72b8-4812-a291-30bf97c07aa1_Bedroom-32206_replace-7_12/prompt.txt",
+      "metadata_row": {
+        "image": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_1_ce51b1c1-72b8-4812-a291-30bf97c07aa1_Bedroom-32206_replace-7_12/I_target.png",
+        "blockwise_controlnet_image": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_1_ce51b1c1-72b8-4812-a291-30bf97c07aa1_Bedroom-32206_replace-7_12/I_bad.png",
+        "blockwise_controlnet_inpaint_mask": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_1_ce51b1c1-72b8-4812-a291-30bf97c07aa1_Bedroom-32206_replace-7_12/control_mask.png",
+        "prompt": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. REPLACE corner_side_table with round_end_table inside the white region and do not add extra objects."
+      },
+      "observer_status": "UNKNOWN",
+      "oracle_composite_status": "PASS",
+      "palette_validity": "PASS",
+      "same_class_merge": false,
+      "source_category": "corner_side_table",
+      "target_category": "round_end_table",
+      "changed_pixels_inside_mask": 806,
+      "changed_ratio_inside_mask": 0.4083080040526849,
+      "category_mapping_status": "PASS",
+      "replacement_for": "replace_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas"
+    },
+    {
+      "sample_id": "c12_1_replace_round2_reverse_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2_opposite",
+      "action": "REPLACE",
+      "remote_sample_dir": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_reverse_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2_opposite",
+      "I_bad": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_reverse_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2_opposite/I_bad.png",
+      "I_target": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_reverse_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2_opposite/I_target.png",
+      "control_mask": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_reverse_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2_opposite/control_mask.png",
+      "mask_spec": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_reverse_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2_opposite/mask_spec_current.json",
+      "repairplan": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_reverse_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2_opposite/repairplan_current.json",
+      "prompt": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_reverse_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2_opposite/prompt.txt",
+      "metadata_row": {
+        "image": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_reverse_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2_opposite/I_target.png",
+        "blockwise_controlnet_image": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_reverse_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2_opposite/I_bad.png",
+        "blockwise_controlnet_inpaint_mask": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_reverse_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2_opposite/control_mask.png",
+        "prompt": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. REPLACE loveseat_sofa with lazy_sofa inside the white region and do not add extra objects."
+      },
+      "observer_status": "UNKNOWN",
+      "oracle_composite_status": "PASS",
+      "palette_validity": "PASS",
+      "same_class_merge": false,
+      "source_category": "loveseat_sofa",
+      "target_category": "lazy_sofa",
+      "changed_pixels_inside_mask": 7590,
+      "changed_ratio_inside_mask": 0.6941649899396378,
+      "category_mapping_status": "PASS",
+      "replacement_for": "replace_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas"
+    },
+    {
+      "sample_id": "c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2",
+      "action": "REPLACE",
+      "remote_sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2",
+      "I_bad": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2/I_bad.png",
+      "I_target": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2/I_target.png",
+      "control_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2/control_mask.png",
+      "mask_spec": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2/mask_spec_current.json",
+      "repairplan": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2/repairplan_current.json",
+      "prompt": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2/prompt.txt",
+      "metadata_row": {
+        "image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2/I_target.png",
+        "blockwise_controlnet_image": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2/I_bad.png",
+        "blockwise_controlnet_inpaint_mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2/control_mask.png",
+        "prompt": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. REPLACE lazy_sofa with loveseat_sofa inside the white region and do not add extra objects."
+      },
+      "observer_status": "UNKNOWN",
+      "oracle_composite_status": "PASS",
+      "palette_validity": "PASS",
+      "same_class_merge": false,
+      "changed_pixels_inside_mask": 7590,
+      "changed_ratio_inside_mask": 0.6941649899396378,
+      "category_mapping_status": "PASS",
+      "replacement_for": "replace_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas"
+    }
+  ],
+  "excluded_from_diffsynth_metadata": [
+    {
+      "sample_id": "rotate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ROTATE",
+      "remote_sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/rotate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "reason": "ROTATE/SCALE use parametric_update and are excluded from current semantic_repair4 Qwen/DiffSynth metadata"
+    },
+    {
+      "sample_id": "rotate_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ROTATE",
+      "remote_sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/rotate_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "reason": "ROTATE/SCALE use parametric_update and are excluded from current semantic_repair4 Qwen/DiffSynth metadata"
+    },
+    {
+      "sample_id": "rotate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ROTATE",
+      "remote_sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/rotate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "reason": "ROTATE/SCALE use parametric_update and are excluded from current semantic_repair4 Qwen/DiffSynth metadata"
+    },
+    {
+      "sample_id": "scale_parametric_only_missing_real_pair",
+      "action": "SCALE",
+      "remote_sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/scale_parametric_only_missing_real_pair",
+      "reason": "ROTATE/SCALE use parametric_update and are excluded from current semantic_repair4 Qwen/DiffSynth metadata"
+    }
+  ],
+  "decision": "ready_for_c12_sanitizer",
+  "contract_note": "C12 accepts only semantic_repair4 actions in DiffSynth metadata; ROTATE and SCALE remain parametric_update only.",
+  "c12_1_replacements_applied": {
+    "ADD": [
+      {
+        "sample_id": "c12_1_add_dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18",
+        "action": "ADD",
+        "status": "valid",
+        "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_add_dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18",
+        "source_category": null,
+        "target_category": "tv_stand",
+        "changed_pixels_inside_mask": 6916,
+        "changed_ratio_inside_mask": 0.6468387579498691,
+        "source_path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18.pkl"
+      }
+    ],
+    "REMOVE": [
+      {
+        "sample_id": "c12_1_remove_473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8",
+        "action": "REMOVE",
+        "status": "valid",
+        "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_remove_473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8",
+        "source_category": "nightstand",
+        "target_category": null,
+        "changed_pixels_inside_mask": 1015,
+        "changed_ratio_inside_mask": 0.4422657952069717,
+        "source_path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8.pkl"
+      }
+    ],
+    "TRANSLATE": [
+      {
+        "sample_id": "c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12",
+        "action": "TRANSLATE",
+        "status": "valid",
+        "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12",
+        "source_category": "double_bed",
+        "target_category": "double_bed",
+        "changed_pixels_inside_mask": 16227,
+        "changed_ratio_inside_mask": 0.6849725622625581,
+        "source_path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12.pkl"
+      }
+    ],
+    "REPLACE": [
+      {
+        "sample_id": "c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2",
+        "action": "REPLACE",
+        "status": "valid",
+        "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2",
+        "source_category": "lazy_sofa",
+        "target_category": "loveseat_sofa",
+        "changed_pixels_inside_mask": 7590,
+        "changed_ratio_inside_mask": 0.6941649899396378,
+        "source_path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2.pkl"
+      }
+    ]
+  },
+  "c12_1_round2_replacements": {
+    "REPLACE": [
+      {
+        "sample_id": "c12_1_replace_round2_1_ce51b1c1-72b8-4812-a291-30bf97c07aa1_Bedroom-32206_replace-7_12",
+        "action": "REPLACE",
+        "status": "valid",
+        "sample_dir": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_1_ce51b1c1-72b8-4812-a291-30bf97c07aa1_Bedroom-32206_replace-7_12",
+        "source_category": "corner_side_table",
+        "target_category": "round_end_table",
+        "changed_pixels_inside_mask": 806,
+        "changed_ratio_inside_mask": 0.4083080040526849,
+        "source_path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/ce51b1c1-72b8-4812-a291-30bf97c07aa1_Bedroom-32206_replace-7_12.pkl"
+      },
+      {
+        "status": "valid",
+        "sample_dir": "/wuqingyaoa800/qiuziyan/loreflection_outputs/semantic_repair4_c12_1_c13/c12_1_replacements_round2/c12_1_replace_round2_reverse_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2_opposite",
+        "sample_id": "c12_1_replace_round2_reverse_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2_opposite",
+        "action": "REPLACE",
+        "source_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2",
+        "before_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2",
+        "source_category": "loveseat_sofa",
+        "target_category": "lazy_sofa",
+        "changed_pixels_inside_mask": 7590,
+        "changed_ratio_inside_mask": 0.6941649899396378
+      }
+    ]
+  }
+}

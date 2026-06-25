@@ -1,0 +1,51 @@
+{
+  "local_proxy": {
+    "selected": {
+      "scheme": "http",
+      "host": "127.0.0.1",
+      "loopback": true,
+      "port": 7890
+    },
+    "attempts": [
+      {
+        "scheme": "http",
+        "host": "127.0.0.1",
+        "loopback": true,
+        "port": 7890,
+        "ok": true,
+        "status": "HTTP/1.1 200 OK",
+        "error": ""
+      }
+    ],
+    "github_reachable_locally": true
+  },
+  "outer_hop": "222.201.187.180",
+  "inner_endpoint": "127.0.0.1:24800",
+  "remote_bind_address": "127.0.0.1",
+  "public_exposure": false,
+  "started_at": "2026-06-16 20:48:14",
+  "remote_port": 17890,
+  "remote_run": {
+    "returncode": 0,
+    "stdout_tail": "{\n  \"source_complete\": true,\n  \"runtime_complete\": false,\n  \"recommendation\": \"request_environment_install_approval\",\n  \"required_source_resolution\": {\n    \"preprocess/semlayout\": {\n      \"found\": false,\n      \"hits\": []\n    },\n    \"render_dataset_improved_mat.py\": {\n      \"found\": true,\n      \"hits\": [\n        {\n          \"repository\": \"BlenderProc-3DFront-3dlg-hcvc\",\n          \"ref\": \"refs/heads/3dfront_2d_layout\",\n          \"path\": \"examples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\"\n        },\n        {\n          \"repository\": \"BlenderProc-3DFront-3dlg-hcvc\",\n          \"ref\": \"refs/heads/3dfront_vis\",\n          \"path\": \"examples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\"\n        },\n        {\n          \"repository\": \"BlenderProc-3DFront-3dlg-hcvc\",\n          \"ref\": \"refs/heads/detached\",\n          \"path\": \"examples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\"\n        }\n      ]\n    },\n    \"multi_render.py\": {\n      \"found\": true,\n      \"hits\": [\n        {\n          \"repository\": \"BlenderProc-3DFront-3dlg-hcvc\",\n          \"ref\": \"refs/heads/3dfront_2d_layout\",\n          \"path\": \"examples/datasets/front_3d_with_improved_mat/multi_render.py\"\n        },\n        {\n          \"repository\": \"BlenderProc-3DFront-3dlg-hcvc\",\n          \"ref\": \"refs/heads/3dfront_vis\",\n          \"path\": \"examples/datasets/front_3d_with_improved_mat/multi_render.py\"\n        },\n        {\n          \"repository\": \"BlenderProc-3DFront-3dlg-hcvc\",\n          \"ref\": \"refs/heads/detached\",\n          \"path\": \"examples/datasets/front_3d_with_improved_mat/multi_render.py\"\n        }\n      ]\n    },\n    \"data_process_front3d.py\": {\n      \"found\": true,\n      \"hits\": [\n        {\n          \"repository\": \"BlenderProc-3DFront-3dlg-hcvc\",\n          \"ref\": \"refs/heads/3dfront_2d_layout\",\n          \"path\": \"visualization/front3d/data_process_front3d.py\"\n        },\n        {\n          \"repository\": \"BlenderProc-3DFront-3dlg-hcvc\",\n          \"ref\": \"refs/heads/detached\",\n          \"path\": \"visualization/front3d/data_process_front3d.py\"\n        }\n      ]\n    },\n    \"Bottom_label_map\": {\n      \"found\": false,\n      \"hits\": []\n    },\n    \"Bottom_inst_anno\": {\n      \"found\": false,\n      \"hits\": []\n    }\n  },\n  \"missing_runtime\": [\n    \"blender command\",\n    \"blenderproc command\",\n    \"python module PIL\",\n    \"python module cv2\",\n    \"python module numpy\",\n    \"python module scipy\",\n    \"python module h5py\",\n    \"python module bpy\",\n    \"python module blenderproc\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  "downloaded_reports": [
+    "outputs\\manual_review\\r8a_source_resolution\\official_source_resolution_summary.json",
+    "outputs\\manual_review\\r8a_source_resolution\\semlayoutdiff_complete_source_inventory.json",
+    "outputs\\manual_review\\r8a_source_resolution\\blenderproc_complete_source_inventory.json",
+    "outputs\\manual_review\\r8a_source_resolution\\bottommap_cross_repo_source_map.csv",
+    "outputs\\manual_review\\r8a_source_resolution\\third_party_bottommap_license_audit.json",
+    "outputs\\manual_review\\r8a_source_resolution\\a800_bottommap_environment_inventory.json",
+    "outputs\\manual_review\\r8a_source_resolution\\bottommap_environment_gap.json",
+    "outputs\\manual_review\\r8a_source_resolution\\THIRD_PARTY_BOTTOMMAP_SOURCE_PROVENANCE.md"
+  ],
+  "cleanup": {
+    "relay_connection_count": 5,
+    "relay_errors": [],
+    "server_listener_after_cancel": "",
+    "global_git_proxy_after": ""
+  },
+  "result": "ok",
+  "finished_at": "2026-06-16 20:48:35"
+}

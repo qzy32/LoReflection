@@ -1,0 +1,56 @@
+{
+  "background_group": [
+    "void",
+    "floor"
+  ],
+  "bed_group": [
+    "kids_bed",
+    "single_bed",
+    "double_bed"
+  ],
+  "table_group": [
+    "corner_side_table",
+    "round_end_table",
+    "coffee_table",
+    "console_table",
+    "desk",
+    "dressing_table",
+    "table",
+    "dining_table",
+    "nightstand"
+  ],
+  "storage_group": [
+    "tv_stand",
+    "shelf",
+    "bookshelf",
+    "children_cabinet",
+    "wine_cabinet",
+    "cabinet",
+    "wardrobe"
+  ],
+  "chair_group": [
+    "stool",
+    "dressing_chair",
+    "dining_chair",
+    "chinese_chair",
+    "armchair",
+    "chair",
+    "lounge_chair"
+  ],
+  "sofa_group": [
+    "loveseat_sofa",
+    "lazy_sofa",
+    "sofa",
+    "multi_seat_sofa",
+    "chaise_longue_sofa",
+    "l_shaped_sofa"
+  ],
+  "lighting_group": [
+    "pendant_lamp",
+    "ceiling_lamp"
+  ],
+  "architecture_group": [
+    "door",
+    "window"
+  ]
+}

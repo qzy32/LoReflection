@@ -1,0 +1,2 @@
+sample,I_target_exact_palette_ratio,I_bad_exact_palette_ratio,target_equals_snapped_target_inside_mask_ratio,bad_equals_target_outside_mask_ratio,changed_pixels_inside_mask,mask_area_px,status
+remove_001_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_MasterBedroom-33296_remove-0_0,0.0,0.0,0.0,1.0,1419,2891,PALETTE_CONTRACT_FAIL

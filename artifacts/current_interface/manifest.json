@@ -1,0 +1,34 @@
+{
+  "current_interface": "current",
+  "actions": [
+    "ADD",
+    "REMOVE",
+    "TRANSLATE",
+    "ROTATE",
+    "SCALE",
+    "REPLACE"
+  ],
+  "semantic_repair4": [
+    "ADD",
+    "REMOVE",
+    "TRANSLATE",
+    "REPLACE"
+  ],
+  "parametric_update": [
+    "ROTATE",
+    "SCALE"
+  ],
+  "files": [
+    "artifacts/current_interface/mask_spec.schema.json",
+    "artifacts/current_interface/planner_input_context.schema.json",
+    "artifacts/current_interface/repairplan.schema.json",
+    "outputs/current_vlm_planner_handoff/ACTION_PROTOCOL.md",
+    "outputs/current_vlm_planner_handoff/planner_sft_minimal_examples.jsonl",
+    "outputs/current_vlm_planner_handoff/README_VLM_PLANNER_HANDOFF.md",
+    "outputs/current_vlm_planner_handoff/REPAIRPLAN_OUTPUT_SPEC.md",
+    "outputs/current_vlm_planner_handoff/VALIDATION_GUIDE.md",
+    "outputs/current_vlm_planner_handoff/schemas/mask_spec.schema.json",
+    "outputs/current_vlm_planner_handoff/schemas/planner_input_context.schema.json",
+    "outputs/current_vlm_planner_handoff/schemas/repairplan.schema.json"
+  ]
+}

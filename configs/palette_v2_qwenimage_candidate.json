@@ -1,0 +1,195 @@
+{
+  "palette_id": "qwenimage_robust_candidate",
+  "colors": {
+    "void": [
+      255,
+      255,
+      255
+    ],
+    "floor": [
+      210,
+      210,
+      210
+    ],
+    "kids_bed": [
+      161,
+      224,
+      72
+    ],
+    "single_bed": [
+      224,
+      72,
+      205
+    ],
+    "double_bed": [
+      72,
+      224,
+      199
+    ],
+    "corner_side_table": [
+      224,
+      154,
+      72
+    ],
+    "round_end_table": [
+      110,
+      72,
+      224
+    ],
+    "coffee_table": [
+      78,
+      224,
+      72
+    ],
+    "console_table": [
+      224,
+      72,
+      123
+    ],
+    "tv_stand": [
+      72,
+      167,
+      224
+    ],
+    "desk": [
+      212,
+      224,
+      72
+    ],
+    "dressing_table": [
+      192,
+      72,
+      224
+    ],
+    "table": [
+      72,
+      224,
+      148
+    ],
+    "dining_table": [
+      224,
+      103,
+      72
+    ],
+    "stool": [
+      72,
+      85,
+      224
+    ],
+    "dressing_chair": [
+      129,
+      224,
+      72
+    ],
+    "dining_chair": [
+      224,
+      72,
+      174
+    ],
+    "chinese_chair": [
+      72,
+      218,
+      224
+    ],
+    "armchair": [
+      224,
+      186,
+      72
+    ],
+    "chair": [
+      141,
+      72,
+      224
+    ],
+    "lounge_chair": [
+      72,
+      224,
+      97
+    ],
+    "loveseat_sofa": [
+      224,
+      72,
+      91
+    ],
+    "lazy_sofa": [
+      72,
+      136,
+      224
+    ],
+    "sofa": [
+      180,
+      224,
+      72
+    ],
+    "multi_seat_sofa": [
+      224,
+      72,
+      224
+    ],
+    "chaise_longue_sofa": [
+      72,
+      224,
+      179
+    ],
+    "l_shaped_sofa": [
+      224,
+      135,
+      72
+    ],
+    "nightstand": [
+      90,
+      72,
+      224
+    ],
+    "shelf": [
+      98,
+      224,
+      72
+    ],
+    "bookshelf": [
+      224,
+      72,
+      142
+    ],
+    "children_cabinet": [
+      72,
+      187,
+      224
+    ],
+    "wine_cabinet": [
+      224,
+      217,
+      72
+    ],
+    "cabinet": [
+      173,
+      72,
+      224
+    ],
+    "wardrobe": [
+      72,
+      224,
+      128
+    ],
+    "pendant_lamp": [
+      224,
+      84,
+      72
+    ],
+    "ceiling_lamp": [
+      72,
+      104,
+      224
+    ],
+    "door": [
+      160,
+      32,
+      32
+    ],
+    "window": [
+      40,
+      180,
+      240
+    ]
+  }
+}

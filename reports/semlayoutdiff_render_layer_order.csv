@@ -1,0 +1,2 @@
+order,layer/object type,source,reason,can overwrite previous layer,final visible effect
+1,candidate evidence found; inspect JSON call_chain for exact lines,static source search,Detailed runtime draw order requires direct source evidence from rendering code.,unknown,inferred from source hits

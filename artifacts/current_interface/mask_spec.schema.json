@@ -1,0 +1,318 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LoReflection current mask_spec",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "mask_type",
+    "components",
+    "image_size_px",
+    "dilation_px",
+    "clip_to_room",
+    "allow_disconnected",
+    "white_means",
+    "black_means"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "mask-spec-current"
+    },
+    "mask_type": {
+      "enum": [
+        "footprint",
+        "instance_ref",
+        "old_new_union",
+        "source_target_union"
+      ]
+    },
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "component_id",
+          "component_role",
+          "geometry_type",
+          "geometry",
+          "semantic_hint",
+          "allowed_labels",
+          "operation_hint"
+        ],
+        "properties": {
+          "component_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "component_role": {
+            "enum": [
+              "target_region",
+              "source_region",
+              "old_region",
+              "new_region",
+              "context_region",
+              "protected_region"
+            ]
+          },
+          "geometry_type": {
+            "enum": [
+              "polygon",
+              "bbox",
+              "footprint",
+              "instance_ref"
+            ]
+          },
+          "geometry": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "bbox_px": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "minItems": 4,
+                "maxItems": 4
+              },
+              "polygon_px": {
+                "type": "array",
+                "minItems": 3,
+                "items": {
+                  "type": "array",
+                  "prefixItems": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ],
+                  "minItems": 2,
+                  "maxItems": 2
+                }
+              },
+              "footprint_px": {
+                "type": "array",
+                "minItems": 3,
+                "items": {
+                  "type": "array",
+                  "prefixItems": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ],
+                  "minItems": 2,
+                  "maxItems": 2
+                }
+              },
+              "instance_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "semantic_hint": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "category",
+              "semantic_id",
+              "rgb"
+            ],
+            "properties": {
+              "category": {
+                "type": "string",
+                "minLength": 1
+              },
+              "semantic_id": {
+                "type": "integer"
+              },
+              "rgb": {
+                "$ref": "#/$defs/rgb"
+              }
+            }
+          },
+          "allowed_labels": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "integer"
+            }
+          },
+          "operation_hint": {
+            "enum": [
+              "paint_target",
+              "clear_to_floor",
+              "replace_source",
+              "preserve",
+              "context_only"
+            ]
+          },
+          "dilate_px": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "geometry_type": {
+                  "const": "bbox"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "geometry": {
+                  "required": [
+                    "bbox_px"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "geometry_type": {
+                  "const": "polygon"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "geometry": {
+                  "required": [
+                    "polygon_px"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "geometry_type": {
+                  "const": "footprint"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "geometry": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "footprint_px"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "polygon_px"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "bbox_px"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "geometry_type": {
+                  "const": "instance_ref"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "geometry": {
+                  "required": [
+                    "instance_ref"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "image_size_px": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "type": "integer",
+          "minimum": 1
+        }
+      ],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "dilation_px": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "clip_to_room": {
+      "const": true
+    },
+    "allow_disconnected": {
+      "type": "boolean"
+    },
+    "white_means": {
+      "const": "repaint"
+    },
+    "black_means": {
+      "const": "preserve"
+    }
+  },
+  "$defs": {
+    "rgb": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      ],
+      "minItems": 3,
+      "maxItems": 3
+    }
+  }
+}

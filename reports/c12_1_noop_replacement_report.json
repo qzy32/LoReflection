@@ -1,0 +1,66 @@
+{
+  "schema_version": "c12-1-noop-replacement-report-v1",
+  "result": "PASS",
+  "candidates_scanned": "explicit fast probe + replace distinct probe",
+  "filter_thresholds": {
+    "min_changed_pixels": 32,
+    "min_changed_ratio": 0.005
+  },
+  "replacements": {
+    "ADD": [
+      {
+        "sample_id": "c12_1_add_dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18",
+        "action": "ADD",
+        "status": "valid",
+        "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_add_dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18",
+        "source_category": null,
+        "target_category": "tv_stand",
+        "changed_pixels_inside_mask": 6916,
+        "changed_ratio_inside_mask": 0.6468387579498691,
+        "source_path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18.pkl"
+      }
+    ],
+    "REMOVE": [
+      {
+        "sample_id": "c12_1_remove_473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8",
+        "action": "REMOVE",
+        "status": "valid",
+        "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_remove_473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8",
+        "source_category": "nightstand",
+        "target_category": null,
+        "changed_pixels_inside_mask": 1015,
+        "changed_ratio_inside_mask": 0.4422657952069717,
+        "source_path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8.pkl"
+      }
+    ],
+    "TRANSLATE": [
+      {
+        "sample_id": "c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12",
+        "action": "TRANSLATE",
+        "status": "valid",
+        "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12",
+        "source_category": "double_bed",
+        "target_category": "double_bed",
+        "changed_pixels_inside_mask": 16227,
+        "changed_ratio_inside_mask": 0.6849725622625581,
+        "source_path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12.pkl"
+      }
+    ],
+    "REPLACE": [
+      {
+        "sample_id": "c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2",
+        "action": "REPLACE",
+        "status": "valid",
+        "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements/c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2",
+        "source_category": "lazy_sofa",
+        "target_category": "loveseat_sofa",
+        "changed_pixels_inside_mask": 7590,
+        "changed_ratio_inside_mask": 0.6941649899396378,
+        "source_path": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2.pkl"
+      }
+    ]
+  },
+  "errors": [],
+  "manual_review": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/manual_review/c12_1_replacement_candidates",
+  "output_root": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/c12_1_replacements"
+}

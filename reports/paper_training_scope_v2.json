@@ -1,0 +1,16 @@
+{
+  "main_training_room_types": [
+    "bedroom",
+    "livingroom",
+    "diningroom"
+  ],
+  "main_architecture_conditioned_benchmark_room_types": [
+    "bedroom",
+    "livingroom",
+    "diningroom"
+  ],
+  "main_text_conditioned_benchmark_room_types": [],
+  "whole_home_evaluation_scope": "not promoted by C2; requires separate extension evidence",
+  "appendix_only_room_types": [],
+  "internal_planjson_validation_room_types": "not used to expand C2 training taxonomy"
+}

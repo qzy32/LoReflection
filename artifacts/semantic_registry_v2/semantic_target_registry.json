@@ -1,0 +1,450 @@
+{
+  "status": "active",
+  "formal_training_allowed": true,
+  "categories": [
+    {
+      "semantic_id": 0,
+      "category_name": "void",
+      "role": "void",
+      "RGB": [
+        255,
+        255,
+        255
+      ],
+      "coarse_group": "other_group"
+    },
+    {
+      "semantic_id": 1,
+      "category_name": "floor",
+      "role": "floor",
+      "RGB": [
+        222,
+        222,
+        222
+      ],
+      "coarse_group": "other_group"
+    },
+    {
+      "semantic_id": 2,
+      "category_name": "kids_bed",
+      "role": "object",
+      "RGB": [
+        32,
+        224,
+        32
+      ],
+      "coarse_group": "bed_group"
+    },
+    {
+      "semantic_id": 3,
+      "category_name": "single_bed",
+      "role": "object",
+      "RGB": [
+        64,
+        32,
+        80
+      ],
+      "coarse_group": "bed_group"
+    },
+    {
+      "semantic_id": 4,
+      "category_name": "double_bed",
+      "role": "object",
+      "RGB": [
+        224,
+        192,
+        32
+      ],
+      "coarse_group": "bed_group"
+    },
+    {
+      "semantic_id": 5,
+      "category_name": "corner_side_table",
+      "role": "object",
+      "RGB": [
+        224,
+        64,
+        192
+      ],
+      "coarse_group": "table_group"
+    },
+    {
+      "semantic_id": 6,
+      "category_name": "round_end_table",
+      "role": "object",
+      "RGB": [
+        32,
+        224,
+        176
+      ],
+      "coarse_group": "table_group"
+    },
+    {
+      "semantic_id": 7,
+      "category_name": "coffee_table",
+      "role": "object",
+      "RGB": [
+        112,
+        80,
+        32
+      ],
+      "coarse_group": "table_group"
+    },
+    {
+      "semantic_id": 8,
+      "category_name": "console_table",
+      "role": "object",
+      "RGB": [
+        112,
+        144,
+        224
+      ],
+      "coarse_group": "table_group"
+    },
+    {
+      "semantic_id": 9,
+      "category_name": "tv_stand",
+      "role": "object",
+      "RGB": [
+        32,
+        112,
+        112
+      ],
+      "coarse_group": "storage_group"
+    },
+    {
+      "semantic_id": 10,
+      "category_name": "desk",
+      "role": "object",
+      "RGB": [
+        128,
+        176,
+        80
+      ],
+      "coarse_group": "table_group"
+    },
+    {
+      "semantic_id": 11,
+      "category_name": "dressing_table",
+      "role": "object",
+      "RGB": [
+        192,
+        80,
+        112
+      ],
+      "coarse_group": "table_group"
+    },
+    {
+      "semantic_id": 12,
+      "category_name": "table",
+      "role": "object",
+      "RGB": [
+        96,
+        64,
+        176
+      ],
+      "coarse_group": "table_group"
+    },
+    {
+      "semantic_id": 13,
+      "category_name": "dining_table",
+      "role": "object",
+      "RGB": [
+        224,
+        192,
+        128
+      ],
+      "coarse_group": "table_group"
+    },
+    {
+      "semantic_id": 14,
+      "category_name": "stool",
+      "role": "object",
+      "RGB": [
+        208,
+        112,
+        32
+      ],
+      "coarse_group": "chair_group"
+    },
+    {
+      "semantic_id": 15,
+      "category_name": "dressing_chair",
+      "role": "object",
+      "RGB": [
+        32,
+        96,
+        32
+      ],
+      "coarse_group": "chair_group"
+    },
+    {
+      "semantic_id": 16,
+      "category_name": "dining_chair",
+      "role": "object",
+      "RGB": [
+        80,
+        208,
+        224
+      ],
+      "coarse_group": "chair_group"
+    },
+    {
+      "semantic_id": 17,
+      "category_name": "chinese_chair",
+      "role": "object",
+      "RGB": [
+        224,
+        144,
+        224
+      ],
+      "coarse_group": "chair_group"
+    },
+    {
+      "semantic_id": 18,
+      "category_name": "armchair",
+      "role": "object",
+      "RGB": [
+        160,
+        128,
+        144
+      ],
+      "coarse_group": "chair_group"
+    },
+    {
+      "semantic_id": 19,
+      "category_name": "chair",
+      "role": "object",
+      "RGB": [
+        176,
+        224,
+        32
+      ],
+      "coarse_group": "chair_group"
+    },
+    {
+      "semantic_id": 20,
+      "category_name": "lounge_chair",
+      "role": "object",
+      "RGB": [
+        80,
+        224,
+        112
+      ],
+      "coarse_group": "chair_group"
+    },
+    {
+      "semantic_id": 21,
+      "category_name": "loveseat_sofa",
+      "role": "object",
+      "RGB": [
+        160,
+        32,
+        208
+      ],
+      "coarse_group": "sofa_group"
+    },
+    {
+      "semantic_id": 22,
+      "category_name": "lazy_sofa",
+      "role": "object",
+      "RGB": [
+        144,
+        208,
+        176
+      ],
+      "coarse_group": "sofa_group"
+    },
+    {
+      "semantic_id": 23,
+      "category_name": "sofa",
+      "role": "object",
+      "RGB": [
+        32,
+        144,
+        192
+      ],
+      "coarse_group": "sofa_group"
+    },
+    {
+      "semantic_id": 24,
+      "category_name": "multi_seat_sofa",
+      "role": "object",
+      "RGB": [
+        144,
+        32,
+        112
+      ],
+      "coarse_group": "sofa_group"
+    },
+    {
+      "semantic_id": 25,
+      "category_name": "chaise_longue_sofa",
+      "role": "object",
+      "RGB": [
+        144,
+        32,
+        32
+      ],
+      "coarse_group": "sofa_group"
+    },
+    {
+      "semantic_id": 26,
+      "category_name": "l_shaped_sofa",
+      "role": "object",
+      "RGB": [
+        80,
+        32,
+        32
+      ],
+      "coarse_group": "sofa_group"
+    },
+    {
+      "semantic_id": 27,
+      "category_name": "nightstand",
+      "role": "object",
+      "RGB": [
+        224,
+        32,
+        128
+      ],
+      "coarse_group": "bed_group"
+    },
+    {
+      "semantic_id": 28,
+      "category_name": "shelf",
+      "role": "object",
+      "RGB": [
+        224,
+        144,
+        128
+      ],
+      "coarse_group": "storage_group"
+    },
+    {
+      "semantic_id": 29,
+      "category_name": "bookshelf",
+      "role": "object",
+      "RGB": [
+        144,
+        128,
+        32
+      ],
+      "coarse_group": "storage_group"
+    },
+    {
+      "semantic_id": 30,
+      "category_name": "children_cabinet",
+      "role": "object",
+      "RGB": [
+        48,
+        160,
+        32
+      ],
+      "coarse_group": "storage_group"
+    },
+    {
+      "semantic_id": 31,
+      "category_name": "wine_cabinet",
+      "role": "object",
+      "RGB": [
+        96,
+        112,
+        80
+      ],
+      "coarse_group": "storage_group"
+    },
+    {
+      "semantic_id": 32,
+      "category_name": "cabinet",
+      "role": "object",
+      "RGB": [
+        32,
+        80,
+        160
+      ],
+      "coarse_group": "storage_group"
+    },
+    {
+      "semantic_id": 33,
+      "category_name": "wardrobe",
+      "role": "object",
+      "RGB": [
+        176,
+        96,
+        224
+      ],
+      "coarse_group": "storage_group"
+    },
+    {
+      "semantic_id": 34,
+      "category_name": "pendant_lamp",
+      "role": "object",
+      "RGB": [
+        80,
+        96,
+        128
+      ],
+      "coarse_group": "lighting_group"
+    },
+    {
+      "semantic_id": 35,
+      "category_name": "ceiling_lamp",
+      "role": "object",
+      "RGB": [
+        32,
+        160,
+        96
+      ],
+      "coarse_group": "lighting_group"
+    },
+    {
+      "semantic_id": 36,
+      "category_name": "door",
+      "role": "architecture",
+      "RGB": [
+        18,
+        38,
+        220
+      ],
+      "coarse_group": "other_group"
+    },
+    {
+      "semantic_id": 37,
+      "category_name": "window",
+      "role": "architecture",
+      "RGB": [
+        220,
+        34,
+        34
+      ],
+      "coarse_group": "other_group"
+    }
+  ],
+  "taxonomy_source": "SemLayoutDiff",
+  "taxonomy_source_commit": "6b12bc4c42aa8377445af108093539073f0495c1",
+  "taxonomy_source_checkout": "/wuqingyaoa800/qiuziyan/third_party_sources/checkouts/SemLayoutDiff_official_6b12bc4c42aa",
+  "taxonomy_source_files": [
+    "configs/sldn/mixed_con_unified_config.yaml",
+    "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+    "preprocess/metadata/unified_category_mapping_w_arch",
+    "preprocess/metadata/bedroom_idx_to_generic_label.json",
+    "preprocess/metadata/livingroom_idx_to_generic_label.json",
+    "preprocess/metadata/diningroom_idx_to_generic_label.json",
+    "preprocess/metadata/semantic_color_index_bedroom.csv",
+    "preprocess/metadata/semantic_color_index_livingdiningroom.csv",
+    "preprocess/metadata/color_palette.json",
+    "preprocess/scripts/data_processor.py",
+    "preprocess/scripts/data_to_npy.py",
+    "preprocess/scripts/pickle_threed_front_dataset.py",
+    "preprocess/scripts/json_threed_future_dataset.py",
+    "README.md"
+  ],
+  "not_derived_from": [
+    "parse_json_floorplan.py",
+    "PlanJSON compact taxonomy",
+    "13-class prototype",
+    "Chinese PlanJSON project"
+  ],
+  "provenance_corrected_at": "2026-06-19T04:04:32.373941+00:00"
+}

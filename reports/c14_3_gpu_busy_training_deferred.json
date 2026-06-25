@@ -1,0 +1,8 @@
+{
+  "schema_version": "c14-3-gpu-busy-training-deferred-v1",
+  "status": "GPU_BUSY",
+  "reason": "No A800 GPU has >=60000 MiB free memory for the C14.3 rank32/max_pixels262144 clean rerun.",
+  "wait_script": "/wuqingyaoa800/qiuziyan/LoReflection/scripts/c14_3_wait_and_run_palette_fixed.sh",
+  "log_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/c14_3_wait_and_run.log",
+  "safe_to_continue_later": true
+}

@@ -1,0 +1,144 @@
+{
+  "ADD": {
+    "candidate_files": 11863,
+    "loaded_pairs": 10,
+    "reasons": {
+      "no_tgt": 5
+    },
+    "examples": [
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18.pkl",
+        "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_remove-1_18.pkl",
+        "source_cat": null,
+        "target_cat": "tv_stand",
+        "cmd": "add object: [jid]bf9c9441-6e59-4396-ac9c-8416807485ee[/jid]; location: ***in front of*** [jid]6fc09eec-2b2a-460d-ab3d-ed"
+      },
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/2ea863a1-3dc9-4c00-8cb4-dc4b19c40589_MasterBedroom-13158_add-4_8.pkl",
+        "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/2ea863a1-3dc9-4c00-8cb4-dc4b19c40589_MasterBedroom-13158_remove-4_8.pkl",
+        "source_cat": null,
+        "target_cat": "tv_stand",
+        "cmd": "add object: [jid]c390f121-819e-4405-896a-1e60a357edcb[/jid]; location: ***in front of*** [jid]cf42607e-1745-45a0-bda3-f3"
+      },
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/cf351d12-584a-451a-bbe8-6818cbb37329_SecondBedroom-6908_add-4_16.pkl",
+        "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/cf351d12-584a-451a-bbe8-6818cbb37329_SecondBedroom-6908_remove-4_16.pkl",
+        "source_cat": null,
+        "target_cat": "tv_stand",
+        "cmd": "add object: [jid]3d798477-2a40-4da2-a6fb-91cc638ff2a1[/jid]; location: ***right of*** [jid]eeecca29-8bd8-4050-b6f4-b96ee"
+      },
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/db16a13e-2960-4bd3-a8ba-167a00e3ac8f_Bedroom-8607_add-1_0.pkl",
+        "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/db16a13e-2960-4bd3-a8ba-167a00e3ac8f_Bedroom-8607_remove-1_0.pkl",
+        "source_cat": null,
+        "target_cat": "double_bed",
+        "cmd": "add object: [jid]76ea1494-a5ad-46a8-ad29-fbde851b263e[/jid]; location: ***in front of*** [jid]685df4a4-cd69-4f0b-82f5-67"
+      },
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/f783e6e5-ebd1-4cec-94ce-bca4eca8f504_MasterBedroom-55352_add-0_0.pkl",
+        "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/f783e6e5-ebd1-4cec-94ce-bca4eca8f504_MasterBedroom-55352_remove-0_0.pkl",
+        "source_cat": null,
+        "target_cat": "single_bed",
+        "cmd": "add object: [jid]69a2550c-ec04-44d9-a621-e601330a9cb6[/jid]; location: ***behind*** [jid]fb6d84cf-0b11-4ae8-9727-88827ca"
+      }
+    ]
+  },
+  "REMOVE": {
+    "candidate_files": 11863,
+    "loaded_pairs": 9,
+    "reasons": {
+      "no_src": 4
+    },
+    "examples": [
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8.pkl",
+        "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705.pkl",
+        "source_cat": "nightstand",
+        "target_cat": null,
+        "cmd": "remove object: [jid]8e58fb02-90a0-42af-8f99-2ec9556061e4[/jid]; location: ***in front of*** [jid]7bf721bf-8839-4343-95c5"
+      },
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/f1e40a9c-1791-4411-9b5f-5383ecee8c65_Bedroom-8601_remove-0_10.pkl",
+        "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/f1e40a9c-1791-4411-9b5f-5383ecee8c65_Bedroom-8601.pkl",
+        "source_cat": "double_bed",
+        "target_cat": null,
+        "cmd": "remove object: [jid]f350c1ba-8040-4750-9e6e-f45cfbf916a4[/jid]; location: ***below*** [jid]0e2091bc-7a97-46b6-98f0-d960a"
+      },
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/f8ee1c9b-799e-4137-80ea-b9a5c240d988_Bedroom-6521_remove-2_14.pkl",
+        "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/f8ee1c9b-799e-4137-80ea-b9a5c240d988_Bedroom-6521.pkl",
+        "source_cat": "dressing_table",
+        "target_cat": null,
+        "cmd": "remove object: [jid]63312500-4559-4afb-ac52-53e06ca52b57[/jid]; location: ***left of*** [jid]00c0ed18-9131-41f1-976e-52a"
+      },
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/22eb02bc-5982-4ebe-9575-47902632e022_SecondBedroom-8475_remove-0_0.pkl",
+        "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/22eb02bc-5982-4ebe-9575-47902632e022_SecondBedroom-8475.pkl",
+        "source_cat": "double_bed",
+        "target_cat": null,
+        "cmd": "remove object: [jid]9b07bdb0-5645-4588-b202-9ef637971c46[/jid]; location: ***below*** [jid]55393b72-abf5-4e46-9450-9ec51"
+      },
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/3b5a9dae-0314-490c-b0ff-5ee9edfa4741_SecondBedroom-31401_remove-0_10.pkl",
+        "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/3b5a9dae-0314-490c-b0ff-5ee9edfa4741_SecondBedroom-31401.pkl",
+        "source_cat": "double_bed",
+        "target_cat": null,
+        "cmd": "remove object: [jid]2b44bb02-b77f-490f-acbe-7fe4ecb7dcc1[/jid]; location: ***below*** [jid]bb2babab-9064-4bee-90a1-ce468"
+      }
+    ]
+  },
+  "REPLACE": {
+    "candidate_files": 18306,
+    "loaded_pairs": 300,
+    "reasons": {
+      "same_cat": 146,
+      "no_src_tgt": 154
+    },
+    "examples": []
+  },
+  "TRANSLATE": {
+    "candidate_files": 25671,
+    "loaded_pairs": 10,
+    "reasons": {
+      "no_move": 5,
+      "cmd_skip": 8
+    },
+    "examples": [
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12.pkl",
+        "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423.pkl",
+        "source_cat": "double_bed",
+        "target_cat": "double_bed",
+        "cmd": "move object towards the ***back*** direction for 2.41 meters: [jid]501cf887-31e0-4607-aab6-9feb8da2adb6[/jid]\nobviously "
+      },
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/7314ce1d-276f-4aed-acaa-872172155163_MasterBedroom-73650_pose-1-3_18.pkl",
+        "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/7314ce1d-276f-4aed-acaa-872172155163_MasterBedroom-73650.pkl",
+        "source_cat": "nightstand",
+        "target_cat": "nightstand",
+        "cmd": "move object towards the ***front*** direction for 0.63 meters:  [jid]e40f2a24-f9cf-48c0-89bc-b71b795c3d5c[/jid]; locatio"
+      },
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/d5295fa3-1db7-4bd1-b72f-92788e244e9b_SecondBedroom-740_pose-1-0_4.pkl",
+        "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/d5295fa3-1db7-4bd1-b72f-92788e244e9b_SecondBedroom-740.pkl",
+        "source_cat": "double_bed",
+        "target_cat": "double_bed",
+        "cmd": "move object towards the ***right*** direction for 1.78 meters: [jid]f08e6d50-fdb1-47db-a243-e05a308a3d92[/jid]\nobviously"
+      },
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/37d9c4da-b8b9-45ca-bd51-26df71083b10_SecondBedroom-140603_pose-1-0_16.pkl",
+        "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/37d9c4da-b8b9-45ca-bd51-26df71083b10_SecondBedroom-140603.pkl",
+        "source_cat": "wardrobe",
+        "target_cat": "wardrobe",
+        "cmd": "move object towards the ***right*** direction for 0.78 meters: [jid]ff62d9c3-1813-406a-88c2-427eaaee4578[/jid]\nmove obje"
+      },
+      {
+        "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/05d05b98-e95c-4671-935d-7af6a1468d07_Bedroom-27402_pose-1-2_16.pkl",
+        "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/05d05b98-e95c-4671-935d-7af6a1468d07_Bedroom-27402.pkl",
+        "source_cat": "nightstand",
+        "target_cat": "nightstand",
+        "cmd": "move object towards the ***back*** direction for 2.03 meters:  [jid]ee7ce223-8224-451a-96d5-ddbeeda0687b[/jid]; location"
+      }
+    ]
+  }
+}

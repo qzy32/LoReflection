@@ -1,0 +1,35 @@
+{
+  "found": {
+    "preprocess/semlayout": [],
+    "render_dataset_improved_mat.py": [],
+    "multi_render.py": [],
+    "data_process_front3d.py": [],
+    "Bottom_label_map": [],
+    "Bottom_color": [],
+    "Bottom_inst_anno": [],
+    "Updated_Bottom": [],
+    "orthographic": [
+      {
+        "ref": "refs/heads/main",
+        "path": "preprocess/metadata/render_orthographic.json"
+      }
+    ]
+  },
+  "history": {
+    "preprocess/semlayout": [],
+    "render_dataset_improved_mat.py": [],
+    "multi_render.py": [],
+    "data_process_front3d.py": [],
+    "Bottom_label_map": [],
+    "Bottom_color": [],
+    "Bottom_inst_anno": [],
+    "Updated_Bottom": [],
+    "orthographic": [
+      {
+        "returncode": 0,
+        "output_head": "commit 176edd540f60bd1b1eae05e94c030a04b1b6305f\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Thu Aug 28 23:24:08 2025 -0700\n\n    initial commit for the full codebase\n\nA\tpreprocess/metadata/render_orthographic.json"
+      }
+    ]
+  },
+  "refs_checked": 1
+}

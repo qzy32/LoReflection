@@ -1,0 +1,128 @@
+{
+  "checkout": "/wuqingyaoa800/qiuziyan/third_party_sources/checkouts/SemLayoutDiff_official_6b12bc4c42aa",
+  "exists": true,
+  "files": {
+    "preprocess/README.md": {
+      "exists": true,
+      "line_count": 124,
+      "hits": {
+        "Bottom_label_map": false,
+        "Bottom_color": false,
+        "Bottom_inst_anno": false,
+        "padding": false,
+        "unified_mapping_file": false,
+        "color_palette_file": false,
+        "idx_to_label_files": false,
+        "mapping_files": false,
+        "num_categories": false,
+        "bbox": false,
+        "rotation": false,
+        "scale": false
+      }
+    },
+    "preprocess/semlayout/render_dataset_improved_mat.py": {
+      "exists": false
+    },
+    "preprocess/semlayout/multi_render.py": {
+      "exists": false
+    },
+    "preprocess/semlayout/visualization/front3d/data_process_front3d.py": {
+      "exists": false
+    },
+    "preprocess/scripts/data_processor.py": {
+      "exists": true,
+      "line_count": 546,
+      "hits": {
+        "Bottom_label_map": true,
+        "Bottom_color": true,
+        "Bottom_inst_anno": true,
+        "padding": true,
+        "unified_mapping_file": true,
+        "color_palette_file": true,
+        "idx_to_label_files": true,
+        "mapping_files": true,
+        "num_categories": false,
+        "bbox": true,
+        "rotation": false,
+        "scale": false
+      }
+    },
+    "preprocess/scripts/data_to_npy.py": {
+      "exists": true,
+      "line_count": 175,
+      "hits": {
+        "Bottom_label_map": false,
+        "Bottom_color": false,
+        "Bottom_inst_anno": false,
+        "padding": false,
+        "unified_mapping_file": false,
+        "color_palette_file": false,
+        "idx_to_label_files": false,
+        "mapping_files": false,
+        "num_categories": false,
+        "bbox": false,
+        "rotation": false,
+        "scale": false
+      }
+    },
+    "preprocess/scripts/pickle_threed_front_dataset.py": {
+      "exists": true,
+      "line_count": 53,
+      "hits": {
+        "Bottom_label_map": false,
+        "Bottom_color": false,
+        "Bottom_inst_anno": false,
+        "padding": false,
+        "unified_mapping_file": false,
+        "color_palette_file": false,
+        "idx_to_label_files": false,
+        "mapping_files": false,
+        "num_categories": false,
+        "bbox": false,
+        "rotation": false,
+        "scale": false
+      }
+    },
+    "preprocess/scripts/json_threed_future_dataset.py": {
+      "exists": true,
+      "line_count": 217,
+      "hits": {
+        "Bottom_label_map": false,
+        "Bottom_color": false,
+        "Bottom_inst_anno": false,
+        "padding": false,
+        "unified_mapping_file": false,
+        "color_palette_file": false,
+        "idx_to_label_files": false,
+        "mapping_files": false,
+        "num_categories": false,
+        "bbox": true,
+        "rotation": true,
+        "scale": true
+      }
+    },
+    "configs/sldn/mixed_con_unified_config.yaml": {
+      "exists": true,
+      "line_count": 25,
+      "hits": {
+        "Bottom_label_map": false,
+        "Bottom_color": false,
+        "Bottom_inst_anno": false,
+        "padding": false,
+        "unified_mapping_file": false,
+        "color_palette_file": false,
+        "idx_to_label_files": false,
+        "mapping_files": false,
+        "num_categories": true,
+        "bbox": false,
+        "rotation": false,
+        "scale": false
+      }
+    }
+  },
+  "semantic_rendering_method": "Source contains data_processor/data_to_npy mapping from Bottom_* maps to unified semantic/color maps; direct PNG renderer files were checked and may be missing in this checkout.",
+  "architecture_map": "Bottom_label_map/Bottom_color/Bottom_inst_anno are the official preprocess artifacts referenced by data_processor.py when present.",
+  "coordinate_transform": "For real EditRoom conversion this run uses object center x/z and footprint size x/z with per-room bounds normalization to 512 px; exact SemLayoutDiff MATLAB renderer world-to-pixel transform remains UNKNOWN unless renderer source is present.",
+  "yaw_orientation": "EditRoom object z_angle is used only to draw a 2D footprint polygon; hidden front_direction/yaw is not added to semantic channels.",
+  "output_format": "512x512 fixed-palette RGB PNG for LoReflection/DiffSynth compatibility; official SemLayoutDiff training numpy is unified_w_arch_120x120.npy per earlier source audit."
+}

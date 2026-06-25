@@ -1,0 +1,165 @@
+{
+  "rows": [
+    {
+      "raw_category": "door/*",
+      "reference_category": "door",
+      "loreflection_category": "door",
+      "action": "keep_architecture_anchor",
+      "semantic_group": "architecture",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "window/*",
+      "reference_category": "window",
+      "loreflection_category": "window",
+      "action": "keep_architecture_anchor",
+      "semantic_group": "architecture",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "wall/floor/opening",
+      "reference_category": "architecture_surface_or_opening",
+      "loreflection_category": "architecture",
+      "action": "keep_architecture_anchor",
+      "semantic_group": "architecture",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "Pendant Lamp",
+      "reference_category": "pendant_lamp",
+      "loreflection_category": "pendant_lamp",
+      "action": "keep_furniture",
+      "semantic_group": "lighting",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "Ceiling Lamp",
+      "reference_category": "ceiling_lamp",
+      "loreflection_category": "ceiling_lamp",
+      "action": "keep_furniture",
+      "semantic_group": "lighting",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "lamp / lighting",
+      "reference_category": "lamp",
+      "loreflection_category": "lamp",
+      "action": "keep_furniture",
+      "semantic_group": "lighting",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "Bed / King-size Bed / Single bed / Kids Bed / Bunk Bed",
+      "reference_category": "bed",
+      "loreflection_category": "bed",
+      "action": "keep_furniture",
+      "semantic_group": "core_furniture",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "Nightstand",
+      "reference_category": "nightstand",
+      "loreflection_category": "nightstand",
+      "action": "keep_furniture",
+      "semantic_group": "core_furniture",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "Wardrobe",
+      "reference_category": "wardrobe",
+      "loreflection_category": "wardrobe",
+      "action": "keep_furniture",
+      "semantic_group": "core_furniture",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "Desk",
+      "reference_category": "desk",
+      "loreflection_category": "desk",
+      "action": "keep_furniture",
+      "semantic_group": "core_furniture",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "Chair / Dining Chair / armchair / Lounge Chair",
+      "reference_category": "chair",
+      "loreflection_category": "chair",
+      "action": "keep_furniture",
+      "semantic_group": "core_furniture",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "Sofa / Loveseat Sofa / L-shaped Sofa / Multi-seat Sofa",
+      "reference_category": "sofa",
+      "loreflection_category": "sofa",
+      "action": "keep_furniture",
+      "semantic_group": "core_furniture",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "Dining Table / Coffee Table / Table",
+      "reference_category": "table",
+      "loreflection_category": "table",
+      "action": "keep_furniture",
+      "semantic_group": "core_furniture",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "TV Stand",
+      "reference_category": "tv_stand",
+      "loreflection_category": "tv_stand",
+      "action": "keep_furniture",
+      "semantic_group": "core_furniture",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "Sideboard / Side Cabinet / Console Table",
+      "reference_category": "cabinet",
+      "loreflection_category": "cabinet",
+      "action": "keep_furniture",
+      "semantic_group": "core_furniture",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "Bookshelf / Shelf",
+      "reference_category": "bookshelf",
+      "loreflection_category": "bookshelf",
+      "action": "keep_furniture",
+      "semantic_group": "core_furniture",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "Table",
+      "reference_category": "table",
+      "loreflection_category": "table",
+      "action": "keep_furniture",
+      "semantic_group": "core_furniture",
+      "skip_reason": ""
+    },
+    {
+      "raw_category": "curtain",
+      "reference_category": "curtain",
+      "loreflection_category": "unknown",
+      "action": "skip",
+      "semantic_group": "accessory",
+      "skip_reason": "accessory_excluded_from_v1"
+    },
+    {
+      "raw_category": "plants / pillow / decor",
+      "reference_category": "decor",
+      "loreflection_category": "unknown",
+      "action": "skip",
+      "semantic_group": "accessory",
+      "skip_reason": "accessory_excluded_from_v1"
+    },
+    {
+      "raw_category": "Others",
+      "reference_category": "unknown",
+      "loreflection_category": "unknown",
+      "action": "skip",
+      "semantic_group": "unknown",
+      "skip_reason": "unknown_or_unstable_mapping"
+    }
+  ],
+  "note": "aggregate rule-level mapping; full source_jid coverage is in u1_authoritative_category_source_coverage.json"
+}

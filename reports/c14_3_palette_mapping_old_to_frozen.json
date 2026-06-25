@@ -1,0 +1,303 @@
+{
+  "schema_version": "c14-3-old-to-frozen-palette-mapping-v1",
+  "strategy": "old RGB -> semantic label -> frozen RGB",
+  "old_palette": "configs/palette_semlayoutdiff_native.json",
+  "frozen_palette": "artifacts/semantic_registry_v2/palette_frozen.json",
+  "mapped_count": 36,
+  "ambiguous_native_rgbs": {
+    "(241, 166, 205)": [
+      "lazy_sofa",
+      "multi_seat_sofa"
+    ]
+  },
+  "mapping": {
+    "(255, 255, 255)": {
+      "label": "void",
+      "frozen_rgb": [
+        255,
+        255,
+        255
+      ]
+    },
+    "(211, 211, 211)": {
+      "label": "floor",
+      "frozen_rgb": [
+        222,
+        222,
+        222
+      ]
+    },
+    "(152, 223, 138)": {
+      "label": "kids_bed",
+      "frozen_rgb": [
+        32,
+        224,
+        32
+      ]
+    },
+    "(105, 183, 100)": {
+      "label": "single_bed",
+      "frozen_rgb": [
+        64,
+        32,
+        80
+      ]
+    },
+    "(44, 160, 44)": {
+      "label": "double_bed",
+      "frozen_rgb": [
+        224,
+        192,
+        32
+      ]
+    },
+    "(197, 176, 213)": {
+      "label": "corner_side_table",
+      "frozen_rgb": [
+        224,
+        64,
+        192
+      ]
+    },
+    "(187, 166, 212)": {
+      "label": "round_end_table",
+      "frozen_rgb": [
+        32,
+        224,
+        176
+      ]
+    },
+    "(178, 157, 212)": {
+      "label": "coffee_table",
+      "frozen_rgb": [
+        112,
+        80,
+        32
+      ]
+    },
+    "(169, 148, 211)": {
+      "label": "console_table",
+      "frozen_rgb": [
+        112,
+        144,
+        224
+      ]
+    },
+    "(160, 139, 211)": {
+      "label": "tv_stand",
+      "frozen_rgb": [
+        32,
+        112,
+        112
+      ]
+    },
+    "(150, 129, 211)": {
+      "label": "desk",
+      "frozen_rgb": [
+        128,
+        176,
+        80
+      ]
+    },
+    "(141, 120, 210)": {
+      "label": "dressing_table",
+      "frozen_rgb": [
+        192,
+        80,
+        112
+      ]
+    },
+    "(132, 111, 210)": {
+      "label": "table",
+      "frozen_rgb": [
+        96,
+        64,
+        176
+      ]
+    },
+    "(123, 102, 210)": {
+      "label": "dining_table",
+      "frozen_rgb": [
+        224,
+        192,
+        128
+      ]
+    },
+    "(23, 190, 207)": {
+      "label": "stool",
+      "frozen_rgb": [
+        208,
+        112,
+        32
+      ]
+    },
+    "(162, 200, 236)": {
+      "label": "dressing_chair",
+      "frozen_rgb": [
+        32,
+        96,
+        32
+      ]
+    },
+    "(151, 193, 231)": {
+      "label": "dining_chair",
+      "frozen_rgb": [
+        80,
+        208,
+        224
+      ]
+    },
+    "(140, 186, 226)": {
+      "label": "chinese_chair",
+      "frozen_rgb": [
+        224,
+        144,
+        224
+      ]
+    },
+    "(74, 146, 198)": {
+      "label": "armchair",
+      "frozen_rgb": [
+        160,
+        128,
+        144
+      ]
+    },
+    "(52, 132, 189)": {
+      "label": "chair",
+      "frozen_rgb": [
+        176,
+        224,
+        32
+      ]
+    },
+    "(31, 119, 180)": {
+      "label": "lounge_chair",
+      "frozen_rgb": [
+        80,
+        224,
+        112
+      ]
+    },
+    "(243, 171, 207)": {
+      "label": "loveseat_sofa",
+      "frozen_rgb": [
+        160,
+        32,
+        208
+      ]
+    },
+    "(240, 161, 204)": {
+      "label": "sofa",
+      "frozen_rgb": [
+        32,
+        144,
+        192
+      ]
+    },
+    "(233, 140, 199)": {
+      "label": "chaise_longue_sofa",
+      "frozen_rgb": [
+        144,
+        32,
+        32
+      ]
+    },
+    "(227, 119, 194)": {
+      "label": "l_shaped_sofa",
+      "frozen_rgb": [
+        80,
+        32,
+        32
+      ]
+    },
+    "(255, 217, 74)": {
+      "label": "nightstand",
+      "frozen_rgb": [
+        224,
+        32,
+        128
+      ]
+    },
+    "(215, 216, 130)": {
+      "label": "shelf",
+      "frozen_rgb": [
+        224,
+        144,
+        128
+      ]
+    },
+    "(212, 213, 119)": {
+      "label": "bookshelf",
+      "frozen_rgb": [
+        144,
+        128,
+        32
+      ]
+    },
+    "(206, 207, 98)": {
+      "label": "children_cabinet",
+      "frozen_rgb": [
+        48,
+        160,
+        32
+      ]
+    },
+    "(200, 201, 76)": {
+      "label": "wine_cabinet",
+      "frozen_rgb": [
+        96,
+        112,
+        80
+      ]
+    },
+    "(194, 195, 55)": {
+      "label": "cabinet",
+      "frozen_rgb": [
+        32,
+        80,
+        160
+      ]
+    },
+    "(188, 189, 34)": {
+      "label": "wardrobe",
+      "frozen_rgb": [
+        176,
+        96,
+        224
+      ]
+    },
+    "(255, 187, 120)": {
+      "label": "pendant_lamp",
+      "frozen_rgb": [
+        80,
+        96,
+        128
+      ]
+    },
+    "(255, 127, 14)": {
+      "label": "ceiling_lamp",
+      "frozen_rgb": [
+        32,
+        160,
+        96
+      ]
+    },
+    "(153, 0, 0)": {
+      "label": "door",
+      "frozen_rgb": [
+        18,
+        38,
+        220
+      ]
+    },
+    "(255, 153, 153)": {
+      "label": "window",
+      "frozen_rgb": [
+        220,
+        34,
+        34
+      ]
+    }
+  }
+}

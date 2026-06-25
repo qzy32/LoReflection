@@ -1,0 +1,5258 @@
+{
+  "report_version": "semlayoutdiff_visualization_reference_v1",
+  "semlayoutdiff_root": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509",
+  "hard_source_evidence": {
+    "required_files": [
+      {
+        "relative_path": "preprocess/README.md",
+        "exists": true,
+        "keyword_hits": [
+          {
+            "line": 3,
+            "text": "This directory contains preprocessing tools for the 3D-FRONT and 3D-FUTURE datasets. The preprocessing pipeline generates semantic layout maps, room architecture maps, and object instance information for training and eva"
+          },
+          {
+            "line": 8,
+            "text": "1. Semantic layout maps and room architecture maps (PNG format)"
+          },
+          {
+            "line": 11,
+            "text": "We leverage [BlenderProc-3DFront](https://github.com/yinyunie/BlenderProc-3DFront) to process 3D-FRONT scenes into top-down view renders."
+          },
+          {
+            "line": 79,
+            "text": "After rendering, extract semantic and architecture maps:"
+          },
+          {
+            "line": 101,
+            "text": "--include_arch"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/semlayout/render_dataset_improved_mat.py",
+        "exists": false,
+        "keyword_hits": []
+      },
+      {
+        "relative_path": "preprocess/semlayout/multi_render.py",
+        "exists": false,
+        "keyword_hits": []
+      },
+      {
+        "relative_path": "preprocess/semlayout/visualization/front3d/data_process_front3d.py",
+        "exists": false,
+        "keyword_hits": []
+      },
+      {
+        "relative_path": "preprocess/scripts/data_processor.py",
+        "exists": true,
+        "keyword_hits": [
+          {
+            "line": 5,
+            "text": "1. First padding images to target size and converting masks to bounding boxes"
+          },
+          {
+            "line": 31,
+            "text": "self.color_palette = {}"
+          },
+          {
+            "line": 53,
+            "text": "if 'color_palette_file' in self.config:"
+          },
+          {
+            "line": 54,
+            "text": "with open(self.config['color_palette_file'], 'r') as f:"
+          },
+          {
+            "line": 55,
+            "text": "self.color_palette = json.load(f)"
+          },
+          {
+            "line": 91,
+            "text": "# Get lamp labels and floor label"
+          },
+          {
+            "line": 96,
+            "text": "floor_labels = ["
+          },
+          {
+            "line": 98,
+            "text": "if label.lower() == \"floor\""
+          },
+          {
+            "line": 100,
+            "text": "floor_label = floor_labels[0] if floor_labels else None"
+          },
+          {
+            "line": 104,
+            "text": "if label not in lamp_labels and label != 0 and label != floor_label"
+          },
+          {
+            "line": 121,
+            "text": "if label in unique_labels and label != 0 and label != floor_label:"
+          },
+          {
+            "line": 144,
+            "text": "# Calculate padding"
+          },
+          {
+            "line": 172,
+            "text": "for polygon in annotation.get(\"mask\", []):"
+          },
+          {
+            "line": 173,
+            "text": "updated_polygon = []"
+          },
+          {
+            "line": 174,
+            "text": "for i in range(0, len(polygon), 2):"
+          },
+          {
+            "line": 175,
+            "text": "x, y = polygon[i], polygon[i + 1]"
+          },
+          {
+            "line": 176,
+            "text": "updated_polygon.extend([x + pad_left, y + pad_top])"
+          },
+          {
+            "line": 177,
+            "text": "updated_mask.append(updated_polygon)"
+          },
+          {
+            "line": 203,
+            "text": "color = self.color_palette.get(category_name, [0, 0, 0])"
+          },
+          {
+            "line": 216,
+            "text": "include_arch: bool = True"
+          },
+          {
+            "line": 218,
+            "text": "\"\"\"Process datasets with padding and unification in one step.\"\"\""
+          },
+          {
+            "line": 287,
+            "text": "mapping, target_size, include_arch"
+          },
+          {
+            "line": 306,
+            "text": "include_arch: bool"
+          },
+          {
+            "line": 308,
+            "text": "\"\"\"Process a single room with padding and unification. Always converts masks to bounding boxes.\"\"\""
+          },
+          {
+            "line": 319,
+            "text": "label_path = os.path.join(room_folder, f\"{prefix}Bottom_label_map.png\")"
+          },
+          {
+            "line": 371,
+            "text": "color = self.color_palette.get(category_name, [0, 0, 0])"
+          },
+          {
+            "line": 375,
+            "text": "if not include_arch:"
+          },
+          {
+            "line": 384,
+            "text": "if category_name.lower() in [\"door\", \"window\"]:"
+          },
+          {
+            "line": 391,
+            "text": "if ann.get(\"basename\", \"\").lower() not in [\"window\", \"door\"]"
+          },
+          {
+            "line": 399,
+            "text": "Image.fromarray(unified_label_image.astype(np.uint8)).save("
+          },
+          {
+            "line": 400,
+            "text": "os.path.join(room_output_dir, \"Updated_Bottom_label_map.png\")"
+          },
+          {
+            "line": 402,
+            "text": "Image.fromarray(unified_colored_image).save("
+          },
+          {
+            "line": 486,
+            "text": "help=\"Target size for padding (width height)\""
+          },
+          {
+            "line": 489,
+            "text": "\"--include_arch\","
+          },
+          {
+            "line": 491,
+            "text": "help=\"Include architectural elements (doors/windows)\""
+          },
+          {
+            "line": 501,
+            "text": "\"--color_palette_file\","
+          },
+          {
+            "line": 515,
+            "text": "'color_palette_file': args.color_palette_file,"
+          },
+          {
+            "line": 540,
+            "text": "args.include_arch"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/scripts/data_to_npy.py",
+        "exists": true,
+        "keyword_hits": [
+          {
+            "line": 33,
+            "text": "torchvision.transforms.Resize((H, W), interpolation=0),"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/color_palette.json",
+        "exists": true,
+        "keyword_hits": []
+      },
+      {
+        "relative_path": "preprocess/metadata/render_orthographic.json",
+        "exists": true,
+        "keyword_hits": []
+      },
+      {
+        "relative_path": "preprocess/metadata/semantic_color_index_bedroom.csv",
+        "exists": true,
+        "keyword_hits": []
+      },
+      {
+        "relative_path": "preprocess/metadata/semantic_color_index_livingdiningroom.csv",
+        "exists": true,
+        "keyword_hits": []
+      },
+      {
+        "relative_path": "preprocess/metadata/unified_idx_to_generic_label.json",
+        "exists": true,
+        "keyword_hits": []
+      },
+      {
+        "relative_path": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+        "exists": true,
+        "keyword_hits": []
+      }
+    ],
+    "front3d_visualization_files": [],
+    "metadata_files": [
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/bedroom_idx_to_generic_label.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24"
+        ],
+        "sample": {
+          "0": "void",
+          "1": "armchair",
+          "2": "bookshelf",
+          "3": "cabinet",
+          "4": "ceiling_lamp"
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/bedroom_pix_ratio_threshold.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "armchair",
+          "bookshelf",
+          "cabinet",
+          "ceiling_lamp",
+          "chair",
+          "children_cabinet",
+          "coffee_table",
+          "desk",
+          "double_bed",
+          "dressing_chair",
+          "dressing_table",
+          "kids_bed",
+          "nightstand",
+          "pendant_lamp",
+          "shelf",
+          "single_bed",
+          "sofa",
+          "stool",
+          "table",
+          "tv_stand",
+          "wardrobe"
+        ],
+        "sample": {
+          "armchair": 0.007946618659484116,
+          "bookshelf": 0.0032108113391737052,
+          "cabinet": 0.0025561244442042206,
+          "ceiling_lamp": 0.0022145652242184215,
+          "chair": 0.0014666703591528273
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/bedroom_threed_front_splits.csv",
+        "exists": true,
+        "row_count": 6535,
+        "head": [
+          [
+            "SecondBedroom-316",
+            "train"
+          ],
+          [
+            "MasterBedroom-28057",
+            "train"
+          ],
+          [
+            "Bedroom-75221",
+            "train"
+          ],
+          [
+            "Bedroom-236",
+            "train"
+          ],
+          [
+            "Bedroom-11842",
+            "train"
+          ],
+          [
+            "SecondBedroom-118939",
+            "train"
+          ],
+          [
+            "SecondBedroom-70857",
+            "train"
+          ],
+          [
+            "MasterBedroom-9638",
+            "train"
+          ]
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/chinese_furniture_categories.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "筒灯 灰色 白色 灯具 灯饰 灯 嵌入式",
+          "现代筒灯",
+          "书籍文具",
+          "窗帘2 北欧 灰色 其它",
+          "HXD042901-后现代简约-筒灯 灰色 灯具 灯饰 灯 嵌入式",
+          "自发光-灯带-方形-自然光 灯具 灯饰 灯 灯带",
+          "后现代轻奢筒灯 白色 灯具 灯饰 灯 嵌入式",
+          "轻奢软包背景墙组合02-1 布艺 轻奢 灰色 其它",
+          "CJ090902- 侘寂木格栅板",
+          "工艺品摆件",
+          "卫浴用品-卫浴小件-挂件置物架 灰色 架子 置物架",
+          "现代-石膏-嵌入式壁灯",
+          "20231656XD-现代风筒",
+          "衣柜装饰-服饰装饰 天蓝色 鞋包衣帽",
+          "现代百叶帘拉帘",
+          "现代-潮玩摆件",
+          "衣柜装饰-服饰装饰 灰色 鞋包衣帽",
+          "法狮龙-换气扇-GCMF300A-F",
+          "餐具 现代 白色 灰色 厨柜 餐酒具",
+          "滚筒洗衣机",
+          "厨具-挂钩挂架",
+          "XD0719006-现代餐厅-布艺餐椅",
+          "摆饰-书籍 灰色 书籍文具",
+          "XD4665386-书籍",
+          "法狮龙-集成照明-GCDG300G",
+          "0216006-现代简约餐厅组合-布艺餐椅",
+          "酒-洋酒",
+          "北欧-客厅筒灯 灰色 灯具 灯饰 灯 嵌入式",
+          "XZS0103047-新中式餐厅-布艺餐椅",
+          "XDZG1101007-现代中古客厅-布艺地毯",
+          "现代玻璃花瓶",
+          "现代吸顶灯 现代 卧室吸顶灯 非儿童 白色 灯具 灯饰 灯 吸顶灯",
+          "空调出风口-顶面 灰色 风口 中央空调",
+          "隔断",
+          "QS092703-轻奢卫生间-玻璃隔断",
+          "女式包包",
+          "美的-风暖五合一-M0624-J",
+          "衣柜装饰-衣架衣服",
+          "罗马杆窗帘",
+          "XDNY1484872-现代奶油风 -坐垫",
+          "XD0120042-现代餐厅-木质吊柜",
+          "XD0115074-现代奶油简约吸顶灯",
+          "FS1205031-轻法式奶油风客餐厅-小背篓毛巾架",
+          "杯具",
+          "木质餐椅",
+          "NY0311009-奶油餐厅-布艺餐椅",
+          "TCL 薄嵌 T9 冰箱",
+          "空调出风口-侧面 灰色 风口 中央空调",
+          "JJ0309008-极简餐厅-布艺餐椅",
+          "现代-布艺-餐椅 布艺 现代 灰色 餐椅",
+          "窗帘-隐形轨道",
+          "XD1110020-现代客厅-摆件 灰色 书籍文具",
+          "QS0525001-现代轻奢布艺餐椅1",
+          "一席之地-隔板 橙色 屏风隔断",
+          "数码产品-游戏机-游戏手柄",
+          "FS1205022-轻法式奶油风客餐厅-饮水机",
+          "CJ0922003-侘寂餐厅-玻璃花瓶",
+          "TCL-空调小蓝翼新风风管机",
+          "现代宇航员雕塑摆件_桌面摆件_装饰品摆件_太空人摆设",
+          "XD1113005-现代唱片"
+        ],
+        "sample": {
+          "筒灯 灰色 白色 灯具 灯饰 灯 嵌入式": {
+            "category_id": 35,
+            "category_name": "ceiling_lamp",
+            "count": 74
+          },
+          "现代筒灯": {
+            "category_id": 35,
+            "category_name": "ceiling_lamp",
+            "count": 56
+          },
+          "书籍文具": {
+            "category_id": 0,
+            "category_name": "void",
+            "count": 44
+          },
+          "窗帘2 北欧 灰色 其它": {
+            "category_id": 0,
+            "category_name": "void",
+            "count": 40
+          },
+          "HXD042901-后现代简约-筒灯 灰色 灯具 灯饰 灯 嵌入式": {
+            "category_id": 35,
+            "category_name": "ceiling_lamp",
+            "count": 36
+          }
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/chinese_idx_to_generic_label.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54"
+        ],
+        "sample": {
+          "0": "void",
+          "1": "floor",
+          "2": "kids_bed",
+          "3": "single_bed",
+          "4": "double_bed"
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/chinese_idx_to_label.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33"
+        ],
+        "sample": {
+          "0": "void",
+          "1": "floor",
+          "2": "kids_bed",
+          "3": "single_bed",
+          "4": "double_bed"
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/chinese_pix_ratio_threshold.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "kids_bed",
+          "single_bed",
+          "double_bed",
+          "corner_side_table",
+          "round_end_table",
+          "coffee_table",
+          "console_table",
+          "tv_stand",
+          "desk",
+          "dressing_table",
+          "table",
+          "dining_table",
+          "stool",
+          "dressing_chair",
+          "dining_chair",
+          "chinese_chair",
+          "armchair",
+          "chair",
+          "lounge_chair",
+          "loveseat_sofa",
+          "lazy_sofa",
+          "sofa",
+          "multi_seat_sofa",
+          "chaise_longue_sofa",
+          "l_shaped_sofa",
+          "nightstand",
+          "shelf",
+          "bookshelf",
+          "children_cabinet",
+          "wine_cabinet",
+          "cabinet",
+          "wardrobe",
+          "pendant_lamp",
+          "ceiling_lamp",
+          "bathtub",
+          "toilet",
+          "wash_basin",
+          "shower",
+          "refrigerator",
+          "cooking_appliance",
+          "piano",
+          "washing_machine",
+          "air_conditioner",
+          "display_screen",
+          "kitchen_cabinet",
+          "bathroom_cabinet",
+          "fitness_equipment",
+          "shoe_cabinet",
+          "tatami",
+          "kitchen_island",
+          "cove_ceiling"
+        ],
+        "sample": {
+          "kids_bed": 0.26321974148061106,
+          "single_bed": 0.24938389579037368,
+          "double_bed": 0.0006360504297126415,
+          "corner_side_table": 0.002142414067451488,
+          "round_end_table": 0.019620919620919622
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/chinese_room_types.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "主卧",
+          "主卫",
+          "书房",
+          "儿童房",
+          "卧室",
+          "卫生间",
+          "厨房",
+          "客厅",
+          "客餐厅",
+          "干区",
+          "次卧",
+          "男孩房",
+          "阳台"
+        ],
+        "sample": {
+          "主卧": 0,
+          "主卫": 5,
+          "书房": 6,
+          "儿童房": 0,
+          "卧室": 0
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/chinese_room_types_idx.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "sample": {
+          "0": "bedroom",
+          "1": "dining_room",
+          "2": "living_room",
+          "3": "living_dining_room",
+          "4": "kitchen"
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/color_palette.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "void",
+          "floor",
+          "kids_bed",
+          "single_bed",
+          "double_bed",
+          "corner_side_table",
+          "round_end_table",
+          "coffee_table",
+          "console_table",
+          "tv_stand",
+          "desk",
+          "dressing_table",
+          "table",
+          "dining_table",
+          "stool",
+          "dressing_chair",
+          "dining_chair",
+          "chinese_chair",
+          "armchair",
+          "chair",
+          "lounge_chair",
+          "loveseat_sofa",
+          "lazy_sofa",
+          "sofa",
+          "multi_seat_sofa",
+          "chaise_longue_sofa",
+          "l_shaped_sofa",
+          "nightstand",
+          "shelf",
+          "bookshelf",
+          "children_cabinet",
+          "wine_cabinet",
+          "cabinet",
+          "wardrobe",
+          "pendant_lamp",
+          "ceiling_lamp",
+          "door",
+          "window"
+        ],
+        "sample": {
+          "void": [
+            255,
+            255,
+            255
+          ],
+          "floor": [
+            211,
+            211,
+            211
+          ],
+          "kids_bed": [
+            152,
+            223,
+            138
+          ],
+          "single_bed": [
+            105,
+            183,
+            100
+          ],
+          "double_bed": [
+            44,
+            160,
+            44
+          ]
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/diningroom_idx_to_generic_label.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27"
+        ],
+        "sample": {
+          "0": "void",
+          "1": "armchair",
+          "2": "bookshelf",
+          "3": "cabinet",
+          "4": "ceiling_lamp"
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/diningroom_threed_front_splits.csv",
+        "exists": true,
+        "row_count": 2587,
+        "head": [
+          [
+            "LivingDiningRoom-24969",
+            "train"
+          ],
+          [
+            "LivingDiningRoom-28056",
+            "train"
+          ],
+          [
+            "LivingDiningRoom-1651",
+            "train"
+          ],
+          [
+            "LivingDiningRoom-84752",
+            "train"
+          ],
+          [
+            "LivingDiningRoom-4131",
+            "train"
+          ],
+          [
+            "LivingDiningRoom-4125",
+            "train"
+          ],
+          [
+            "LivingDiningRoom-177292",
+            "train"
+          ],
+          [
+            "LivingDiningRoom-17615",
+            "train"
+          ]
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/livingroom_idx_to_generic_label.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27"
+        ],
+        "sample": {
+          "0": "void",
+          "1": "armchair",
+          "2": "bookshelf",
+          "3": "cabinet",
+          "4": "ceiling_lamp"
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/livingroom_pix_ratio_threshold.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "armchair",
+          "bookshelf",
+          "cabinet",
+          "ceiling_lamp",
+          "chaise_longue_sofa",
+          "chinese_chair",
+          "coffee_table",
+          "console_table",
+          "corner_side_table",
+          "desk",
+          "dining_chair",
+          "dining_table",
+          "l_shaped_sofa",
+          "lazy_sofa",
+          "lounge_chair",
+          "loveseat_sofa",
+          "multi_seat_sofa",
+          "pendant_lamp",
+          "round_end_table",
+          "shelf",
+          "stool",
+          "tv_stand",
+          "wardrobe",
+          "wine_cabinet"
+        ],
+        "sample": {
+          "armchair": 0.0016446760542558304,
+          "bookshelf": 2.8909142419926493e-05,
+          "cabinet": 0.0017721753818964717,
+          "ceiling_lamp": 0.00013390995772706108,
+          "chaise_longue_sofa": 0.021506792196106832
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/livingroom_threed_front_splits.csv",
+        "exists": true,
+        "row_count": 2926,
+        "head": [
+          [
+            "LivingRoom-12207",
+            "train"
+          ],
+          [
+            "LivingDiningRoom-5290",
+            "train"
+          ],
+          [
+            "LivingRoom-4169",
+            "train"
+          ],
+          [
+            "LivingDiningRoom-53598",
+            "train"
+          ],
+          [
+            "LivingDiningRoom-142",
+            "train"
+          ],
+          [
+            "LivingDiningRoom-10104",
+            "train"
+          ],
+          [
+            "LivingDiningRoom-14970",
+            "train"
+          ],
+          [
+            "LivingDiningRoom-24493",
+            "train"
+          ]
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/plan_id_splits_0228_0317_seed42.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "seed",
+          "train_ratio",
+          "val_ratio",
+          "num_plans",
+          "plan_id_to_split"
+        ],
+        "sample": {
+          "seed": 42,
+          "train_ratio": 0.7,
+          "val_ratio": 0.1,
+          "num_plans": 468,
+          "plan_id_to_split": {
+            "1820838": "train",
+            "1872162": "train",
+            "2153099": "train",
+            "2158503": "test",
+            "2177259": "train",
+            "2219402": "train",
+            "2226333": "train",
+            "2269631": "train",
+            "2290734": "train",
+            "2313374": "train",
+            "2329060": "train",
+            "2339563": "train",
+            "2428975": "test",
+            "2429567": "test",
+            "2429611": "train",
+            "2430829": "test",
+            "2435146": "test",
+            "2435163": "train",
+            "2435174": "train",
+            "2435181": "train",
+            "2436896": "train",
+            "2436905": "train",
+            "2436924": "test",
+            "2437970": "test",
+            "2438742": "train",
+            "2438749": "train",
+            "2439891": "train",
+            "2440029": "train",
+            "2440054": "val",
+            "2440064": "train",
+            "2440155": "train",
+            "2440730": "train",
+            "2440742": "train",
+            "2440783": "val",
+            "2440804": "train",
+            "2440825": "test",
+            "2440902": "test",
+            "2448561": "train",
+            "2448639": "train",
+            "2448668": "train",
+            "2448685": "test",
+            "2448746": "train",
+            "2448791": "train",
+            "2448855": "train",
+            "2449937": "test",
+            "2450090": "train",
+            "2453797": "train",
+            "2454823": "test",
+            "2454993": "train",
+            "2456147": "test",
+            "2456194": "train",
+            "2456242": "test",
+            "2460580": "test",
+            "2462429": "train",
+            "2462516": "train",
+            "2462526": "train",
+            "2462542": "train",
+            "2462558": "test",
+            "2462565": "train",
+            "2462579": "train",
+            "2462587": "train",
+            "2462626": "train",
+            "2462637": "train",
+            "2462644": "test",
+            "2462650": "train",
+            "2462656": "train",
+            "2462663": "train",
+            "2462673": "train",
+            "2462679": "train",
+            "2462685": "train",
+            "2462692": "val",
+            "2462699": "test",
+            "2462706": "train",
+            "2462718": "val",
+            "2462729": "train",
+            "2462747": "train",
+            "2462755": "train",
+            "2462777": "train",
+            "2462785": "train",
+            "2462792": "test",
+            "2462807": "train",
+            "2462819": "test",
+            "2462825": "train",
+            "2462834": "test",
+            "2462842": "train",
+            "2462850": "train",
+            "2462861": "train",
+            "2462870": "val",
+            "2462887": "train",
+            "2462895": "train",
+            "2462906": "train",
+            "2462916": "train",
+            "2462928": "train",
+            "2462936": "train",
+            "2462945": "train",
+            "2462955": "train",
+            "2462962": "train",
+            "2462973": "train",
+            "2462988": "test",
+            "2463006": "train",
+            "2463040": "train",
+            "2463048": "test",
+            "2463061": "train",
+            "2463069": "train",
+            "2463081": "train",
+            "2463091": "train",
+            "2463100": "train",
+            "2463108": "test",
+            "2463122": "val",
+            "2463128": "train",
+            "2463136": "test",
+            "2463143": "test",
+            "2463156": "test",
+            "2463167": "train",
+            "2463175": "test",
+            "2463182": "train",
+            "2463190": "test",
+            "2463197": "val",
+            "2463204": "train",
+            "2463210": "test",
+            "2463216": "train",
+            "2463221": "train",
+            "2463227": "train",
+            "2463236": "train",
+            "2463242": "train",
+            "2463249": "test",
+            "2463256": "val",
+            "2463273": "train",
+            "2463280": "train",
+            "2463288": "train",
+            "2463296": "train",
+            "2463306": "train",
+            "2463312": "train",
+            "2463338": "train",
+            "2463344": "val",
+            "2463350": "test",
+            "2463356": "test",
+            "2463363": "val",
+            "2463373": "val",
+            "2463379": "train",
+            "2463382": "test",
+            "2463388": "train",
+            "2463395": "test",
+            "2463401": "train",
+            "2463407": "train",
+            "2463408": "train",
+            "2463422": "train",
+            "2463423": "train",
+            "2463436": "test",
+            "2463442": "train",
+            "2463450": "test",
+            "2463457": "train",
+            "2463463": "train",
+            "2463470": "train",
+            "2463481": "train",
+            "2463489": "train",
+            "2463499": "train",
+            "2465130": "train",
+            "2465137": "train",
+            "2473337": "train",
+            "2475298": "train",
+            "2475409": "val",
+            "2475440": "train",
+            "2475453": "train",
+            "2475469": "train",
+            "2476365": "train",
+            "2476396": "val",
+            "2476405": "train",
+            "2476460": "train",
+            "2476511": "train",
+            "2476692": "train",
+            "2476706": "train",
+            "2476725": "test",
+            "2476793": "train",
+            "2477127": "test",
+            "2477153": "train",
+            "2490126": "test",
+            "2490135": "train",
+            "2490144": "train",
+            "2490147": "train",
+            "2490155": "train",
+            "2490165": "test",
+            "2490174": "train",
+            "2490190": "test",
+            "2490201": "train",
+            "2490209": "test",
+            "2509848": "test",
+            "2514282": "train",
+            "2514288": "train",
+            "2514315": "test",
+            "2533520": "train",
+            "2575170": "train",
+            "2575187": "train",
+            "2575204": "test",
+            "2575223": "test",
+            "2575417": "train",
+            "2575445": "train",
+            "2575459": "train",
+            "2575483": "train",
+            "2575508": "train",
+            "2575533": "train",
+            "2575545": "train",
+            "2575584": "val",
+            "2575675": "train",
+            "2575728": "val",
+            "2575867": "val",
+            "2575886": "train",
+            "2575910": "train",
+            "2575925": "train",
+            "2575962": "train",
+            "2576858": "train",
+            "2576883": "train",
+            "2576958": "train",
+            "2576992": "train",
+            "2577022": "test",
+            "2577498": "train",
+            "2577509": "test",
+            "2577522": "train",
+            "2577539": "train",
+            "2579073": "val",
+            "2579100": "train",
+            "2579115": "train",
+            "2579126": "train",
+            "2579325": "train",
+            "2580181": "train",
+            "2580238": "train",
+            "2580314": "train",
+            "2580327": "train",
+            "2585442": "train",
+            "2585480": "test",
+            "2585509": "train",
+            "2585550": "train",
+            "2587157": "test",
+            "2587173": "train",
+            "2587265": "val",
+            "2587292": "test",
+            "2587505": "val",
+            "2587527": "train",
+            "2587547": "train",
+            "2587563": "train",
+            "2587596": "train",
+            "2587613": "train",
+            "2587625": "train",
+            "2587637": "train",
+            "2587651": "train",
+            "2587674": "train",
+            "2587734": "train",
+            "2587749": "train",
+            "2587767": "train",
+            "2587788": "train",
+            "2587801": "train",
+            "2587812": "train",
+            "2587827": "val",
+            "2587843": "train",
+            "2589560": "train",
+            "2589588": "val",
+            "2589616": "train",
+            "2589686": "train",
+            "2589701": "test",
+            "2590801": "train",
+            "2590822": "val",
+            "2590839": "train",
+            "2590857": "train",
+            "2590876": "train",
+            "2590902": "train",
+            "2591073": "train",
+            "2591109": "train",
+            "2591131": "train",
+            "2591182": "train",
+            "2591202": "train",
+            "2591223": "train",
+            "2591257": "train",
+            "2591340": "train",
+            "2591352": "val",
+            "2591745": "test",
+            "2591757": "val",
+            "2655472": "train",
+            "2661844": "train",
+            "2666605": "train",
+            "2667419": "test",
+            "2669661": "train",
+            "2672089": "train",
+            "2678858": "test",
+            "2683605": "train",
+            "2689198": "train",
+            "2697305": "val",
+            "2697310": "train",
+            "2698190": "test",
+            "2698276": "train",
+            "2708677": "train",
+            "2713928": "val",
+            "2722615": "train",
+            "2722619": "train",
+            "2722621": "train",
+            "2722624": "train",
+            "2722644": "test",
+            "2722675": "train",
+            "2722677": "train",
+            "2723674": "val",
+            "2723683": "val",
+            "2723692": "train",
+            "2723706": "test",
+            "2723713": "test",
+            "2723719": "train",
+            "2723725": "train",
+            "2723744": "train",
+            "2723749": "train",
+            "2723763": "train",
+            "2725324": "test",
+            "2725343": "test",
+            "2725364": "train",
+            "2725368": "test",
+            "2725379": "train",
+            "2725760": "train",
+            "2725839": "train",
+            "2725870": "train",
+            "2725883": "test",
+            "2725905": "train",
+            "2725906": "train",
+            "2725922": "train",
+            "2725929": "train",
+            "2725939": "test",
+            "2725946": "train",
+            "2725954": "train",
+            "2725964": "train",
+            "2728035": "test",
+            "2728050": "train",
+            "2728060": "test",
+            "2728070": "train",
+            "2728092": "val",
+            "2728389": "train",
+            "2728397": "test",
+            "2728398": "test",
+            "2728399": "train",
+            "2728418": "train",
+            "2728422": "val",
+            "2728427": "train",
+            "2728428": "train",
+            "2728463": "test",
+            "2728464": "train",
+            "2728468": "train",
+            "2733368": "train",
+            "2733370": "train",
+            "2733374": "test",
+            "2736087": "train",
+            "2748313": "train",
+            "2748324": "test",
+            "2748655": "train",
+            "2756805": "train",
+            "2767140": "test",
+            "2774698": "val",
+            "2774751": "val",
+            "2775991": "val",
+            "2798045": "train",
+            "2801521": "train",
+            "2801531": "val",
+            "2801559": "train",
+            "2806719": "test",
+            "2815875": "train",
+            "2894241": "test",
+            "2894243": "test",
+            "2894247": "val",
+            "2900414": "train",
+            "2900421": "train",
+            "2900435": "train",
+            "2910387": "train",
+            "2910388": "test",
+            "2910393": "train",
+            "2911292": "train",
+            "2917005": "train",
+            "2917012": "train",
+            "2917018": "train",
+            "2917026": "train",
+            "2939150": "test",
+            "2961887": "train",
+            "2962054": "train",
+            "2962627": "train",
+            "2962662": "test",
+            "2962763": "train",
+            "2962859": "test",
+            "2962982": "train",
+            "2963120": "train",
+            "2963196": "train",
+            "2978715": "val",
+            "2989296": "train",
+            "2989316": "val",
+            "2989442": "train",
+            "2989530": "train",
+            "2995482": "test",
+            "3002864": "train",
+            "3004251": "test",
+            "3009329": "train",
+            "3009363": "train",
+            "3009455": "train",
+            "3010847": "train",
+            "3016111": "train",
+            "3021221": "train",
+            "3022191": "train",
+            "3022236": "train",
+            "3033500": "train",
+            "3044927": "val",
+            "3045259": "train",
+            "3073068": "train",
+            "3123622": "train",
+            "3146947": "train",
+            "3148547": "test",
+            "3156654": "train",
+            "3164955": "train",
+            "3174266": "train",
+            "3174335": "train",
+            "3174384": "train",
+            "3176303": "train",
+            "3176349": "test",
+            "3176453": "train",
+            "3176551": "test",
+            "3176674": "train",
+            "3179195": "train",
+            "3224370": "test",
+            "3224450": "train",
+            "3224498": "train",
+            "3224529": "train",
+            "3224622": "train",
+            "3224653": "train",
+            "3232000": "train",
+            "3232015": "test",
+            "3232048": "train",
+            "3237679": "train",
+            "3258208": "train",
+            "3259047": "train",
+            "3562074": "val",
+            "3562414": "val",
+            "3564362": "train",
+            "3564374": "train",
+            "3581548": "test",
+            "3707839": "train",
+            "3977039": "train",
+            "4090210": "val",
+            "4111984": "train",
+            "4123439": "train",
+            "4129959": "test",
+            "4142540": "train",
+            "4207294": "train",
+            "4207404": "train",
+            "4232962": "val",
+            "4295142": "train",
+            "4358876": "train",
+            "4461827": "train",
+            "4485176": "test",
+            "4527578": "train",
+            "4578658": "test",
+            "4632775": "train",
+            "4638505": "val",
+            "4646234": "test",
+            "4654871": "train",
+            "4655690": "train",
+            "4667382": "test",
+            "4670418": "train",
+            "4675170": "train",
+            "4685715": "test",
+            "4729472": "train",
+            "4739949": "val",
+            "4751543": "train",
+            "4773472": "val",
+            "4773501": "train",
+            "4773513": "test",
+            "4773532": "train",
+            "4773555": "train",
+            "4773647": "val"
+          }
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/render_orthographic.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "camera",
+          "width",
+          "height"
+        ],
+        "sample": {
+          "camera": {
+            "type": "orthographic",
+            "fov": 45
+          },
+          "width": 256,
+          "height": 256
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/room_type_furniture_priors_34class.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "source_truth_table",
+          "notes",
+          "room_type_priors"
+        ],
+        "sample": {
+          "source_truth_table": "parse_json_floorplan.py:CATEGORIES -> my_tools/id2c.json",
+          "notes": [
+            "Counts are estimated with 8-connected components on the 34-class semantic map.",
+            "void/floor/door/window are excluded.",
+            "This JSON is intended as a structured prior for room-type-conditioned text generation or future explicit count conditioning."
+          ],
+          "room_type_priors": {
+            "balcony": {
+              "num_rooms": 102,
+              "top_furniture": [
+                {
+                  "label": "pendant_lamp",
+                  "class_id": 20,
+                  "presence_rate": 0.0882,
+                  "avg_count_per_room": 0.1176,
+                  "avg_count_when_present": 1.3333,
+                  "rooms_with_object": 9
+                },
+                {
+                  "label": "wardrobe",
+                  "class_id": 19,
+                  "presence_rate": 0.0588,
+                  "avg_count_per_room": 0.0588,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 6
+                },
+                {
+                  "label": "tatami",
+                  "class_id": 5,
+                  "presence_rate": 0.0588,
+                  "avg_count_per_room": 0.0588,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 6
+                },
+                {
+                  "label": "coffee_table",
+                  "class_id": 7,
+                  "presence_rate": 0.0294,
+                  "avg_count_per_room": 0.0392,
+                  "avg_count_when_present": 1.3333,
+                  "rooms_with_object": 3
+                },
+                {
+                  "label": "kitchen_island",
+                  "class_id": 33,
+                  "presence_rate": 0.0294,
+                  "avg_count_per_room": 0.0294,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 3
+                },
+                {
+                  "label": "chair",
+                  "class_id": 14,
+                  "presence_rate": 0.0294,
+                  "avg_count_per_room": 0.0294,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 3
+                },
+                {
+                  "label": "air_conditioner",
+                  "class_id": 29,
+                  "presence_rate": 0.0196,
+                  "avg_count_per_room": 0.0196,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 2
+                },
+                {
+                  "label": "nightstand",
+                  "class_id": 16,
+                  "presence_rate": 0.0196,
+                  "avg_count_per_room": 0.0196,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 2
+                },
+                {
+                  "label": "double_bed",
+                  "class_id": 4,
+                  "presence_rate": 0.0098,
+                  "avg_count_per_room": 0.0098,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                },
+                {
+                  "label": "dressing_table",
+                  "class_id": 10,
+                  "presence_rate": 0.0098,
+                  "avg_count_per_room": 0.0098,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                }
+              ],
+              "must_have": [],
+              "common": [],
+              "optional": [
+                "pendant_lamp",
+                "wardrobe",
+                "tatami",
+                "coffee_table",
+                "kitchen_island",
+                "chair",
+                "air_conditioner",
+                "nightstand",
+                "double_bed",
+                "dressing_table"
+              ]
+            },
+            "bathroom": {
+              "num_rooms": 134,
+              "top_furniture": [
+                {
+                  "label": "wardrobe",
+                  "class_id": 19,
+                  "presence_rate": 0.0149,
+                  "avg_count_per_room": 0.0149,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 2
+                },
+                {
+                  "label": "double_bed",
+                  "class_id": 4,
+                  "presence_rate": 0.0075,
+                  "avg_count_per_room": 0.0075,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                },
+                {
+                  "label": "chair",
+                  "class_id": 14,
+                  "presence_rate": 0.0075,
+                  "avg_count_per_room": 0.0075,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                }
+              ],
+              "must_have": [],
+              "common": [],
+              "optional": [
+                "wardrobe",
+                "double_bed",
+                "chair"
+              ]
+            },
+            "bedroom": {
+              "num_rooms": 183,
+              "top_furniture": [
+                {
+                  "label": "double_bed",
+                  "class_id": 4,
+                  "presence_rate": 0.7213,
+                  "avg_count_per_room": 0.7268,
+                  "avg_count_when_present": 1.0076,
+                  "rooms_with_object": 132
+                },
+                {
+                  "label": "refrigerator",
+                  "class_id": 27,
+                  "presence_rate": 0.4372,
+                  "avg_count_per_room": 0.6448,
+                  "avg_count_when_present": 1.475,
+                  "rooms_with_object": 80
+                },
+                {
+                  "label": "wardrobe",
+                  "class_id": 19,
+                  "presence_rate": 0.3169,
+                  "avg_count_per_room": 0.3224,
+                  "avg_count_when_present": 1.0172,
+                  "rooms_with_object": 58
+                },
+                {
+                  "label": "chair",
+                  "class_id": 14,
+                  "presence_rate": 0.1585,
+                  "avg_count_per_room": 0.1749,
+                  "avg_count_when_present": 1.1034,
+                  "rooms_with_object": 29
+                },
+                {
+                  "label": "kitchen_island",
+                  "class_id": 33,
+                  "presence_rate": 0.1475,
+                  "avg_count_per_room": 0.1585,
+                  "avg_count_when_present": 1.0741,
+                  "rooms_with_object": 27
+                },
+                {
+                  "label": "nightstand",
+                  "class_id": 16,
+                  "presence_rate": 0.1257,
+                  "avg_count_per_room": 0.1311,
+                  "avg_count_when_present": 1.0435,
+                  "rooms_with_object": 23
+                },
+                {
+                  "label": "dining_table",
+                  "class_id": 11,
+                  "presence_rate": 0.0765,
+                  "avg_count_per_room": 0.0765,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 14
+                },
+                {
+                  "label": "dressing_table",
+                  "class_id": 10,
+                  "presence_rate": 0.071,
+                  "avg_count_per_room": 0.071,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 13
+                },
+                {
+                  "label": "tatami",
+                  "class_id": 5,
+                  "presence_rate": 0.071,
+                  "avg_count_per_room": 0.0874,
+                  "avg_count_when_present": 1.2308,
+                  "rooms_with_object": 13
+                },
+                {
+                  "label": "single_bed",
+                  "class_id": 3,
+                  "presence_rate": 0.0492,
+                  "avg_count_per_room": 0.0492,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 9
+                },
+                {
+                  "label": "pendant_lamp",
+                  "class_id": 20,
+                  "presence_rate": 0.0437,
+                  "avg_count_per_room": 0.0492,
+                  "avg_count_when_present": 1.125,
+                  "rooms_with_object": 8
+                },
+                {
+                  "label": "kids_bed",
+                  "class_id": 2,
+                  "presence_rate": 0.0328,
+                  "avg_count_per_room": 0.0328,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 6
+                },
+                {
+                  "label": "air_conditioner",
+                  "class_id": 29,
+                  "presence_rate": 0.0109,
+                  "avg_count_per_room": 0.0109,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 2
+                },
+                {
+                  "label": "desk",
+                  "class_id": 9,
+                  "presence_rate": 0.0109,
+                  "avg_count_per_room": 0.0109,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 2
+                },
+                {
+                  "label": "display_storage_cabinet",
+                  "class_id": 18,
+                  "presence_rate": 0.0055,
+                  "avg_count_per_room": 0.0055,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                },
+                {
+                  "label": "dining_chair",
+                  "class_id": 13,
+                  "presence_rate": 0.0055,
+                  "avg_count_per_room": 0.0055,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                },
+                {
+                  "label": "bathtub",
+                  "class_id": 24,
+                  "presence_rate": 0.0055,
+                  "avg_count_per_room": 0.0055,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                }
+              ],
+              "must_have": [],
+              "common": [
+                "double_bed",
+                "refrigerator"
+              ],
+              "optional": [
+                "wardrobe",
+                "chair",
+                "kitchen_island",
+                "nightstand",
+                "dining_table",
+                "dressing_table",
+                "tatami",
+                "single_bed",
+                "pendant_lamp",
+                "kids_bed",
+                "air_conditioner",
+                "desk",
+                "display_storage_cabinet",
+                "dining_chair",
+                "bathtub"
+              ]
+            },
+            "corridor": {
+              "num_rooms": 2,
+              "top_furniture": [],
+              "must_have": [],
+              "common": [],
+              "optional": []
+            },
+            "entrance": {
+              "num_rooms": 4,
+              "top_furniture": [
+                {
+                  "label": "chair",
+                  "class_id": 14,
+                  "presence_rate": 0.25,
+                  "avg_count_per_room": 0.25,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                }
+              ],
+              "must_have": [],
+              "common": [],
+              "optional": [
+                "chair"
+              ]
+            },
+            "kitchen": {
+              "num_rooms": 51,
+              "top_furniture": [
+                {
+                  "label": "coffee_table",
+                  "class_id": 7,
+                  "presence_rate": 0.0196,
+                  "avg_count_per_room": 0.0196,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                },
+                {
+                  "label": "dining_chair",
+                  "class_id": 13,
+                  "presence_rate": 0.0196,
+                  "avg_count_per_room": 0.0196,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                },
+                {
+                  "label": "nightstand",
+                  "class_id": 16,
+                  "presence_rate": 0.0196,
+                  "avg_count_per_room": 0.0784,
+                  "avg_count_when_present": 4.0,
+                  "rooms_with_object": 1
+                },
+                {
+                  "label": "pendant_lamp",
+                  "class_id": 20,
+                  "presence_rate": 0.0196,
+                  "avg_count_per_room": 0.0196,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                },
+                {
+                  "label": "bathtub",
+                  "class_id": 24,
+                  "presence_rate": 0.0196,
+                  "avg_count_per_room": 0.0196,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                },
+                {
+                  "label": "kitchen_cabinet",
+                  "class_id": 31,
+                  "presence_rate": 0.0196,
+                  "avg_count_per_room": 0.0196,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                }
+              ],
+              "must_have": [],
+              "common": [],
+              "optional": [
+                "coffee_table",
+                "dining_chair",
+                "nightstand",
+                "pendant_lamp",
+                "bathtub",
+                "kitchen_cabinet"
+              ]
+            },
+            "living_dining_room": {
+              "num_rooms": 69,
+              "top_furniture": [
+                {
+                  "label": "dining_chair",
+                  "class_id": 13,
+                  "presence_rate": 0.8406,
+                  "avg_count_per_room": 1.4203,
+                  "avg_count_when_present": 1.6897,
+                  "rooms_with_object": 58
+                },
+                {
+                  "label": "nightstand",
+                  "class_id": 16,
+                  "presence_rate": 0.7826,
+                  "avg_count_per_room": 2.3913,
+                  "avg_count_when_present": 3.0556,
+                  "rooms_with_object": 54
+                },
+                {
+                  "label": "coffee_table",
+                  "class_id": 7,
+                  "presence_rate": 0.7536,
+                  "avg_count_per_room": 0.8261,
+                  "avg_count_when_present": 1.0962,
+                  "rooms_with_object": 52
+                },
+                {
+                  "label": "bathtub",
+                  "class_id": 24,
+                  "presence_rate": 0.5942,
+                  "avg_count_per_room": 0.6087,
+                  "avg_count_when_present": 1.0244,
+                  "rooms_with_object": 41
+                },
+                {
+                  "label": "chair",
+                  "class_id": 14,
+                  "presence_rate": 0.3768,
+                  "avg_count_per_room": 0.5942,
+                  "avg_count_when_present": 1.5769,
+                  "rooms_with_object": 26
+                },
+                {
+                  "label": "pendant_lamp",
+                  "class_id": 20,
+                  "presence_rate": 0.3333,
+                  "avg_count_per_room": 0.3913,
+                  "avg_count_when_present": 1.1739,
+                  "rooms_with_object": 23
+                },
+                {
+                  "label": "tatami",
+                  "class_id": 5,
+                  "presence_rate": 0.2899,
+                  "avg_count_per_room": 0.3188,
+                  "avg_count_when_present": 1.1,
+                  "rooms_with_object": 20
+                },
+                {
+                  "label": "desk",
+                  "class_id": 9,
+                  "presence_rate": 0.1884,
+                  "avg_count_per_room": 0.2174,
+                  "avg_count_when_present": 1.1538,
+                  "rooms_with_object": 13
+                },
+                {
+                  "label": "wardrobe",
+                  "class_id": 19,
+                  "presence_rate": 0.1304,
+                  "avg_count_per_room": 0.3043,
+                  "avg_count_when_present": 2.3333,
+                  "rooms_with_object": 9
+                },
+                {
+                  "label": "kitchen_cabinet",
+                  "class_id": 31,
+                  "presence_rate": 0.0725,
+                  "avg_count_per_room": 0.0725,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 5
+                },
+                {
+                  "label": "air_conditioner",
+                  "class_id": 29,
+                  "presence_rate": 0.0435,
+                  "avg_count_per_room": 0.0435,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 3
+                },
+                {
+                  "label": "ceiling_lamp",
+                  "class_id": 21,
+                  "presence_rate": 0.0435,
+                  "avg_count_per_room": 0.0435,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 3
+                },
+                {
+                  "label": "dressing_table",
+                  "class_id": 10,
+                  "presence_rate": 0.0435,
+                  "avg_count_per_room": 0.058,
+                  "avg_count_when_present": 1.3333,
+                  "rooms_with_object": 3
+                },
+                {
+                  "label": "double_bed",
+                  "class_id": 4,
+                  "presence_rate": 0.029,
+                  "avg_count_per_room": 0.029,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 2
+                },
+                {
+                  "label": "tv_stand",
+                  "class_id": 8,
+                  "presence_rate": 0.0145,
+                  "avg_count_per_room": 0.029,
+                  "avg_count_when_present": 2.0,
+                  "rooms_with_object": 1
+                }
+              ],
+              "must_have": [
+                "dining_chair"
+              ],
+              "common": [
+                "nightstand",
+                "coffee_table",
+                "bathtub"
+              ],
+              "optional": [
+                "chair",
+                "pendant_lamp",
+                "tatami",
+                "desk",
+                "wardrobe",
+                "kitchen_cabinet",
+                "air_conditioner",
+                "ceiling_lamp",
+                "dressing_table",
+                "double_bed",
+                "tv_stand"
+              ]
+            },
+            "living_room": {
+              "num_rooms": 8,
+              "top_furniture": [
+                {
+                  "label": "nightstand",
+                  "class_id": 16,
+                  "presence_rate": 1.0,
+                  "avg_count_per_room": 3.5,
+                  "avg_count_when_present": 3.5,
+                  "rooms_with_object": 8
+                },
+                {
+                  "label": "coffee_table",
+                  "class_id": 7,
+                  "presence_rate": 0.875,
+                  "avg_count_per_room": 1.125,
+                  "avg_count_when_present": 1.2857,
+                  "rooms_with_object": 7
+                },
+                {
+                  "label": "dining_chair",
+                  "class_id": 13,
+                  "presence_rate": 0.875,
+                  "avg_count_per_room": 1.75,
+                  "avg_count_when_present": 2.0,
+                  "rooms_with_object": 7
+                },
+                {
+                  "label": "bathtub",
+                  "class_id": 24,
+                  "presence_rate": 0.875,
+                  "avg_count_per_room": 0.875,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 7
+                },
+                {
+                  "label": "kitchen_cabinet",
+                  "class_id": 31,
+                  "presence_rate": 0.625,
+                  "avg_count_per_room": 0.625,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 5
+                },
+                {
+                  "label": "tatami",
+                  "class_id": 5,
+                  "presence_rate": 0.375,
+                  "avg_count_per_room": 0.625,
+                  "avg_count_when_present": 1.6667,
+                  "rooms_with_object": 3
+                },
+                {
+                  "label": "pendant_lamp",
+                  "class_id": 20,
+                  "presence_rate": 0.375,
+                  "avg_count_per_room": 0.5,
+                  "avg_count_when_present": 1.3333,
+                  "rooms_with_object": 3
+                },
+                {
+                  "label": "chair",
+                  "class_id": 14,
+                  "presence_rate": 0.25,
+                  "avg_count_per_room": 0.25,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 2
+                },
+                {
+                  "label": "wardrobe",
+                  "class_id": 19,
+                  "presence_rate": 0.25,
+                  "avg_count_per_room": 0.375,
+                  "avg_count_when_present": 1.5,
+                  "rooms_with_object": 2
+                },
+                {
+                  "label": "desk",
+                  "class_id": 9,
+                  "presence_rate": 0.125,
+                  "avg_count_per_room": 0.125,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                },
+                {
+                  "label": "air_conditioner",
+                  "class_id": 29,
+                  "presence_rate": 0.125,
+                  "avg_count_per_room": 0.125,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                }
+              ],
+              "must_have": [
+                "nightstand",
+                "coffee_table",
+                "dining_chair",
+                "bathtub"
+              ],
+              "common": [
+                "kitchen_cabinet"
+              ],
+              "optional": [
+                "tatami",
+                "pendant_lamp",
+                "chair",
+                "wardrobe",
+                "desk",
+                "air_conditioner"
+              ]
+            },
+            "storage_room": {
+              "num_rooms": 5,
+              "top_furniture": [
+                {
+                  "label": "kitchen_island",
+                  "class_id": 33,
+                  "presence_rate": 0.2,
+                  "avg_count_per_room": 0.2,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                },
+                {
+                  "label": "pendant_lamp",
+                  "class_id": 20,
+                  "presence_rate": 0.2,
+                  "avg_count_per_room": 0.2,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                }
+              ],
+              "must_have": [],
+              "common": [],
+              "optional": [
+                "kitchen_island",
+                "pendant_lamp"
+              ]
+            },
+            "study": {
+              "num_rooms": 25,
+              "top_furniture": [
+                {
+                  "label": "wardrobe",
+                  "class_id": 19,
+                  "presence_rate": 0.76,
+                  "avg_count_per_room": 1.08,
+                  "avg_count_when_present": 1.4211,
+                  "rooms_with_object": 19
+                },
+                {
+                  "label": "dressing_table",
+                  "class_id": 10,
+                  "presence_rate": 0.28,
+                  "avg_count_per_room": 0.28,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 7
+                },
+                {
+                  "label": "air_conditioner",
+                  "class_id": 29,
+                  "presence_rate": 0.16,
+                  "avg_count_per_room": 0.2,
+                  "avg_count_when_present": 1.25,
+                  "rooms_with_object": 4
+                },
+                {
+                  "label": "tatami",
+                  "class_id": 5,
+                  "presence_rate": 0.16,
+                  "avg_count_per_room": 0.16,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 4
+                },
+                {
+                  "label": "chair",
+                  "class_id": 14,
+                  "presence_rate": 0.12,
+                  "avg_count_per_room": 0.16,
+                  "avg_count_when_present": 1.3333,
+                  "rooms_with_object": 3
+                },
+                {
+                  "label": "bathtub",
+                  "class_id": 24,
+                  "presence_rate": 0.12,
+                  "avg_count_per_room": 0.12,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 3
+                },
+                {
+                  "label": "coffee_table",
+                  "class_id": 7,
+                  "presence_rate": 0.08,
+                  "avg_count_per_room": 0.08,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 2
+                },
+                {
+                  "label": "dining_chair",
+                  "class_id": 13,
+                  "presence_rate": 0.08,
+                  "avg_count_per_room": 0.12,
+                  "avg_count_when_present": 1.5,
+                  "rooms_with_object": 2
+                },
+                {
+                  "label": "nightstand",
+                  "class_id": 16,
+                  "presence_rate": 0.08,
+                  "avg_count_per_room": 0.12,
+                  "avg_count_when_present": 1.5,
+                  "rooms_with_object": 2
+                },
+                {
+                  "label": "pendant_lamp",
+                  "class_id": 20,
+                  "presence_rate": 0.08,
+                  "avg_count_per_room": 0.12,
+                  "avg_count_when_present": 1.5,
+                  "rooms_with_object": 2
+                },
+                {
+                  "label": "kitchen_cabinet",
+                  "class_id": 31,
+                  "presence_rate": 0.04,
+                  "avg_count_per_room": 0.04,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                },
+                {
+                  "label": "kitchen_island",
+                  "class_id": 33,
+                  "presence_rate": 0.04,
+                  "avg_count_per_room": 0.04,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                },
+                {
+                  "label": "ceiling_lamp",
+                  "class_id": 21,
+                  "presence_rate": 0.04,
+                  "avg_count_per_room": 0.04,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                },
+                {
+                  "label": "double_bed",
+                  "class_id": 4,
+                  "presence_rate": 0.04,
+                  "avg_count_per_room": 0.04,
+                  "avg_count_when_present": 1.0,
+                  "rooms_with_object": 1
+                }
+              ],
+              "must_have": [],
+              "common": [
+                "wardrobe"
+              ],
+              "optional": [
+                "dressing_table",
+                "air_conditioner",
+                "tatami",
+                "chair",
+                "bathtub",
+                "coffee_table",
+                "dining_chair",
+                "nightstand",
+                "pendant_lamp",
+                "kitchen_cabinet",
+                "kitchen_island",
+                "ceiling_lamp",
+                "double_bed"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/semantic_color_index_bedroom.csv",
+        "exists": true,
+        "row_count": 38,
+        "head": [
+          [
+            "index",
+            "label",
+            "color"
+          ],
+          [
+            "0",
+            "armchair",
+            "#4a92c6"
+          ],
+          [
+            "1",
+            "Lounge Chair / Cafe Chair / Office Chair",
+            "#3484bd"
+          ],
+          [
+            "2",
+            "Pendant Lamp",
+            "#ffbb78"
+          ],
+          [
+            "3",
+            "Coffee Table",
+            "#b29dd4"
+          ],
+          [
+            "4",
+            "Corner/Side Table",
+            "#846fd2"
+          ],
+          [
+            "5",
+            "Dining Table",
+            "#846fd2"
+          ],
+          [
+            "6",
+            "King-size Bed",
+            "#2ca02c"
+          ]
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/semantic_color_index_livingdiningroom.csv",
+        "exists": true,
+        "row_count": 38,
+        "head": [
+          [
+            "index",
+            "label",
+            "color"
+          ],
+          [
+            "0",
+            "armchair",
+            "#4a92c6"
+          ],
+          [
+            "1",
+            "Lounge Chair / Cafe Chair / Office Chair",
+            "#1f77b4"
+          ],
+          [
+            "2",
+            "Pendant Lamp",
+            "#ffbb78"
+          ],
+          [
+            "3",
+            "Coffee Table",
+            "#b29dd4"
+          ],
+          [
+            "4",
+            "Corner/Side Table",
+            "#c5b0d5"
+          ],
+          [
+            "5",
+            "Dining Table",
+            "#7b66d2"
+          ],
+          [
+            "6",
+            "Bookcase / jewelry Armoire",
+            "#d4d577"
+          ]
+        ]
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/unified_idx_to_generic_label.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37"
+        ],
+        "sample": {
+          "0": "void",
+          "1": "floor",
+          "2": "kids_bed",
+          "3": "single_bed",
+          "4": "double_bed"
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37"
+        ],
+        "sample": {
+          "0": "void",
+          "1": "floor",
+          "2": "kids_bed",
+          "3": "single_bed",
+          "4": "double_bed"
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/unified_pix_ratio_threshold.json",
+        "exists": true,
+        "top_type": "dict",
+        "top_keys": [
+          "kids_bed",
+          "single_bed",
+          "double_bed",
+          "corner_side_table",
+          "round_end_table",
+          "coffee_table",
+          "console_table",
+          "tv_stand",
+          "desk",
+          "dressing_table",
+          "table",
+          "dining_table",
+          "stool",
+          "dressing_chair",
+          "dining_chair",
+          "chinese_chair",
+          "armchair",
+          "chair",
+          "lounge_chair",
+          "loveseat_sofa",
+          "lazy_sofa",
+          "sofa",
+          "multi_seat_sofa",
+          "chaise_longue_sofa",
+          "l_shaped_sofa",
+          "nightstand",
+          "shelf",
+          "bookshelf",
+          "children_cabinet",
+          "wine_cabinet",
+          "cabinet",
+          "wardrobe",
+          "pendant_lamp",
+          "ceiling_lamp"
+        ],
+        "sample": {
+          "kids_bed": 0.013225955675175574,
+          "single_bed": 0.10616672360778955,
+          "double_bed": 0.1023164308490323,
+          "corner_side_table": 0.0011013767209011264,
+          "round_end_table": 7.728811463373163e-06
+        }
+      },
+      {
+        "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/metadata/unified_threed_front_splits.csv",
+        "exists": true,
+        "row_count": 9946,
+        "head": [
+          [
+            "SecondBedroom-316",
+            "train"
+          ],
+          [
+            "MasterBedroom-28057",
+            "train"
+          ],
+          [
+            "Bedroom-75221",
+            "train"
+          ],
+          [
+            "Bedroom-236",
+            "train"
+          ],
+          [
+            "Bedroom-11842",
+            "train"
+          ],
+          [
+            "SecondBedroom-118939",
+            "train"
+          ],
+          [
+            "SecondBedroom-70857",
+            "train"
+          ],
+          [
+            "MasterBedroom-9638",
+            "train"
+          ]
+        ]
+      }
+    ],
+    "keyword_evidence": [
+      {
+        "relative_path": "preprocess/README.md",
+        "hits": [
+          {
+            "line": 3,
+            "text": "This directory contains preprocessing tools for the 3D-FRONT and 3D-FUTURE datasets. The preprocessing pipeline generates semantic layout maps, room architecture maps, and object instance information for training and eva"
+          },
+          {
+            "line": 8,
+            "text": "1. Semantic layout maps and room architecture maps (PNG format)"
+          },
+          {
+            "line": 11,
+            "text": "We leverage [BlenderProc-3DFront](https://github.com/yinyunie/BlenderProc-3DFront) to process 3D-FRONT scenes into top-down view renders."
+          },
+          {
+            "line": 79,
+            "text": "After rendering, extract semantic and architecture maps:"
+          },
+          {
+            "line": 101,
+            "text": "--include_arch"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/demo/floor_plan_texture_images_references",
+        "hits": [
+          {
+            "line": 1,
+            "text": "- floor_00001.jpg https://www.flickr.com/photos/10815394@N03/5659658038/ Rick Johnson CC BY 2.0"
+          },
+          {
+            "line": 2,
+            "text": "- floor_00002.jpg https://www.flickr.com/photos/the_richards/28640262712/ Will Richards CC BY-NC 2.0"
+          },
+          {
+            "line": 3,
+            "text": "- floor_00003.jpg https://www.flickr.com/photos/filterforge/8508832931/ Filter Forge CC BY 2.0"
+          },
+          {
+            "line": 4,
+            "text": "- floor_00004.jpg https://www.flickr.com/photos/filterforge/8742921497/ Filter Forge CC BY 2.0"
+          },
+          {
+            "line": 5,
+            "text": "- floor_00005.jpg https://www.flickr.com/photos/filterforge/8946733689/ Filter Forge CC BY 2.0"
+          },
+          {
+            "line": 6,
+            "text": "- floor_00006.jpg https://www.flickr.com/photos/dhilowitz/6856348963/ David Hilowitz CC BY 2.0"
+          },
+          {
+            "line": 7,
+            "text": "- floor_00007.jpg https://www.flickr.com/photos/filterforge/31238918661/ Filter Forge CC BY 2.0"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/apm_planjson_apm_paper_offsetfix_0228_0317_v1/chinese_idx_to_generic_label.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"1\": \"floor\","
+          },
+          {
+            "line": 38,
+            "text": "\"36\": \"door\","
+          },
+          {
+            "line": 39,
+            "text": "\"37\": \"window\","
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/apm_planjson_apm_paper_offsetfix_0228_0317_v2/chinese_idx_to_generic_label.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"1\": \"floor\","
+          },
+          {
+            "line": 38,
+            "text": "\"36\": \"door\","
+          },
+          {
+            "line": 39,
+            "text": "\"37\": \"window\","
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/apm_planjson_apm_paper_offsetfix_0228_0317_v3/chinese_idx_to_generic_label.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"1\": \"floor\","
+          },
+          {
+            "line": 38,
+            "text": "\"36\": \"door\","
+          },
+          {
+            "line": 39,
+            "text": "\"37\": \"window\","
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/apm_planjson_apm_paper_offsetfix_v1/chinese_idx_to_generic_label.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"1\": \"floor\","
+          },
+          {
+            "line": 38,
+            "text": "\"36\": \"door\","
+          },
+          {
+            "line": 39,
+            "text": "\"37\": \"window\","
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/apm_planjson_apm_paper_v1/chinese_idx_to_generic_label.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"1\": \"floor\","
+          },
+          {
+            "line": 38,
+            "text": "\"36\": \"door\","
+          },
+          {
+            "line": 39,
+            "text": "\"37\": \"window\","
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/apm_planjson_regen_v2/chinese_idx_to_generic_label.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"1\": \"floor\","
+          },
+          {
+            "line": 38,
+            "text": "\"36\": \"door\","
+          },
+          {
+            "line": 39,
+            "text": "\"37\": \"window\","
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/apm_stage1_roty_0228_0317_0327_v1/chinese_idx_to_generic_label.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"1\": \"floor\","
+          },
+          {
+            "line": 24,
+            "text": "\"22\": \"door\","
+          },
+          {
+            "line": 25,
+            "text": "\"23\": \"window\","
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/apm_stage1_roty_orient0327_v1/chinese_idx_to_generic_label.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"1\": \"floor\","
+          },
+          {
+            "line": 24,
+            "text": "\"22\": \"door\","
+          },
+          {
+            "line": 25,
+            "text": "\"23\": \"window\","
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/apm_stage1_roty_orient0327_v2/chinese_idx_to_generic_label.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"1\": \"floor\","
+          },
+          {
+            "line": 24,
+            "text": "\"22\": \"door\","
+          },
+          {
+            "line": 25,
+            "text": "\"23\": \"window\","
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/apm_stage2_orient0327_v1/chinese_idx_to_generic_label.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"1\": \"floor\","
+          },
+          {
+            "line": 24,
+            "text": "\"22\": \"door\","
+          },
+          {
+            "line": 25,
+            "text": "\"23\": \"window\","
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/bedroom_idx_to_generic_label.json",
+        "hits": [
+          {
+            "line": 11,
+            "text": "\"9\": \"door\","
+          },
+          {
+            "line": 15,
+            "text": "\"13\": \"floor\","
+          },
+          {
+            "line": 26,
+            "text": "\"24\": \"window\""
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/chinese_idx_to_generic_label.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"1\": \"floor\","
+          },
+          {
+            "line": 38,
+            "text": "\"36\": \"door\","
+          },
+          {
+            "line": 39,
+            "text": "\"37\": \"window\","
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/chinese_idx_to_label.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"1\": \"floor\","
+          },
+          {
+            "line": 24,
+            "text": "\"22\": \"door\","
+          },
+          {
+            "line": 25,
+            "text": "\"23\": \"window\","
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/color_palette.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"floor\": [211, 211, 211],"
+          },
+          {
+            "line": 38,
+            "text": "\"door\": [153, 0, 0],"
+          },
+          {
+            "line": 39,
+            "text": "\"window\": [255, 153, 153]"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/diningroom_idx_to_generic_label.json",
+        "hits": [
+          {
+            "line": 1,
+            "text": "{\"0\": \"void\", \"1\": \"armchair\", \"2\": \"bookshelf\", \"3\": \"cabinet\", \"4\": \"ceiling_lamp\", \"5\": \"chaise_longue_sofa\", \"6\": \"chinese_chair\", \"7\": \"coffee_table\", \"8\": \"console_table\", \"9\": \"corner_side_table\", \"10\": \"desk\", \"1"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/livingroom_idx_to_generic_label.json",
+        "hits": [
+          {
+            "line": 1,
+            "text": "{\"0\": \"void\", \"1\": \"armchair\", \"2\": \"bookshelf\", \"3\": \"cabinet\", \"4\": \"ceiling_lamp\", \"5\": \"chaise_longue_sofa\", \"6\": \"chinese_chair\", \"7\": \"coffee_table\", \"8\": \"console_table\", \"9\": \"corner_side_table\", \"10\": \"desk\", \"1"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/render_orthographic.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"type\": \"orthographic\","
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/room_type_furniture_priors_34class.json",
+        "hits": [
+          {
+            "line": 2,
+            "text": "\"source_truth_table\": \"parse_json_floorplan.py:CATEGORIES -> my_tools/id2c.json\","
+          },
+          {
+            "line": 5,
+            "text": "\"void/floor/door/window are excluded.\","
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/semantic_color_index_bedroom.csv",
+        "hits": [
+          {
+            "line": 35,
+            "text": "33,Floor,#d3d3d3"
+          },
+          {
+            "line": 36,
+            "text": "34,Wall,#d3d3d3"
+          },
+          {
+            "line": 37,
+            "text": "35,Window,#ff9999"
+          },
+          {
+            "line": 38,
+            "text": "36,Door,#990000"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/semantic_color_index_livingdiningroom.csv",
+        "hits": [
+          {
+            "line": 32,
+            "text": "30,Floor,#d3d3d3"
+          },
+          {
+            "line": 33,
+            "text": "31,Wall,#d3d3d3"
+          },
+          {
+            "line": 34,
+            "text": "32,Window,#ff9999"
+          },
+          {
+            "line": 35,
+            "text": "33,Door,#990000"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/unified_category_mapping_w_arch/unified_category_mapping.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"floor\": 1,"
+          },
+          {
+            "line": 38,
+            "text": "\"door\": 36,"
+          },
+          {
+            "line": 39,
+            "text": "\"window\": 37"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/unified_idx_to_generic_label.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"1\": \"floor\","
+          },
+          {
+            "line": 38,
+            "text": "\"36\": \"door\","
+          },
+          {
+            "line": 39,
+            "text": "\"37\": \"window\""
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+        "hits": [
+          {
+            "line": 3,
+            "text": "\"1\": \"floor\","
+          },
+          {
+            "line": 38,
+            "text": "\"36\": \"door\","
+          },
+          {
+            "line": 39,
+            "text": "\"37\": \"window\""
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/scripts/__pycache__/json_to_apm_chinese.cpython-313.pyc",
+        "hits": [
+          {
+            "line": 35,
+            "text": "Convert chinese room_*.json floor plans to APM training data."
+          },
+          {
+            "line": 42,
+            "text": "train/<sample_id>/Updated_Bottom_label_map.png"
+          },
+          {
+            "line": 44,
+            "text": "val/<sample_id>/Updated_Bottom_label_map.png"
+          },
+          {
+            "line": 46,
+            "text": "test/<sample_id>/Updated_Bottom_label_map.png"
+          },
+          {
+            "line": 49,
+            "text": "The conversion reuses parsing/rendering logic from parse_json_floorplan.py"
+          },
+          {
+            "line": 55,
+            "text": "CATEGORIES\u0007DOOR_ID\bFLOOR_ID\u0007VOID_ID\tWINDOW_ID\u0019assign_furniture_to_rooms\u0019lookup_furniture_category\u000fparse_floorplan\u0018render_room_semantic_map\u0010should_drop_roomc\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0004\u0000\u0000\u0000\u0003\u0000\u0000\u0001\u0000\u0000\u0000\u0000[\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000R\u0002\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000R\u0005\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+          },
+          {
+            "line": 162,
+            "text": "\u0000\u0000\u0000\u0016safe_polygon_from_itemrv\u0000\u0000\u0000\u0000\u0000\u0000sP\u0001\u0000\u0000\u0000"
+          },
+          {
+            "line": 322,
+            "text": "isinstance\u0004dictr#\u0000\u0000\u0000\u0004list\u0005tupler3\u0000\u0000\u0000r5\u0000\u0000\u0000r%\u0000\u0000\u0000rn\u0000\u0000\u0000r\u0000\u0000\u0000\u0003strr6\u0000\u0000\u0000)\u000frX\u0000\u0000\u0000rM\u0000\u0000\u0000r\u0000\u0000\u0000\u0007polygonr\u0000\u0000\u0000r\\\u0000\u0000\u0000r]\u0000\u0000\u0000rQ\u0000\u0000\u0000\u0005pos_zr\u0000\u0000\u0000r\u0000\u0000\u0000\u0002szr\u0000\u0000\u0000r\u0000\u0000\u0000r\u0000\u0000\u0000s\u000f\u0000\u0000\u0000               r"
+          },
+          {
+            "line": 367,
+            "text": "mask_polygons"
+          },
+          {
+            "line": 370,
+            "text": "\u0000\u0000\u0000\u0013polygon_pixel_ratior\u0000\u0000\u0000#\u0001\u0000\u0000s\u0000\u0000\u0000\u0000\u0007\u0013q\u0007\u0018\u000f\u0012\u0019#\u0004\u0016H"
+          },
+          {
+            "line": 514,
+            "text": "Updated_Bottom_label_map.pngz"
+          },
+          {
+            "line": 533,
+            "text": "\u0000\u0000\u0000\u0006appendr\u0000\u0000\u0000r\u0014\u0000\u0000\u0000rF\u0000\u0000\u0000\u0003zipr\u0000\u0000\u0000r7\u0000\u0000\u0000r\u0000\u0000\u0000r\u0000\u0000\u0000r4\u0000\u0000\u0000rg\u0000\u0000\u0000\u0007imwriterl\u0000\u0000\u0000r\u0000\u0000\u0000\u0004open\u0004json\u0004dumpr\u0000\u0000\u0000r\u0000\u0000\u0000\u0005print)>\u0006parser\u0004argsr;\u0000\u0000\u0000r\u0000\u0000\u0000\u0007out_dir\bmeta_dir"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/scripts/__pycache__/parse_json_floorplan.cpython-311.pyc",
+        "hits": [
+          {
+            "line": 57,
+            "text": "Phase 0: JSON Floor Plan Parser"
+          },
+          {
+            "line": 86,
+            "text": "python parse_json_floorplan.py       --input_dir  C:/Users/紫燕/Desktop/plan_json_0228       --output_dir C:/Users/紫燕/Desktop/SemLayoutDiff-main/datasets/chinese       --prompt_csv C:/Users/紫燕/Desktop/家具布局数据.csv       --vi"
+          },
+          {
+            "line": 89,
+            "text": "defaultdict\u0001\u0004Path)\u0005\u0003Any\u0004Dict\u0004List\bOptional\u0005Tuple)\u0001\u0004tqdm\u0004void\u0001\u0000\u0000\u0000\u0005floor\u0002\u0000\u0000\u0000\bkids_bed\u0003\u0000\u0000\u0000"
+          },
+          {
+            "line": 110,
+            "text": "ceiling_lamp$\u0000\u0000\u0000\u0004door%\u0000\u0000\u0000\u0006window&\u0000\u0000\u0000\u0007bathtub'\u0000\u0000\u0000\u0006toilet(\u0000\u0000\u0000"
+          },
+          {
+            "line": 116,
+            "text": "HOLE_TYPE_MAP\u0006cat_id\u0003int\u0006returnc\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0002\u0000\u0000\u0000\u0003\u0000\u0000\u00012\u0000\u0000\u0000\u0000|\u0000t\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000v\u0000r\u0002d\u0001S\u0000|\u0000t\u0002\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000v\u0000r\u0002d\u0002S\u0000d\u0003S\u0000)\u0004u^\u0000\u0000\u0000返回渲染顺序优先级：-1=低优先级顶部类，0=普通，1=最高优先级灯具。r\u000f\u0000\u0000\u0000r\u0002\u0000\u0000\u0000)\u0002 _LOW_PRIORITY_FLOOR_ONLY_CAT_IDS"
+          },
+          {
+            "line": 117,
+            "text": "_HIGH_PRIORITY_OVERLAY_CAT_IDS)\u0001r\u0000\u0000\u0000s\u0001\u0000\u0000\u0000 /wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/preprocess/scripts/parse_json_floorplan.py\u0010_render_priorityr\u0000\u0000\u0000"
+          },
+          {
+            "line": 292,
+            "text": "\u0000\u0000\u0000瀹㈤鍘?u\t\u0000\u0000\u0000鍘ㄦ埧$_BATHROOM_CABINET_ROOM_LEAK_KEYWORDS)\u0003u\t\u0000\u0000\u0000澹佹寕u\t\u0000\u0000\u0000鎮寕u\t\u0000\u0000\u0000鎸傚\u001b_BEDSIDE_WALL_VOID_KEYWORDS)"
+          },
+          {
+            "line": 492,
+            "text": "bedside_terms\u0012bedside_wall_terms\u0016bathroom_cabinet_terms\u0018bathroom_room_leak_terms\u000ewardrobe_termsr\u0001\u0000\u0000s\t\u0000\u0000\u0000        @r\u0000\u0000\u0000\u0016_special_case_categoryr\u0007\u0002\u0000\u0000\u0002\u0000\u0000sJ"
+          },
+          {
+            "line": 1061,
+            "text": "Parse a floor plan JSON file into structured Python objects."
+          },
+          {
+            "line": 1069,
+            "text": "walls       : dict  wall_id → wall dict"
+          },
+          {
+            "line": 1073,
+            "text": "levelHeighti\u0018\u0001\u0000\u0000\bholeData\u0002idc\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0005\u0000\u0000\u0000\u0013\u0000\u0000\u0001.\u0000\u0000\u0000\u0000g\u0000|\u0000]\u0012}\u0001|\u0001d\u0000\u0019\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000|\u0001d\u0001\u0019\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f\u0002\u0002\u0013S\u0000\u0002\u0001x\u0001yr\u0001\u0000\u0000r&\u0002\u0000\u0000s\u0002\u0000\u0000\u0000  r\u0000\u0000\u0000r(\u0002\u0000\u0000z#parse_floorplan.<locals>.<listcomp>\u0003\u0000\u0000%\u0000\u0000\u0000\u0000\u0016E\u0016E\u0016EA\u0001#\u0006\u0001#\u0006\u0017'\u0016E\u0016E\u0016Er\u0000\u0000\u0000r!\u0002\u0000\u0000\u0004typer\u0000\u0000\u0000\u0006wallIdrW\u0001"
+          },
+          {
+            "line": 1074,
+            "text": "groundHeightr\u0002\u0000\u0000\u0000)\u0006r<\u0002\u0000\u0000r!\u0002\u0000\u0000rB\u0002\u0000\u0000\u0007wall_id\broom_ids"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/scripts/__pycache__/parse_json_floorplan.cpython-313.pyc",
+        "hits": [
+          {
+            "line": 151,
+            "text": "Phase 0: JSON Floor Plan Parser"
+          },
+          {
+            "line": 180,
+            "text": "python parse_json_floorplan.py       --input_dir  C:/Users/紫燕/Desktop/plan_json_0228       --output_dir C:/Users/紫燕/Desktop/SemLayoutDiff-main/datasets/chinese       --prompt_csv C:/Users/紫燕/Desktop/家具布局数据.csv       --vi"
+          },
+          {
+            "line": 183,
+            "text": "defaultdict\u0001\u0004Path)\u0005\u0003Any\u0004Dict\u0004List\bOptional\u0005Tuple)\u0001\u0004tqdm\u0004void\u0001\u0000\u0000\u0000\u0005floor\u0002\u0000\u0000\u0000\bkids_bed\u0003\u0000\u0000\u0000"
+          },
+          {
+            "line": 204,
+            "text": "ceiling_lamp$\u0000\u0000\u0000\u0004door%\u0000\u0000\u0000\u0006window&\u0000\u0000\u0000\u0007bathtub'\u0000\u0000\u0000\u0006toilet(\u0000\u0000\u0000"
+          },
+          {
+            "line": 210,
+            "text": "HOLE_TYPE_MAPc\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0002\u0000\u0000\u0000\u0003\u0000\u0000\u00010\u0000\u0000\u0000\u0000U\u0000[\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000;\u0000\u0000\u0000a\u0001\u0000\u0000g\u0001U\u0000[\u0002\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000;\u0000\u0000\u0000a\u0001\u0000\u0000g\u0002g\u0003)\u0004u^\u0000\u0000\u0000返回渲染顺序优先级：-1=低优先级顶部类，0=普通，1=最高优先级灯具。r\u000f\u0000\u0000\u0000r\u0002\u0000\u0000\u0000)\u0002 _LOW_PRIORITY_FLOOR_ONLY_CAT_IDS"
+          },
+          {
+            "line": 211,
+            "text": "_HIGH_PRIORITY_OVERLAY_CAT_IDS)\u0001\u0006cat_ids\u0001\u0000\u0000\u0000 OSemLayoutDiff_update_20260312_163509/preprocess/scripts/parse_json_floorplan.py\u0010_render_priorityr\u0000\u0000\u0000\u0000\u0001\u0000\u0000s"
+          },
+          {
+            "line": 814,
+            "text": "Parse a floor plan JSON file into structured Python objects."
+          },
+          {
+            "line": 822,
+            "text": "walls       : dict  wall_id → wall dict"
+          },
+          {
+            "line": 826,
+            "text": "levelHeighti\u0018\u0001\u0000\u0000\bholeData\u0002idr\u0001\u0000\u0000\u0001x\u0001y\u0004typer\u0000\u0000\u0000\u0006wallIdrA\u0001\u0000\u0000\u0007roomIds"
+          },
+          {
+            "line": 827,
+            "text": "groundHeightr\u0002\u0000\u0000\u0000)\u0006r\u0001\u0000\u0000r\u0001\u0000\u0000r\u0001\u0000\u0000\u0007wall_id\broom_ids"
+          },
+          {
+            "line": 828,
+            "text": "ground_height\bwallData\tthicknessr5\u0000\u0000\u0000\u0006height\u0007holeIds)\u0006r\u0001\u0000\u0000r\u0001\u0000\u0000r\u0001\u0000\u0000r\u0001\u0000\u0000\bhole_idsr\u0001\u0000\u0000\broomDatarD\u0001\u0000\u0000\u0007wallIds)\u0005r\u0001\u0000\u0000rD\u0001\u0000\u0000r\u0001\u0000\u0000r\u0001\u0000\u0000\bwall_idsc\u0002\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u000e\u0000\u0000\u0000\u0013\u0000\u0000\u0001"
+          },
+          {
+            "line": 845,
+            "text": "\u0000\u0000\u0000         r\u0000\u0000\u0000\u0013_append_parsed_item,parse_floorplan.<locals>._append_parsed_item\u0003\u0000\u0000s\u0004\u0001\u0000\u0000\u0000,0HHXr,B\u0011C,BqS61S6\u0012\",B\u0006\u0011C\u000e\u0012hhuAAA"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/scripts/__pycache__/parse_json_floorplan.cpython-38.pyc",
+        "hits": [
+          {
+            "line": 50,
+            "text": "Phase 0: JSON Floor Plan Parser"
+          },
+          {
+            "line": 79,
+            "text": "python parse_json_floorplan.py       --input_dir  C:/Users/紫燕/Desktop/plan_json_0228       --output_dir C:/Users/紫燕/Desktop/SemLayoutDiff-main/datasets/chinese       --prompt_csv C:/Users/紫燕/Desktop/家具布局数据.csv       --vi"
+          },
+          {
+            "line": 82,
+            "text": "defaultdict\u0001\u0004Path)\u0005\u0003Any\u0004Dict\u0004List\bOptional\u0005Tuple)\u0001\u0004tqdmZ\u0004voidZ\u0005floorZ\bkids_bedZ"
+          },
+          {
+            "line": 96,
+            "text": "ceiling_lampZ\u0004doorZ\u0006windowZ\u0007bathtubZ\u0006toiletZ"
+          },
+          {
+            "line": 117,
+            "text": "d\u0001S\u0000|\u0000t\u0001k\u0006r\u0018d\u0002S\u0000d\u0003S\u0000)\u0004u^\u0000\u0000\u0000返回渲染顺序优先级：-1=低优先级顶部类，0=普通，1=最高优先级灯具。r\u000f\u0000\u0000\u0000r\u0001\u0000\u0000\u0000)\u0002 _LOW_PRIORITY_FLOOR_ONLY_CAT_IDS"
+          },
+          {
+            "line": 118,
+            "text": "_HIGH_PRIORITY_OVERLAY_CAT_IDS\u0001rP\u0000\u0000\u0000\u0000rV\u0000\u0000\u0000*preprocess/scripts/parse_json_floorplan.py\u0010_render_priority"
+          },
+          {
+            "line": 278,
+            "text": "\u0000\u0000\u0000瀹㈤鍘?u\t\u0000\u0000\u0000鍘ㄦ埧$_BATHROOM_CABINET_ROOM_LEAK_KEYWORDS)\u0003u\t\u0000\u0000\u0000澹佹寕u\t\u0000\u0000\u0000鎮寕u\t\u0000\u0000\u0000鎸傚\u001b_BEDSIDE_WALL_VOID_KEYWORDS)"
+          },
+          {
+            "line": 315,
+            "text": "bedside_termsZ\u0012bedside_wall_termsZ\u0016bathroom_cabinet_termsZ\u0018bathroom_room_leak_termsZ\u000ewardrobe_termsrV\u0000\u0000\u0000rl\u0001\u0000\u0000rW\u0000\u0000\u0000\u0016_special_case_category\u0002\u0000\u0000s&\u0001\u0000\u0000\u0000\u0002\u0004\u0001\b\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0005,\u0001\u0004\u0001.\u0001\u0004\u0001\u0016\u0001\u0016\u0001\u0004\u0001\u0010\u0001\u0004\u0001&\u0001\u0004\u0003\u0014\u0001\u0004\u0003\"\u0001\u0004\u0001$\u0001\u0002"
+          },
+          {
+            "line": 396,
+            "text": "Parse a floor plan JSON file into structured Python objects."
+          },
+          {
+            "line": 404,
+            "text": "walls       : dict  wall_id → wall dict"
+          },
+          {
+            "line": 409,
+            "text": "\u0000\u0000\u0000g\u0000|\u0000]\u0014}\u0001|\u0001d\u0000\u0019\u0000|\u0001d\u0001\u0019\u0000f\u0002\u0002q\u0004S\u0000\u0002\u0001x\u0001yrV\u0000\u0000\u0000r\u0001\u0000\u0000rV\u0000\u0000\u0000rV\u0000\u0000\u0000rW\u0000\u0000\u0000r\u0001\u0000\u0000\u0003\u0000\u0000s\u0004\u0000\u0000\u0000\u0006\u0000\u0002\u0000z#parse_floorplan.<locals>.<listcomp>r\u0001\u0000\u0000\u0004typerL\u0000\u0000\u0000Z\u0006wallIdr\u0019\u0001\u0000\u0000Z\u0007roomIdsZ"
+          },
+          {
+            "line": 410,
+            "text": "groundHeightr\u0001\u0000\u0000\u0000)\u0006r\u0001\u0000\u0000r\u0001\u0000\u0000r\u0001\u0000\u0000Z\u0007wall_id\broom_idsZ"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/scripts/data_processor.py",
+        "hits": [
+          {
+            "line": 5,
+            "text": "1. First padding images to target size and converting masks to bounding boxes"
+          },
+          {
+            "line": 31,
+            "text": "self.color_palette = {}"
+          },
+          {
+            "line": 53,
+            "text": "if 'color_palette_file' in self.config:"
+          },
+          {
+            "line": 54,
+            "text": "with open(self.config['color_palette_file'], 'r') as f:"
+          },
+          {
+            "line": 55,
+            "text": "self.color_palette = json.load(f)"
+          },
+          {
+            "line": 91,
+            "text": "# Get lamp labels and floor label"
+          },
+          {
+            "line": 96,
+            "text": "floor_labels = ["
+          },
+          {
+            "line": 98,
+            "text": "if label.lower() == \"floor\""
+          },
+          {
+            "line": 100,
+            "text": "floor_label = floor_labels[0] if floor_labels else None"
+          },
+          {
+            "line": 104,
+            "text": "if label not in lamp_labels and label != 0 and label != floor_label"
+          },
+          {
+            "line": 121,
+            "text": "if label in unique_labels and label != 0 and label != floor_label:"
+          },
+          {
+            "line": 144,
+            "text": "# Calculate padding"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/scripts/data_to_npy.py",
+        "hits": [
+          {
+            "line": 33,
+            "text": "torchvision.transforms.Resize((H, W), interpolation=0),"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/scripts/front3d.py",
+        "hits": [
+          {
+            "line": 88,
+            "text": "label_map_path = os.path.join(room_path, 'Updated_Bottom_label_map.png')"
+          },
+          {
+            "line": 90,
+            "text": "if os.path.isdir(room_path) and os.path.exists(label_map_path):"
+          },
+          {
+            "line": 154,
+            "text": "image_path = os.path.join(room_path, 'Updated_Bottom_label_map.png')"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/scripts/json_to_apm_chinese.py",
+        "hits": [
+          {
+            "line": 3,
+            "text": "Convert chinese room_*.json floor plans to APM training data."
+          },
+          {
+            "line": 10,
+            "text": "train/<sample_id>/Updated_Bottom_label_map.png"
+          },
+          {
+            "line": 12,
+            "text": "val/<sample_id>/Updated_Bottom_label_map.png"
+          },
+          {
+            "line": 14,
+            "text": "test/<sample_id>/Updated_Bottom_label_map.png"
+          },
+          {
+            "line": 17,
+            "text": "The conversion reuses parsing/rendering logic from parse_json_floorplan.py"
+          },
+          {
+            "line": 36,
+            "text": "from parse_json_floorplan import ("
+          },
+          {
+            "line": 38,
+            "text": "DOOR_ID,"
+          },
+          {
+            "line": 39,
+            "text": "FLOOR_ID,"
+          },
+          {
+            "line": 41,
+            "text": "WINDOW_ID,"
+          },
+          {
+            "line": 44,
+            "text": "parse_floorplan,"
+          },
+          {
+            "line": 127,
+            "text": "def safe_polygon_from_item(item: Dict, trf: Dict[str, float]) -> Optional[List[float]]:"
+          },
+          {
+            "line": 249,
+            "text": "polygon = safe_polygon_from_item(item, trf)"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/scripts/parse_json_floorplan.py",
+        "hits": [
+          {
+            "line": 3,
+            "text": "Phase 0: JSON Floor Plan Parser"
+          },
+          {
+            "line": 32,
+            "text": "python parse_json_floorplan.py \\"
+          },
+          {
+            "line": 65,
+            "text": "1:  \"floor\","
+          },
+          {
+            "line": 100,
+            "text": "36: \"door\","
+          },
+          {
+            "line": 101,
+            "text": "37: \"window\","
+          },
+          {
+            "line": 131,
+            "text": "1: \"floor\","
+          },
+          {
+            "line": 152,
+            "text": "22: \"door\","
+          },
+          {
+            "line": 153,
+            "text": "23: \"window\","
+          },
+          {
+            "line": 233,
+            "text": "FLOOR_ID  = 1"
+          },
+          {
+            "line": 234,
+            "text": "DOOR_ID   = 22"
+          },
+          {
+            "line": 235,
+            "text": "WINDOW_ID = 23"
+          },
+          {
+            "line": 239,
+            "text": "BUILDING_WALL_ID = 1"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/scripts/utils/threed_front.py",
+        "hits": [
+          {
+            "line": 167,
+            "text": "path_to_models, path_to_room_masks_dir=None,"
+          },
+          {
+            "line": 173,
+            "text": "path_to_room_masks_dir"
+          },
+          {
+            "line": 187,
+            "text": "floor_plan_vertices,"
+          },
+          {
+            "line": 188,
+            "text": "floor_plan_faces,"
+          },
+          {
+            "line": 189,
+            "text": "floor_plan_centroid,"
+          },
+          {
+            "line": 198,
+            "text": "self.floor_plan_faces = floor_plan_faces"
+          },
+          {
+            "line": 199,
+            "text": "self.floor_plan_vertices = floor_plan_vertices"
+          },
+          {
+            "line": 200,
+            "text": "self.floor_plan_centroid = floor_plan_centroid"
+          },
+          {
+            "line": 208,
+            "text": "def floor_plan(self):"
+          },
+          {
+            "line": 209,
+            "text": "return np.copy(self.floor_plan_vertices), \\"
+          },
+          {
+            "line": 210,
+            "text": "np.copy(self.floor_plan_faces)"
+          },
+          {
+            "line": 213,
+            "text": "def room_mask(self):"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/scripts/utils.py",
+        "hits": [
+          {
+            "line": 15,
+            "text": "PATH_TO_FLOOR_PLAN_TEXTURES = os.path.join(PROJ_DIR, \"preprocess/demo/floor_plan_texture_images\")"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/threed_front/datasets/__init__.py",
+        "hits": [
+          {
+            "line": 22,
+            "text": "split=[\"train\", \"val\"], include_edges=False, include_room_mask=True, generation=False, room_type=None):"
+          },
+          {
+            "line": 45,
+            "text": "parse_room_layout=include_room_mask"
+          },
+          {
+            "line": 52,
+            "text": "config[\"path_to_room_masks_dir\"],"
+          },
+          {
+            "line": 93,
+            "text": "BaseDataset.floor_plan_with_limits(6, 6, axis=[0, 2]),"
+          },
+          {
+            "line": 115,
+            "text": "BaseDataset.floor_plan_with_limits(12, 12, axis=[0, 2]),"
+          },
+          {
+            "line": 137,
+            "text": "BaseDataset.floor_plan_with_limits(12, 12, axis=[0, 2]),"
+          },
+          {
+            "line": 156,
+            "text": "BaseDataset.floor_plan_with_limits(6, 6, axis=[0, 2]),"
+          },
+          {
+            "line": 174,
+            "text": "BaseDataset.floor_plan_with_limits(12, 12, axis=[0, 2]),"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/threed_front/datasets/arch_utils.py",
+        "hits": [
+          {
+            "line": 11,
+            "text": "def process_arch_iterative_closest_point(scene_data, room_side, key_prefix=\"floor_plan\"):"
+          },
+          {
+            "line": 12,
+            "text": "\"\"\" Returns ordered floorplan corners w.r.t. \"arch_centroid\": numpy array of shape [numpt, 2]"
+          },
+          {
+            "line": 15,
+            "text": "key_prefix: key prefix of the architecture element to process"
+          },
+          {
+            "line": 29,
+            "text": "floor_plan_centroid_2d = np.array([scene_data[\"floor_plan_centroid\"][0], scene_data[\"floor_plan_centroid\"][2]])"
+          },
+          {
+            "line": 31,
+            "text": "if key_prefix == \"floor_plan\":"
+          },
+          {
+            "line": 32,
+            "text": "# For floor plan, select largest contour"
+          },
+          {
+            "line": 35,
+            "text": "# For doors/windows, select contour closest to vertices"
+          },
+          {
+            "line": 40,
+            "text": "vertices_centroid = vertices_centroid - floor_plan_centroid_2d"
+          },
+          {
+            "line": 61,
+            "text": "# Center contour points only for windows and doors"
+          },
+          {
+            "line": 62,
+            "text": "if key_prefix in [\"window\", \"door\"]:"
+          },
+          {
+            "line": 70,
+            "text": "# For windows and doors, get vertices from lowest plane"
+          },
+          {
+            "line": 71,
+            "text": "if key_prefix in [\"window\", \"door\"]:"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/threed_front/datasets/common.py",
+        "hits": [
+          {
+            "line": 96,
+            "text": "def floor_plan_with_limits(limit_x, limit_y, axis=[0, 2]):"
+          },
+          {
+            "line": 98,
+            "text": "min_bbox, max_bbox = scene.floor_plan_bbox"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/threed_front/datasets/floorplan_utils.py",
+        "hits": [
+          {
+            "line": 11,
+            "text": "def process_floorplan_iterative_closest_point(scene_data, room_side):"
+          },
+          {
+            "line": 12,
+            "text": "\"\"\" Returns ordered floorplan corners w.r.t. \"floor_plan_centroid\": numpy array of shape [numpt, 2]"
+          },
+          {
+            "line": 25,
+            "text": "center_2d = np.array([scene_data[\"floor_plan_centroid\"][0], scene_data[\"floor_plan_centroid\"][2]])"
+          },
+          {
+            "line": 26,
+            "text": "corners = np.unique(scene_data[\"floor_plan_vertices\"],axis=0) # num_pt, 2 -> num_uniquept, 2"
+          },
+          {
+            "line": 52,
+            "text": "print(\"Received {} floor plan vertices but found {} ordered corners.\"\\"
+          },
+          {
+            "line": 59,
+            "text": "\"\"\" fpoc: [numpt, 2] np array, scene_data's floor_plan_ordered_corners."
+          },
+          {
+            "line": 60,
+            "text": "Return normalized floor plan line normals."
+          },
+          {
+            "line": 75,
+            "text": "\"\"\" fpoc: [numpt, 2] np array, scene_data's floor_plan_ordered_corners."
+          },
+          {
+            "line": 76,
+            "text": "Return sample floor plan boundary pt + normal."
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/threed_front/datasets/parse_utils.py",
+        "hits": [
+          {
+            "line": 18,
+            "text": "path_to_room_masks_dir=None"
+          },
+          {
+            "line": 31,
+            "text": "path_to_room_masks_dir"
+          },
+          {
+            "line": 40,
+            "text": "path_to_room_masks_dir=None"
+          },
+          {
+            "line": 68,
+            "text": "# Parse the extra meshes of the scene e.g walls, doors,"
+          },
+          {
+            "line": 69,
+            "text": "# windows etc."
+          },
+          {
+            "line": 136,
+            "text": "extra_meshes_in_room,            # extras e.g. walls"
+          },
+          {
+            "line": 138,
+            "text": "path_to_room_masks_dir"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/threed_front/datasets/threed_front.py",
+        "hits": [
+          {
+            "line": 218,
+            "text": "path_to_models, path_to_room_masks_dir=None,"
+          },
+          {
+            "line": 221,
+            "text": "path_to_models, path_to_room_masks_dir)"
+          },
+          {
+            "line": 231,
+            "text": "def __init__(self, scene_id, room_layout, floor_plan_vertices, floor_plan_faces,"
+          },
+          {
+            "line": 232,
+            "text": "floor_plan_centroid, class_labels, translations, sizes, angles, objfeats,"
+          },
+          {
+            "line": 236,
+            "text": "self.floor_plan_faces = floor_plan_faces"
+          },
+          {
+            "line": 237,
+            "text": "self.floor_plan_vertices = floor_plan_vertices"
+          },
+          {
+            "line": 238,
+            "text": "self.floor_plan_centroid = floor_plan_centroid"
+          },
+          {
+            "line": 249,
+            "text": "def floor_plan(self):"
+          },
+          {
+            "line": 250,
+            "text": "return np.copy(self.floor_plan_vertices), np.copy(self.floor_plan_faces)"
+          },
+          {
+            "line": 253,
+            "text": "def room_mask(self):"
+          },
+          {
+            "line": 271,
+            "text": "# Paths to orthographic projection images"
+          },
+          {
+            "line": 337,
+            "text": "if \"floor_plan_boundary_points_normals\" in D.keys():"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/threed_front/datasets/threed_front_encoding_base.py",
+        "hits": [
+          {
+            "line": 102,
+            "text": "img = self._dataset[idx].room_mask[:, :, 0:1]"
+          },
+          {
+            "line": 256,
+            "text": "# Assume that all inputs that are 3D or 1D do not need padding."
+          },
+          {
+            "line": 258,
+            "text": "padding_keys = set(k for k in key_set if len(samples[0][k].shape) == 2)"
+          },
+          {
+            "line": 262,
+            "text": "for k in (key_set - padding_keys)"
+          },
+          {
+            "line": 268,
+            "text": "for k in padding_keys})"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/threed_front/datasets/threed_front_scene.py",
+        "hits": [
+          {
+            "line": 25,
+            "text": "from simple_3dviz.window import show"
+          },
+          {
+            "line": 371,
+            "text": "alpha = np.array(self.size)[None]"
+          },
+          {
+            "line": 382,
+            "text": "return Mesh.from_superquadrics(alpha, epsilon, translation, R, colors)"
+          },
+          {
+            "line": 438,
+            "text": "path_to_room_masks_dir=None"
+          },
+          {
+            "line": 445,
+            "text": "self.path_to_room_masks_dir = path_to_room_masks_dir"
+          },
+          {
+            "line": 446,
+            "text": "if path_to_room_masks_dir is not None:"
+          },
+          {
+            "line": 447,
+            "text": "self.path_to_room_mask = os.path.join("
+          },
+          {
+            "line": 448,
+            "text": "self.path_to_room_masks_dir, self.uid, \"room_mask.png\""
+          },
+          {
+            "line": 451,
+            "text": "self.path_to_room_mask = None"
+          },
+          {
+            "line": 454,
+            "text": "def floor(self):"
+          },
+          {
+            "line": 455,
+            "text": "return [ei for ei in self.extras if ei.model_type == \"Floor\"][0]"
+          },
+          {
+            "line": 475,
+            "text": "def floor_plan(self):"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/threed_front/rendering.py",
+        "hits": [
+          {
+            "line": 30,
+            "text": "size=args.get(\"window_size\", (256, 256)),"
+          },
+          {
+            "line": 45,
+            "text": "\"\"\" Floor plan rednerable \"\"\""
+          },
+          {
+            "line": 47,
+            "text": "def get_floor_plan(scene: Union[Room, CachedRoom], texture=None,"
+          },
+          {
+            "line": 49,
+            "text": "with_room_mask=False) \\"
+          },
+          {
+            "line": 51,
+            "text": "\"\"\"Return the floor plan of the scene as a simple-3dviz TexturedMesh, a trimesh mesh,"
+          },
+          {
+            "line": 53,
+            "text": "vertices, faces = scene.floor_plan"
+          },
+          {
+            "line": 54,
+            "text": "vertices -= scene.floor_plan_centroid"
+          },
+          {
+            "line": 60,
+            "text": "floor = TexturedMesh.from_faces("
+          },
+          {
+            "line": 65,
+            "text": "floor = Mesh.from_faces("
+          },
+          {
+            "line": 70,
+            "text": "tr_floor = trimesh.Trimesh("
+          },
+          {
+            "line": 74,
+            "text": "tr_floor.visual = trimesh.visual.TextureVisuals("
+          },
+          {
+            "line": 78,
+            "text": "tr_floor.visual.face_colors = np.tile(color, (faces.shape[0], 1))"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/threed_front/simple_3dviz_setup.py",
+        "hits": [
+          {
+            "line": 3,
+            "text": "ORTHOGRAPHIC_PROJECTION_SCENE = {"
+          },
+          {
+            "line": 8,
+            "text": "\"window_size\":     (256, 256),"
+          }
+        ]
+      },
+      {
+        "relative_path": "preprocess/threed_front/utils.py",
+        "hits": [
+          {
+            "line": 7,
+            "text": "# Monkey patch the context creation in BaseScene"
+          }
+        ]
+      }
+    ]
+  },
+  "existing_processed_output_evidence": {
+    "named_outputs": {
+      "Updated_Bottom_label_map.png": [
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_48725/Updated_Bottom_label_map.png",
+          "width": 1200,
+          "height": 1200,
+          "format": "png",
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_48725/Updated_Bottom_label_map.png"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_49556/Updated_Bottom_label_map.png",
+          "width": 1200,
+          "height": 1200,
+          "format": "png",
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_49556/Updated_Bottom_label_map.png"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_50429/Updated_Bottom_label_map.png",
+          "width": 1200,
+          "height": 1200,
+          "format": "png",
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_50429/Updated_Bottom_label_map.png"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_51362/Updated_Bottom_label_map.png",
+          "width": 1200,
+          "height": 1200,
+          "format": "png",
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_51362/Updated_Bottom_label_map.png"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_53333/Updated_Bottom_label_map.png",
+          "width": 1200,
+          "height": 1200,
+          "format": "png",
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_53333/Updated_Bottom_label_map.png"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_54353/Updated_Bottom_label_map.png",
+          "width": 1200,
+          "height": 1200,
+          "format": "png",
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_54353/Updated_Bottom_label_map.png"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_57633/Updated_Bottom_label_map.png",
+          "width": 1200,
+          "height": 1200,
+          "format": "png",
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_57633/Updated_Bottom_label_map.png"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_83258/Updated_Bottom_label_map.png",
+          "width": 1200,
+          "height": 1200,
+          "format": "png",
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_83258/Updated_Bottom_label_map.png"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_48725/Updated_Bottom_label_map.png",
+          "width": 1200,
+          "height": 1200,
+          "format": "png",
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_48725/Updated_Bottom_label_map.png"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_49556/Updated_Bottom_label_map.png",
+          "width": 1200,
+          "height": 1200,
+          "format": "png",
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_49556/Updated_Bottom_label_map.png"
+        }
+      ],
+      "Updated_Bottom_color.png": [],
+      "Updated_Bottom_inst_anno.json": [
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_48725/Updated_Bottom_inst_anno.json",
+          "exists": true,
+          "top_type": "list",
+          "length": 4,
+          "sample": [
+            {
+              "id": "343782",
+              "model_id": "198457",
+              "basename": "RS1102076-日式卧室-吸顶灯 日式 卧室吸顶灯 非儿童 灰色 白色 灯具 灯饰 灯 吸顶灯",
+              "category": 21,
+              "mask": [
+                [
+                  666.0,
+                  627.0,
+                  609.0,
+                  627.0,
+                  609.0,
+                  572.0,
+                  666.0,
+                  572.0
+                ]
+              ],
+              "size": [
+                0.559000244140625,
+                0.5689999389648438,
+                0.09899999999999977
+              ],
+              "offset": 2.6010000000000004,
+              "orientation": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "805346",
+              "model_id": "98299",
+              "basename": "现代-木质-衣柜2 现代 灰色 白色 平开门",
+              "category": 19,
+              "mask": [
+                [
+                  625.0,
+                  754.0,
+                  474.0,
+                  754.0,
+                  474.0,
+                  699.0,
+                  625.0,
+                  699.0
+                ]
+              ],
+              "size": [
+                0.5499999237060547,
+                1.506839599609375,
+                2.7
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                3.141592653589793
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "870754",
+              "model_id": "196651",
+              "basename": "XD1102002-现代榻榻米卧室-双人床 现代 灰色 榻榻米",
+              "category": 5,
+              "mask": [
+                [
+                  726.0,
+                  601.0,
+                  473.0,
+                  601.0,
+                  473.0,
+                  440.0,
+                  726.0,
+                  440.0
+                ]
+              ],
+              "size": [
+                1.6131500244140624,
+                2.5258502197265624,
+                2.7
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                4.71238898038469
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "962617",
+              "model_id": "101013",
+              "basename": "北欧250584-木质-书椅 木质 北欧 灰色 书椅",
+              "category": 14,
+              "mask": [
+                [
+                  573.0,
+                  670.0,
+                  524.0,
+                  670.0,
+                  524.0,
+                  620.0,
+                  573.0,
+                  620.0
+                ]
+              ],
+              "size": [
+                0.4929998016357422,
+                0.49300010681152345,
+                0.83
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            }
+          ],
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_48725/Updated_Bottom_inst_anno.json"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_49556/Updated_Bottom_inst_anno.json",
+          "exists": true,
+          "top_type": "list",
+          "length": 11,
+          "sample": [
+            {
+              "id": "303241",
+              "model_id": "87200",
+              "basename": "现代橱柜单柜1 现代 黑色 灰色 白色 厨柜 单柜",
+              "category": 31,
+              "mask": [
+                [
+                  694.0,
+                  749.0,
+                  644.0,
+                  749.0,
+                  644.0,
+                  698.0,
+                  694.0,
+                  698.0
+                ]
+              ],
+              "size": [
+                0.5,
+                0.51699951171875,
+                0.87
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "303242",
+              "model_id": "87200",
+              "basename": "现代橱柜单柜1 现代 黑色 灰色 白色 厨柜 单柜",
+              "category": 31,
+              "mask": [
+                [
+                  694.0,
+                  698.0,
+                  644.0,
+                  698.0,
+                  644.0,
+                  646.0,
+                  694.0,
+                  646.0
+                ]
+              ],
+              "size": [
+                0.5,
+                0.5170001220703125,
+                0.87
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "303244",
+              "model_id": "87200",
+              "basename": "现代橱柜单柜1 现代 黑色 灰色 白色 厨柜 单柜",
+              "category": 31,
+              "mask": [
+                [
+                  694.0,
+                  646.0,
+                  644.0,
+                  646.0,
+                  644.0,
+                  594.0,
+                  694.0,
+                  594.0
+                ]
+              ],
+              "size": [
+                0.5,
+                0.5170001220703125,
+                0.87
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "303245",
+              "model_id": "87200",
+              "basename": "现代橱柜单柜1 现代 黑色 灰色 白色 厨柜 单柜",
+              "category": 31,
+              "mask": [
+                [
+                  694.0,
+                  594.0,
+                  644.0,
+                  594.0,
+                  644.0,
+                  543.0,
+                  694.0,
+                  543.0
+                ]
+              ],
+              "size": [
+                0.5,
+                0.5170001220703125,
+                0.87
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "303246",
+              "model_id": "87200",
+              "basename": "现代橱柜单柜1 现代 黑色 灰色 白色 厨柜 单柜",
+              "category": 31,
+              "mask": [
+                [
+                  694.0,
+                  543.0,
+                  644.0,
+                  543.0,
+                  644.0,
+                  491.0,
+                  694.0,
+                  491.0
+                ]
+              ],
+              "size": [
+                0.5,
+                0.5169998168945312,
+                0.87
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            }
+          ],
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_49556/Updated_Bottom_inst_anno.json"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_50429/Updated_Bottom_inst_anno.json",
+          "exists": true,
+          "top_type": "list",
+          "length": 6,
+          "sample": [
+            {
+              "id": "253309",
+              "model_id": "100270",
+              "basename": "北欧110-布艺-书椅 布艺 北欧 灰色 书椅",
+              "category": 14,
+              "mask": [
+                [
+                  690.0,
+                  549.0,
+                  638.0,
+                  549.0,
+                  638.0,
+                  499.0,
+                  690.0,
+                  499.0
+                ]
+              ],
+              "size": [
+                0.49100006103515625,
+                0.519000244140625,
+                0.687
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                3.141592653589793
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "343783",
+              "model_id": "198457",
+              "basename": "RS1102076-日式卧室-吸顶灯 日式 卧室吸顶灯 非儿童 灰色 白色 灯具 灯饰 灯 吸顶灯",
+              "category": 21,
+              "mask": [
+                [
+                  628.0,
+                  613.0,
+                  571.0,
+                  613.0,
+                  571.0,
+                  557.0,
+                  628.0,
+                  557.0
+                ]
+              ],
+              "size": [
+                0.559000244140625,
+                0.569000244140625,
+                0.09899999999999977
+              ],
+              "offset": 2.6010000000000004,
+              "orientation": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "356610",
+              "model_id": "100270",
+              "basename": "北欧110-布艺-书椅 布艺 北欧 灰色 书椅",
+              "category": 14,
+              "mask": [
+                [
+                  723.0,
+                  600.0,
+                  674.0,
+                  600.0,
+                  674.0,
+                  549.0,
+                  723.0,
+                  549.0
+                ]
+              ],
+              "size": [
+                0.490999755859375,
+                0.5189999389648438,
+                0.687
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                4.71238898038469
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "764180",
+              "model_id": "204309",
+              "basename": "XD1125006-现代卧室-衣柜 非儿童 轻奢 橙色 平开门",
+              "category": 19,
+              "mask": [
+                [
+                  757.0,
+                  754.0,
+                  702.0,
+                  754.0,
+                  702.0,
+                  634.0,
+                  757.0,
+                  634.0
+                ]
+              ],
+              "size": [
+                0.5499999237060547,
+                1.1999998474121094,
+                2.7
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "792658",
+              "model_id": "163335",
+              "basename": "北欧-木质-子母床 北欧 无床头柜 橙色 子母床上下床",
+              "category": 2,
+              "mask": [
+                [
+                  594.0,
+                  656.0,
+                  442.0,
+                  656.0,
+                  442.0,
+                  445.0,
+                  594.0,
+                  445.0
+                ]
+              ],
+              "size": [
+                1.517550048828125,
+                2.111930236816406,
+                1.7890000000000001
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                4.71238898038469
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            }
+          ],
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_50429/Updated_Bottom_inst_anno.json"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_51362/Updated_Bottom_inst_anno.json",
+          "exists": true,
+          "top_type": "list",
+          "length": 5,
+          "sample": [
+            {
+              "id": "120216",
+              "model_id": "59316",
+              "basename": "主卧床",
+              "category": 4,
+              "mask": [
+                [
+                  656.0,
+                  753.0,
+                  431.0,
+                  753.0,
+                  431.0,
+                  550.0,
+                  656.0,
+                  550.0
+                ]
+              ],
+              "size": [
+                2.034529724121094,
+                2.252999572753906,
+                0.812
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                4.71238898038469
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "121348",
+              "model_id": "68196",
+              "basename": "衣柜 北欧 白色 灰色 平开门",
+              "category": 19,
+              "mask": [
+                [
+                  769.0,
+                  781.0,
+                  709.0,
+                  781.0,
+                  709.0,
+                  536.0,
+                  769.0,
+                  536.0
+                ]
+              ],
+              "size": [
+                0.5999999237060547,
+                2.4476693725585936,
+                2.7
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "343781",
+              "model_id": "198457",
+              "basename": "RS1102076-日式卧室-吸顶灯 日式 卧室吸顶灯 非儿童 灰色 白色 灯具 灯饰 灯 吸顶灯",
+              "category": 21,
+              "mask": [
+                [
+                  660.0,
+                  627.0,
+                  603.0,
+                  627.0,
+                  603.0,
+                  571.0,
+                  660.0,
+                  571.0
+                ]
+              ],
+              "size": [
+                0.559000244140625,
+                0.5689999389648438,
+                0.09899999999999977
+              ],
+              "offset": 2.6010000000000004,
+              "orientation": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "811586",
+              "model_id": "181678",
+              "basename": "新中式-木质-梳妆台 新中式 无椅子 非儿童 红色 黑色 梳妆台",
+              "category": 10,
+              "mask": [
+                [
+                  479.0,
+                  551.0,
+                  431.0,
+                  551.0,
+                  431.0,
+                  447.0,
+                  479.0,
+                  447.0
+                ]
+              ],
+              "size": [
+                0.47585994720458985,
+                1.0453697204589845,
+                1.23
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                4.71238898038469
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "968012",
+              "model_id": "59480",
+              "basename": "吊灯",
+              "category": 20,
+              "mask": [
+                [
+                  460.0,
+                  480.0,
+                  448.0,
+                  480.0,
+                  448.0,
+                  468.0,
+                  460.0,
+                  468.0
+                ]
+              ],
+              "size": [
+                0.11900001525878906,
+                0.119000244140625,
+                1.453
+              ],
+              "offset": 1.247,
+              "orientation": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            }
+          ],
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_51362/Updated_Bottom_inst_anno.json"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_53333/Updated_Bottom_inst_anno.json",
+          "exists": true,
+          "top_type": "list",
+          "length": 1,
+          "sample": [
+            {
+              "id": "773811",
+              "model_id": "111952",
+              "basename": "现代马桶 白色 灰色 马桶",
+              "category": 25,
+              "mask": [
+                [
+                  682.0,
+                  659.0,
+                  608.0,
+                  659.0,
+                  608.0,
+                  618.0,
+                  682.0,
+                  618.0
+                ]
+              ],
+              "size": [
+                0.4099999237060547,
+                0.7390000915527344,
+                0.8029999999999999
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            }
+          ],
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_53333/Updated_Bottom_inst_anno.json"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_54353/Updated_Bottom_inst_anno.json",
+          "exists": true,
+          "top_type": "list",
+          "length": 26,
+          "sample": [
+            {
+              "id": "132953",
+              "model_id": "204109",
+              "basename": "BO1124005-北欧餐厅-置物柜 北欧 有冰箱位 白色 酒柜",
+              "category": 18,
+              "mask": [
+                [
+                  1029.0,
+                  706.0,
+                  973.0,
+                  706.0,
+                  973.0,
+                  484.0,
+                  1029.0,
+                  484.0
+                ]
+              ],
+              "size": [
+                0.564000244140625,
+                2.215,
+                2.4
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "203755",
+              "model_id": "175742",
+              "basename": "日式-木质-茶几 木质 长方形 日式 橙色 茶几/茶座",
+              "category": 7,
+              "mask": [
+                [
+                  391.0,
+                  750.0,
+                  319.0,
+                  750.0,
+                  319.0,
+                  650.0,
+                  391.0,
+                  650.0
+                ]
+              ],
+              "size": [
+                0.7187394714355468,
+                1.0000096130371094,
+                0.988
+              ],
+              "offset": 0.012,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "232844",
+              "model_id": "204301",
+              "basename": "BO1124010-北欧客厅-长凳 北欧 橙色 其它",
+              "category": 12,
+              "mask": [
+                [
+                  909.0,
+                  851.0,
+                  809.0,
+                  851.0,
+                  809.0,
+                  827.0,
+                  909.0,
+                  827.0
+                ]
+              ],
+              "size": [
+                0.24,
+                1.0,
+                0.45
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                3.141592653589793
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "289456",
+              "model_id": "194771",
+              "basename": "筒灯 灰色 灯具 灯饰 灯 嵌入式",
+              "category": 21,
+              "mask": [
+                [
+                  751.0,
+                  409.0,
+                  742.0,
+                  409.0,
+                  742.0,
+                  400.0,
+                  751.0,
+                  400.0
+                ]
+              ],
+              "size": [
+                0.089000244140625,
+                0.089000244140625,
+                0.005999999999999943
+              ],
+              "offset": 2.394,
+              "orientation": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "289457",
+              "model_id": "194771",
+              "basename": "筒灯 灰色 灯具 灯饰 灯 嵌入式",
+              "category": 21,
+              "mask": [
+                [
+                  840.0,
+                  783.0,
+                  831.0,
+                  783.0,
+                  831.0,
+                  774.0,
+                  840.0,
+                  774.0
+                ]
+              ],
+              "size": [
+                0.0889990234375,
+                0.0889996337890625,
+                0.005999999999999943
+              ],
+              "offset": 2.394,
+              "orientation": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            }
+          ],
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_54353/Updated_Bottom_inst_anno.json"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_57633/Updated_Bottom_inst_anno.json",
+          "exists": true,
+          "top_type": "list",
+          "length": 0,
+          "sample": [],
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_57633/Updated_Bottom_inst_anno.json"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_83258/Updated_Bottom_inst_anno.json",
+          "exists": true,
+          "top_type": "list",
+          "length": 1,
+          "sample": [
+            {
+              "id": "138051",
+              "model_id": "111953",
+              "basename": "现代马桶 白色 灰色 马桶",
+              "category": 25,
+              "mask": [
+                [
+                  558.0,
+                  666.0,
+                  486.0,
+                  666.0,
+                  486.0,
+                  628.0,
+                  558.0,
+                  628.0
+                ]
+              ],
+              "size": [
+                0.38,
+                0.7169999694824218,
+                0.7909999999999999
+              ],
+              "offset": 0.08,
+              "orientation": [
+                0.0,
+                0.0,
+                4.71238898038469
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            }
+          ],
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_83258/Updated_Bottom_inst_anno.json"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_48725/Updated_Bottom_inst_anno.json",
+          "exists": true,
+          "top_type": "list",
+          "length": 4,
+          "sample": [
+            {
+              "id": "343782",
+              "model_id": "198457",
+              "basename": "RS1102076-日式卧室-吸顶灯 日式 卧室吸顶灯 非儿童 灰色 白色 灯具 灯饰 灯 吸顶灯",
+              "category": 21,
+              "mask": [
+                [
+                  666.0,
+                  627.0,
+                  609.0,
+                  627.0,
+                  609.0,
+                  572.0,
+                  666.0,
+                  572.0
+                ]
+              ],
+              "size": [
+                0.559000244140625,
+                0.5689999389648438,
+                0.09899999999999977
+              ],
+              "offset": 2.6010000000000004,
+              "orientation": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "805346",
+              "model_id": "98299",
+              "basename": "现代-木质-衣柜2 现代 灰色 白色 平开门",
+              "category": 19,
+              "mask": [
+                [
+                  625.0,
+                  754.0,
+                  474.0,
+                  754.0,
+                  474.0,
+                  699.0,
+                  625.0,
+                  699.0
+                ]
+              ],
+              "size": [
+                0.5499999237060547,
+                1.506839599609375,
+                2.7
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                3.141592653589793
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "870754",
+              "model_id": "196651",
+              "basename": "XD1102002-现代榻榻米卧室-双人床 现代 灰色 榻榻米",
+              "category": 5,
+              "mask": [
+                [
+                  726.0,
+                  601.0,
+                  473.0,
+                  601.0,
+                  473.0,
+                  440.0,
+                  726.0,
+                  440.0
+                ]
+              ],
+              "size": [
+                1.6131500244140624,
+                2.5258502197265624,
+                2.7
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                4.71238898038469
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "962617",
+              "model_id": "101013",
+              "basename": "北欧250584-木质-书椅 木质 北欧 灰色 书椅",
+              "category": 14,
+              "mask": [
+                [
+                  573.0,
+                  670.0,
+                  524.0,
+                  670.0,
+                  524.0,
+                  620.0,
+                  573.0,
+                  620.0
+                ]
+              ],
+              "size": [
+                0.4929998016357422,
+                0.49300010681152345,
+                0.83
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            }
+          ],
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_48725/Updated_Bottom_inst_anno.json"
+        },
+        {
+          "path": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio-apm-stage1-rotY/SemLayoutDiff_update_20260312_163509/datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_49556/Updated_Bottom_inst_anno.json",
+          "exists": true,
+          "top_type": "list",
+          "length": 11,
+          "sample": [
+            {
+              "id": "303241",
+              "model_id": "87200",
+              "basename": "现代橱柜单柜1 现代 黑色 灰色 白色 厨柜 单柜",
+              "category": 31,
+              "mask": [
+                [
+                  694.0,
+                  749.0,
+                  644.0,
+                  749.0,
+                  644.0,
+                  698.0,
+                  694.0,
+                  698.0
+                ]
+              ],
+              "size": [
+                0.5,
+                0.51699951171875,
+                0.87
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "303242",
+              "model_id": "87200",
+              "basename": "现代橱柜单柜1 现代 黑色 灰色 白色 厨柜 单柜",
+              "category": 31,
+              "mask": [
+                [
+                  694.0,
+                  698.0,
+                  644.0,
+                  698.0,
+                  644.0,
+                  646.0,
+                  694.0,
+                  646.0
+                ]
+              ],
+              "size": [
+                0.5,
+                0.5170001220703125,
+                0.87
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "303244",
+              "model_id": "87200",
+              "basename": "现代橱柜单柜1 现代 黑色 灰色 白色 厨柜 单柜",
+              "category": 31,
+              "mask": [
+                [
+                  694.0,
+                  646.0,
+                  644.0,
+                  646.0,
+                  644.0,
+                  594.0,
+                  694.0,
+                  594.0
+                ]
+              ],
+              "size": [
+                0.5,
+                0.5170001220703125,
+                0.87
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "303245",
+              "model_id": "87200",
+              "basename": "现代橱柜单柜1 现代 黑色 灰色 白色 厨柜 单柜",
+              "category": 31,
+              "mask": [
+                [
+                  694.0,
+                  594.0,
+                  644.0,
+                  594.0,
+                  644.0,
+                  543.0,
+                  694.0,
+                  543.0
+                ]
+              ],
+              "size": [
+                0.5,
+                0.5170001220703125,
+                0.87
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            },
+            {
+              "id": "303246",
+              "model_id": "87200",
+              "basename": "现代橱柜单柜1 现代 黑色 灰色 白色 厨柜 单柜",
+              "category": 31,
+              "mask": [
+                [
+                  694.0,
+                  543.0,
+                  644.0,
+                  543.0,
+                  644.0,
+                  491.0,
+                  694.0,
+                  491.0
+                ]
+              ],
+              "size": [
+                0.5,
+                0.5169998168945312,
+                0.87
+              ],
+              "offset": 0.0,
+              "orientation": [
+                0.0,
+                0.0,
+                1.5707963267948966
+              ],
+              "orientation_source": "rotY",
+              "use_orientation_supervision": 1,
+              "source_bucket": "furnitureData"
+            }
+          ],
+          "relative_path": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_49556/Updated_Bottom_inst_anno.json"
+        }
+      ]
+    },
+    "related_candidates": [
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_48725/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_48725/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_49556/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_49556/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_50429/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_50429/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_51362/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_51362/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_53333/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_53333/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_54353/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_54353/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_57633/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_57633/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_83258/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_83258/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_48725/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_48725/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_49556/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_49556/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_50429/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_50429/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_51362/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_51362/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_53333/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_53333/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_54353/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_54353/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_57633/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_57633/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_83258/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_83258/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1062837_127305/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1062837_127305/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1062837_5664/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1062837_5664/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1062837_6790/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1062837_6790/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1062837_7294/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1062837_7294/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1062837_82504/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1062837_82504/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1062837_843049/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1062837_843049/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1062837_843202/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1062837_843202/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1092949_202997/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1092949_202997/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1092949_23325/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1092949_23325/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1092949_26857/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1092949_26857/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1092949_40484/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1092949_40484/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1092949_54060/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1092949_54060/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1186490_151259/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1186490_151259/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1186490_3240/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1186490_3240/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1186490_3671/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1186490_3671/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1186490_4134/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1186490_4134/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1186490_52454/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1186490_52454/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1186490_52745/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1186490_52745/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1186490_5499/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1186490_5499/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1191995_3521753/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1191995_3521753/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1191995_3523225/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1191995_3523225/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1191995_5107528/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1191995_5107528/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1191995_5188306/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1191995_5188306/Updated_Bottom_label_map.png",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1191995_8127109/Updated_Bottom_inst_anno.json",
+      "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1191995_8127109/Updated_Bottom_label_map.png"
+    ]
+  },
+  "policy_summary": {
+    "raw_topdown_render_entry": "preprocess/semlayout/render_dataset_improved_mat.py and preprocess/semlayout/multi_render.py if present",
+    "semantic_architecture_extraction_entry": "preprocess/scripts/data_processor.py, preprocess/scripts/data_to_npy.py, and front3d visualization helpers if present",
+    "orthographic_camera_policy": "hard_source_evidence_found",
+    "room_framing_padding_policy": "hard_source_evidence_found",
+    "category_to_color_policy": "metadata color palette / semantic_color_index files",
+    "architecture_element_policy": {
+      "floor": "mentioned",
+      "wall_or_boundary": "mentioned",
+      "door": "mentioned",
+      "window": "mentioned",
+      "include_arch": "mentioned"
+    },
+    "verified_builtin_legend_support": false,
+    "legend_note": "SemLayoutDiff provides palette/color mappings, but no verified built-in human-facing legend generator was found. LoReflection legend is an audit visualization enhancement.",
+    "reusable_ideas": [
+      "fixed category-to-color mappings",
+      "top-down orthographic framing / crop policy",
+      "separate semantic label maps from colored human-readable maps",
+      "architecture-aware rendering policy when include_arch is available"
+    ],
+    "non_reusable_ideas": [
+      "Do not run Blender/BlenderProc in this audit-only step.",
+      "Do not treat processed SemLayoutDiff PNGs as LoReflection raw source.",
+      "Do not copy project-specific rendering code blindly into the converter."
+    ]
+  },
+  "inference": {
+    "loreflection_visual_audit_v2": "Use SemLayoutDiff-style top-down separation and palette discipline, but add audit-only legends and high-contrast architecture markers.",
+    "canonical_outputs_should_change": false
+  }
+}

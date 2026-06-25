@@ -1,0 +1,155 @@
+{
+  "selected_samples": [
+    {
+      "room_type_guess": "unknown",
+      "label_map": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_48725/Updated_Bottom_label_map.png",
+      "label_map_png": {
+        "width": 1200,
+        "height": 1200,
+        "bit_depth": 8,
+        "color_type": 0
+      },
+      "color_map": "",
+      "color_map_png": {},
+      "inst_anno": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_48725/Updated_Bottom_inst_anno.json",
+      "inst_anno_top_keys": [],
+      "evidence_level": "existing processed-output evidence"
+    },
+    {
+      "room_type_guess": "unknown",
+      "label_map": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_49556/Updated_Bottom_label_map.png",
+      "label_map_png": {
+        "width": 1200,
+        "height": 1200,
+        "bit_depth": 8,
+        "color_type": 0
+      },
+      "color_map": "",
+      "color_map_png": {},
+      "inst_anno": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_49556/Updated_Bottom_inst_anno.json",
+      "inst_anno_top_keys": [],
+      "evidence_level": "existing processed-output evidence"
+    },
+    {
+      "room_type_guess": "unknown",
+      "label_map": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_50429/Updated_Bottom_label_map.png",
+      "label_map_png": {
+        "width": 1200,
+        "height": 1200,
+        "bit_depth": 8,
+        "color_type": 0
+      },
+      "color_map": "",
+      "color_map_png": {},
+      "inst_anno": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_50429/Updated_Bottom_inst_anno.json",
+      "inst_anno_top_keys": [],
+      "evidence_level": "existing processed-output evidence"
+    },
+    {
+      "room_type_guess": "unknown",
+      "label_map": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_51362/Updated_Bottom_label_map.png",
+      "label_map_png": {
+        "width": 1200,
+        "height": 1200,
+        "bit_depth": 8,
+        "color_type": 0
+      },
+      "color_map": "",
+      "color_map_png": {},
+      "inst_anno": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_51362/Updated_Bottom_inst_anno.json",
+      "inst_anno_top_keys": [],
+      "evidence_level": "existing processed-output evidence"
+    },
+    {
+      "room_type_guess": "unknown",
+      "label_map": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_53333/Updated_Bottom_label_map.png",
+      "label_map_png": {
+        "width": 1200,
+        "height": 1200,
+        "bit_depth": 8,
+        "color_type": 0
+      },
+      "color_map": "",
+      "color_map_png": {},
+      "inst_anno": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_53333/Updated_Bottom_inst_anno.json",
+      "inst_anno_top_keys": [],
+      "evidence_level": "existing processed-output evidence"
+    },
+    {
+      "room_type_guess": "unknown",
+      "label_map": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_54353/Updated_Bottom_label_map.png",
+      "label_map_png": {
+        "width": 1200,
+        "height": 1200,
+        "bit_depth": 8,
+        "color_type": 0
+      },
+      "color_map": "",
+      "color_map_png": {},
+      "inst_anno": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_54353/Updated_Bottom_inst_anno.json",
+      "inst_anno_top_keys": [],
+      "evidence_level": "existing processed-output evidence"
+    },
+    {
+      "room_type_guess": "unknown",
+      "label_map": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_57633/Updated_Bottom_label_map.png",
+      "label_map_png": {
+        "width": 1200,
+        "height": 1200,
+        "bit_depth": 8,
+        "color_type": 0
+      },
+      "color_map": "",
+      "color_map_png": {},
+      "inst_anno": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_57633/Updated_Bottom_inst_anno.json",
+      "inst_anno_top_keys": [],
+      "evidence_level": "existing processed-output evidence"
+    },
+    {
+      "room_type_guess": "unknown",
+      "label_map": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_83258/Updated_Bottom_label_map.png",
+      "label_map_png": {
+        "width": 1200,
+        "height": 1200,
+        "bit_depth": 8,
+        "color_type": 0
+      },
+      "color_map": "",
+      "color_map_png": {},
+      "inst_anno": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038297_83258/Updated_Bottom_inst_anno.json",
+      "inst_anno_top_keys": [],
+      "evidence_level": "existing processed-output evidence"
+    },
+    {
+      "room_type_guess": "unknown",
+      "label_map": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_48725/Updated_Bottom_label_map.png",
+      "label_map_png": {
+        "width": 1200,
+        "height": 1200,
+        "bit_depth": 8,
+        "color_type": 0
+      },
+      "color_map": "",
+      "color_map_png": {},
+      "inst_anno": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_48725/Updated_Bottom_inst_anno.json",
+      "inst_anno_top_keys": [],
+      "evidence_level": "existing processed-output evidence"
+    },
+    {
+      "room_type_guess": "unknown",
+      "label_map": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_49556/Updated_Bottom_label_map.png",
+      "label_map_png": {
+        "width": 1200,
+        "height": 1200,
+        "bit_depth": 8,
+        "color_type": 0
+      },
+      "color_map": "",
+      "color_map_png": {},
+      "inst_anno": "datasets/chinese_w_arch_3dfront_planjson_apm_stage1_roty_0228_0317_0327_v1/test/1038766_49556/Updated_Bottom_inst_anno.json",
+      "inst_anno_top_keys": [],
+      "evidence_level": "existing processed-output evidence"
+    }
+  ],
+  "note": "Reference contact sheet is generated by LoReflection audit tooling, not an original SemLayoutDiff output."
+}

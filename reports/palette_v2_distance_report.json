@@ -1,0 +1,365 @@
+{
+  "palette_id": "palette_v2_38class_robust",
+  "minimum_rgb_distance": 48.0,
+  "closest_rgb_pair": {
+    "a": "dining_table",
+    "b": "shelf",
+    "a_rgb": [
+      224,
+      192,
+      128
+    ],
+    "b_rgb": [
+      224,
+      144,
+      128
+    ],
+    "rgb_distance": 48.0,
+    "ciede2000_proxy": 31.99081807888664
+  },
+  "minimum_ciede2000_proxy": 11.530316104466717,
+  "closest_perceptual_pair": {
+    "a": "void",
+    "b": "floor",
+    "a_rgb": [
+      255,
+      255,
+      255
+    ],
+    "b_rgb": [
+      222,
+      222,
+      222
+    ],
+    "rgb_distance": 57.15767664977295,
+    "ciede2000_proxy": 11.530316104466717
+  },
+  "native_palette_duplicate_rgb": {
+    "(241, 166, 205)": [
+      "lazy_sofa",
+      "multi_seat_sofa"
+    ]
+  },
+  "native_closest_pairs": [
+    {
+      "a": "lazy_sofa",
+      "b": "multi_seat_sofa",
+      "a_rgb": [
+        241,
+        166,
+        205
+      ],
+      "b_rgb": [
+        241,
+        166,
+        205
+      ],
+      "rgb_distance": 0.0,
+      "ciede2000_proxy": 0.0
+    },
+    {
+      "a": "lazy_sofa",
+      "b": "sofa",
+      "a_rgb": [
+        241,
+        166,
+        205
+      ],
+      "b_rgb": [
+        240,
+        161,
+        204
+      ],
+      "rgb_distance": 5.196152422706632,
+      "ciede2000_proxy": 2.800874630922585
+    },
+    {
+      "a": "sofa",
+      "b": "multi_seat_sofa",
+      "a_rgb": [
+        240,
+        161,
+        204
+      ],
+      "b_rgb": [
+        241,
+        166,
+        205
+      ],
+      "rgb_distance": 5.196152422706632,
+      "ciede2000_proxy": 2.800874630922585
+    },
+    {
+      "a": "loveseat_sofa",
+      "b": "lazy_sofa",
+      "a_rgb": [
+        243,
+        171,
+        207
+      ],
+      "b_rgb": [
+        241,
+        166,
+        205
+      ],
+      "rgb_distance": 5.744562646538029,
+      "ciede2000_proxy": 2.3664003020067064
+    },
+    {
+      "a": "loveseat_sofa",
+      "b": "multi_seat_sofa",
+      "a_rgb": [
+        243,
+        171,
+        207
+      ],
+      "b_rgb": [
+        241,
+        166,
+        205
+      ],
+      "rgb_distance": 5.744562646538029,
+      "ciede2000_proxy": 2.3664003020067064
+    },
+    {
+      "a": "loveseat_sofa",
+      "b": "sofa",
+      "a_rgb": [
+        243,
+        171,
+        207
+      ],
+      "b_rgb": [
+        240,
+        161,
+        204
+      ],
+      "rgb_distance": 10.862780491200215,
+      "ciede2000_proxy": 5.149466433016364
+    },
+    {
+      "a": "shelf",
+      "b": "bookshelf",
+      "a_rgb": [
+        215,
+        216,
+        130
+      ],
+      "b_rgb": [
+        212,
+        213,
+        119
+      ],
+      "rgb_distance": 11.789826122551595,
+      "ciede2000_proxy": 4.156003358502442
+    },
+    {
+      "a": "round_end_table",
+      "b": "coffee_table",
+      "a_rgb": [
+        187,
+        166,
+        212
+      ],
+      "b_rgb": [
+        178,
+        157,
+        212
+      ],
+      "rgb_distance": 12.727922061357855,
+      "ciede2000_proxy": 5.945508916901147
+    },
+    {
+      "a": "console_table",
+      "b": "tv_stand",
+      "a_rgb": [
+        169,
+        148,
+        211
+      ],
+      "b_rgb": [
+        160,
+        139,
+        211
+      ],
+      "rgb_distance": 12.727922061357855,
+      "ciede2000_proxy": 6.093369574168279
+    },
+    {
+      "a": "dressing_table",
+      "b": "table",
+      "a_rgb": [
+        141,
+        120,
+        210
+      ],
+      "b_rgb": [
+        132,
+        111,
+        210
+      ],
+      "rgb_distance": 12.727922061357855,
+      "ciede2000_proxy": 6.303889988296089
+    },
+    {
+      "a": "table",
+      "b": "dining_table",
+      "a_rgb": [
+        132,
+        111,
+        210
+      ],
+      "b_rgb": [
+        123,
+        102,
+        210
+      ],
+      "rgb_distance": 12.727922061357855,
+      "ciede2000_proxy": 6.35338527470381
+    },
+    {
+      "a": "coffee_table",
+      "b": "console_table",
+      "a_rgb": [
+        178,
+        157,
+        212
+      ],
+      "b_rgb": [
+        169,
+        148,
+        211
+      ],
+      "rgb_distance": 12.767145334803704,
+      "ciede2000_proxy": 5.576045793029705
+    },
+    {
+      "a": "desk",
+      "b": "dressing_table",
+      "a_rgb": [
+        150,
+        129,
+        211
+      ],
+      "b_rgb": [
+        141,
+        120,
+        210
+      ],
+      "rgb_distance": 12.767145334803704,
+      "ciede2000_proxy": 5.789820435295005
+    },
+    {
+      "a": "dressing_chair",
+      "b": "dining_chair",
+      "a_rgb": [
+        162,
+        200,
+        236
+      ],
+      "b_rgb": [
+        151,
+        193,
+        231
+      ],
+      "rgb_distance": 13.96424004376894,
+      "ciede2000_proxy": 3.1287908761819123
+    },
+    {
+      "a": "dining_chair",
+      "b": "chinese_chair",
+      "a_rgb": [
+        151,
+        193,
+        231
+      ],
+      "b_rgb": [
+        140,
+        186,
+        226
+      ],
+      "rgb_distance": 13.96424004376894,
+      "ciede2000_proxy": 3.1198910027422024
+    },
+    {
+      "a": "tv_stand",
+      "b": "desk",
+      "a_rgb": [
+        160,
+        139,
+        211
+      ],
+      "b_rgb": [
+        150,
+        129,
+        211
+      ],
+      "rgb_distance": 14.142135623730951,
+      "ciede2000_proxy": 6.855381891527236
+    },
+    {
+      "a": "corner_side_table",
+      "b": "round_end_table",
+      "a_rgb": [
+        197,
+        176,
+        213
+      ],
+      "b_rgb": [
+        187,
+        166,
+        212
+      ],
+      "rgb_distance": 14.177446878757825,
+      "ciede2000_proxy": 6.083110781578391
+    },
+    {
+      "a": "chaise_longue_sofa",
+      "b": "l_shaped_sofa",
+      "a_rgb": [
+        233,
+        140,
+        199
+      ],
+      "b_rgb": [
+        227,
+        119,
+        194
+      ],
+      "rgb_distance": 22.40535650240808,
+      "ciede2000_proxy": 10.710096015334239
+    },
+    {
+      "a": "bookshelf",
+      "b": "children_cabinet",
+      "a_rgb": [
+        212,
+        213,
+        119
+      ],
+      "b_rgb": [
+        206,
+        207,
+        98
+      ],
+      "rgb_distance": 22.64950330581225,
+      "ciede2000_proxy": 7.593901051339503
+    },
+    {
+      "a": "wine_cabinet",
+      "b": "cabinet",
+      "a_rgb": [
+        200,
+        201,
+        76
+      ],
+      "b_rgb": [
+        194,
+        195,
+        55
+      ],
+      "rgb_distance": 22.64950330581225,
+      "ciede2000_proxy": 6.1096194012802325
+    }
+  ]
+}

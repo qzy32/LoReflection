@@ -1,0 +1,304 @@
+{
+  "schema_version": "category-mapping-3dfuture-to-palette-v1",
+  "mapping_id": "3dfuture_to_loreflection_palette_v1",
+  "reference_source": "SemLayoutDiff metadata / 34-class vocabulary, adapted to LoReflection palette_v1",
+  "description": "Three-layer mapping with explicit action policy: 3D-FUTURE raw category/title -> SemLayoutDiff/reference category -> LoReflection palette category -> converter action.",
+  "rules": [
+    {
+      "raw_category": "door/*",
+      "match_any": [
+        "door",
+        "single swing door",
+        "double swing door",
+        "entry"
+      ],
+      "reference_category": "door",
+      "loreflection_category": "door",
+      "action": "keep_architecture_anchor",
+      "anchor_type": "door",
+      "reason": "SemLayoutDiff metadata includes door as architecture/semantic id and excludes floor/door/window from furniture priors.",
+      "semantic_group": "architecture"
+    },
+    {
+      "raw_category": "window/*",
+      "match_any": [
+        "window",
+        "floor-based window"
+      ],
+      "reference_category": "window",
+      "loreflection_category": "window",
+      "action": "keep_architecture_anchor",
+      "anchor_type": "window",
+      "reason": "SemLayoutDiff metadata includes window as architecture/semantic id and excludes floor/door/window from furniture priors.",
+      "semantic_group": "architecture"
+    },
+    {
+      "raw_category": "wall/floor/opening",
+      "match_any": [
+        "wall",
+        "floor",
+        "opening"
+      ],
+      "reference_category": "architecture_surface_or_opening",
+      "loreflection_category": "architecture",
+      "action": "keep_architecture_anchor",
+      "anchor_type": "opening",
+      "reason": "Wall/floor/opening are architecture-condition concepts, not furniture entities.",
+      "semantic_group": "architecture"
+    },
+    {
+      "raw_category": "Pendant Lamp",
+      "match_any": [
+        "pendant lamp",
+        "pendant light"
+      ],
+      "reference_category": "pendant_lamp",
+      "loreflection_category": "pendant_lamp",
+      "action": "keep_furniture",
+      "reason": "SemLayoutDiff keeps pendant lamp as a semantic furniture label.",
+      "semantic_group": "lighting"
+    },
+    {
+      "raw_category": "Ceiling Lamp",
+      "match_any": [
+        "ceiling lamp",
+        "ceiling light"
+      ],
+      "reference_category": "ceiling_lamp",
+      "loreflection_category": "ceiling_lamp",
+      "action": "keep_furniture",
+      "reason": "SemLayoutDiff keeps ceiling lamp as a semantic furniture label.",
+      "semantic_group": "lighting"
+    },
+    {
+      "raw_category": "lamp / lighting",
+      "match_any": [
+        "floor lamp",
+        "lamp",
+        "lighting"
+      ],
+      "reference_category": "lamp",
+      "loreflection_category": "lamp",
+      "action": "keep_furniture",
+      "reason": "Generic lamp/lighting objects are kept as lamp outputs in R2.",
+      "semantic_group": "lighting"
+    },
+    {
+      "raw_category": "Bed / King-size Bed / Single bed / Kids Bed / Bunk Bed",
+      "match_any": [
+        "king-size bed",
+        "king size bed",
+        "single bed",
+        "kids bed",
+        "bunk bed",
+        "double bed",
+        "bed",
+        "crib"
+      ],
+      "reference_category": "bed",
+      "loreflection_category": "bed",
+      "action": "keep_furniture",
+      "reason": "Core LoReflection furniture.",
+      "semantic_group": "core_furniture"
+    },
+    {
+      "raw_category": "Nightstand",
+      "match_any": [
+        "nightstand",
+        "night stand",
+        "bedside",
+        "side table"
+      ],
+      "reference_category": "nightstand",
+      "loreflection_category": "nightstand",
+      "action": "keep_furniture",
+      "reason": "Core LoReflection furniture.",
+      "semantic_group": "core_furniture"
+    },
+    {
+      "raw_category": "Wardrobe",
+      "match_any": [
+        "wardrobe",
+        "closet"
+      ],
+      "reference_category": "wardrobe",
+      "loreflection_category": "wardrobe",
+      "action": "keep_furniture",
+      "reason": "Core LoReflection furniture.",
+      "semantic_group": "core_furniture"
+    },
+    {
+      "raw_category": "Desk",
+      "match_any": [
+        "desk"
+      ],
+      "reference_category": "desk",
+      "loreflection_category": "desk",
+      "action": "keep_furniture",
+      "reason": "Core LoReflection furniture.",
+      "semantic_group": "core_furniture"
+    },
+    {
+      "raw_category": "Chair / Dining Chair / armchair / Lounge Chair",
+      "match_any": [
+        "dining chair",
+        "lounge chair",
+        "cafe chair",
+        "office chair",
+        "classic chinese chair",
+        "dressing chair",
+        "armchair",
+        "chair",
+        "stool",
+        "sofastool",
+        "footstool",
+        "bed end stool"
+      ],
+      "reference_category": "chair",
+      "loreflection_category": "chair",
+      "action": "keep_furniture",
+      "reason": "Core LoReflection furniture or closest current palette class.",
+      "semantic_group": "core_furniture"
+    },
+    {
+      "raw_category": "Sofa / Loveseat Sofa / L-shaped Sofa / Multi-seat Sofa",
+      "match_any": [
+        "sofa",
+        "loveseat",
+        "multi-seat sofa",
+        "multi seat sofa",
+        "l-shaped sofa",
+        "l shaped sofa",
+        "chaise longue"
+      ],
+      "reference_category": "sofa",
+      "loreflection_category": "sofa",
+      "action": "keep_furniture",
+      "palette_alias_used": false,
+      "reason": "Core sofa-like furniture retained as independent semantic output after R4 palette fix.",
+      "semantic_group": "core_furniture"
+    },
+    {
+      "raw_category": "Dining Table / Coffee Table / Table",
+      "match_any": [
+        "dining table",
+        "coffee table",
+        "corner/side table",
+        "round end table"
+      ],
+      "reference_category": "table",
+      "loreflection_category": "table",
+      "action": "keep_furniture",
+      "palette_alias_used": false,
+      "reason": "Core table-like furniture retained as independent semantic output after R4 palette fix.",
+      "semantic_group": "core_furniture"
+    },
+    {
+      "raw_category": "TV Stand",
+      "match_any": [
+        "tv stand",
+        "media unit"
+      ],
+      "reference_category": "tv_stand",
+      "loreflection_category": "tv_stand",
+      "action": "keep_furniture",
+      "palette_alias_used": false,
+      "reason": "Core storage/display furniture retained as independent semantic output after R4 palette fix.",
+      "semantic_group": "core_furniture"
+    },
+    {
+      "raw_category": "Sideboard / Side Cabinet / Console Table",
+      "match_any": [
+        "sideboard",
+        "side cabinet",
+        "console table",
+        "cabinet",
+        "children cabinet",
+        "wine cabinet",
+        "drawer chest"
+      ],
+      "reference_category": "cabinet",
+      "loreflection_category": "cabinet",
+      "action": "keep_furniture",
+      "palette_alias_used": false,
+      "reason": "Core storage furniture retained as independent semantic output after R4 palette fix.",
+      "semantic_group": "core_furniture"
+    },
+    {
+      "raw_category": "Bookshelf / Shelf",
+      "match_any": [
+        "bookcase",
+        "bookshelf",
+        "shelf",
+        "jewelry armoire"
+      ],
+      "reference_category": "bookshelf",
+      "loreflection_category": "bookshelf",
+      "action": "keep_furniture",
+      "palette_alias_used": false,
+      "reason": "Core storage furniture retained as independent semantic output after R4 palette fix.",
+      "semantic_group": "core_furniture"
+    },
+    {
+      "raw_category": "Table",
+      "match_any": [
+        "table"
+      ],
+      "reference_category": "table",
+      "loreflection_category": "table",
+      "action": "keep_furniture",
+      "palette_alias_used": false,
+      "reason": "Generic table retained as independent semantic output after storage-specific rules.",
+      "semantic_group": "core_furniture"
+    },
+    {
+      "raw_category": "curtain",
+      "match_any": [
+        "curtain"
+      ],
+      "reference_category": "curtain",
+      "loreflection_category": "unknown",
+      "action": "skip",
+      "reason": "User confirmed curtain is not a core furniture or architecture anchor in v1.",
+      "semantic_group": "accessory",
+      "skip_reason": "accessory_excluded_from_v1"
+    },
+    {
+      "raw_category": "plants / pillow / decor",
+      "match_any": [
+        "plant",
+        "pillow",
+        "accessory",
+        "decoration",
+        "decorative"
+      ],
+      "reference_category": "decor",
+      "loreflection_category": "unknown",
+      "action": "skip",
+      "reason": "Accessory/decor objects are skipped from v1 furniture semantic output.",
+      "semantic_group": "accessory",
+      "skip_reason": "accessory_excluded_from_v1"
+    },
+    {
+      "raw_category": "Others",
+      "match_any": [
+        "others"
+      ],
+      "reference_category": "unknown",
+      "loreflection_category": "unknown",
+      "action": "skip",
+      "reason": "Ambiguous Others category is not safe to draw as furniture.",
+      "semantic_group": "unknown",
+      "skip_reason": "unknown_or_unstable_mapping"
+    }
+  ],
+  "default": {
+    "raw_category": "unknown",
+    "reference_category": "unknown",
+    "loreflection_category": "unknown",
+    "action": "skip",
+    "reason": "No explicit mapping rule covered this object.",
+    "semantic_group": "unknown",
+    "skip_reason": "unknown_or_unstable_mapping"
+  }
+}

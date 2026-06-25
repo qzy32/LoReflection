@@ -1,0 +1,27 @@
+{
+  "schema_version": "c14-medium-data-gate-v1",
+  "status": "C14_DATA_PASS",
+  "rows": 80,
+  "per_action": {
+    "ADD": 20,
+    "REMOVE": 20,
+    "TRANSLATE": 20,
+    "REPLACE": 20
+  },
+  "checks": {
+    "repairplan_validator": "80/80 PASS (light current-protocol validator; jsonschema unavailable remotely)",
+    "mask_spec_validator": "80/80 PASS (light current-protocol validator; jsonschema unavailable remotely)",
+    "oracle_copyback": "PASS",
+    "nonmask_equality": "PASS",
+    "palette_validity": "PASS",
+    "no_op": "PASS",
+    "null_category": "PASS",
+    "no_rotate_scale": "PASS"
+  },
+  "rejects": {
+    "unsupported_command": 22,
+    "no_moved_object": 16
+  },
+  "min_changed_pixels": 32,
+  "min_changed_ratio": 0.005
+}

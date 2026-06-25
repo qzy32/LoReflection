@@ -1,0 +1,13 @@
+{
+  "semantic_footprint_version": "semantic_footprint_v1",
+  "canonical_geometry": "simplified_instance_footprint_mask",
+  "bbox_policy": "bbox/AABB is derived from footprint mask only",
+  "source_priority": [
+    "reliable instance footprint polygon / ground projection",
+    "3D-FUTURE mesh with 3D-FRONT transform ground projection",
+    "object size + rotY oriented rectangular footprint",
+    "world-axis AABB audit fallback only; excluded from canonical training"
+  ],
+  "selected_simplification": "S1_fill_small_holes_remove_tiny_islands",
+  "current_implementation_note": "native prototype currently uses rectangular footprint from available size/transform; samples with missing transform are excluded from canonical training selection when possible"
+}

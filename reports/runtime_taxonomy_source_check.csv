@@ -1,0 +1,8 @@
+component,path,taxonomy_source,registry_path,parse_json_floorplan_reachable,compact_mapping_reachable,raw_bad_token_present
+registry loader,loreflection/semantic_registry.py,SemLayoutDiff official metadata via artifacts/semantic_registry_v2,artifacts/semantic_registry_v2,False,False,False
+dataset builder,data_pipeline/semlayoutdiff_aligned,SemLayoutDiff official metadata via artifacts/semantic_registry_v2,artifacts/semantic_registry_v2,False,False,False
+topdown renderer,data_pipeline/semlayoutdiff_aligned,SemLayoutDiff official metadata via artifacts/semantic_registry_v2,artifacts/semantic_registry_v2,False,False,False
+palette encoder,loreflection/semantic_registry.py,SemLayoutDiff official metadata via artifacts/semantic_registry_v2,artifacts/semantic_registry_v2,False,False,False
+palette decoder,runtime/observer.py,SemLayoutDiff official metadata via artifacts/semantic_registry_v2,artifacts/semantic_registry_v2,False,False,False
+observer,runtime/observer.py,SemLayoutDiff official metadata via artifacts/semantic_registry_v2,artifacts/semantic_registry_v2,False,False,False
+training loader,configs/training,SemLayoutDiff official metadata via artifacts/semantic_registry_v2,artifacts/semantic_registry_v2,False,False,False

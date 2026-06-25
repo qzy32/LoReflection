@@ -1,0 +1,12 @@
+required_item,found,repository,ref,path
+preprocess/semlayout,False,,,
+render_dataset_improved_mat.py,True,BlenderProc-3DFront-3dlg-hcvc,refs/heads/3dfront_2d_layout,examples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py
+render_dataset_improved_mat.py,True,BlenderProc-3DFront-3dlg-hcvc,refs/heads/3dfront_vis,examples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py
+render_dataset_improved_mat.py,True,BlenderProc-3DFront-3dlg-hcvc,refs/heads/detached,examples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py
+multi_render.py,True,BlenderProc-3DFront-3dlg-hcvc,refs/heads/3dfront_2d_layout,examples/datasets/front_3d_with_improved_mat/multi_render.py
+multi_render.py,True,BlenderProc-3DFront-3dlg-hcvc,refs/heads/3dfront_vis,examples/datasets/front_3d_with_improved_mat/multi_render.py
+multi_render.py,True,BlenderProc-3DFront-3dlg-hcvc,refs/heads/detached,examples/datasets/front_3d_with_improved_mat/multi_render.py
+data_process_front3d.py,True,BlenderProc-3DFront-3dlg-hcvc,refs/heads/3dfront_2d_layout,visualization/front3d/data_process_front3d.py
+data_process_front3d.py,True,BlenderProc-3DFront-3dlg-hcvc,refs/heads/detached,visualization/front3d/data_process_front3d.py
+Bottom_label_map,False,,,
+Bottom_inst_anno,False,,,

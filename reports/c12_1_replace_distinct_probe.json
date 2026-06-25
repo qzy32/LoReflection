@@ -1,0 +1,106 @@
+{
+  "scanned": 5000,
+  "found_count": 2,
+  "found": [
+    {
+      "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2.pkl",
+      "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677.pkl",
+      "source": "lazy_sofa",
+      "target": "loveseat_sofa",
+      "raw_source": "lazy sofa",
+      "raw_target": "loveseat sofa",
+      "cmd": "replace source with target : [Source] [JID]a32b0fc2-b052-451f-a741-7f3af815f1d6[/JID]; [Target] [JID]4999e7f3-520c-46e9-aa15-2104cc9bfec5[/JID]"
+    },
+    {
+      "file": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2-opposite.pkl",
+      "before": "/wuqingyaoa800/chengjiajia_datas/EditRoom/datasets/editroom_dataset/threed_front_bedroom/train_dataset/4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2.pkl",
+      "source": "loveseat_sofa",
+      "target": "lazy_sofa",
+      "raw_source": "loveseat sofa",
+      "raw_target": "lazy sofa",
+      "cmd": "replace source with target : [Source] [JID]4999e7f3-520c-46e9-aa15-2104cc9bfec5[/JID]; [Target] [JID]a32b0fc2-b052-451f-a741-7f3af815f1d6[/JID]"
+    }
+  ],
+  "top_pairs": [
+    [
+      "('double_bed', 'double_bed')",
+      987
+    ],
+    [
+      "('wardrobe', 'wardrobe')",
+      853
+    ],
+    [
+      "('pendant_lamp', 'pendant_lamp')",
+      741
+    ],
+    [
+      "('nightstand', 'nightstand')",
+      645
+    ],
+    [
+      "missing_obj",
+      547
+    ],
+    [
+      "('ceiling_lamp', 'ceiling_lamp')",
+      459
+    ],
+    [
+      "unmapped",
+      184
+    ],
+    [
+      "('tv_stand', 'tv_stand')",
+      158
+    ],
+    [
+      "('single_bed', 'single_bed')",
+      111
+    ],
+    [
+      "('dressing_table', 'dressing_table')",
+      56
+    ],
+    [
+      "('kids_bed', 'kids_bed')",
+      49
+    ],
+    [
+      "('shelf', 'shelf')",
+      42
+    ],
+    [
+      "('cabinet', 'cabinet')",
+      39
+    ],
+    [
+      "('desk', 'desk')",
+      39
+    ],
+    [
+      "('bookshelf', 'bookshelf')",
+      28
+    ],
+    [
+      "('side_table', 'side_table')",
+      25
+    ],
+    [
+      "('dressing_chair', 'dressing_chair')",
+      15
+    ],
+    [
+      "('armchair', 'armchair')",
+      7
+    ],
+    [
+      "('dining_chair', 'dining_chair')",
+      6
+    ],
+    [
+      "('coffee_table', 'coffee_table')",
+      5
+    ]
+  ]
+}

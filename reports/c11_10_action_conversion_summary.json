@@ -1,0 +1,336 @@
+{
+  "converted": [
+    {
+      "sample_id": "add_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ADD",
+      "status": "valid",
+      "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "source_category": null,
+      "target_category": "dressing_table",
+      "palette_validity": true,
+      "mask_binary": true,
+      "mask_unique_values": [
+        0,
+        255
+      ],
+      "oracle_composite_equal_target": true,
+      "nonmask_equality": true,
+      "mask_area_ratio": 0.009860992431640625,
+      "target_category_components": 1209,
+      "source_category_components": 0,
+      "observer_parse_success": null,
+      "same_class_merge_detected": true
+    },
+    {
+      "sample_id": "add_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ADD",
+      "status": "valid",
+      "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "source_category": null,
+      "target_category": null,
+      "palette_validity": true,
+      "mask_binary": true,
+      "mask_unique_values": [
+        0,
+        255
+      ],
+      "oracle_composite_equal_target": true,
+      "nonmask_equality": true,
+      "mask_area_ratio": 0.0070037841796875,
+      "target_category_components": 0,
+      "source_category_components": 0,
+      "observer_parse_success": null,
+      "same_class_merge_detected": false
+    },
+    {
+      "sample_id": "add_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ADD",
+      "status": "valid",
+      "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/add_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "source_category": null,
+      "target_category": "double_bed",
+      "palette_validity": true,
+      "mask_binary": true,
+      "mask_unique_values": [
+        0,
+        255
+      ],
+      "oracle_composite_equal_target": true,
+      "nonmask_equality": true,
+      "mask_area_ratio": 0.0610198974609375,
+      "target_category_components": 10524,
+      "source_category_components": 0,
+      "observer_parse_success": null,
+      "same_class_merge_detected": true
+    },
+    {
+      "sample_id": "rotate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ROTATE",
+      "status": "valid",
+      "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/rotate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "source_category": "dressing_table",
+      "target_category": "dressing_table",
+      "palette_validity": true,
+      "mask_binary": true,
+      "mask_unique_values": [
+        0,
+        255
+      ],
+      "oracle_composite_equal_target": true,
+      "nonmask_equality": true,
+      "mask_area_ratio": 0.009860992431640625,
+      "target_category_components": 1209,
+      "source_category_components": 320,
+      "observer_parse_success": null,
+      "same_class_merge_detected": true
+    },
+    {
+      "sample_id": "translate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "TRANSLATE",
+      "status": "valid",
+      "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "source_category": "dressing_table",
+      "target_category": "dressing_table",
+      "palette_validity": true,
+      "mask_binary": true,
+      "mask_unique_values": [
+        0,
+        255
+      ],
+      "oracle_composite_equal_target": true,
+      "nonmask_equality": true,
+      "mask_area_ratio": 0.009860992431640625,
+      "target_category_components": 320,
+      "source_category_components": 1209,
+      "observer_parse_success": null,
+      "same_class_merge_detected": true
+    },
+    {
+      "sample_id": "rotate_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ROTATE",
+      "status": "valid",
+      "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/rotate_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "source_category": null,
+      "target_category": null,
+      "palette_validity": true,
+      "mask_binary": true,
+      "mask_unique_values": [
+        0,
+        255
+      ],
+      "oracle_composite_equal_target": true,
+      "nonmask_equality": true,
+      "mask_area_ratio": 0.0070037841796875,
+      "target_category_components": 0,
+      "source_category_components": 0,
+      "observer_parse_success": null,
+      "same_class_merge_detected": false
+    },
+    {
+      "sample_id": "translate_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "TRANSLATE",
+      "status": "valid",
+      "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "source_category": null,
+      "target_category": null,
+      "palette_validity": true,
+      "mask_binary": true,
+      "mask_unique_values": [
+        0,
+        255
+      ],
+      "oracle_composite_equal_target": true,
+      "nonmask_equality": true,
+      "mask_area_ratio": 0.0070037841796875,
+      "target_category_components": 0,
+      "source_category_components": 0,
+      "observer_parse_success": null,
+      "same_class_merge_detected": false
+    },
+    {
+      "sample_id": "rotate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ROTATE",
+      "status": "valid",
+      "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/rotate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "source_category": "dressing_table",
+      "target_category": "dressing_table",
+      "palette_validity": true,
+      "mask_binary": true,
+      "mask_unique_values": [
+        0,
+        255
+      ],
+      "oracle_composite_equal_target": true,
+      "nonmask_equality": true,
+      "mask_area_ratio": 0.01678466796875,
+      "target_category_components": 936,
+      "source_category_components": 936,
+      "observer_parse_success": null,
+      "same_class_merge_detected": true
+    },
+    {
+      "sample_id": "translate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "TRANSLATE",
+      "status": "valid",
+      "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/translate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "source_category": "dressing_table",
+      "target_category": "dressing_table",
+      "palette_validity": true,
+      "mask_binary": true,
+      "mask_unique_values": [
+        0,
+        255
+      ],
+      "oracle_composite_equal_target": true,
+      "nonmask_equality": true,
+      "mask_area_ratio": 0.01678466796875,
+      "target_category_components": 936,
+      "source_category_components": 936,
+      "observer_parse_success": null,
+      "same_class_merge_detected": true
+    },
+    {
+      "sample_id": "remove_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "REMOVE",
+      "status": "valid",
+      "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "source_category": "dressing_table",
+      "target_category": null,
+      "palette_validity": true,
+      "mask_binary": true,
+      "mask_unique_values": [
+        0,
+        255
+      ],
+      "oracle_composite_equal_target": true,
+      "nonmask_equality": true,
+      "mask_area_ratio": 0.009860992431640625,
+      "target_category_components": 0,
+      "source_category_components": 1209,
+      "observer_parse_success": null,
+      "same_class_merge_detected": false
+    },
+    {
+      "sample_id": "remove_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "REMOVE",
+      "status": "valid",
+      "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "source_category": null,
+      "target_category": null,
+      "palette_validity": true,
+      "mask_binary": true,
+      "mask_unique_values": [
+        0,
+        255
+      ],
+      "oracle_composite_equal_target": true,
+      "nonmask_equality": true,
+      "mask_area_ratio": 0.0070037841796875,
+      "target_category_components": 0,
+      "source_category_components": 0,
+      "observer_parse_success": null,
+      "same_class_merge_detected": false
+    },
+    {
+      "sample_id": "remove_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "REMOVE",
+      "status": "valid",
+      "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/remove_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "source_category": "double_bed",
+      "target_category": null,
+      "palette_validity": true,
+      "mask_binary": true,
+      "mask_unique_values": [
+        0,
+        255
+      ],
+      "oracle_composite_equal_target": true,
+      "nonmask_equality": true,
+      "mask_area_ratio": 0.0610198974609375,
+      "target_category_components": 0,
+      "source_category_components": 10524,
+      "observer_parse_success": null,
+      "same_class_merge_detected": false
+    },
+    {
+      "sample_id": "replace_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "REPLACE",
+      "status": "valid",
+      "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/replace_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "source_category": "dressing_table",
+      "target_category": "dressing_table",
+      "palette_validity": true,
+      "mask_binary": true,
+      "mask_unique_values": [
+        0,
+        255
+      ],
+      "oracle_composite_equal_target": true,
+      "nonmask_equality": true,
+      "mask_area_ratio": 0.011692047119140625,
+      "target_category_components": 1209,
+      "source_category_components": 1312,
+      "observer_parse_success": null,
+      "same_class_merge_detected": true
+    },
+    {
+      "sample_id": "replace_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "REPLACE",
+      "status": "valid",
+      "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/replace_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "source_category": "dressing_table",
+      "target_category": "dressing_table",
+      "palette_validity": true,
+      "mask_binary": true,
+      "mask_unique_values": [
+        0,
+        255
+      ],
+      "oracle_composite_equal_target": true,
+      "nonmask_equality": true,
+      "mask_area_ratio": 0.011692047119140625,
+      "target_category_components": 1312,
+      "source_category_components": 1209,
+      "observer_parse_success": null,
+      "same_class_merge_detected": true
+    },
+    {
+      "sample_id": "replace_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "REPLACE",
+      "status": "valid",
+      "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/replace_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "source_category": null,
+      "target_category": null,
+      "palette_validity": true,
+      "mask_binary": true,
+      "mask_unique_values": [
+        0,
+        255
+      ],
+      "oracle_composite_equal_target": true,
+      "nonmask_equality": true,
+      "mask_area_ratio": 0.007129669189453125,
+      "target_category_components": 0,
+      "source_category_components": 0,
+      "observer_parse_success": null,
+      "same_class_merge_detected": false
+    },
+    {
+      "sample_id": "scale_parametric_only_missing_real_pair",
+      "action": "SCALE",
+      "status": "parametric_only_missing_real_pair",
+      "sample_dir": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1/scale_parametric_only_missing_real_pair",
+      "source_category": null,
+      "target_category": null
+    }
+  ],
+  "attempted_skipped_or_errors": [],
+  "action_counts": {
+    "ADD": 3,
+    "ROTATE": 3,
+    "TRANSLATE": 3,
+    "REMOVE": 3,
+    "REPLACE": 3,
+    "SCALE": 0
+  }
+}

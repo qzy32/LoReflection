@@ -1,0 +1,762 @@
+{
+  "taxonomy_source": "SemLayoutDiff",
+  "taxonomy_source_commit": "6b12bc4c42aa8377445af108093539073f0495c1",
+  "taxonomy_source_checkout": "/wuqingyaoa800/qiuziyan/third_party_sources/checkouts/SemLayoutDiff_official_6b12bc4c42aa",
+  "taxonomy_source_files": [
+    "configs/sldn/mixed_con_unified_config.yaml",
+    "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+    "preprocess/metadata/unified_category_mapping_w_arch",
+    "preprocess/metadata/bedroom_idx_to_generic_label.json",
+    "preprocess/metadata/livingroom_idx_to_generic_label.json",
+    "preprocess/metadata/diningroom_idx_to_generic_label.json",
+    "preprocess/metadata/semantic_color_index_bedroom.csv",
+    "preprocess/metadata/semantic_color_index_livingdiningroom.csv",
+    "preprocess/metadata/color_palette.json",
+    "preprocess/scripts/data_processor.py",
+    "preprocess/scripts/data_to_npy.py",
+    "preprocess/scripts/pickle_threed_front_dataset.py",
+    "preprocess/scripts/json_threed_future_dataset.py",
+    "README.md"
+  ],
+  "not_derived_from": [
+    "parse_json_floorplan.py",
+    "PlanJSON compact taxonomy",
+    "13-class prototype",
+    "Chinese PlanJSON project"
+  ],
+  "provenance_corrected_at": "2026-06-19T04:04:32.354964+00:00",
+  "total_semantic_categories": 38,
+  "object_categories": 34,
+  "void_floor_door_window_ids": {
+    "void": 0,
+    "floor": 1,
+    "door": 36,
+    "window": 37
+  },
+  "room_specific_mappings": {
+    "bedroom_idx_to_generic_label.json": {
+      "0": "void",
+      "1": "armchair",
+      "2": "bookshelf",
+      "3": "cabinet",
+      "4": "ceiling_lamp",
+      "5": "chair",
+      "6": "children_cabinet",
+      "7": "coffee_table",
+      "8": "desk",
+      "9": "door",
+      "10": "double_bed",
+      "11": "dressing_chair",
+      "12": "dressing_table",
+      "13": "floor",
+      "14": "kids_bed",
+      "15": "nightstand",
+      "16": "pendant_lamp",
+      "17": "shelf",
+      "18": "single_bed",
+      "19": "sofa",
+      "20": "stool",
+      "21": "table",
+      "22": "tv_stand",
+      "23": "wardrobe",
+      "24": "window"
+    },
+    "livingroom_idx_to_generic_label.json": {
+      "0": "void",
+      "1": "armchair",
+      "2": "bookshelf",
+      "3": "cabinet",
+      "4": "ceiling_lamp",
+      "5": "chaise_longue_sofa",
+      "6": "chinese_chair",
+      "7": "coffee_table",
+      "8": "console_table",
+      "9": "corner_side_table",
+      "10": "desk",
+      "11": "dining_chair",
+      "12": "dining_table",
+      "13": "door",
+      "14": "floor",
+      "15": "l_shaped_sofa",
+      "16": "lazy_sofa",
+      "17": "lounge_chair",
+      "18": "loveseat_sofa",
+      "19": "multi_seat_sofa",
+      "20": "pendant_lamp",
+      "21": "round_end_table",
+      "22": "shelf",
+      "23": "stool",
+      "24": "tv_stand",
+      "25": "wardrobe",
+      "26": "window",
+      "27": "wine_cabinet"
+    },
+    "diningroom_idx_to_generic_label.json": {
+      "0": "void",
+      "1": "armchair",
+      "2": "bookshelf",
+      "3": "cabinet",
+      "4": "ceiling_lamp",
+      "5": "chaise_longue_sofa",
+      "6": "chinese_chair",
+      "7": "coffee_table",
+      "8": "console_table",
+      "9": "corner_side_table",
+      "10": "desk",
+      "11": "dining_chair",
+      "12": "dining_table",
+      "13": "door",
+      "14": "floor",
+      "15": "l_shaped_sofa",
+      "16": "lazy_sofa",
+      "17": "lounge_chair",
+      "18": "loveseat_sofa",
+      "19": "multi_seat_sofa",
+      "20": "pendant_lamp",
+      "21": "round_end_table",
+      "22": "shelf",
+      "23": "stool",
+      "24": "tv_stand",
+      "25": "wardrobe",
+      "26": "window",
+      "27": "wine_cabinet"
+    }
+  },
+  "native_palette_duplicate_rgb": {
+    "(241, 166, 205)": [
+      "lazy_sofa",
+      "multi_seat_sofa"
+    ]
+  },
+  "readme_evidence": [
+    "| **🏋️ Training SLDN** | `unified_w_arch_120x120.npy` | Preprocessed 2D semantic layouts for diffusion training |",
+    "- **`unified_w_arch_120x120.npy`**: SLDN training data (2D semantic layouts with room architecture)",
+    "**Note:** Data splits and metadata are included in the repository under `preprocess/metadata/` (no separate download needed).",
+    "├── unified_w_arch_120x120.npy                # SLDN training data (required!)",
+    "Key parameters include `batch_size: 48`, `data_size: 120` for 120×120 semantic maps, and `num_categories: 38` object types. The model uses `room_type_condition: true` and `w_arch: true` to enable conditioning on both room types and architectural elements.",
+    "- **`datasets/unified_w_arch_120x120.npy`** - Essential SLDN training data",
+    "--index preprocess/metadata/semantic_color_index_livingdiningroom.csv \\",
+    "The semantic color indices are provided in `preprocess/metadata/` for different room types.",
+    "--index preprocess/metadata/semantic_color_index_livingdiningroom.csv \\"
+  ],
+  "data_processor_evidence": [
+    {
+      "line": 5,
+      "text": "1. First padding images to target size and converting masks to bounding boxes"
+    },
+    {
+      "line": 42,
+      "text": "if 'mapping_files' in self.config:"
+    },
+    {
+      "line": 43,
+      "text": "for room_type, mapping_file in self.config['mapping_files'].items():"
+    },
+    {
+      "line": 48,
+      "text": "if 'unified_mapping_file' in self.config:"
+    },
+    {
+      "line": 49,
+      "text": "with open(self.config['unified_mapping_file'], 'r') as f:"
+    },
+    {
+      "line": 53,
+      "text": "if 'color_palette_file' in self.config:"
+    },
+    {
+      "line": 54,
+      "text": "with open(self.config['color_palette_file'], 'r') as f:"
+    },
+    {
+      "line": 58,
+      "text": "if 'idx_to_label_files' in self.config:"
+    },
+    {
+      "line": 59,
+      "text": "for room_type, idx_file in self.config['idx_to_label_files'].items():"
+    },
+    {
+      "line": 69,
+      "text": "def mask_to_bbox(self, mask: np.ndarray) -> np.ndarray:"
+    },
+    {
+      "line": 78,
+      "text": "bbox_mask = np.zeros_like(mask)"
+    },
+    {
+      "line": 79,
+      "text": "bbox_mask[min_x:max_x + 1, min_y:max_y + 1] = 1"
+    },
+    {
+      "line": 81,
+      "text": "return bbox_mask"
+    },
+    {
+      "line": 83,
+      "text": "def _convert_to_bboxes(self, label_image: np.ndarray, room_type: str) -> np.ndarray:"
+    },
+    {
+      "line": 116,
+      "text": "bbox_mask = self.mask_to_bbox(single_object_mask)"
+    },
+    {
+      "line": 117,
+      "text": "label_image = np.where(bbox_mask == 1, label, label_image)"
+    },
+    {
+      "line": 127,
+      "text": "bbox_mask = self.mask_to_bbox(single_object_mask)"
+    },
+    {
+      "line": 128,
+      "text": "label_image = np.where(bbox_mask == 1, label, label_image)"
+    },
+    {
+      "line": 144,
+      "text": "# Calculate padding"
+    },
+    {
+      "line": 154,
+      "text": "label_image = self._convert_to_bboxes(label_image, room_type)"
+    },
+    {
+      "line": 215,
+      "text": "use_bbox: bool = False,"
+    },
+    {
+      "line": 218,
+      "text": "\"\"\"Process datasets with padding and unification in one step.\"\"\""
+    },
+    {
+      "line": 308,
+      "text": "\"\"\"Process a single room with padding and unification. Always converts masks to bounding boxes.\"\"\""
+    },
+    {
+      "line": 319,
+      "text": "label_path = os.path.join(room_folder, f\"{prefix}Bottom_label_map.png\")"
+    },
+    {
+      "line": 320,
+      "text": "color_path = os.path.join(room_folder, f\"{prefix}Bottom_color.png\")"
+    },
+    {
+      "line": 321,
+      "text": "anno_path = os.path.join(room_folder, f\"{prefix}Bottom_inst_anno.json\")"
+    },
+    {
+      "line": 339,
+      "text": "# Step 1: Pad images and update annotations (with bbox conversion)"
+    },
+    {
+      "line": 400,
+      "text": "os.path.join(room_output_dir, \"Updated_Bottom_label_map.png\")"
+    },
+    {
+      "line": 403,
+      "text": "os.path.join(room_output_dir, \"Updated_Bottom_color.png\")"
+    },
+    {
+      "line": 406,
+      "text": "with open(os.path.join(room_output_dir, \"Updated_Bottom_inst_anno.json\"), \"w\") as f:"
+    },
+    {
+      "line": 486,
+      "text": "help=\"Target size for padding (width height)\""
+    },
+    {
+      "line": 496,
+      "text": "\"--unified_mapping_file\","
+    },
+    {
+      "line": 501,
+      "text": "\"--color_palette_file\","
+    },
+    {
+      "line": 514,
+      "text": "'unified_mapping_file': args.unified_mapping_file,"
+    },
+    {
+      "line": 515,
+      "text": "'color_palette_file': args.color_palette_file,"
+    },
+    {
+      "line": 516,
+      "text": "'mapping_files': {},"
+    },
+    {
+      "line": 517,
+      "text": "'idx_to_label_files': {}"
+    },
+    {
+      "line": 526,
+      "text": "config['mapping_files'][room_type] = mapping_file"
+    },
+    {
+      "line": 528,
+      "text": "config['idx_to_label_files'][room_type] = idx_file"
+    },
+    {
+      "line": 534,
+      "text": "print(\"Starting data processing and unification (with bbox conversion)...\")"
+    }
+  ],
+  "taxonomy": [
+    {
+      "semantic_id": 0,
+      "category_name": "void",
+      "role": "void",
+      "is_object": false,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "0",
+      "source_line_if_available": 2,
+      "room_applicability": "bedroom;livingroom;diningroom",
+      "native_RGB": "[255, 255, 255]"
+    },
+    {
+      "semantic_id": 1,
+      "category_name": "floor",
+      "role": "floor",
+      "is_object": false,
+      "is_architecture": true,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "1",
+      "source_line_if_available": 3,
+      "room_applicability": "bedroom;livingroom;diningroom",
+      "native_RGB": "[211, 211, 211]"
+    },
+    {
+      "semantic_id": 2,
+      "category_name": "kids_bed",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "2",
+      "source_line_if_available": 4,
+      "room_applicability": "bedroom",
+      "native_RGB": "[152, 223, 138]"
+    },
+    {
+      "semantic_id": 3,
+      "category_name": "single_bed",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "3",
+      "source_line_if_available": 5,
+      "room_applicability": "bedroom",
+      "native_RGB": "[105, 183, 100]"
+    },
+    {
+      "semantic_id": 4,
+      "category_name": "double_bed",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "4",
+      "source_line_if_available": 6,
+      "room_applicability": "bedroom",
+      "native_RGB": "[44, 160, 44]"
+    },
+    {
+      "semantic_id": 5,
+      "category_name": "corner_side_table",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "5",
+      "source_line_if_available": 7,
+      "room_applicability": "livingroom;diningroom",
+      "native_RGB": "[197, 176, 213]"
+    },
+    {
+      "semantic_id": 6,
+      "category_name": "round_end_table",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "6",
+      "source_line_if_available": 8,
+      "room_applicability": "livingroom;diningroom",
+      "native_RGB": "[187, 166, 212]"
+    },
+    {
+      "semantic_id": 7,
+      "category_name": "coffee_table",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "7",
+      "source_line_if_available": 9,
+      "room_applicability": "bedroom;livingroom;diningroom",
+      "native_RGB": "[178, 157, 212]"
+    },
+    {
+      "semantic_id": 8,
+      "category_name": "console_table",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "8",
+      "source_line_if_available": 10,
+      "room_applicability": "livingroom;diningroom",
+      "native_RGB": "[169, 148, 211]"
+    },
+    {
+      "semantic_id": 9,
+      "category_name": "tv_stand",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "9",
+      "source_line_if_available": 11,
+      "room_applicability": "bedroom;livingroom;diningroom",
+      "native_RGB": "[160, 139, 211]"
+    },
+    {
+      "semantic_id": 10,
+      "category_name": "desk",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "10",
+      "source_line_if_available": 12,
+      "room_applicability": "bedroom;livingroom;diningroom",
+      "native_RGB": "[150, 129, 211]"
+    },
+    {
+      "semantic_id": 11,
+      "category_name": "dressing_table",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "11",
+      "source_line_if_available": 13,
+      "room_applicability": "bedroom",
+      "native_RGB": "[141, 120, 210]"
+    },
+    {
+      "semantic_id": 12,
+      "category_name": "table",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "12",
+      "source_line_if_available": 14,
+      "room_applicability": "bedroom",
+      "native_RGB": "[132, 111, 210]"
+    },
+    {
+      "semantic_id": 13,
+      "category_name": "dining_table",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "13",
+      "source_line_if_available": 15,
+      "room_applicability": "livingroom;diningroom",
+      "native_RGB": "[123, 102, 210]"
+    },
+    {
+      "semantic_id": 14,
+      "category_name": "stool",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "14",
+      "source_line_if_available": 16,
+      "room_applicability": "bedroom;livingroom;diningroom",
+      "native_RGB": "[23, 190, 207]"
+    },
+    {
+      "semantic_id": 15,
+      "category_name": "dressing_chair",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "15",
+      "source_line_if_available": 17,
+      "room_applicability": "bedroom",
+      "native_RGB": "[162, 200, 236]"
+    },
+    {
+      "semantic_id": 16,
+      "category_name": "dining_chair",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "16",
+      "source_line_if_available": 18,
+      "room_applicability": "livingroom;diningroom",
+      "native_RGB": "[151, 193, 231]"
+    },
+    {
+      "semantic_id": 17,
+      "category_name": "chinese_chair",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "17",
+      "source_line_if_available": 19,
+      "room_applicability": "livingroom;diningroom",
+      "native_RGB": "[140, 186, 226]"
+    },
+    {
+      "semantic_id": 18,
+      "category_name": "armchair",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "18",
+      "source_line_if_available": 20,
+      "room_applicability": "bedroom;livingroom;diningroom",
+      "native_RGB": "[74, 146, 198]"
+    },
+    {
+      "semantic_id": 19,
+      "category_name": "chair",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "19",
+      "source_line_if_available": 21,
+      "room_applicability": "bedroom",
+      "native_RGB": "[52, 132, 189]"
+    },
+    {
+      "semantic_id": 20,
+      "category_name": "lounge_chair",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "20",
+      "source_line_if_available": 22,
+      "room_applicability": "livingroom;diningroom",
+      "native_RGB": "[31, 119, 180]"
+    },
+    {
+      "semantic_id": 21,
+      "category_name": "loveseat_sofa",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "21",
+      "source_line_if_available": 23,
+      "room_applicability": "livingroom;diningroom",
+      "native_RGB": "[243, 171, 207]"
+    },
+    {
+      "semantic_id": 22,
+      "category_name": "lazy_sofa",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "22",
+      "source_line_if_available": 24,
+      "room_applicability": "livingroom;diningroom",
+      "native_RGB": "[241, 166, 205]"
+    },
+    {
+      "semantic_id": 23,
+      "category_name": "sofa",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "23",
+      "source_line_if_available": 25,
+      "room_applicability": "bedroom",
+      "native_RGB": "[240, 161, 204]"
+    },
+    {
+      "semantic_id": 24,
+      "category_name": "multi_seat_sofa",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "24",
+      "source_line_if_available": 26,
+      "room_applicability": "livingroom;diningroom",
+      "native_RGB": "[241, 166, 205]"
+    },
+    {
+      "semantic_id": 25,
+      "category_name": "chaise_longue_sofa",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "25",
+      "source_line_if_available": 27,
+      "room_applicability": "livingroom;diningroom",
+      "native_RGB": "[233, 140, 199]"
+    },
+    {
+      "semantic_id": 26,
+      "category_name": "l_shaped_sofa",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "26",
+      "source_line_if_available": 28,
+      "room_applicability": "livingroom;diningroom",
+      "native_RGB": "[227, 119, 194]"
+    },
+    {
+      "semantic_id": 27,
+      "category_name": "nightstand",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "27",
+      "source_line_if_available": 29,
+      "room_applicability": "bedroom",
+      "native_RGB": "[255, 217, 74]"
+    },
+    {
+      "semantic_id": 28,
+      "category_name": "shelf",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "28",
+      "source_line_if_available": 30,
+      "room_applicability": "bedroom;livingroom;diningroom",
+      "native_RGB": "[215, 216, 130]"
+    },
+    {
+      "semantic_id": 29,
+      "category_name": "bookshelf",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "29",
+      "source_line_if_available": 31,
+      "room_applicability": "bedroom;livingroom;diningroom",
+      "native_RGB": "[212, 213, 119]"
+    },
+    {
+      "semantic_id": 30,
+      "category_name": "children_cabinet",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "30",
+      "source_line_if_available": 32,
+      "room_applicability": "bedroom",
+      "native_RGB": "[206, 207, 98]"
+    },
+    {
+      "semantic_id": 31,
+      "category_name": "wine_cabinet",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "31",
+      "source_line_if_available": 33,
+      "room_applicability": "livingroom;diningroom",
+      "native_RGB": "[200, 201, 76]"
+    },
+    {
+      "semantic_id": 32,
+      "category_name": "cabinet",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "32",
+      "source_line_if_available": 34,
+      "room_applicability": "bedroom;livingroom;diningroom",
+      "native_RGB": "[194, 195, 55]"
+    },
+    {
+      "semantic_id": 33,
+      "category_name": "wardrobe",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "33",
+      "source_line_if_available": 35,
+      "room_applicability": "bedroom;livingroom;diningroom",
+      "native_RGB": "[188, 189, 34]"
+    },
+    {
+      "semantic_id": 34,
+      "category_name": "pendant_lamp",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "34",
+      "source_line_if_available": 36,
+      "room_applicability": "bedroom;livingroom;diningroom",
+      "native_RGB": "[255, 187, 120]"
+    },
+    {
+      "semantic_id": 35,
+      "category_name": "ceiling_lamp",
+      "role": "object",
+      "is_object": true,
+      "is_architecture": false,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "35",
+      "source_line_if_available": 37,
+      "room_applicability": "bedroom;livingroom;diningroom",
+      "native_RGB": "[255, 127, 14]"
+    },
+    {
+      "semantic_id": 36,
+      "category_name": "door",
+      "role": "architecture",
+      "is_object": false,
+      "is_architecture": true,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "36",
+      "source_line_if_available": 38,
+      "room_applicability": "bedroom;livingroom;diningroom",
+      "native_RGB": "[153, 0, 0]"
+    },
+    {
+      "semantic_id": 37,
+      "category_name": "window",
+      "role": "architecture",
+      "is_object": false,
+      "is_architecture": true,
+      "source_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_key": "37",
+      "source_line_if_available": 39,
+      "room_applicability": "bedroom;livingroom;diningroom",
+      "native_RGB": "[255, 153, 153]"
+    }
+  ]
+}

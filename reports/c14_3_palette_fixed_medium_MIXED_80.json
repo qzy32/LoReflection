@@ -1,0 +1,15 @@
+{
+  "schema_version": "c14-3-palette-fixed-medium-action-v1",
+  "status": "SKIPPED_GPU_BUSY",
+  "reason": "Skipped because single-action clean reruns are deferred by GPU_BUSY.",
+  "wait_script": "scripts/c14_3_wait_and_run_palette_fixed.sh",
+  "dataset": "outputs/semantic_repair4_medium_dataset_v2_palette_fixed",
+  "config_root": "configs/c14_3_semantic_repair4_palette_fixed",
+  "output_root": "outputs/qwen_semantic_repair4_palette_fixed_v1",
+  "steps": 0,
+  "best_checkpoint": null,
+  "metrics": {},
+  "gate": "DEFERRED_GPU_BUSY",
+  "action": "MIXED_80",
+  "report": "mixed"
+}

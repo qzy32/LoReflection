@@ -1,0 +1,102 @@
+{
+  "fixture_A_all_categories": {
+    "expected_instances": 34,
+    "parsed_instances": 34,
+    "categories": [
+      "armchair",
+      "bookshelf",
+      "cabinet",
+      "ceiling_lamp",
+      "chair",
+      "chaise_longue_sofa",
+      "children_cabinet",
+      "chinese_chair",
+      "coffee_table",
+      "console_table",
+      "corner_side_table",
+      "desk",
+      "dining_chair",
+      "dining_table",
+      "double_bed",
+      "dressing_chair",
+      "dressing_table",
+      "kids_bed",
+      "l_shaped_sofa",
+      "lazy_sofa",
+      "lounge_chair",
+      "loveseat_sofa",
+      "multi_seat_sofa",
+      "nightstand",
+      "pendant_lamp",
+      "round_end_table",
+      "shelf",
+      "single_bed",
+      "sofa",
+      "stool",
+      "table",
+      "tv_stand",
+      "wardrobe",
+      "wine_cabinet"
+    ],
+    "unknown_pixels": 0
+  },
+  "fixture_B_bedroom": {
+    "expected_instances": 5,
+    "parsed_instances": 5,
+    "categories": [
+      "chair",
+      "desk",
+      "double_bed",
+      "nightstand",
+      "wardrobe"
+    ],
+    "unknown_pixels": 0
+  },
+  "fixture_B_living_room": {
+    "expected_instances": 5,
+    "parsed_instances": 5,
+    "categories": [
+      "bookshelf",
+      "cabinet",
+      "coffee_table",
+      "sofa",
+      "tv_stand"
+    ],
+    "unknown_pixels": 0
+  },
+  "fixture_B_dining_room": {
+    "expected_instances": 4,
+    "parsed_instances": 4,
+    "categories": [
+      "dining_chair",
+      "dining_table",
+      "pendant_lamp"
+    ],
+    "unknown_pixels": 0
+  },
+  "fixture_C_architecture_mixed": {
+    "expected_instances": 2,
+    "parsed_instances": 2,
+    "categories": [
+      "chair",
+      "single_bed"
+    ],
+    "unknown_pixels": 0
+  },
+  "fixture_D_repeated_separated": {
+    "expected_instances": 3,
+    "parsed_instances": 3,
+    "categories": [
+      "chair"
+    ],
+    "unknown_pixels": 0
+  },
+  "fixture_E_touching_diagnostic": {
+    "expected_instances": 2,
+    "parsed_instances": 1,
+    "categories": [
+      "chair"
+    ],
+    "unknown_pixels": 0
+  }
+}

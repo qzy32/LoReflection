@@ -1,0 +1,93 @@
+{
+  "canonical_geometry_before": "prototype footprint_m plus bbox; Observed LoState previously included orientation in builder",
+  "canonical_geometry_after": "semantic_footprint_v1 simplified instance footprint mask; bbox derived from mask",
+  "observer_orientation_output": "removed by method contract; compatibility reader only",
+  "APM_interface": "orientation/yaw, height, z_offset, asset/model id, support/anchor, final 3D footprint",
+  "classification": {
+    "orientation_deg": "misaligned",
+    "orientation_confidence": "misaligned",
+    "yaw": "misaligned",
+    "rotY": "misaligned",
+    "minAreaRect": "aligned",
+    "PCA": "aligned",
+    "oriented_bbox": "aligned",
+    "AABB": "misaligned",
+    "connectedComponents": "aligned",
+    "connected_components": "aligned",
+    "APM": "aligned",
+    "Vertical Gate": "misaligned",
+    "Final3DState": "aligned"
+  },
+  "hits": {
+    "orientation_deg": [
+      "docs/NATIVE_3DFRONT_PREPROCESSING_PIPELINE.md",
+      "tools/run_u1_freeze_roundtrip_overfit32.py"
+    ],
+    "orientation_confidence": [
+      "tools/run_u1_freeze_roundtrip_overfit32.py"
+    ],
+    "yaw": [
+      "docs/LOREFLECTION_R8_ORIENTATION_DEFERRED_METHOD_CONTRACT_DRAFT.md",
+      "docs/LoState_v1_5_OrientationDeferred_DRAFT.md",
+      "docs/NATIVE_3DFRONT_PREPROCESSING_PIPELINE.md",
+      "docs/R8A_S3_METHOD_FEASIBILITY_DECISION.md",
+      "docs/R8_BENCHMARK_METRIC_STAGE_SPLIT_DRAFT.md",
+      "docs/R8_EDITING_PROTOCOL_ORIENTATION_DEFERRED_DRAFT.md",
+      "docs/R8_QWEN_IMAGE_DATA_PAIR_DRAFT.md",
+      "docs/R8_REVIEWER_AND_ACCEPTANCE_STAGE_SPLIT_DRAFT.md",
+      "docs/SEMANTIC_FOOTPRINT_V1.md",
+      "loreflection/builders/scene_package_builder.py",
+      "loreflection/data/front3d/furniture_geometry.py",
+      "tools/run_u1_freeze_roundtrip_overfit32.py",
+      "tools/validate_semantic_layout_training_dataset.py"
+    ],
+    "rotY": [
+      "docs/R8A_S2_AXIS_ALIGNED_BBOX_BEHAVIOR.md",
+      "docs/R8A_S2_COORDINATE_AND_CAMERA_TRACE.md",
+      "docs/R8A_S2_DOOR_WINDOW_TRACE.md",
+      "docs/R8A_S2_STATIC_BOTTOMMAP_SOURCE_TRACE.md",
+      "docs/SEMANTIC_FOOTPRINT_V1.md",
+      "docs/SEMLAYOUTDIFF_BOTTOMMAP_PIPELINE_EXACT_AUDIT.md",
+      "docs/SEMLAYOUTDIFF_BOTTOMMAP_SOURCE_PROVENANCE.md",
+      "tools/inspect_semlayoutdiff_3dfront_parser.py",
+      "tools/inspect_semlayoutdiff_label_policy.py",
+      "tools/run_u1_freeze_roundtrip_overfit32.py",
+      "tools/trace_semlayoutdiff_visualization_pipeline.py",
+      "tools/verify_official_semlayoutdiff_source_policy.py"
+    ],
+    "minAreaRect": [
+      "tools/run_u1_freeze_roundtrip_overfit32.py"
+    ],
+    "PCA": [
+      "tools/run_u1_freeze_roundtrip_overfit32.py"
+    ],
+    "oriented_bbox": [
+      "tools/run_u1_freeze_roundtrip_overfit32.py"
+    ],
+    "AABB": [
+      "docs/SEMANTIC_FOOTPRINT_V1.md",
+      "tools/run_u1_freeze_roundtrip_overfit32.py"
+    ],
+    "connectedComponents": [
+      "tools/run_u1_freeze_roundtrip_overfit32.py"
+    ],
+    "connected_components": [
+      "tools/run_u1_freeze_roundtrip_overfit32.py"
+    ],
+    "APM": [
+      "docs/R8A_S2_AXIS_ALIGNED_BBOX_BEHAVIOR.md",
+      "docs/R8A_S3_METHOD_FEASIBILITY_DECISION.md",
+      "docs/R8_EDITING_PROTOCOL_ORIENTATION_DEFERRED_DRAFT.md",
+      "docs/R8_REVIEWER_AND_ACCEPTANCE_STAGE_SPLIT_DRAFT.md",
+      "docs/SEMANTIC_FOOTPRINT_V1.md",
+      "tools/inspect_semlayoutdiff_3dfront_parser.py",
+      "tools/run_u1_freeze_roundtrip_overfit32.py"
+    ],
+    "Vertical Gate": [
+      "tools/run_u1_freeze_roundtrip_overfit32.py"
+    ],
+    "Final3DState": [
+      "tools/run_u1_freeze_roundtrip_overfit32.py"
+    ]
+  }
+}

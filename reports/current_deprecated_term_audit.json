@@ -1,0 +1,47 @@
+{
+  "schema_version": "current-deprecated-term-audit-v2",
+  "scan_scope": [
+    "docs",
+    "reports",
+    "tools",
+    "scripts",
+    "configs",
+    "tests",
+    "runtime",
+    "loreflection",
+    "data_pipeline",
+    "outputs/current_vlm_planner_handoff",
+    "artifacts/current_interface",
+    "README.md",
+    "README_SERVER.md",
+    "PROGRESS.md"
+  ],
+  "excluded": [
+    ".git",
+    "third_party",
+    "external datasets",
+    "model weights",
+    "binary assets",
+    "zip packages",
+    "__pycache__"
+  ],
+  "term_labels_scanned": [
+    "old_adapter_phrase",
+    "old_alias_a",
+    "old_alias_b",
+    "old_alias_c",
+    "old_alias_d",
+    "old_alias_e",
+    "old_alias_f",
+    "old_exec_a",
+    "old_exec_b",
+    "old_exec_c",
+    "old_repair_count_a",
+    "old_repair_count_b",
+    "old_repair_count_c"
+  ],
+  "remaining_violations": [],
+  "remaining_violation_count": 0,
+  "allowed_external_hits": [],
+  "result": "PASS"
+}

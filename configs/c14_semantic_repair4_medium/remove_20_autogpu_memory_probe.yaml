@@ -1,0 +1,15 @@
+schema_version: c14-1-autogpu-memory-probe-v1
+action: REMOVE
+dataset: /wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_medium_dataset_v1/metadata_remove_probe_1row.csv
+batch_size: 1
+max_probe_rows: 1
+num_epochs: 1
+save_steps: 999
+num_workers: 0
+gradient_checkpointing: true
+lora_rank: 32
+max_pixels: 262144
+base_model: Qwen/Qwen-Image
+controlnet: DiffSynth-Studio/Qwen-Image-Blockwise-ControlNet-Inpaint:model.safetensors
+selected_gpu_policy: choose largest free memory GPU; prefer >=60000 MiB
+notes: Memory probe uses one REMOVE row. It does not change taxonomy, palette, or action protocol.

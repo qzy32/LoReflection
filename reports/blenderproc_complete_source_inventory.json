@@ -1,0 +1,78 @@
+{
+  "companion": {
+    "found": {
+      "preprocess/semlayout": [],
+      "render_dataset_improved_mat.py": [
+        {
+          "ref": "refs/heads/3dfront_2d_layout",
+          "path": "examples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py"
+        },
+        {
+          "ref": "refs/heads/3dfront_vis",
+          "path": "examples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py"
+        },
+        {
+          "ref": "refs/heads/detached",
+          "path": "examples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py"
+        }
+      ],
+      "multi_render.py": [
+        {
+          "ref": "refs/heads/3dfront_2d_layout",
+          "path": "examples/datasets/front_3d_with_improved_mat/multi_render.py"
+        },
+        {
+          "ref": "refs/heads/3dfront_vis",
+          "path": "examples/datasets/front_3d_with_improved_mat/multi_render.py"
+        },
+        {
+          "ref": "refs/heads/detached",
+          "path": "examples/datasets/front_3d_with_improved_mat/multi_render.py"
+        }
+      ],
+      "data_process_front3d.py": [
+        {
+          "ref": "refs/heads/3dfront_2d_layout",
+          "path": "visualization/front3d/data_process_front3d.py"
+        },
+        {
+          "ref": "refs/heads/detached",
+          "path": "visualization/front3d/data_process_front3d.py"
+        }
+      ],
+      "Bottom_label_map": [],
+      "Bottom_color": [],
+      "Bottom_inst_anno": [],
+      "Updated_Bottom": [],
+      "orthographic": []
+    },
+    "history": {
+      "preprocess/semlayout": [],
+      "render_dataset_improved_mat.py": [
+        {
+          "returncode": 0,
+          "output_head": "commit d46a5ef8407df7de40abf46fe8017008f33d18e6\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Sat Jan 11 12:58:14 2025 -0800\n\n    minor update to debug arch data process\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit 14f884422cd0c3fac3ea3d0f8dfc40a85b308e11\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Thu Jan 9 14:43:43 2025 -0800\n\n    minor update\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit 069880188153a8e2169bfec8552bd60b0a788db8\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Thu Jan 9 14:30:36 2025 -0800\n\n    minor update\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit 35b8cc6c2c6d4a296b8a7469b2eb199e20bfa2b2\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Thu Jan 9 14:24:55 2025 -0800\n\n    minor update to fix bug in fix dir for tmp folder when rendering\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit 7a2bf4e19337828fdfa33f98e8d26d236e585f22\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Mon Dec 30 14:47:22 2024 -0800\n\n    minor update\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit 1ca1586cae423f83f140dff8a2b2040c425635f3\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Mon Dec 30 11:09:26 2024 -0800\n\n    minor update\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit c897146242332f0daa6599e43733d56ace1c56f5\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Mon Dec 30 10:08:12 2024 -0800\n\n    Update data processing for 3dfront to solve small bugs\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit fe389c2e3dd6319814f9e952665d7c2824716d84\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Sun Dec 29 13:50:31 2024 -0800\n\n    update for 3dfront arch rendering & fix floor plan issue\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit a3270bdef6073e66624aea80bb961cb39407a236\nAuthor: SUN-XH <xsa55@sfu.ca>\nDate:   Wed Jan 17 14:06:40 2024 -0800\n\n    Update dataprocessing code\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit e2c8034e9bd97e1e16832cfd86641591e4e6d0cc\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Wed Jan 17 13:59:26 2024 -0800\n\n    Update data processing code to have the same category mapping as ATISS\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit b5d60ccbb1ee4e6371e7da714c987a4dbfd6eb1a\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Mon Jan 15 19:26:44 2024 -0800\n\n    Minor updates to data processing code\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit 81907c0e6a1a7a2bbb5746a4025444cfea8a2f83\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Mon Jan 15 19:11:32 2024 -0800\n\n    Minor updates to data processing code\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit aa1b71ad6e8c01f3e85663ebb46b7589b5f6ea78\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Mon Jan 15 17:16:56 2024 -0800\n\n    Minor updates to data processing code\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit 93ff1b640ad4ec04f6d4abdd5c82a8261d14a10a\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Mon Jan 15 13:43:13 2024 -0800\n\n    Update data processing for other room types\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit 336e36ebf54b67d1f0ed70df0cb15154800b1da3\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Wed Jan 3 22:29:46 2024 -0800\n\n    Fix bugs in data processing to get correct orignial object base_name.\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit fc56445c5ad1f6905f41c3882b131be7a6882d61\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Mon Jan 1 20:50:48 2024 -0800\n\n    Fixed bug in data processing\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit 5c0aa8df8e7205b58c67520739f4ecc24b54d319\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Fri Dec 29 20:35:27 2023 -0800\n\n    Update data processing code to follow train_val_test split.\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit ae9c414f927a6da2e1c43bff478eb09071bf5d77\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Sat Dec 2 13:25:27 2023 -0800\n\n    Update rendering script to get fixed pixel length for semantic layout\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit fb5b8dbbdbe102fba98603583fe16aec850d41e3\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Thu Nov 23 12:31:31 2023 -0800\n\n    Minor update 3D-Front data processing code\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit 36e703602fd9d20348246a0bc7c346c4cb954558\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Wed Nov 22 19:40:27 2023 -0800\n\n    Update data processing procedure with adding scale info to the anno\n\nM\texamples/datasets/front_3d_with_improved_mat/render_dataset_improved_mat.py\n\ncommit c621d3210314fc6ddbf2596a8b63597adab1894e\nAuthor: Xiaohao <xsa55@sfu.ca>\nDat"
+        }
+      ],
+      "multi_render.py": [
+        {
+          "returncode": 0,
+          "output_head": "commit c53193b156b9c159fbb8932dde3328dfcd9d5c03\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Tue Jan 7 14:57:26 2025 -0800\n\n    update mutliprocess code\n\nM\texamples/datasets/front_3d_with_improved_mat/multi_render.py\n\ncommit c897146242332f0daa6599e43733d56ace1c56f5\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Mon Dec 30 10:08:12 2024 -0800\n\n    Update data processing for 3dfront to solve small bugs\n\nM\texamples/datasets/front_3d_with_improved_mat/multi_render.py\n\ncommit fe389c2e3dd6319814f9e952665d7c2824716d84\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Sun Dec 29 13:50:31 2024 -0800\n\n    update for 3dfront arch rendering & fix floor plan issue\n\nM\texamples/datasets/front_3d_with_improved_mat/multi_render.py\n\ncommit 79379789e60ae7e5dc4689ecf68151d8e83867bd\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Wed Jan 17 14:24:44 2024 -0800\n\n    Update data processing tools\n\nM\texamples/datasets/front_3d_with_improved_mat/multi_render.py\n\ncommit 8588711a34bf3fd9e5d74c4b0810f045876240b0\nAuthor: SUN-XH <xsa55@sfu.ca>\nDate:   Wed Jan 17 14:13:52 2024 -0800\n\n    Update dataprocessing code\n\nM\texamples/datasets/front_3d_with_improved_mat/multi_render.py\n\ncommit 62f93554c2e9fff4bce5e2a1983f83794c598251\nAuthor: Sun-XH <xsa55@sfu.ca>\nDate:   Mon Sep 4 15:09:24 2023 -0700\n\n    Modify the original front3d preprocessing code to get 2d slices (initial modification)\n\nM\texamples/datasets/front_3d_with_improved_mat/multi_render.py\n\ncommit fd3560b98b967fc10e8ae9bc6c7561d000bd4ac3\nAuthor: yinyunie <nieyinyu0731@gmail.com>\nDate:   Mon Jul 10 17:08:10 2023 +0200\n\n    Added batch rendering modules and functions.\n\nA\texamples/datasets/front_3d_with_improved_mat/multi_render.py"
+        }
+      ],
+      "data_process_front3d.py": [
+        {
+          "returncode": 0,
+          "output_head": "commit 5b5ac4ba6fd210fd405904421ed1ba41e7c677e7\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Sat Jan 11 13:18:11 2025 -0800\n\n    add light to render better rgb color image\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit d46a5ef8407df7de40abf46fe8017008f33d18e6\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Sat Jan 11 12:58:14 2025 -0800\n\n    minor update to debug arch data process\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit 35b8cc6c2c6d4a296b8a7469b2eb199e20bfa2b2\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Thu Jan 9 14:24:55 2025 -0800\n\n    minor update to fix bug in fix dir for tmp folder when rendering\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit c897146242332f0daa6599e43733d56ace1c56f5\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Mon Dec 30 10:08:12 2024 -0800\n\n    Update data processing for 3dfront to solve small bugs\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit fe389c2e3dd6319814f9e952665d7c2824716d84\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Sun Dec 29 13:50:31 2024 -0800\n\n    update for 3dfront arch rendering & fix floor plan issue\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit a1a87367f5a16250bb8ed1991b2c1d53bbb37eb1\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Sun Jan 21 17:57:09 2024 -0800\n\n    Update data processing configs and codes\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit 84a41d16c209e6b73c6556e84c31f8cba4bde9c0\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Thu Jan 18 02:44:09 2024 -0800\n\n    Update data processing code to make sure it can work for all room types without change many hard coding args\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit e2c8034e9bd97e1e16832cfd86641591e4e6d0cc\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Wed Jan 17 13:59:26 2024 -0800\n\n    Update data processing code to have the same category mapping as ATISS\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit 93ff1b640ad4ec04f6d4abdd5c82a8261d14a10a\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Mon Jan 15 13:43:13 2024 -0800\n\n    Update data processing for other room types\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit 336e36ebf54b67d1f0ed70df0cb15154800b1da3\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Wed Jan 3 22:29:46 2024 -0800\n\n    Fix bugs in data processing to get correct orignial object base_name.\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit 5c0aa8df8e7205b58c67520739f4ecc24b54d319\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Fri Dec 29 20:35:27 2023 -0800\n\n    Update data processing code to follow train_val_test split.\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit d1825fe37376f4dc6bef0ff509660455b9994c84\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Sun Dec 3 01:43:50 2023 -0800\n\n    minor update to data_process_front3d.py\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit ae9c414f927a6da2e1c43bff478eb09071bf5d77\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Sat Dec 2 13:25:27 2023 -0800\n\n    Update rendering script to get fixed pixel length for semantic layout\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit fb5b8dbbdbe102fba98603583fe16aec850d41e3\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Thu Nov 23 12:31:31 2023 -0800\n\n    Minor update 3D-Front data processing code\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit 36e703602fd9d20348246a0bc7c346c4cb954558\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Wed Nov 22 19:40:27 2023 -0800\n\n    Update data processing procedure with adding scale info to the anno\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit c621d3210314fc6ddbf2596a8b63597adab1894e\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Thu Nov 9 21:47:22 2023 -0800\n\n    Fix offset issue\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit 3311b4c33080349dcfced4448feda77f170c36f2\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Thu Nov 9 13:32:35 2023 -0800\n\n    Fix the exported size is incorrect issue & add only floor exportation option\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit 30760a4ed33c2fe571ba7576b1a141ad20e0c3e8\nAuthor: Xiaohao <xsa55@sfu.ca>\nDate:   Mon Oct 30 19:50:42 2023 -0700\n\n    Add code to get SceneState json file for generated room.\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit 7b1b634d3c757f2c2e22ae95ede54bd40acf4155\nAuthor: SUN-XH <xsa55@sfu.ca>\nDate:   Wed Oct 18 20:56:51 2023 -0700\n\n    Update the data process code for front3d data to get instance annotation file for floor slice and add size attributes to the processed data\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit 77e418e4c50d125c110df3a76fc19af81703c17c\nAuthor: Sun-XH <xsa55@sfu.ca>\nDate:   Tue Sep 26 17:48:21 2023 -0700\n\n    Update data processing to get orthographic projection for multiple slices. Fix bugs for multiple slice process\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit 4edcbe3db1cbd6f968fc0978f7bec963c26bdd49\nAuthor: SUN-XH <xsa55@sfu.ca>\nDate:   Tue Sep 19 17:17:30 2023 -0700\n\n    Update the whole rendering code structure to render mulitiple slice planes.\n\nM\tvisualization/front3d/data_process_front3d.py\n\ncommit f42f114f3469bfa"
+        }
+      ],
+      "Bottom_label_map": [],
+      "Bottom_color": [],
+      "Bottom_inst_anno": [],
+      "Updated_Bottom": [],
+      "orthographic": []
+    },
+    "refs_checked": 3
+  },
+  "upstream": null
+}

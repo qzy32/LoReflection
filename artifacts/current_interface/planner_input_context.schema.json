@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Current planner input context",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_tag",
+    "image_refs",
+    "architecture_summary",
+    "goal_lostate",
+    "observed_lostate",
+    "loreview",
+    "semantic_registry_ref",
+    "palette_ref",
+    "allowed_actions",
+    "execution_routing",
+    "output_instruction"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "planner-input-context-current"
+    },
+    "task_tag": {
+      "const": "[CORRECTION_PLANNING]"
+    },
+    "image_refs": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "architecture_summary": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "goal_lostate": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "observed_lostate": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "loreview": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "semantic_registry_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "palette_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "allowed_actions": {
+      "const": [
+        "ADD",
+        "REMOVE",
+        "TRANSLATE",
+        "ROTATE",
+        "SCALE",
+        "REPLACE"
+      ]
+    },
+    "execution_routing": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "output_instruction": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

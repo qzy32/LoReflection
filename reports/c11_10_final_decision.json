@@ -1,0 +1,17 @@
+{
+  "decision": "CONVERSION_PASS_TO_C12",
+  "valid_by_action": {
+    "ADD": 3,
+    "ROTATE": 3,
+    "TRANSLATE": 3,
+    "REMOVE": 3,
+    "REPLACE": 3
+  },
+  "converted_count": 16,
+  "metadata_rows": 15,
+  "diffsynth_loader_returncode": 0,
+  "blocking_reason": null,
+  "output_root": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/editroom_semantic_pair_conversion_v1",
+  "manual_review": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/manual_review/c11_10_editroom_semantic_conversion",
+  "scale_status": "parametric_only_missing_real_pair"
+}

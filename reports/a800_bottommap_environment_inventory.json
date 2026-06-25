@@ -1,0 +1,126 @@
+{
+  "which": {
+    "blender": {
+      "cmd": [
+        "bash",
+        "-lc",
+        "which blender || true"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "blenderproc": {
+      "cmd": [
+        "bash",
+        "-lc",
+        "which blenderproc || true"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "python3": {
+      "cmd": [
+        "bash",
+        "-lc",
+        "which python3 || true"
+      ],
+      "returncode": 0,
+      "stdout": "/usr/bin/python3",
+      "stderr": ""
+    },
+    "conda": {
+      "cmd": [
+        "bash",
+        "-lc",
+        "which conda || true"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "conda_env_list": {
+    "cmd": [
+      "bash",
+      "-lc",
+      "conda env list || true"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "bash: conda: command not found"
+  },
+  "python_imports": {
+    "PIL": {
+      "cmd": [
+        "python3",
+        "-c",
+        "import importlib.util; spec=importlib.util.find_spec('PIL'); print(spec.origin if spec else 'NOT_FOUND')"
+      ],
+      "returncode": 0,
+      "stdout": "NOT_FOUND",
+      "stderr": ""
+    },
+    "cv2": {
+      "cmd": [
+        "python3",
+        "-c",
+        "import importlib.util; spec=importlib.util.find_spec('cv2'); print(spec.origin if spec else 'NOT_FOUND')"
+      ],
+      "returncode": 0,
+      "stdout": "NOT_FOUND",
+      "stderr": ""
+    },
+    "numpy": {
+      "cmd": [
+        "python3",
+        "-c",
+        "import importlib.util; spec=importlib.util.find_spec('numpy'); print(spec.origin if spec else 'NOT_FOUND')"
+      ],
+      "returncode": 0,
+      "stdout": "NOT_FOUND",
+      "stderr": ""
+    },
+    "scipy": {
+      "cmd": [
+        "python3",
+        "-c",
+        "import importlib.util; spec=importlib.util.find_spec('scipy'); print(spec.origin if spec else 'NOT_FOUND')"
+      ],
+      "returncode": 0,
+      "stdout": "NOT_FOUND",
+      "stderr": ""
+    },
+    "h5py": {
+      "cmd": [
+        "python3",
+        "-c",
+        "import importlib.util; spec=importlib.util.find_spec('h5py'); print(spec.origin if spec else 'NOT_FOUND')"
+      ],
+      "returncode": 0,
+      "stdout": "NOT_FOUND",
+      "stderr": ""
+    },
+    "bpy": {
+      "cmd": [
+        "python3",
+        "-c",
+        "import importlib.util; spec=importlib.util.find_spec('bpy'); print(spec.origin if spec else 'NOT_FOUND')"
+      ],
+      "returncode": 0,
+      "stdout": "NOT_FOUND",
+      "stderr": ""
+    },
+    "blenderproc": {
+      "cmd": [
+        "python3",
+        "-c",
+        "import importlib.util; spec=importlib.util.find_spec('blenderproc'); print(spec.origin if spec else 'NOT_FOUND')"
+      ],
+      "returncode": 0,
+      "stdout": "NOT_FOUND",
+      "stderr": ""
+    }
+  }
+}

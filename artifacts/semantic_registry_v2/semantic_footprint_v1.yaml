@@ -1,0 +1,3 @@
+canonical_geometry: simplified_instance_footprint_mask
+bbox_policy: derived_from_mask
+representation_mode: loreflection_footprint

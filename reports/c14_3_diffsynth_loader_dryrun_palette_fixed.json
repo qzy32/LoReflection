@@ -1,0 +1,216 @@
+{
+  "schema_version": "c14-3-diffsynth-loader-dryrun-palette-fixed-v1",
+  "datasets": {
+    "ADD": {
+      "metadata_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_medium_dataset_v2_palette_fixed/metadata_add.csv",
+      "rows": 20,
+      "prompt_loaded": true,
+      "image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 32.0,
+        "max": 224.0
+      },
+      "blockwise_controlnet_image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 32.0,
+        "max": 224.0
+      },
+      "blockwise_controlnet_inpaint_mask": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 0.0,
+        "max": 255.0,
+        "unique_values": [
+          0,
+          255
+        ]
+      }
+    },
+    "REMOVE": {
+      "metadata_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_medium_dataset_v2_palette_fixed/metadata_remove.csv",
+      "rows": 20,
+      "prompt_loaded": true,
+      "image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 32.0,
+        "max": 224.0
+      },
+      "blockwise_controlnet_image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 32.0,
+        "max": 224.0
+      },
+      "blockwise_controlnet_inpaint_mask": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 0.0,
+        "max": 255.0,
+        "unique_values": [
+          0,
+          255
+        ]
+      }
+    },
+    "TRANSLATE": {
+      "metadata_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_medium_dataset_v2_palette_fixed/metadata_translate.csv",
+      "rows": 20,
+      "prompt_loaded": true,
+      "image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 32.0,
+        "max": 224.0
+      },
+      "blockwise_controlnet_image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 32.0,
+        "max": 224.0
+      },
+      "blockwise_controlnet_inpaint_mask": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 0.0,
+        "max": 255.0,
+        "unique_values": [
+          0,
+          255
+        ]
+      }
+    },
+    "REPLACE": {
+      "metadata_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_medium_dataset_v2_palette_fixed/metadata_replace.csv",
+      "rows": 20,
+      "prompt_loaded": true,
+      "image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 32.0,
+        "max": 224.0
+      },
+      "blockwise_controlnet_image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 32.0,
+        "max": 224.0
+      },
+      "blockwise_controlnet_inpaint_mask": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 0.0,
+        "max": 255.0,
+        "unique_values": [
+          0,
+          255
+        ]
+      }
+    },
+    "MIXED_80": {
+      "metadata_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_medium_dataset_v2_palette_fixed/metadata_mixed_80.csv",
+      "rows": 80,
+      "prompt_loaded": true,
+      "image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 32.0,
+        "max": 224.0
+      },
+      "blockwise_controlnet_image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 32.0,
+        "max": 224.0
+      },
+      "blockwise_controlnet_inpaint_mask": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 0.0,
+        "max": 255.0,
+        "unique_values": [
+          0,
+          255
+        ]
+      }
+    }
+  },
+  "status": "LOADER_PASS"
+}

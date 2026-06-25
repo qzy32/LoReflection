@@ -1,0 +1,19 @@
+{
+  "schema_version": "vis01-diffsynth-loss-function-audit-v1",
+  "timestamp": "2026-06-22T21:12:33.357527",
+  "loss_file": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio/diffsynth/diffusion/loss.py",
+  "loss_function": "FlowMatchSFTLoss lines 5-28; mse_loss at line 26; scheduler training_weight at line 27",
+  "train_entry": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio/examples/qwen_image/model_training/train.py lines 49-56 and 88-94",
+  "dataset_file": "/wuqingyaoa800/qiuziyan/DiffSynth-Studio/diffsynth/core/data/unified_dataset.py lines 75-106",
+  "extra_inputs": "training_module.py lines 299-316 maps blockwise_controlnet_image/mask into ControlNetInput under blockwise_controlnet_inputs",
+  "target": "scheduler.training_target(input_latents, noise, timestep)",
+  "objective": "Flow matching SFT diffusion objective: noised target latents -> model_fn -> MSE to scheduler target.",
+  "mask_only_or_full_image": "No explicit mask-only loss found; training appears to optimize the DiffSynth/Qwen diffusion objective on the training image conditioned by control image and inpaint mask.",
+  "mask_weighting": "No explicit mask-region loss weighting found in FlowMatchSFTLoss.",
+  "trainable_modules": "LoRA adapters injected into dit; base modules frozen by freeze_except([]).",
+  "base_model_frozen": true,
+  "controlnet_frozen": true,
+  "unknowns": [
+    "Optimizer class is not explicit in C14.4 wrapper; review DiffSynth runner defaults if exact optimizer identity is needed."
+  ]
+}

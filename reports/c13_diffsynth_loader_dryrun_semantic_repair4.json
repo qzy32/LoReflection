@@ -1,0 +1,323 @@
+{
+  "schema_version": "c13-diffsynth-loader-dryrun-v1",
+  "loader_used": "DiffSynth-Studio diffsynth.core.UnifiedDataset",
+  "dataset_base_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_overfit_dataset_v1",
+  "result": "PASS",
+  "actions": {
+    "ADD": {
+      "metadata_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_overfit_dataset_v1/metadata_add.csv",
+      "rows": 3,
+      "len_dataset": 3,
+      "prompt_loaded": true,
+      "prompt_preview": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. ADD exactly one dressing_table inside the white target region and preser",
+      "raw_mask_unique_values": [
+        0,
+        255
+      ],
+      "raw_mask_components": 1,
+      "image_tensor": {
+        "type": "Image",
+        "mode": "RGB",
+        "size": [
+          512,
+          512
+        ],
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "min": 32.0,
+        "max": 255.0,
+        "unique_count": 7
+      },
+      "control_tensor": {
+        "type": "Image",
+        "mode": "RGB",
+        "size": [
+          512,
+          512
+        ],
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "min": 32.0,
+        "max": 255.0,
+        "unique_count": 6
+      },
+      "mask_tensor": {
+        "type": "Image",
+        "mode": "RGB",
+        "size": [
+          512,
+          512
+        ],
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "min": 0.0,
+        "max": 255.0,
+        "unique_count": 2
+      }
+    },
+    "REMOVE": {
+      "metadata_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_overfit_dataset_v1/metadata_remove.csv",
+      "rows": 3,
+      "len_dataset": 3,
+      "prompt_loaded": true,
+      "prompt_preview": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. REMOVE the extra dressing_table inside the white source region and resto",
+      "raw_mask_unique_values": [
+        0,
+        255
+      ],
+      "raw_mask_components": 1,
+      "image_tensor": {
+        "type": "Image",
+        "mode": "RGB",
+        "size": [
+          512,
+          512
+        ],
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "min": 32.0,
+        "max": 255.0,
+        "unique_count": 6
+      },
+      "control_tensor": {
+        "type": "Image",
+        "mode": "RGB",
+        "size": [
+          512,
+          512
+        ],
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "min": 32.0,
+        "max": 255.0,
+        "unique_count": 7
+      },
+      "mask_tensor": {
+        "type": "Image",
+        "mode": "RGB",
+        "size": [
+          512,
+          512
+        ],
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "min": 0.0,
+        "max": 255.0,
+        "unique_count": 2
+      }
+    },
+    "TRANSLATE": {
+      "metadata_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_overfit_dataset_v1/metadata_translate.csv",
+      "rows": 3,
+      "len_dataset": 3,
+      "prompt_loaded": true,
+      "prompt_preview": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. TRANSLATE the dressing_table by clearing the old region and painting exa",
+      "raw_mask_unique_values": [
+        0,
+        255
+      ],
+      "raw_mask_components": 1,
+      "image_tensor": {
+        "type": "Image",
+        "mode": "RGB",
+        "size": [
+          512,
+          512
+        ],
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "min": 32.0,
+        "max": 255.0,
+        "unique_count": 7
+      },
+      "control_tensor": {
+        "type": "Image",
+        "mode": "RGB",
+        "size": [
+          512,
+          512
+        ],
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "min": 32.0,
+        "max": 255.0,
+        "unique_count": 7
+      },
+      "mask_tensor": {
+        "type": "Image",
+        "mode": "RGB",
+        "size": [
+          512,
+          512
+        ],
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "min": 0.0,
+        "max": 255.0,
+        "unique_count": 2
+      },
+      "translate_mask_components_all": [
+        {
+          "mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_overfit_dataset_v1/TRANSLATE/translate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/control_mask.png",
+          "components": 1
+        },
+        {
+          "mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_overfit_dataset_v1/TRANSLATE/c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12/control_mask.png",
+          "components": 2
+        },
+        {
+          "mask": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_overfit_dataset_v1/TRANSLATE/translate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas/control_mask.png",
+          "components": 2
+        }
+      ],
+      "disconnected_mask_preserved": true
+    },
+    "REPLACE": {
+      "metadata_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_overfit_dataset_v1/metadata_replace.csv",
+      "rows": 3,
+      "len_dataset": 3,
+      "prompt_loaded": true,
+      "prompt_preview": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. REPLACE corner_side_table with round_end_table inside the white region a",
+      "raw_mask_unique_values": [
+        0,
+        255
+      ],
+      "raw_mask_components": 1,
+      "image_tensor": {
+        "type": "Image",
+        "mode": "RGB",
+        "size": [
+          512,
+          512
+        ],
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "min": 32.0,
+        "max": 255.0,
+        "unique_count": 7
+      },
+      "control_tensor": {
+        "type": "Image",
+        "mode": "RGB",
+        "size": [
+          512,
+          512
+        ],
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "min": 32.0,
+        "max": 255.0,
+        "unique_count": 7
+      },
+      "mask_tensor": {
+        "type": "Image",
+        "mode": "RGB",
+        "size": [
+          512,
+          512
+        ],
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "min": 0.0,
+        "max": 255.0,
+        "unique_count": 2
+      }
+    },
+    "MIXED": {
+      "metadata_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_overfit_dataset_v1/metadata_mixed.csv",
+      "rows": 12,
+      "len_dataset": 12,
+      "prompt_loaded": true,
+      "prompt_preview": "Fixed-palette top-down semantic layout. White mask means repaint, black means preserve. ADD exactly one dressing_table inside the white target region and preser",
+      "raw_mask_unique_values": [
+        0,
+        255
+      ],
+      "raw_mask_components": 1,
+      "image_tensor": {
+        "type": "Image",
+        "mode": "RGB",
+        "size": [
+          512,
+          512
+        ],
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "min": 32.0,
+        "max": 255.0,
+        "unique_count": 7
+      },
+      "control_tensor": {
+        "type": "Image",
+        "mode": "RGB",
+        "size": [
+          512,
+          512
+        ],
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "min": 32.0,
+        "max": 255.0,
+        "unique_count": 6
+      },
+      "mask_tensor": {
+        "type": "Image",
+        "mode": "RGB",
+        "size": [
+          512,
+          512
+        ],
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "min": 0.0,
+        "max": 255.0,
+        "unique_count": 2
+      }
+    }
+  }
+}

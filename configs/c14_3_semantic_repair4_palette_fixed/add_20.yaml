@@ -1,0 +1,26 @@
+schema_version: c14-3-palette-fixed-train-config-v1
+action: ADD
+dataset_base_path: /wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_medium_dataset_v2_palette_fixed
+dataset_metadata_path: /wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_medium_dataset_v2_palette_fixed/metadata_add.csv
+output_root: /wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/ADD_20
+diffsynth_root: /wuqingyaoa800/qiuziyan/DiffSynth-Studio
+python_bin: /wuqingyaoa800/qiuziyan/envs/diffsynth-qwen/bin/python
+train_script: /wuqingyaoa800/qiuziyan/DiffSynth-Studio/examples/qwen_image/model_training/train.py
+data_file_keys: image,blockwise_controlnet_image,blockwise_controlnet_inpaint_mask
+extra_inputs: blockwise_controlnet_image,blockwise_controlnet_inpaint_mask
+batch_size: 1
+learning_rate: 1.0e-4
+lora_rank: 32
+lora_base_model: dit
+max_pixels: 262144
+seed: 4411
+gradient_checkpointing: enabled
+dataset_num_workers: 0
+dataset_repeat: 15
+num_epochs: 15
+save_steps: 100
+validation_eval_num_batches: 0
+validation_every_n_epochs: 0
+validation_every_n_steps: 0
+cuda_selection: auto_gpu_wait_script
+notes: "Palette-fixed C14.3 clean rerun config; do not use ROTATE/SCALE."

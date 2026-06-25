@@ -1,0 +1,21 @@
+{
+  "schema_version": "c14-3-palette-fixed-distribution-v1",
+  "per_action": {
+    "ADD": {
+      "rows": 20,
+      "fail": 0
+    },
+    "REMOVE": {
+      "rows": 20,
+      "fail": 0
+    },
+    "TRANSLATE": {
+      "rows": 20,
+      "fail": 0
+    },
+    "REPLACE": {
+      "rows": 20,
+      "fail": 0
+    }
+  }
+}

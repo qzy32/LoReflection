@@ -1,0 +1,107 @@
+{
+  "schema_version": "doc02-code-reading-manual-audit-v1",
+  "generated_at": "2026-06-21T21:25:54",
+  "source_of_truth": "docs/CURRENT_PROJECT_STATE.md",
+  "current_protocol": {
+    "planner_actions": [
+      "ADD",
+      "REMOVE",
+      "TRANSLATE",
+      "ROTATE",
+      "SCALE",
+      "REPLACE"
+    ],
+    "semantic_repair4": [
+      "ADD",
+      "REMOVE",
+      "TRANSLATE",
+      "REPLACE"
+    ],
+    "parametric_update": [
+      "ROTATE",
+      "SCALE"
+    ]
+  },
+  "current_training_stage": "C14.1 selected GPU2, completed 300-step single-action runs and a 320-step MIXED_80 run; sampled image evaluation still has edit_success 0, so the next step is output diagnosis.",
+  "input_files_checked": [
+    "docs/PROJECT_STRUCTURE_GUIDE.md",
+    "docs/PROJECT_STRUCTURE_FILE_INDEX.csv",
+    "docs/PROJECT_STRUCTURE_FILE_INDEX.json",
+    "docs/START_HERE.md",
+    "docs/CURRENT_PROJECT_STATE.md",
+    "README.md",
+    "README_SERVER.md",
+    "PROGRESS.md",
+    "docs/C12_REPAIR_OUTPUT_SANITIZER.md",
+    "docs/C13_SEMANTIC_REPAIR4_OVERFIT.md",
+    "docs/C14_MEDIUM_SCALE_DIAGNOSTIC_TRAINING.md",
+    "docs/EXPERIMENT_LOG_SEMANTIC_REPAIR4.md",
+    "reports/c13_semantic_repair4_pipeline_result.json",
+    "reports/c14_autonomous_pipeline_result.json",
+    "reports/c14_1_autogpu_resume_result.json",
+    "artifacts/current_interface/repairplan.schema.json",
+    "artifacts/current_interface/mask_spec.schema.json",
+    "artifacts/current_interface/planner_input_context.schema.json",
+    "tools/validate_current_repairplan.py",
+    "tools/evaluate_c13_semantic_repair4_outputs.py",
+    "diffusion/train_diffsynth_qwen_inpaint_lora.sh",
+    "configs/c13_semantic_repair4_overfit/add.yaml",
+    "configs/c14_semantic_repair4_medium/remove_20.yaml",
+    "scripts/c13_train_common.sh",
+    "scripts/c14_train_remove_20.sh"
+  ],
+  "missing_or_server_only": [],
+  "generated_files": [
+    "docs/BEGINNER_CODE_READING_MANUAL.md",
+    "docs/BEGINNER_CODE_READING_BY_QUESTION.md",
+    "docs/QWEN_DIFFSYNTH_TRAINING_CODE_GUIDE.md",
+    "docs/MODULE_AND_FOLDER_EXPLANATION.md",
+    "docs/BEGINNER_CODE_READING_CHECKLIST.csv",
+    "docs/BEGINNER_CODE_READING_NOTES_TEMPLATE.md"
+  ],
+  "checklist_rows": 65,
+  "quality_scan": {
+    "docs/BEGINNER_CODE_READING_MANUAL.md": {
+      "exists": true,
+      "bytes": 11839,
+      "sensitive_hits": [],
+      "deprecated_current_route_hits": []
+    },
+    "docs/BEGINNER_CODE_READING_BY_QUESTION.md": {
+      "exists": true,
+      "bytes": 5307,
+      "sensitive_hits": [],
+      "deprecated_current_route_hits": []
+    },
+    "docs/QWEN_DIFFSYNTH_TRAINING_CODE_GUIDE.md": {
+      "exists": true,
+      "bytes": 4408,
+      "sensitive_hits": [],
+      "deprecated_current_route_hits": []
+    },
+    "docs/MODULE_AND_FOLDER_EXPLANATION.md": {
+      "exists": true,
+      "bytes": 3921,
+      "sensitive_hits": [],
+      "deprecated_current_route_hits": []
+    },
+    "docs/BEGINNER_CODE_READING_CHECKLIST.csv": {
+      "exists": true,
+      "bytes": 7182,
+      "sensitive_hits": [],
+      "deprecated_current_route_hits": []
+    },
+    "docs/BEGINNER_CODE_READING_NOTES_TEMPLATE.md": {
+      "exists": true,
+      "bytes": 308,
+      "sensitive_hits": [],
+      "deprecated_current_route_hits": []
+    }
+  },
+  "warnings": [
+    "Full C13/C14 datasets and checkpoints are primarily server-side; local checkout records paths and reports.",
+    "LoRA alpha/dropout, optimizer, scheduler, precision, and gradient accumulation are not explicitly set in local mirrors.",
+    "Folders marked NEEDS_REVIEW in PROJECT_STRUCTURE_FILE_INDEX should not be treated as current mainline without call-site evidence."
+  ],
+  "result": "PASS"
+}

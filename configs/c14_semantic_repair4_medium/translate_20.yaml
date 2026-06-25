@@ -1,0 +1,21 @@
+schema_version: c14-medium-train-config-v1
+action: TRANSLATE
+rows: 20
+metadata_path: /wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_medium_dataset_v1/metadata_translate.csv
+output_dir: /wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_medium_v1/TRANSLATE_20
+diffsynth_train_script: /wuqingyaoa800/qiuziyan/DiffSynth-Studio/examples/qwen_image/model_training/train.py
+model_root: /wuqingyaoa800/qiuziyan/DiffSynth-Studio/models
+base_model: Qwen/Qwen-Image
+controlnet: DiffSynth-Studio/Qwen-Image-Blockwise-ControlNet-Inpaint:model.safetensors
+data_file_keys:
+  - image
+  - blockwise_controlnet_image
+  - blockwise_controlnet_inpaint_mask
+max_pixels: 262144
+batch_size: 1
+learning_rate: 1.0e-4
+lora_rank: 32
+num_workers: 0
+seed: 4411
+gradient_checkpointing: true
+status: generated_for_c14_review

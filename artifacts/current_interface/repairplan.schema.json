@@ -1,0 +1,520 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LoReflection current RepairPlan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "repair_round",
+    "planner_role",
+    "source_review_id",
+    "action_type",
+    "execution_mode",
+    "issue_refs",
+    "protected_refs",
+    "target_state_delta",
+    "parametric_delta",
+    "mask_spec",
+    "correction_prompt",
+    "acceptance_criteria",
+    "confidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "repairplan-current"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "repair_round": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "planner_role": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_review_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "action_type": {
+      "enum": [
+        "ADD",
+        "REMOVE",
+        "TRANSLATE",
+        "ROTATE",
+        "SCALE",
+        "REPLACE"
+      ]
+    },
+    "execution_mode": {
+      "enum": [
+        "semantic_repair",
+        "parametric_update"
+      ]
+    },
+    "issue_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "target_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_instance_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "target_instance_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "protected_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "target_state_delta": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "source_category": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_semantic_id": {
+          "type": "integer"
+        },
+        "source_rgb": {
+          "$ref": "#/$defs/rgb"
+        },
+        "target_category": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_semantic_id": {
+          "type": "integer"
+        },
+        "target_rgb": {
+          "$ref": "#/$defs/rgb"
+        },
+        "target_count_delta": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "target_count_delta"
+      ]
+    },
+    "parametric_delta": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/parametric_delta"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "mask_spec": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "correction_prompt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "acceptance_criteria": {
+      "type": "object"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  },
+  "$defs": {
+    "rgb": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      ],
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "parametric_delta": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "bookkeeping_only": {
+          "type": "boolean"
+        },
+        "center_delta_px": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "new_center_px": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "rotation_deg": {
+          "type": "number"
+        },
+        "new_yaw_rad": {
+          "type": "number"
+        },
+        "scale_xy": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "new_size": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "action_type": {
+            "const": "ADD"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "execution_mode": {
+            "const": "semantic_repair"
+          },
+          "mask_spec": {
+            "type": "object"
+          },
+          "correction_prompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "parametric_delta": {
+            "type": "null"
+          },
+          "target_state_delta": {
+            "required": [
+              "target_count_delta",
+              "target_category",
+              "target_semantic_id",
+              "target_rgb"
+            ],
+            "properties": {
+              "target_count_delta": {
+                "const": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "action_type": {
+            "const": "REMOVE"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "source_instance_ref"
+        ],
+        "properties": {
+          "execution_mode": {
+            "const": "semantic_repair"
+          },
+          "source_instance_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mask_spec": {
+            "type": "object"
+          },
+          "correction_prompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "parametric_delta": {
+            "type": "null"
+          },
+          "target_state_delta": {
+            "required": [
+              "target_count_delta"
+            ],
+            "properties": {
+              "target_count_delta": {
+                "const": -1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "action_type": {
+            "const": "TRANSLATE"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "execution_mode": {
+            "const": "semantic_repair"
+          },
+          "mask_spec": {
+            "type": "object"
+          },
+          "correction_prompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target_state_delta": {
+            "required": [
+              "target_count_delta"
+            ],
+            "properties": {
+              "target_count_delta": {
+                "const": 0
+              }
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "parametric_delta": {
+                  "type": "object"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "parametric_delta": {
+                  "required": [
+                    "bookkeeping_only"
+                  ],
+                  "properties": {
+                    "bookkeeping_only": {
+                      "const": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "action_type": {
+            "const": "REPLACE"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "source_instance_ref"
+        ],
+        "properties": {
+          "execution_mode": {
+            "const": "semantic_repair"
+          },
+          "source_instance_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mask_spec": {
+            "type": "object"
+          },
+          "correction_prompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "parametric_delta": {
+            "type": "null"
+          },
+          "target_state_delta": {
+            "required": [
+              "target_count_delta",
+              "source_category",
+              "source_semantic_id",
+              "target_category",
+              "target_semantic_id"
+            ],
+            "properties": {
+              "target_count_delta": {
+                "const": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "action_type": {
+            "const": "ROTATE"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "target_instance_ref"
+        ],
+        "properties": {
+          "execution_mode": {
+            "const": "parametric_update"
+          },
+          "target_instance_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mask_spec": {
+            "type": "null"
+          },
+          "correction_prompt": {
+            "type": "null"
+          },
+          "parametric_delta": {
+            "type": "object",
+            "anyOf": [
+              {
+                "required": [
+                  "rotation_deg"
+                ]
+              },
+              {
+                "required": [
+                  "new_yaw_rad"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "action_type": {
+            "const": "SCALE"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "target_instance_ref"
+        ],
+        "properties": {
+          "execution_mode": {
+            "const": "parametric_update"
+          },
+          "target_instance_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mask_spec": {
+            "type": "null"
+          },
+          "correction_prompt": {
+            "type": "null"
+          },
+          "parametric_delta": {
+            "type": "object",
+            "anyOf": [
+              {
+                "required": [
+                  "scale_xy"
+                ]
+              },
+              {
+                "required": [
+                  "new_size"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

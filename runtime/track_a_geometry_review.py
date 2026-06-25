@@ -24,7 +24,7 @@ def review_geometry(goal_lostate: dict, observed_lostate: dict, alignment: list[
                     "issue_type": "entity_missing",
                     "severity": "error",
                     "target_ref": row["slot_id"],
-                    "recommended_action_type": "INSERT",
+                    "recommended_action_type": "ADD",
                     "track": "A",
                 }
             )
@@ -35,7 +35,7 @@ def review_geometry(goal_lostate: dict, observed_lostate: dict, alignment: list[
                     "issue_type": "entity_extra",
                     "severity": "warning",
                     "target_ref": row["instance_id"],
-                    "recommended_action_type": "DELETE",
+                    "recommended_action_type": "REMOVE",
                     "track": "A",
                 }
             )

@@ -1,0 +1,33 @@
+{
+  "schema_version": "c14-4-checkpoint-list-v1",
+  "valid_evaluation_checkpoint": "step-300",
+  "checkpoints": {
+    "REMOVE": [
+      "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/REMOVE_20/c14_4_fixedsteps_gpu0_rank32_300steps/run/step-100.safetensors",
+      "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/REMOVE_20/c14_4_fixedsteps_gpu0_rank32_300steps/run/step-200.safetensors",
+      "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/REMOVE_20/c14_4_fixedsteps_gpu0_rank32_300steps/run/step-300.safetensors"
+    ],
+    "REPLACE": [
+      "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/REPLACE_20/c14_4_fixedsteps_gpu0_rank32_300steps/run/step-100.safetensors",
+      "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/REPLACE_20/c14_4_fixedsteps_gpu0_rank32_300steps/run/step-200.safetensors",
+      "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/REPLACE_20/c14_4_fixedsteps_gpu0_rank32_300steps/run/step-300.safetensors"
+    ],
+    "TRANSLATE": [
+      "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/TRANSLATE_20/c14_4_fixedsteps_gpu0_rank32_300steps/run/step-100.safetensors",
+      "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/TRANSLATE_20/c14_4_fixedsteps_gpu0_rank32_300steps/run/step-200.safetensors",
+      "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/TRANSLATE_20/c14_4_fixedsteps_gpu0_rank32_300steps/run/step-300.safetensors"
+    ],
+    "ADD": [
+      "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/ADD_20/c14_4_fixedsteps_gpu0_rank32_300steps/run/step-100.safetensors",
+      "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/ADD_20/c14_4_fixedsteps_gpu0_rank32_300steps/run/step-200.safetensors",
+      "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/ADD_20/c14_4_fixedsteps_gpu0_rank32_300steps/run/step-300.safetensors"
+    ],
+    "MIXED": [
+      "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/MIXED_80/c14_4_fixedsteps_gpu0_rank32_300steps/run/step-100.safetensors",
+      "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/MIXED_80/c14_4_fixedsteps_gpu0_rank32_300steps/run/step-200.safetensors",
+      "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/MIXED_80/c14_4_fixedsteps_gpu0_rank32_300steps/run/step-300.safetensors",
+      "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/MIXED_80/c14_4_fixedsteps_gpu0_rank32_300steps/run/step-320.safetensors"
+    ]
+  },
+  "note": "MIXED step-320 is retained as epoch-end audit artifact; C14.4 conclusions use step-300."
+}

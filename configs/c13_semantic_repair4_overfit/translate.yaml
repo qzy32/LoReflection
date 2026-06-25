@@ -1,0 +1,23 @@
+action: TRANSLATE
+execution_mode: semantic_repair
+dataset_base_path: /wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_overfit_dataset_v1
+dataset_metadata_path: /wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_overfit_dataset_v1/metadata_translate.csv
+dataset_rows: 3
+smoke_dataset_repeat: 4
+smoke_num_epochs: 1
+target_smoke_steps: 12
+progressive_repeats:
+  step100: 34
+  step300: 100
+  step600: 200
+gpu: 3
+learning_rate: 0.0001
+lora_rank: 32
+lora_base_model: dit
+max_pixels: 262144
+seed: 4313
+output_path: /wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_overfit_v1/TRANSLATE
+diffsynth_path: /wuqingyaoa800/qiuziyan/DiffSynth-Studio
+model_base_path: /wuqingyaoa800/qiuziyan/DiffSynth-Studio/models
+model_id_with_origin_paths: Qwen/Qwen-Image:transformer/diffusion_pytorch_model*.safetensors,Qwen/Qwen-Image:text_encoder/model*.safetensors,Qwen/Qwen-Image:vae/diffusion_pytorch_model.safetensors,DiffSynth-Studio/Qwen-Image-Blockwise-ControlNet-Inpaint:model.safetensors
+extra_inputs: blockwise_controlnet_image,blockwise_controlnet_inpaint_mask

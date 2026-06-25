@@ -1,0 +1,14 @@
+{
+  "palette_id": "indoor_palette_v1",
+  "palette_snap_method": "nearest_rgb_with_reject_threshold",
+  "palette_snap_threshold": 6.681145747868608,
+  "unknown_color_policy": "parser_status_uncertain",
+  "connectivity": 4,
+  "minimum_component_area": 4,
+  "erosion_seed_enabled": false,
+  "erosion_radius": 1,
+  "watershed_enabled": false,
+  "goal_count_split_enabled": false,
+  "split_trigger": "not_enabled_until_E0_failure_triage",
+  "parser_confidence_policy": "high for exact/snap below threshold, uncertain otherwise"
+}

@@ -1,0 +1,1509 @@
+{
+  "native": {
+    "minimum_rgb_distance": 0.0,
+    "closest_pair": {
+      "a": "lazy_sofa",
+      "b": "multi_seat_sofa",
+      "rgb_distance": 0.0,
+      "lab_distance": "not_computed_no_dependency",
+      "ciede2000": "not_computed_no_dependency"
+    },
+    "atlas": {
+      "png": "/wuqingyaoa800/qiuziyan/loreflection_outputs/taxonomy_v2_palette_validation/palette_native_atlas.png",
+      "roi_metadata": [
+        {
+          "semantic_id": 0,
+          "category_name": "void",
+          "RGB": [
+            255,
+            255,
+            255
+          ],
+          "HEX": "#FFFFFF",
+          "ROI": [
+            12,
+            12,
+            62,
+            62
+          ],
+          "palette_version": "native",
+          "decoded": "void",
+          "ok": true
+        },
+        {
+          "semantic_id": 1,
+          "category_name": "floor",
+          "RGB": [
+            211,
+            211,
+            211
+          ],
+          "HEX": "#D3D3D3",
+          "ROI": [
+            202,
+            12,
+            252,
+            62
+          ],
+          "palette_version": "native",
+          "decoded": "floor",
+          "ok": true
+        },
+        {
+          "semantic_id": 2,
+          "category_name": "kids_bed",
+          "RGB": [
+            152,
+            223,
+            138
+          ],
+          "HEX": "#98DF8A",
+          "ROI": [
+            392,
+            12,
+            442,
+            62
+          ],
+          "palette_version": "native",
+          "decoded": "kids_bed",
+          "ok": true
+        },
+        {
+          "semantic_id": 3,
+          "category_name": "single_bed",
+          "RGB": [
+            105,
+            183,
+            100
+          ],
+          "HEX": "#69B764",
+          "ROI": [
+            582,
+            12,
+            632,
+            62
+          ],
+          "palette_version": "native",
+          "decoded": "single_bed",
+          "ok": true
+        },
+        {
+          "semantic_id": 4,
+          "category_name": "double_bed",
+          "RGB": [
+            44,
+            160,
+            44
+          ],
+          "HEX": "#2CA02C",
+          "ROI": [
+            12,
+            92,
+            62,
+            142
+          ],
+          "palette_version": "native",
+          "decoded": "double_bed",
+          "ok": true
+        },
+        {
+          "semantic_id": 5,
+          "category_name": "corner_side_table",
+          "RGB": [
+            197,
+            176,
+            213
+          ],
+          "HEX": "#C5B0D5",
+          "ROI": [
+            202,
+            92,
+            252,
+            142
+          ],
+          "palette_version": "native",
+          "decoded": "corner_side_table",
+          "ok": true
+        },
+        {
+          "semantic_id": 6,
+          "category_name": "round_end_table",
+          "RGB": [
+            187,
+            166,
+            212
+          ],
+          "HEX": "#BBA6D4",
+          "ROI": [
+            392,
+            92,
+            442,
+            142
+          ],
+          "palette_version": "native",
+          "decoded": "round_end_table",
+          "ok": true
+        },
+        {
+          "semantic_id": 7,
+          "category_name": "coffee_table",
+          "RGB": [
+            178,
+            157,
+            212
+          ],
+          "HEX": "#B29DD4",
+          "ROI": [
+            582,
+            92,
+            632,
+            142
+          ],
+          "palette_version": "native",
+          "decoded": "coffee_table",
+          "ok": true
+        },
+        {
+          "semantic_id": 8,
+          "category_name": "console_table",
+          "RGB": [
+            169,
+            148,
+            211
+          ],
+          "HEX": "#A994D3",
+          "ROI": [
+            12,
+            172,
+            62,
+            222
+          ],
+          "palette_version": "native",
+          "decoded": "console_table",
+          "ok": true
+        },
+        {
+          "semantic_id": 9,
+          "category_name": "tv_stand",
+          "RGB": [
+            160,
+            139,
+            211
+          ],
+          "HEX": "#A08BD3",
+          "ROI": [
+            202,
+            172,
+            252,
+            222
+          ],
+          "palette_version": "native",
+          "decoded": "tv_stand",
+          "ok": true
+        },
+        {
+          "semantic_id": 10,
+          "category_name": "desk",
+          "RGB": [
+            150,
+            129,
+            211
+          ],
+          "HEX": "#9681D3",
+          "ROI": [
+            392,
+            172,
+            442,
+            222
+          ],
+          "palette_version": "native",
+          "decoded": "desk",
+          "ok": true
+        },
+        {
+          "semantic_id": 11,
+          "category_name": "dressing_table",
+          "RGB": [
+            141,
+            120,
+            210
+          ],
+          "HEX": "#8D78D2",
+          "ROI": [
+            582,
+            172,
+            632,
+            222
+          ],
+          "palette_version": "native",
+          "decoded": "dressing_table",
+          "ok": true
+        },
+        {
+          "semantic_id": 12,
+          "category_name": "table",
+          "RGB": [
+            132,
+            111,
+            210
+          ],
+          "HEX": "#846FD2",
+          "ROI": [
+            12,
+            252,
+            62,
+            302
+          ],
+          "palette_version": "native",
+          "decoded": "table",
+          "ok": true
+        },
+        {
+          "semantic_id": 13,
+          "category_name": "dining_table",
+          "RGB": [
+            123,
+            102,
+            210
+          ],
+          "HEX": "#7B66D2",
+          "ROI": [
+            202,
+            252,
+            252,
+            302
+          ],
+          "palette_version": "native",
+          "decoded": "dining_table",
+          "ok": true
+        },
+        {
+          "semantic_id": 14,
+          "category_name": "stool",
+          "RGB": [
+            23,
+            190,
+            207
+          ],
+          "HEX": "#17BECF",
+          "ROI": [
+            392,
+            252,
+            442,
+            302
+          ],
+          "palette_version": "native",
+          "decoded": "stool",
+          "ok": true
+        },
+        {
+          "semantic_id": 15,
+          "category_name": "dressing_chair",
+          "RGB": [
+            162,
+            200,
+            236
+          ],
+          "HEX": "#A2C8EC",
+          "ROI": [
+            582,
+            252,
+            632,
+            302
+          ],
+          "palette_version": "native",
+          "decoded": "dressing_chair",
+          "ok": true
+        },
+        {
+          "semantic_id": 16,
+          "category_name": "dining_chair",
+          "RGB": [
+            151,
+            193,
+            231
+          ],
+          "HEX": "#97C1E7",
+          "ROI": [
+            12,
+            332,
+            62,
+            382
+          ],
+          "palette_version": "native",
+          "decoded": "dining_chair",
+          "ok": true
+        },
+        {
+          "semantic_id": 17,
+          "category_name": "chinese_chair",
+          "RGB": [
+            140,
+            186,
+            226
+          ],
+          "HEX": "#8CBAE2",
+          "ROI": [
+            202,
+            332,
+            252,
+            382
+          ],
+          "palette_version": "native",
+          "decoded": "chinese_chair",
+          "ok": true
+        },
+        {
+          "semantic_id": 18,
+          "category_name": "armchair",
+          "RGB": [
+            74,
+            146,
+            198
+          ],
+          "HEX": "#4A92C6",
+          "ROI": [
+            392,
+            332,
+            442,
+            382
+          ],
+          "palette_version": "native",
+          "decoded": "armchair",
+          "ok": true
+        },
+        {
+          "semantic_id": 19,
+          "category_name": "chair",
+          "RGB": [
+            52,
+            132,
+            189
+          ],
+          "HEX": "#3484BD",
+          "ROI": [
+            582,
+            332,
+            632,
+            382
+          ],
+          "palette_version": "native",
+          "decoded": "chair",
+          "ok": true
+        },
+        {
+          "semantic_id": 20,
+          "category_name": "lounge_chair",
+          "RGB": [
+            31,
+            119,
+            180
+          ],
+          "HEX": "#1F77B4",
+          "ROI": [
+            12,
+            412,
+            62,
+            462
+          ],
+          "palette_version": "native",
+          "decoded": "lounge_chair",
+          "ok": true
+        },
+        {
+          "semantic_id": 21,
+          "category_name": "loveseat_sofa",
+          "RGB": [
+            243,
+            171,
+            207
+          ],
+          "HEX": "#F3ABCF",
+          "ROI": [
+            202,
+            412,
+            252,
+            462
+          ],
+          "palette_version": "native",
+          "decoded": "loveseat_sofa",
+          "ok": true
+        },
+        {
+          "semantic_id": 22,
+          "category_name": "lazy_sofa",
+          "RGB": [
+            241,
+            166,
+            205
+          ],
+          "HEX": "#F1A6CD",
+          "ROI": [
+            392,
+            412,
+            442,
+            462
+          ],
+          "palette_version": "native",
+          "decoded": "lazy_sofa",
+          "ok": true
+        },
+        {
+          "semantic_id": 23,
+          "category_name": "sofa",
+          "RGB": [
+            240,
+            161,
+            204
+          ],
+          "HEX": "#F0A1CC",
+          "ROI": [
+            582,
+            412,
+            632,
+            462
+          ],
+          "palette_version": "native",
+          "decoded": "sofa",
+          "ok": true
+        },
+        {
+          "semantic_id": 24,
+          "category_name": "multi_seat_sofa",
+          "RGB": [
+            241,
+            166,
+            205
+          ],
+          "HEX": "#F1A6CD",
+          "ROI": [
+            12,
+            492,
+            62,
+            542
+          ],
+          "palette_version": "native",
+          "decoded": "lazy_sofa",
+          "ok": false
+        },
+        {
+          "semantic_id": 25,
+          "category_name": "chaise_longue_sofa",
+          "RGB": [
+            233,
+            140,
+            199
+          ],
+          "HEX": "#E98CC7",
+          "ROI": [
+            202,
+            492,
+            252,
+            542
+          ],
+          "palette_version": "native",
+          "decoded": "chaise_longue_sofa",
+          "ok": true
+        },
+        {
+          "semantic_id": 26,
+          "category_name": "l_shaped_sofa",
+          "RGB": [
+            227,
+            119,
+            194
+          ],
+          "HEX": "#E377C2",
+          "ROI": [
+            392,
+            492,
+            442,
+            542
+          ],
+          "palette_version": "native",
+          "decoded": "l_shaped_sofa",
+          "ok": true
+        },
+        {
+          "semantic_id": 27,
+          "category_name": "nightstand",
+          "RGB": [
+            255,
+            217,
+            74
+          ],
+          "HEX": "#FFD94A",
+          "ROI": [
+            582,
+            492,
+            632,
+            542
+          ],
+          "palette_version": "native",
+          "decoded": "nightstand",
+          "ok": true
+        },
+        {
+          "semantic_id": 28,
+          "category_name": "shelf",
+          "RGB": [
+            215,
+            216,
+            130
+          ],
+          "HEX": "#D7D882",
+          "ROI": [
+            12,
+            572,
+            62,
+            622
+          ],
+          "palette_version": "native",
+          "decoded": "shelf",
+          "ok": true
+        },
+        {
+          "semantic_id": 29,
+          "category_name": "bookshelf",
+          "RGB": [
+            212,
+            213,
+            119
+          ],
+          "HEX": "#D4D577",
+          "ROI": [
+            202,
+            572,
+            252,
+            622
+          ],
+          "palette_version": "native",
+          "decoded": "bookshelf",
+          "ok": true
+        },
+        {
+          "semantic_id": 30,
+          "category_name": "children_cabinet",
+          "RGB": [
+            206,
+            207,
+            98
+          ],
+          "HEX": "#CECF62",
+          "ROI": [
+            392,
+            572,
+            442,
+            622
+          ],
+          "palette_version": "native",
+          "decoded": "children_cabinet",
+          "ok": true
+        },
+        {
+          "semantic_id": 31,
+          "category_name": "wine_cabinet",
+          "RGB": [
+            200,
+            201,
+            76
+          ],
+          "HEX": "#C8C94C",
+          "ROI": [
+            582,
+            572,
+            632,
+            622
+          ],
+          "palette_version": "native",
+          "decoded": "wine_cabinet",
+          "ok": true
+        },
+        {
+          "semantic_id": 32,
+          "category_name": "cabinet",
+          "RGB": [
+            194,
+            195,
+            55
+          ],
+          "HEX": "#C2C337",
+          "ROI": [
+            12,
+            652,
+            62,
+            702
+          ],
+          "palette_version": "native",
+          "decoded": "cabinet",
+          "ok": true
+        },
+        {
+          "semantic_id": 33,
+          "category_name": "wardrobe",
+          "RGB": [
+            188,
+            189,
+            34
+          ],
+          "HEX": "#BCBD22",
+          "ROI": [
+            202,
+            652,
+            252,
+            702
+          ],
+          "palette_version": "native",
+          "decoded": "wardrobe",
+          "ok": true
+        },
+        {
+          "semantic_id": 34,
+          "category_name": "pendant_lamp",
+          "RGB": [
+            255,
+            187,
+            120
+          ],
+          "HEX": "#FFBB78",
+          "ROI": [
+            392,
+            652,
+            442,
+            702
+          ],
+          "palette_version": "native",
+          "decoded": "pendant_lamp",
+          "ok": true
+        },
+        {
+          "semantic_id": 35,
+          "category_name": "ceiling_lamp",
+          "RGB": [
+            255,
+            127,
+            14
+          ],
+          "HEX": "#FF7F0E",
+          "ROI": [
+            582,
+            652,
+            632,
+            702
+          ],
+          "palette_version": "native",
+          "decoded": "ceiling_lamp",
+          "ok": true
+        },
+        {
+          "semantic_id": 36,
+          "category_name": "door",
+          "RGB": [
+            153,
+            0,
+            0
+          ],
+          "HEX": "#990000",
+          "ROI": [
+            12,
+            732,
+            62,
+            782
+          ],
+          "palette_version": "native",
+          "decoded": "door",
+          "ok": true
+        },
+        {
+          "semantic_id": 37,
+          "category_name": "window",
+          "RGB": [
+            255,
+            153,
+            153
+          ],
+          "HEX": "#FF9999",
+          "ROI": [
+            202,
+            732,
+            252,
+            782
+          ],
+          "palette_version": "native",
+          "decoded": "window",
+          "ok": true
+        }
+      ],
+      "category_decode_accuracy": 0.9736842105263158,
+      "unknown_roi_count": 1
+    },
+    "minimum_lab_distance": 0.0,
+    "closest_lab_pair": {
+      "a": "lazy_sofa",
+      "b": "multi_seat_sofa",
+      "distance": 0.0
+    },
+    "minimum_ciede2000": 0.0,
+    "closest_ciede2000_pair": {
+      "a": "lazy_sofa",
+      "b": "multi_seat_sofa",
+      "distance": 0.0
+    }
+  },
+  "qwen_candidate": {
+    "minimum_rgb_distance": 13.892443989449804,
+    "closest_pair": {
+      "a": "desk",
+      "b": "wine_cabinet",
+      "rgb_distance": 13.892443989449804,
+      "lab_distance": "not_computed_no_dependency",
+      "ciede2000": "not_computed_no_dependency"
+    },
+    "atlas": {
+      "png": "/wuqingyaoa800/qiuziyan/loreflection_outputs/taxonomy_v2_palette_validation/palette_qwen_candidate_atlas.png",
+      "roi_metadata": [
+        {
+          "semantic_id": 0,
+          "category_name": "void",
+          "RGB": [
+            255,
+            255,
+            255
+          ],
+          "HEX": "#FFFFFF",
+          "ROI": [
+            12,
+            12,
+            62,
+            62
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "void",
+          "ok": true
+        },
+        {
+          "semantic_id": 1,
+          "category_name": "floor",
+          "RGB": [
+            210,
+            210,
+            210
+          ],
+          "HEX": "#D2D2D2",
+          "ROI": [
+            202,
+            12,
+            252,
+            62
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "floor",
+          "ok": true
+        },
+        {
+          "semantic_id": 2,
+          "category_name": "kids_bed",
+          "RGB": [
+            161,
+            224,
+            72
+          ],
+          "HEX": "#A1E048",
+          "ROI": [
+            392,
+            12,
+            442,
+            62
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "kids_bed",
+          "ok": true
+        },
+        {
+          "semantic_id": 3,
+          "category_name": "single_bed",
+          "RGB": [
+            224,
+            72,
+            205
+          ],
+          "HEX": "#E048CD",
+          "ROI": [
+            582,
+            12,
+            632,
+            62
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "single_bed",
+          "ok": true
+        },
+        {
+          "semantic_id": 4,
+          "category_name": "double_bed",
+          "RGB": [
+            72,
+            224,
+            199
+          ],
+          "HEX": "#48E0C7",
+          "ROI": [
+            12,
+            92,
+            62,
+            142
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "double_bed",
+          "ok": true
+        },
+        {
+          "semantic_id": 5,
+          "category_name": "corner_side_table",
+          "RGB": [
+            224,
+            154,
+            72
+          ],
+          "HEX": "#E09A48",
+          "ROI": [
+            202,
+            92,
+            252,
+            142
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "corner_side_table",
+          "ok": true
+        },
+        {
+          "semantic_id": 6,
+          "category_name": "round_end_table",
+          "RGB": [
+            110,
+            72,
+            224
+          ],
+          "HEX": "#6E48E0",
+          "ROI": [
+            392,
+            92,
+            442,
+            142
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "round_end_table",
+          "ok": true
+        },
+        {
+          "semantic_id": 7,
+          "category_name": "coffee_table",
+          "RGB": [
+            78,
+            224,
+            72
+          ],
+          "HEX": "#4EE048",
+          "ROI": [
+            582,
+            92,
+            632,
+            142
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "coffee_table",
+          "ok": true
+        },
+        {
+          "semantic_id": 8,
+          "category_name": "console_table",
+          "RGB": [
+            224,
+            72,
+            123
+          ],
+          "HEX": "#E0487B",
+          "ROI": [
+            12,
+            172,
+            62,
+            222
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "console_table",
+          "ok": true
+        },
+        {
+          "semantic_id": 9,
+          "category_name": "tv_stand",
+          "RGB": [
+            72,
+            167,
+            224
+          ],
+          "HEX": "#48A7E0",
+          "ROI": [
+            202,
+            172,
+            252,
+            222
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "tv_stand",
+          "ok": true
+        },
+        {
+          "semantic_id": 10,
+          "category_name": "desk",
+          "RGB": [
+            212,
+            224,
+            72
+          ],
+          "HEX": "#D4E048",
+          "ROI": [
+            392,
+            172,
+            442,
+            222
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "desk",
+          "ok": true
+        },
+        {
+          "semantic_id": 11,
+          "category_name": "dressing_table",
+          "RGB": [
+            192,
+            72,
+            224
+          ],
+          "HEX": "#C048E0",
+          "ROI": [
+            582,
+            172,
+            632,
+            222
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "dressing_table",
+          "ok": true
+        },
+        {
+          "semantic_id": 12,
+          "category_name": "table",
+          "RGB": [
+            72,
+            224,
+            148
+          ],
+          "HEX": "#48E094",
+          "ROI": [
+            12,
+            252,
+            62,
+            302
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "table",
+          "ok": true
+        },
+        {
+          "semantic_id": 13,
+          "category_name": "dining_table",
+          "RGB": [
+            224,
+            103,
+            72
+          ],
+          "HEX": "#E06748",
+          "ROI": [
+            202,
+            252,
+            252,
+            302
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "dining_table",
+          "ok": true
+        },
+        {
+          "semantic_id": 14,
+          "category_name": "stool",
+          "RGB": [
+            72,
+            85,
+            224
+          ],
+          "HEX": "#4855E0",
+          "ROI": [
+            392,
+            252,
+            442,
+            302
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "stool",
+          "ok": true
+        },
+        {
+          "semantic_id": 15,
+          "category_name": "dressing_chair",
+          "RGB": [
+            129,
+            224,
+            72
+          ],
+          "HEX": "#81E048",
+          "ROI": [
+            582,
+            252,
+            632,
+            302
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "dressing_chair",
+          "ok": true
+        },
+        {
+          "semantic_id": 16,
+          "category_name": "dining_chair",
+          "RGB": [
+            224,
+            72,
+            174
+          ],
+          "HEX": "#E048AE",
+          "ROI": [
+            12,
+            332,
+            62,
+            382
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "dining_chair",
+          "ok": true
+        },
+        {
+          "semantic_id": 17,
+          "category_name": "chinese_chair",
+          "RGB": [
+            72,
+            218,
+            224
+          ],
+          "HEX": "#48DAE0",
+          "ROI": [
+            202,
+            332,
+            252,
+            382
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "chinese_chair",
+          "ok": true
+        },
+        {
+          "semantic_id": 18,
+          "category_name": "armchair",
+          "RGB": [
+            224,
+            186,
+            72
+          ],
+          "HEX": "#E0BA48",
+          "ROI": [
+            392,
+            332,
+            442,
+            382
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "armchair",
+          "ok": true
+        },
+        {
+          "semantic_id": 19,
+          "category_name": "chair",
+          "RGB": [
+            141,
+            72,
+            224
+          ],
+          "HEX": "#8D48E0",
+          "ROI": [
+            582,
+            332,
+            632,
+            382
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "chair",
+          "ok": true
+        },
+        {
+          "semantic_id": 20,
+          "category_name": "lounge_chair",
+          "RGB": [
+            72,
+            224,
+            97
+          ],
+          "HEX": "#48E061",
+          "ROI": [
+            12,
+            412,
+            62,
+            462
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "lounge_chair",
+          "ok": true
+        },
+        {
+          "semantic_id": 21,
+          "category_name": "loveseat_sofa",
+          "RGB": [
+            224,
+            72,
+            91
+          ],
+          "HEX": "#E0485B",
+          "ROI": [
+            202,
+            412,
+            252,
+            462
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "loveseat_sofa",
+          "ok": true
+        },
+        {
+          "semantic_id": 22,
+          "category_name": "lazy_sofa",
+          "RGB": [
+            72,
+            136,
+            224
+          ],
+          "HEX": "#4888E0",
+          "ROI": [
+            392,
+            412,
+            442,
+            462
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "lazy_sofa",
+          "ok": true
+        },
+        {
+          "semantic_id": 23,
+          "category_name": "sofa",
+          "RGB": [
+            180,
+            224,
+            72
+          ],
+          "HEX": "#B4E048",
+          "ROI": [
+            582,
+            412,
+            632,
+            462
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "sofa",
+          "ok": true
+        },
+        {
+          "semantic_id": 24,
+          "category_name": "multi_seat_sofa",
+          "RGB": [
+            224,
+            72,
+            224
+          ],
+          "HEX": "#E048E0",
+          "ROI": [
+            12,
+            492,
+            62,
+            542
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "multi_seat_sofa",
+          "ok": true
+        },
+        {
+          "semantic_id": 25,
+          "category_name": "chaise_longue_sofa",
+          "RGB": [
+            72,
+            224,
+            179
+          ],
+          "HEX": "#48E0B3",
+          "ROI": [
+            202,
+            492,
+            252,
+            542
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "chaise_longue_sofa",
+          "ok": true
+        },
+        {
+          "semantic_id": 26,
+          "category_name": "l_shaped_sofa",
+          "RGB": [
+            224,
+            135,
+            72
+          ],
+          "HEX": "#E08748",
+          "ROI": [
+            392,
+            492,
+            442,
+            542
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "l_shaped_sofa",
+          "ok": true
+        },
+        {
+          "semantic_id": 27,
+          "category_name": "nightstand",
+          "RGB": [
+            90,
+            72,
+            224
+          ],
+          "HEX": "#5A48E0",
+          "ROI": [
+            582,
+            492,
+            632,
+            542
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "nightstand",
+          "ok": true
+        },
+        {
+          "semantic_id": 28,
+          "category_name": "shelf",
+          "RGB": [
+            98,
+            224,
+            72
+          ],
+          "HEX": "#62E048",
+          "ROI": [
+            12,
+            572,
+            62,
+            622
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "shelf",
+          "ok": true
+        },
+        {
+          "semantic_id": 29,
+          "category_name": "bookshelf",
+          "RGB": [
+            224,
+            72,
+            142
+          ],
+          "HEX": "#E0488E",
+          "ROI": [
+            202,
+            572,
+            252,
+            622
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "bookshelf",
+          "ok": true
+        },
+        {
+          "semantic_id": 30,
+          "category_name": "children_cabinet",
+          "RGB": [
+            72,
+            187,
+            224
+          ],
+          "HEX": "#48BBE0",
+          "ROI": [
+            392,
+            572,
+            442,
+            622
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "children_cabinet",
+          "ok": true
+        },
+        {
+          "semantic_id": 31,
+          "category_name": "wine_cabinet",
+          "RGB": [
+            224,
+            217,
+            72
+          ],
+          "HEX": "#E0D948",
+          "ROI": [
+            582,
+            572,
+            632,
+            622
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "wine_cabinet",
+          "ok": true
+        },
+        {
+          "semantic_id": 32,
+          "category_name": "cabinet",
+          "RGB": [
+            173,
+            72,
+            224
+          ],
+          "HEX": "#AD48E0",
+          "ROI": [
+            12,
+            652,
+            62,
+            702
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "cabinet",
+          "ok": true
+        },
+        {
+          "semantic_id": 33,
+          "category_name": "wardrobe",
+          "RGB": [
+            72,
+            224,
+            128
+          ],
+          "HEX": "#48E080",
+          "ROI": [
+            202,
+            652,
+            252,
+            702
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "wardrobe",
+          "ok": true
+        },
+        {
+          "semantic_id": 34,
+          "category_name": "pendant_lamp",
+          "RGB": [
+            224,
+            84,
+            72
+          ],
+          "HEX": "#E05448",
+          "ROI": [
+            392,
+            652,
+            442,
+            702
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "pendant_lamp",
+          "ok": true
+        },
+        {
+          "semantic_id": 35,
+          "category_name": "ceiling_lamp",
+          "RGB": [
+            72,
+            104,
+            224
+          ],
+          "HEX": "#4868E0",
+          "ROI": [
+            582,
+            652,
+            632,
+            702
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "ceiling_lamp",
+          "ok": true
+        },
+        {
+          "semantic_id": 36,
+          "category_name": "door",
+          "RGB": [
+            160,
+            32,
+            32
+          ],
+          "HEX": "#A02020",
+          "ROI": [
+            12,
+            732,
+            62,
+            782
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "door",
+          "ok": true
+        },
+        {
+          "semantic_id": 37,
+          "category_name": "window",
+          "RGB": [
+            40,
+            180,
+            240
+          ],
+          "HEX": "#28B4F0",
+          "ROI": [
+            202,
+            732,
+            252,
+            782
+          ],
+          "palette_version": "qwen_candidate",
+          "decoded": "window",
+          "ok": true
+        }
+      ],
+      "category_decode_accuracy": 1.0,
+      "unknown_roi_count": 0
+    },
+    "minimum_lab_distance": 4.577732881507573,
+    "closest_lab_pair": {
+      "a": "coffee_table",
+      "b": "shelf",
+      "distance": 4.577732881507573
+    },
+    "minimum_ciede2000": 1.4612221162322165,
+    "closest_ciede2000_pair": {
+      "a": "coffee_table",
+      "b": "shelf",
+      "distance": 1.4612221162322165
+    }
+  },
+  "selected_palette": "palette_v2_qwenimage_candidate",
+  "selection_reason": "higher minimum RGB distance with unchanged taxonomy/IDs",
+  "palette_semantics_changed": false,
+  "lab_distance": "not_computed_no_dependency",
+  "ciede2000": "not_computed_no_dependency"
+}

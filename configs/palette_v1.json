@@ -11,7 +11,14 @@
     "wardrobe": "#72B7B2",
     "desk": "#F58518",
     "chair": "#E45756",
-    "nightstand": "#54A24B"
+    "sofa": "#B279A2",
+    "table": "#9D755D",
+    "cabinet": "#8CD17D",
+    "tv_stand": "#B6992D",
+    "bookshelf": "#499894",
+    "nightstand": "#54A24B",
+    "pendant_lamp": "#FFBB78",
+    "ceiling_lamp": "#FF7F0E",
+    "lamp": "#FDB462"
   }
 }
-

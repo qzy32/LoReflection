@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "required": [
+    "semantic_footprint_version",
+    "canonical_geometry",
+    "bbox_policy"
+  ]
+}

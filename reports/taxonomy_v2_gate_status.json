@@ -1,0 +1,15 @@
+{
+  "SemLayoutDiff_source_taxonomy_resolved": true,
+  "core_object_classes_resolved": true,
+  "core_IDs_exact_and_stable": true,
+  "fine_coarse_taxonomy_separated": true,
+  "no_duplicate_semantic_IDs": true,
+  "no_duplicate_RGB": true,
+  "clean_atlas_decode_100": true,
+  "clean_synthetic_category_decode_100": true,
+  "architecture_target_remap_correct": true,
+  "hundred_scene_label_RGB_agreement_100": true,
+  "unknown_mapping_cases_reported": true,
+  "LoReflection_mode_contains_no_bbox_conversion": true,
+  "passed": true
+}

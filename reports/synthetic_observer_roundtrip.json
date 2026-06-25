@@ -1,0 +1,41 @@
+{
+  "A_all_categories": {
+    "gt_instances": 13,
+    "parsed_instances": 13,
+    "category_accuracy": 1.0
+  },
+  "B_repeated_separated": {
+    "gt_instances": 2,
+    "parsed_instances": 2,
+    "merge": false
+  },
+  "C_gap4": {
+    "gt_instances": 2,
+    "parsed_instances": 2,
+    "merge": false
+  },
+  "C_gap2": {
+    "gt_instances": 2,
+    "parsed_instances": 2,
+    "merge": false
+  },
+  "C_gap1": {
+    "gt_instances": 2,
+    "parsed_instances": 2,
+    "merge": false
+  },
+  "D_touching": {
+    "gt_instances": 2,
+    "parsed_instances": 1,
+    "merge": true
+  },
+  "D_bridge1": {
+    "gt_instances": 2,
+    "parsed_instances": 1,
+    "merge": true
+  },
+  "E_architecture_mixed": {
+    "parsed_furniture_instances": 6,
+    "door_window_as_furniture": false
+  }
+}

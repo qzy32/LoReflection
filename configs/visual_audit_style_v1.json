@@ -1,0 +1,51 @@
+{
+  "style_version": "visual_audit_style_v1",
+  "scope": "human_facing_audit_only",
+  "canvas": {
+    "width": 2200,
+    "height": 850,
+    "dpi": 150,
+    "margin_ratio": 0.08,
+    "panel_size": 500,
+    "panel_gap": 26
+  },
+  "line_widths": {
+    "boundary": 6,
+    "derived_wall": 5,
+    "door": 8,
+    "window": 8,
+    "instance_outline": 2,
+    "panel_border": 2
+  },
+  "marker_sizes": {
+    "door_label": 16,
+    "window_label": 16,
+    "minimum_anchor_marker_px": 16
+  },
+  "alpha": {
+    "clearance": 0.3,
+    "overlay_furniture": 0.82,
+    "room_fill": 0.92
+  },
+  "colors": {
+    "canvas_background": "#FFFFFF",
+    "panel_background": "#FAFAFA",
+    "room_fill": "#F4F1E8",
+    "boundary": "#111111",
+    "derived_wall": "#000000",
+    "door": "#D73027",
+    "door_fill": "#FCA082",
+    "window": "#0571B0",
+    "window_fill": "#92C5DE",
+    "clearance": "#FFF3B0",
+    "text": "#1F2933",
+    "muted_text": "#52616B",
+    "panel_border": "#B8C2CC",
+    "warning": "#B45309",
+    "ok": "#047857",
+    "furniture_outline": "#111111"
+  },
+  "show_instance_ids": false,
+  "show_scale_bar": true,
+  "show_orientation_marker": true
+}

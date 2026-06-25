@@ -1,0 +1,2 @@
+action,status,reason,steps,best_checkpoint,gate
+ADD,SKIPPED_GPU_BUSY,"Data gate, evaluator self-test, and loader passed, but no A800 GPU has >=60000 MiB free memory for rank32/max_pixels262144 clean rerun.",0,,DEFERRED_GPU_BUSY

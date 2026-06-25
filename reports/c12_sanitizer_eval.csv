@@ -1,0 +1,13 @@
+action,changed_pixels_inside_mask,changed_ratio_inside_mask,failure_reasons,mask_area_px,mask_area_ratio,mask_binary_pass,mask_components,mask_unique_values,nonmask_equality_pass,noop_pass,oracle_composite_pass,palette_validity_pass,result,sample_id,source_category,target_category,validator_errors,validator_pass
+ADD,1209,0.46769825918762087,,2585,0.009860992431640625,True,1,0 255,True,True,True,True,PASS,add_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas,,dressing_table,,True
+ADD,6916,0.6468387579498691,,10692,0.0407867431640625,True,1,0 255,True,True,True,True,PASS,c12_1_add_dfb54c79-6d74-454e-8bce-a6898527daba_MasterBedroom-64939_add-1_18,,tv_stand,,True
+ADD,10524,0.6579144786196549,,15996,0.0610198974609375,True,1,0 255,True,True,True,True,PASS,add_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas,,double_bed,,True
+REMOVE,1209,0.46769825918762087,,2585,0.009860992431640625,True,1,0 255,True,True,True,True,PASS,remove_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas,dressing_table,,,True
+REMOVE,1015,0.4422657952069717,,2295,0.008754730224609375,True,1,0 255,True,True,True,True,PASS,c12_1_remove_473f4a9e-505e-4864-9ffd-59a793b26d5a_Bedroom-1705_remove-2_8,nightstand,,,True
+REMOVE,10524,0.6579144786196549,,15996,0.0610198974609375,True,1,0 255,True,True,True,True,PASS,remove_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas,double_bed,,,True
+TRANSLATE,889,0.3439071566731141,,2585,0.009860992431640625,True,1,0 255,True,True,True,True,PASS,translate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas,dressing_table,dressing_table,,True
+TRANSLATE,16227,0.6849725622625581,,23690,0.09037017822265625,True,2,0 255,True,True,True,True,PASS,c12_1_translate_66f67e6f-2c22-473c-9997-0690a62661ec_Bedroom-7423_pose-1-0_12,double_bed,double_bed,,True
+TRANSLATE,1872,0.4254545454545455,,4400,0.01678466796875,True,2,0 255,True,True,True,True,PASS,translate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas,dressing_table,dressing_table,,True
+REPLACE,806,0.4083080040526849,,1974,0.00753021240234375,True,1,0 255,True,True,True,True,PASS,c12_1_replace_round2_1_ce51b1c1-72b8-4812-a291-30bf97c07aa1_Bedroom-32206_replace-7_12,corner_side_table,round_end_table,,True
+REPLACE,7590,0.6941649899396378,,10934,0.04170989990234375,True,1,0 255,True,True,True,True,PASS,c12_1_replace_round2_reverse_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2_opposite,loveseat_sofa,lazy_sofa,,True
+REPLACE,7590,0.6941649899396378,,10934,0.04170989990234375,True,1,0 255,True,True,True,True,PASS,c12_1_replace_4184f131-20fd-40ab-ad3e-d4ac14c0aae6_SecondBedroom-15677_replace-5_2,lazy_sofa,loveseat_sofa,,True

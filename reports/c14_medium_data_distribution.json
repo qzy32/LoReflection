@@ -1,0 +1,43 @@
+{
+  "schema_version": "c14-medium-data-distribution-v1",
+  "per_action": {
+    "ADD": 20,
+    "REMOVE": 20,
+    "TRANSLATE": 20,
+    "REPLACE": 20
+  },
+  "per_target_category": {
+    "dressing_table": 5,
+    "stool": 5,
+    "double_bed": 14,
+    "wardrobe": 4,
+    "nightstand": 17,
+    "tv_stand": 5,
+    "pendant_lamp": 3,
+    "armchair": 5,
+    "table": 1,
+    "children_cabinet": 1
+  },
+  "per_source_category": {
+    "dressing_table": 5,
+    "stool": 5,
+    "double_bed": 14,
+    "wardrobe": 4,
+    "nightstand": 17,
+    "tv_stand": 5,
+    "pendant_lamp": 3,
+    "armchair": 5,
+    "table": 1,
+    "children_cabinet": 1
+  },
+  "rejects": {
+    "unsupported_command": 22,
+    "no_moved_object": 16
+  },
+  "scanned_valid_by_action": {
+    "ADD": 20,
+    "TRANSLATE": 22,
+    "REMOVE": 20,
+    "REPLACE": 20
+  }
+}

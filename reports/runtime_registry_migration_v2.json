@@ -1,0 +1,9 @@
+{
+  "semantic_registry_v1_status": "deprecated_13class_prototype",
+  "semantic_registry_v2_path": "artifacts/semantic_registry_v2",
+  "runtime_13class_uses_removed": false,
+  "remaining_runtime_work": [
+    "wire production builders/observers to semantic_registry_v2",
+    "replace 13-class configs in training scripts"
+  ]
+}

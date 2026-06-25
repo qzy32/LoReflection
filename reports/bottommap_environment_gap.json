@@ -1,0 +1,14 @@
+{
+  "runtime_complete": false,
+  "missing_components": [
+    "blender command",
+    "blenderproc command",
+    "python module PIL",
+    "python module cv2",
+    "python module numpy",
+    "python module scipy",
+    "python module h5py",
+    "python module bpy",
+    "python module blenderproc"
+  ]
+}

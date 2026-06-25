@@ -1,0 +1,11 @@
+{
+  "category_config": "configs/category_mapping_3dfuture_to_palette_v1.json",
+  "palette_config": "configs/palette_v1.json",
+  "raw_mapping_config": "configs/category_mapping_3dfuture_to_palette_v1.json",
+  "action_taxonomy_config": "configs/category_mapping_3dfuture_to_palette_v1.json",
+  "loader_source_file": "loreflection.builders.scene_package_builder",
+  "loader_function": "load_palette/load_category_mapping/map_category",
+  "category_ordering_source": "palette_v1 order filtered to keep_furniture categories",
+  "category_ID_source": "1-based order from filtered palette_v1",
+  "RGB_source": "configs/palette_v1.json colors"
+}

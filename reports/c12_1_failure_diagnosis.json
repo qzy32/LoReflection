@@ -1,0 +1,93 @@
+{
+  "schema_version": "c12-1-failure-diagnosis-v1",
+  "source_reports": [
+    "reports/c12_sanitizer_eval.json",
+    "reports/c12_sanitizer_eval.csv",
+    "reports/c13_semantic_repair4_pipeline_result.json",
+    "reports/current_c12_input_manifest.json"
+  ],
+  "c12_gate": "C12_PARTIAL",
+  "failed_count": 4,
+  "failed_samples": [
+    {
+      "sample_id": "add_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ADD",
+      "changed_px_inside_mask": 0,
+      "mask_area_px": 1836,
+      "changed_ratio_inside_mask": 0.0,
+      "normalization_errors": [
+        "missing_target_category_unrecoverable"
+      ],
+      "validator_errors": [
+        "missing_target_semantic_id"
+      ],
+      "action_semantics_errors": [
+        "no_changed_pixels_inside_mask",
+        "target_not_present_inside_mask"
+      ],
+      "failure_type": "DATA_FAIL",
+      "root_cause": "no-op semantic pair with null/unrecoverable category fields"
+    },
+    {
+      "sample_id": "remove_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "REMOVE",
+      "changed_px_inside_mask": 0,
+      "mask_area_px": 1836,
+      "changed_ratio_inside_mask": 0.0,
+      "normalization_errors": [
+        "missing_source_category_unrecoverable"
+      ],
+      "validator_errors": [
+        "missing_source_semantic_id"
+      ],
+      "action_semantics_errors": [
+        "no_changed_pixels_inside_mask"
+      ],
+      "failure_type": "DATA_FAIL",
+      "root_cause": "no-op semantic pair with null/unrecoverable category fields"
+    },
+    {
+      "sample_id": "translate_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "TRANSLATE",
+      "changed_px_inside_mask": 0,
+      "mask_area_px": 1836,
+      "changed_ratio_inside_mask": 0.0,
+      "normalization_errors": [
+        "missing_target_category_unrecoverable"
+      ],
+      "validator_errors": [
+        "missing_target_semantic_id"
+      ],
+      "action_semantics_errors": [
+        "no_changed_pixels_inside_mask",
+        "target_not_present_inside_mask"
+      ],
+      "failure_type": "DATA_FAIL",
+      "root_cause": "no-op semantic pair with null/unrecoverable category fields"
+    },
+    {
+      "sample_id": "replace_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "REPLACE",
+      "changed_px_inside_mask": 0,
+      "mask_area_px": 1869,
+      "changed_ratio_inside_mask": 0.0,
+      "normalization_errors": [
+        "missing_source_category_unrecoverable",
+        "missing_target_category_unrecoverable"
+      ],
+      "validator_errors": [
+        "missing_source_semantic_id",
+        "missing_target_semantic_id"
+      ],
+      "action_semantics_errors": [
+        "no_changed_pixels_inside_mask",
+        "target_not_present_inside_mask"
+      ],
+      "failure_type": "DATA_FAIL",
+      "root_cause": "no-op semantic pair with null/unrecoverable category fields"
+    }
+  ],
+  "classification": "DATA_FAIL",
+  "confirmed_root_cause": "zero changed pixels inside white mask plus null/unrecoverable category fields",
+  "repair_strategy": "Search real EditRoom semantic_repair4 candidates and replace only failed no-op rows."
+}

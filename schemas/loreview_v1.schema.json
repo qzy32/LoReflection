@@ -32,7 +32,7 @@
           "issue_type": { "enum": ["entity_missing", "entity_extra", "category_mismatch", "relation_violation", "orientation_violation", "collision", "boundary_violation", "clearance_violation", "preservation_violation"] },
           "severity": { "enum": ["info", "warning", "error"] },
           "target_ref": { "type": "string", "minLength": 1 },
-          "recommended_action_type": { "enum": ["INSERT", "DELETE", "MOVE", "REPLACE", "ADJUST_ORIENTATION"] },
+          "recommended_action_type": { "enum": ["ADD", "REMOVE", "TRANSLATE", "ROTATE", "SCALE", "REPLACE"] },
           "track": { "enum": ["A", "B", "LoRAM"] }
         },
         "additionalProperties": true

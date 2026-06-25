@@ -1,0 +1,693 @@
+{
+  "total_semantic_classes": 38,
+  "total_object_classes": 34,
+  "total_architecture_classes": 4,
+  "training_object_classes_count": 34,
+  "non_training_architecture_classes_count": 4,
+  "categories": [
+    {
+      "semantic_id": 0,
+      "category_name": "void",
+      "role": "void",
+      "semantic_group": "other_group",
+      "RGB": [
+        255,
+        255,
+        255
+      ],
+      "HEX": "#FFFFFF",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "no",
+      "used_for_decoding": "yes",
+      "notes": "architecture/void semantic class"
+    },
+    {
+      "semantic_id": 1,
+      "category_name": "floor",
+      "role": "floor",
+      "semantic_group": "other_group",
+      "RGB": [
+        222,
+        222,
+        222
+      ],
+      "HEX": "#DEDEDE",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "no",
+      "used_for_decoding": "yes",
+      "notes": "architecture/void semantic class"
+    },
+    {
+      "semantic_id": 2,
+      "category_name": "kids_bed",
+      "role": "object",
+      "semantic_group": "bed_group",
+      "RGB": [
+        32,
+        224,
+        32
+      ],
+      "HEX": "#20E020",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 3,
+      "category_name": "single_bed",
+      "role": "object",
+      "semantic_group": "bed_group",
+      "RGB": [
+        64,
+        32,
+        80
+      ],
+      "HEX": "#402050",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 4,
+      "category_name": "double_bed",
+      "role": "object",
+      "semantic_group": "bed_group",
+      "RGB": [
+        224,
+        192,
+        32
+      ],
+      "HEX": "#E0C020",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 5,
+      "category_name": "corner_side_table",
+      "role": "object",
+      "semantic_group": "table_group",
+      "RGB": [
+        224,
+        64,
+        192
+      ],
+      "HEX": "#E040C0",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 6,
+      "category_name": "round_end_table",
+      "role": "object",
+      "semantic_group": "table_group",
+      "RGB": [
+        32,
+        224,
+        176
+      ],
+      "HEX": "#20E0B0",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 7,
+      "category_name": "coffee_table",
+      "role": "object",
+      "semantic_group": "table_group",
+      "RGB": [
+        112,
+        80,
+        32
+      ],
+      "HEX": "#705020",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 8,
+      "category_name": "console_table",
+      "role": "object",
+      "semantic_group": "table_group",
+      "RGB": [
+        112,
+        144,
+        224
+      ],
+      "HEX": "#7090E0",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 9,
+      "category_name": "tv_stand",
+      "role": "object",
+      "semantic_group": "storage_group",
+      "RGB": [
+        32,
+        112,
+        112
+      ],
+      "HEX": "#207070",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 10,
+      "category_name": "desk",
+      "role": "object",
+      "semantic_group": "table_group",
+      "RGB": [
+        128,
+        176,
+        80
+      ],
+      "HEX": "#80B050",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 11,
+      "category_name": "dressing_table",
+      "role": "object",
+      "semantic_group": "table_group",
+      "RGB": [
+        192,
+        80,
+        112
+      ],
+      "HEX": "#C05070",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 12,
+      "category_name": "table",
+      "role": "object",
+      "semantic_group": "table_group",
+      "RGB": [
+        96,
+        64,
+        176
+      ],
+      "HEX": "#6040B0",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 13,
+      "category_name": "dining_table",
+      "role": "object",
+      "semantic_group": "table_group",
+      "RGB": [
+        224,
+        192,
+        128
+      ],
+      "HEX": "#E0C080",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 14,
+      "category_name": "stool",
+      "role": "object",
+      "semantic_group": "chair_group",
+      "RGB": [
+        208,
+        112,
+        32
+      ],
+      "HEX": "#D07020",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 15,
+      "category_name": "dressing_chair",
+      "role": "object",
+      "semantic_group": "chair_group",
+      "RGB": [
+        32,
+        96,
+        32
+      ],
+      "HEX": "#206020",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 16,
+      "category_name": "dining_chair",
+      "role": "object",
+      "semantic_group": "chair_group",
+      "RGB": [
+        80,
+        208,
+        224
+      ],
+      "HEX": "#50D0E0",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 17,
+      "category_name": "chinese_chair",
+      "role": "object",
+      "semantic_group": "chair_group",
+      "RGB": [
+        224,
+        144,
+        224
+      ],
+      "HEX": "#E090E0",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 18,
+      "category_name": "armchair",
+      "role": "object",
+      "semantic_group": "chair_group",
+      "RGB": [
+        160,
+        128,
+        144
+      ],
+      "HEX": "#A08090",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 19,
+      "category_name": "chair",
+      "role": "object",
+      "semantic_group": "chair_group",
+      "RGB": [
+        176,
+        224,
+        32
+      ],
+      "HEX": "#B0E020",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 20,
+      "category_name": "lounge_chair",
+      "role": "object",
+      "semantic_group": "chair_group",
+      "RGB": [
+        80,
+        224,
+        112
+      ],
+      "HEX": "#50E070",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 21,
+      "category_name": "loveseat_sofa",
+      "role": "object",
+      "semantic_group": "sofa_group",
+      "RGB": [
+        160,
+        32,
+        208
+      ],
+      "HEX": "#A020D0",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 22,
+      "category_name": "lazy_sofa",
+      "role": "object",
+      "semantic_group": "sofa_group",
+      "RGB": [
+        144,
+        208,
+        176
+      ],
+      "HEX": "#90D0B0",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 23,
+      "category_name": "sofa",
+      "role": "object",
+      "semantic_group": "sofa_group",
+      "RGB": [
+        32,
+        144,
+        192
+      ],
+      "HEX": "#2090C0",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 24,
+      "category_name": "multi_seat_sofa",
+      "role": "object",
+      "semantic_group": "sofa_group",
+      "RGB": [
+        144,
+        32,
+        112
+      ],
+      "HEX": "#902070",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 25,
+      "category_name": "chaise_longue_sofa",
+      "role": "object",
+      "semantic_group": "sofa_group",
+      "RGB": [
+        144,
+        32,
+        32
+      ],
+      "HEX": "#902020",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 26,
+      "category_name": "l_shaped_sofa",
+      "role": "object",
+      "semantic_group": "sofa_group",
+      "RGB": [
+        80,
+        32,
+        32
+      ],
+      "HEX": "#502020",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 27,
+      "category_name": "nightstand",
+      "role": "object",
+      "semantic_group": "bed_group",
+      "RGB": [
+        224,
+        32,
+        128
+      ],
+      "HEX": "#E02080",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 28,
+      "category_name": "shelf",
+      "role": "object",
+      "semantic_group": "storage_group",
+      "RGB": [
+        224,
+        144,
+        128
+      ],
+      "HEX": "#E09080",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 29,
+      "category_name": "bookshelf",
+      "role": "object",
+      "semantic_group": "storage_group",
+      "RGB": [
+        144,
+        128,
+        32
+      ],
+      "HEX": "#908020",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 30,
+      "category_name": "children_cabinet",
+      "role": "object",
+      "semantic_group": "storage_group",
+      "RGB": [
+        48,
+        160,
+        32
+      ],
+      "HEX": "#30A020",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 31,
+      "category_name": "wine_cabinet",
+      "role": "object",
+      "semantic_group": "storage_group",
+      "RGB": [
+        96,
+        112,
+        80
+      ],
+      "HEX": "#607050",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 32,
+      "category_name": "cabinet",
+      "role": "object",
+      "semantic_group": "storage_group",
+      "RGB": [
+        32,
+        80,
+        160
+      ],
+      "HEX": "#2050A0",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 33,
+      "category_name": "wardrobe",
+      "role": "object",
+      "semantic_group": "storage_group",
+      "RGB": [
+        176,
+        96,
+        224
+      ],
+      "HEX": "#B060E0",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 34,
+      "category_name": "pendant_lamp",
+      "role": "object",
+      "semantic_group": "lighting_group",
+      "RGB": [
+        80,
+        96,
+        128
+      ],
+      "HEX": "#506080",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 35,
+      "category_name": "ceiling_lamp",
+      "role": "object",
+      "semantic_group": "lighting_group",
+      "RGB": [
+        32,
+        160,
+        96
+      ],
+      "HEX": "#20A060",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "yes",
+      "used_for_decoding": "yes",
+      "notes": "SemLayoutDiff object category"
+    },
+    {
+      "semantic_id": 36,
+      "category_name": "door",
+      "role": "architecture",
+      "semantic_group": "other_group",
+      "RGB": [
+        18,
+        38,
+        220
+      ],
+      "HEX": "#1226DC",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "no",
+      "used_for_decoding": "yes",
+      "notes": "architecture/void semantic class"
+    },
+    {
+      "semantic_id": 37,
+      "category_name": "window",
+      "role": "architecture",
+      "semantic_group": "other_group",
+      "RGB": [
+        220,
+        34,
+        34
+      ],
+      "HEX": "#DC2222",
+      "source_taxonomy_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_palette_file": "artifacts/semantic_registry_v2/palette_frozen.json",
+      "active_registry_file": "artifacts/semantic_registry_v2/semantic_target_registry.json",
+      "used_for_training": "no",
+      "used_for_decoding": "yes",
+      "notes": "architecture/void semantic class"
+    }
+  ]
+}

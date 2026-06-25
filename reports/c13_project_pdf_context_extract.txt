@@ -1,0 +1,140 @@
+LoReflection ????.pdf
+MISSING
+
+====
+
+Benchmark .pdf
+Benchm ark
+LoReflection-Eval：⾯向家具布局⽣成的可⽤性感知诊断式评
+估基准
+LoReflection-Eval是⼀个⾯向室内家具布局⽣成与编辑任务的可⽤性感知诊断式评估基准。基于3D-
+FRONT/3D-FU TU RE的场景和家具资产构建，保留传统scenesynthesis评估中的对象完整性、分布
+质量、⽂本遵循、关系满⾜、碰撞和越界等指标，同时进⼀步引⼊PracticalU sability（作为我们论
+⽂的亮点），⽤于评估⽣成布局是否具备真实居住场景中的基本使⽤可⾏性。
+现有indoorscenesynthesis评估通常关注FID/K ID、对象类别与数量、关系满⾜率、collision和
+out-of-bound等指标。这些指标是必要的，但它们不能完整判断⼀个家具布局是否真正好⽤。⼀个布
+局可能没有家具重叠，也没有越出房间边界，但仍然可能因为餐桌离墙太近、⾐柜没有开⻔空间、沙
+发与电视距离不合理等问题⽽难以实际使⽤。LoReflection-Eval的核⼼补充正是Practical
+U sability：判断布局是否不仅看起来合理、⼏何合法，⽽且能够作为真实室内空间布置被使⽤。
+Benchm arkPackage
+对于每个场景，我们构造⼀个benchm arkpackage：
+代码块
+S_i = {
+  A_i: architecture annotation,
+  Y_i: ground-truth object layout,
+  P_i: paired text descriptions,
+  C_i: evaluation constraint specification
+}
+S_i 不是要求所有⽅法接收的统⼀输⼊协议，⽽是同⼀个底层场景的多视图评估包。不同⽅法仍然使
+⽤各⾃的nativeinputprotocol；评估时，所有⽅法的输出都会被转换到同⼀个⽅法⽆关标准的
+evaluationrepresentation，再由同⼀套统⼀评估流程计算指标。
+A_i 表⽰从场景中提取或派⽣的建筑信息，包括room type、room boundary，以及可⽤的door/
+windowanchors。这⾥的建筑信息主要服务于统⼀评估，⽽不是要求所有baseline都接收完全相同
+的建筑输⼊。
+Y_i 表⽰真实对象级布局，包括家具类别、中⼼位置、尺⼨、朝向、footprint和可选asset
+reference。
+1
+2
+3
+4
+5
+6
+P_i 表⽰与该场景配对的不同粒度⽂本描述。coarseprom pt描述房间类型和主要家具类别；
+m edium prom pt进⼀步描述常⻅空间关系；fineprom pt进⼀步加⼊⽅向、距离、⻔窗和clearance
+相关约束。
+C_i 表⽰该场景的评估约束规格说明，即这个场景需要检查哪些对象、关系、⼏何规则和可⽤性规
+则。它是评估器计算指标时读取的检查标准，⽽不是最终评价分数本⾝。
+代码块
+C_i = {
+  required_objects: [...],
+  required_relations: [...],
+  functional_relations: [...],
+  geometric_rules: [OOB, Collision, DoorWindowBlocking],
+  usability_rules: [...]
+}
+其中 required_objects 和 required_relations 来⾃⽂本描述；
+functional_relations 来⾃房间类型和家具组合先验；geometric_rules 是⽆条件硬⼏何
+规则；usability_rules 根据场景中存在的家具类别和建筑锚点⾃动激活。
+这个package不假设architecturecondition和textcondition的信息量完全等价。它只保证这些条
+件来⾃同⼀个ground-truthscene，并最终在同⼀个⽅法⽆关的标准评估表⽰上进⾏评价。
+标准EvaluationRepresentation
+所有⽅法输出统⼀转换为evaluationrepresentation：
+代码块
+{
+  room_id,
+  room_type,
+  room_boundary,
+  architectural_anchors,
+  furniture_instances: [
+    {
+      category,
+      center,
+      size,
+      orientation,
+      footprint,
+      optional_asset_id
+    }
+  ]
+1
+2
+3
+4
+5
+6
+7
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+}
+coordinate transform ⽤于将3D-FRONT世界坐标、俯视布局平⾯和语义图像像素坐标对⻬，
+使不同⽅法输出能够在同⼀尺度下计算footprint、distance、collision、OOB和door/window
+blocking。
+核⼼评估维度
+LoReflection-Eval的主体包含四个核⼼评估维度：
+代码块
+Scene Quality
+Semantic Compliance
+Geometric Validity
+Practical Usability
+其中SceneQuality、Sem anticCom pliance和G eom etricValidity保证与已有scenesynthesis/
+text-conditionedscenegeneration评估保持可⽐性；PracticalU sability是LoReflection-Eval的核
+⼼扩展，⽤于补充现有指标难以覆盖的真实使⽤问题。
+Sem anticCom pliance（语义符合度）内部进⼀步区分TextAlignm ent和FunctionalRelation。
+TextAlignm ent评估⽂本中显式要求是否被满⾜；FunctionalRelation评估即使⽂本没有明确说，布
+局作为某类房间是否满⾜基本功能关系。
+SceneQuality
+SceneQuality衡量⽣成布局是否包含正确的家具类别和数量，以及整体分布是否接近真实数据。
+指标包括：
+代码块
+Object Count F1 ↑
+FID ↓
+KID ↓
+ObjectCountF1衡量⽣成布局是否包含正确的家具类别和数量，同时惩罚m issingobjects和extra
+objects。
+FID/K ID⽤于衡量⽣成场景分布与真实3D-FRONT分布的接近程度，作为dataset-level的分布真实
+感指标报告。FID/K ID不作为布局合规性和可⽤性的唯⼀依据。
+16
+1
+2
+3
+4
+1
+2
+3
+
+====
+
+???? (1).pdf
+MISSING

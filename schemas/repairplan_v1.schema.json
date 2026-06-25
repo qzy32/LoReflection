@@ -9,7 +9,7 @@
     "repair_plan_id": { "type": "string", "minLength": 1 },
     "task_id": { "type": "string", "minLength": 1 },
     "repair_round": { "type": "integer", "minimum": 0 },
-    "action_type": { "enum": ["INSERT", "DELETE", "MOVE", "REPLACE", "ADJUST_ORIENTATION"] },
+    "action_type": { "enum": ["ADD", "REMOVE", "TRANSLATE", "ROTATE", "SCALE", "REPLACE"] },
     "target_ref": { "type": "string", "minLength": 1 },
     "protected_refs": { "type": "array", "items": { "type": "string" }, "default": [] },
     "mask_spec": {

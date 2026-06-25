@@ -1,0 +1,10 @@
+{
+  "image_size": 512,
+  "palette": "/wuqingyaoa800/qiuziyan/LoReflection/artifacts/semantic_registry_v2/palette_frozen.json",
+  "semantic_registry": "/wuqingyaoa800/qiuziyan/LoReflection/artifacts/semantic_registry_v2/semantic_target_registry.json",
+  "coordinate_policy": "pair_xz_bounds_to_512px",
+  "draw_order": "EditRoom object order",
+  "mask_dilation_px": 8,
+  "same_class_merge_policy": "mark_invalid_or_manual_review",
+  "no_silent_category_fallback": true
+}

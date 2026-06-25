@@ -1,0 +1,226 @@
+{
+  "schema_version": "c14-diffsynth-loader-dryrun-v1",
+  "status": "PASS",
+  "datasets": {
+    "ADD": {
+      "metadata_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_medium_dataset_v1/metadata_add.csv",
+      "rows": 20,
+      "prompt_loaded": true,
+      "prompt_preview": "fixed-palette top-down semantic layout; white mask = repaint; black mask = preserve; preserve non-target furniture, floor, door, and window; no extra objects; no architecture leaka",
+      "image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 23.0,
+        "max": 255.0
+      },
+      "blockwise_controlnet_image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 23.0,
+        "max": 255.0
+      },
+      "blockwise_controlnet_inpaint_mask": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 0.0,
+        "max": 255.0,
+        "unique_values": [
+          0,
+          255
+        ],
+        "num_unique": 2
+      }
+    },
+    "REMOVE": {
+      "metadata_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_medium_dataset_v1/metadata_remove.csv",
+      "rows": 20,
+      "prompt_loaded": true,
+      "prompt_preview": "fixed-palette top-down semantic layout; white mask = repaint; black mask = preserve; preserve non-target furniture, floor, door, and window; no extra objects; no architecture leaka",
+      "image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 23.0,
+        "max": 255.0
+      },
+      "blockwise_controlnet_image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 23.0,
+        "max": 255.0
+      },
+      "blockwise_controlnet_inpaint_mask": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 0.0,
+        "max": 255.0,
+        "unique_values": [
+          0,
+          255
+        ],
+        "num_unique": 2
+      }
+    },
+    "TRANSLATE": {
+      "metadata_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_medium_dataset_v1/metadata_translate.csv",
+      "rows": 20,
+      "prompt_loaded": true,
+      "prompt_preview": "fixed-palette top-down semantic layout; white mask = repaint; black mask = preserve; preserve non-target furniture, floor, door, and window; no extra objects; no architecture leaka",
+      "image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 23.0,
+        "max": 255.0
+      },
+      "blockwise_controlnet_image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 23.0,
+        "max": 255.0
+      },
+      "blockwise_controlnet_inpaint_mask": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 0.0,
+        "max": 255.0,
+        "unique_values": [
+          0,
+          255
+        ],
+        "num_unique": 2
+      }
+    },
+    "REPLACE": {
+      "metadata_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_medium_dataset_v1/metadata_replace.csv",
+      "rows": 20,
+      "prompt_loaded": true,
+      "prompt_preview": "fixed-palette top-down semantic layout; white mask = repaint; black mask = preserve; preserve non-target furniture, floor, door, and window; no extra objects; no architecture leaka",
+      "image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 23.0,
+        "max": 255.0
+      },
+      "blockwise_controlnet_image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 23.0,
+        "max": 255.0
+      },
+      "blockwise_controlnet_inpaint_mask": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 0.0,
+        "max": 255.0,
+        "unique_values": [
+          0,
+          255
+        ],
+        "num_unique": 2
+      }
+    },
+    "MIXED_80": {
+      "metadata_path": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/semantic_repair4_medium_dataset_v1/metadata_mixed_80.csv",
+      "rows": 80,
+      "prompt_loaded": true,
+      "prompt_preview": "fixed-palette top-down semantic layout; white mask = repaint; black mask = preserve; preserve non-target furniture, floor, door, and window; no extra objects; no architecture leaka",
+      "image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 23.0,
+        "max": 255.0
+      },
+      "blockwise_controlnet_image": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 23.0,
+        "max": 255.0
+      },
+      "blockwise_controlnet_inpaint_mask": {
+        "type": "Image",
+        "shape": [
+          512,
+          512,
+          3
+        ],
+        "dtype": "uint8",
+        "min": 0.0,
+        "max": 255.0,
+        "unique_values": [
+          0,
+          255
+        ],
+        "num_unique": 2
+      }
+    }
+  }
+}

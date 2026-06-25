@@ -1,0 +1,30 @@
+schema_version: repair-output-sanitizer-current
+scope: semantic_repair4
+actions:
+  - ADD
+  - REMOVE
+  - TRANSLATE
+  - REPLACE
+excluded_parametric_actions:
+  - ROTATE
+  - SCALE
+copyback:
+  white_mask_region: model_output
+  black_mask_region: I_bad
+mask:
+  white_means: repaint
+  black_means: preserve
+policy_sweep:
+  min_component_area_px:
+    - 4
+    - 8
+    - 16
+    - 32
+    - 64
+    - 128
+gate:
+  oracle_copyback_required: true
+  nonmask_equality_required: true
+  palette_validity_required: true
+  current_repairplan_validation_required: true
+  no_parametric_actions_in_semantic_metadata: true

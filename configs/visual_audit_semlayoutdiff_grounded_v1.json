@@ -1,0 +1,190 @@
+{
+  "style_version": {
+    "value": "visual_audit_semlayoutdiff_grounded_v1",
+    "source_type": "LoReflection audit enhancement",
+    "source": "manual audit requirement",
+    "reason": "Human-facing audit style is separate from canonical training images."
+  },
+  "canvas": {
+    "width": {
+      "value": 2200,
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit readability requirement",
+      "reason": "Wide canvas keeps architecture, furniture, overlay, and legend readable without changing canonical data."
+    },
+    "height": {
+      "value": 850,
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit readability requirement",
+      "reason": "Keeps per-scene panels large enough for door/window inspection."
+    },
+    "margin_ratio": {
+      "value": 0.08,
+      "source_type": "SemLayoutDiff evidence + LoReflection audit enhancement",
+      "source": "reports/semlayoutdiff_visualization_pipeline_deep_audit.json: crop_resize_policy_complete",
+      "reason": "SemLayoutDiff uses room framing/crop/padding policy; LoReflection keeps a small audit margin."
+    },
+    "panel_size": {
+      "value": 500,
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Panel size is for human review only."
+    },
+    "panel_gap": {
+      "value": 26,
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Separates panels without changing geometry."
+    }
+  },
+  "line_widths": {
+    "boundary": {
+      "value": 6,
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Boundary must remain visible after screenshot/contact-sheet review."
+    },
+    "derived_wall": {
+      "value": 5,
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Boundary-derived wall references are architecture audit overlays, not furniture labels."
+    },
+    "door": {
+      "value": 8,
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Thin raw door anchors need audit-only enlargement."
+    },
+    "window": {
+      "value": 8,
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Thin raw window anchors need audit-only enlargement."
+    },
+    "instance_outline": {
+      "value": 2,
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Instance outlines make adjacent same-class objects separable in audit views."
+    },
+    "panel_border": {
+      "value": 2,
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Panel border is audit UI only."
+    }
+  },
+  "marker_sizes": {
+    "minimum_anchor_marker_px": {
+      "value": 16,
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Door/window markers must not disappear after downsampling."
+    }
+  },
+  "colors": {
+    "canvas_background": {
+      "value": "#FFFFFF",
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Neutral audit background."
+    },
+    "panel_background": {
+      "value": "#FAFAFA",
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Neutral panel background."
+    },
+    "room_fill": {
+      "value": "#F4F1E8",
+      "source_type": "SemLayoutDiff evidence + LoReflection palette",
+      "source": "configs/palette_v1.json and reports/semlayoutdiff_visualization_pipeline_deep_audit.json",
+      "reason": "Use LoReflection canonical floor color while respecting SemLayoutDiff-style floor/room separation."
+    },
+    "boundary": {
+      "value": "#111111",
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "High contrast boundary is an audit overlay."
+    },
+    "derived_wall": {
+      "value": "#000000",
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Derived walls are audit-visible architecture references."
+    },
+    "door": {
+      "value": "#D73027",
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Door marker color is audit-only and separated from furniture palette."
+    },
+    "door_fill": {
+      "value": "#FCA082",
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Door fill improves visibility without changing canonical images."
+    },
+    "window": {
+      "value": "#0571B0",
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Window marker color is audit-only and separated from furniture palette."
+    },
+    "window_fill": {
+      "value": "#92C5DE",
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Window fill improves visibility without changing canonical images."
+    },
+    "text": {
+      "value": "#1F2933",
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Audit text color."
+    },
+    "muted_text": {
+      "value": "#52616B",
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Secondary audit text color."
+    },
+    "panel_border": {
+      "value": "#B8C2CC",
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Panel border color."
+    },
+    "furniture_outline": {
+      "value": "#111111",
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Audit-only instance outline."
+    },
+    "clearance": {
+      "value": "#FFF3B0",
+      "source_type": "LoReflection audit enhancement",
+      "source": "manual audit requirement",
+      "reason": "Reserved clearance visualization color."
+    }
+  },
+  "show_instance_ids": {
+    "value": false,
+    "source_type": "LoReflection audit enhancement",
+    "source": "manual audit readability requirement",
+    "reason": "Avoid text clutter in first grounded audit pass."
+  },
+  "show_scale_bar": {
+    "value": true,
+    "source_type": "LoReflection audit enhancement",
+    "source": "manual audit requirement",
+    "reason": "Scale marker is audit UI only."
+  },
+  "show_orientation_marker": {
+    "value": true,
+    "source_type": "LoReflection audit enhancement",
+    "source": "manual audit requirement",
+    "reason": "Orientation marker is audit UI only."
+  }
+}

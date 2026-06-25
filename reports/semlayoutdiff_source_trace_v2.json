@@ -1,0 +1,220 @@
+{
+  "checkout": "/wuqingyaoa800/qiuziyan/third_party_sources/checkouts/SemLayoutDiff_official_6b12bc4c42aa",
+  "commit": "6b12bc4c42aa8377445af108093539073f0495c1",
+  "files_inspected": [
+    {
+      "source_file": "configs/sldn/mixed_con_unified_config.yaml",
+      "exists": true,
+      "evidence": [
+        {
+          "line": 14,
+          "text": "num_categories: 38"
+        }
+      ]
+    },
+    {
+      "source_file": "preprocess/scripts/data_processor.py",
+      "exists": true,
+      "evidence": [
+        {
+          "line": 5,
+          "text": "1. First padding images to target size and converting masks to bounding boxes"
+        },
+        {
+          "line": 31,
+          "text": "self.color_palette = {}"
+        },
+        {
+          "line": 32,
+          "text": "self.unified_mapping = {}"
+        },
+        {
+          "line": 33,
+          "text": "self.room_idx_to_label = {}"
+        },
+        {
+          "line": 48,
+          "text": "if 'unified_mapping_file' in self.config:"
+        },
+        {
+          "line": 49,
+          "text": "with open(self.config['unified_mapping_file'], 'r') as f:"
+        },
+        {
+          "line": 50,
+          "text": "self.unified_mapping = json.load(f)"
+        },
+        {
+          "line": 53,
+          "text": "if 'color_palette_file' in self.config:"
+        },
+        {
+          "line": 54,
+          "text": "with open(self.config['color_palette_file'], 'r') as f:"
+        },
+        {
+          "line": 55,
+          "text": "self.color_palette = json.load(f)"
+        },
+        {
+          "line": 58,
+          "text": "if 'idx_to_label_files' in self.config:"
+        },
+        {
+          "line": 59,
+          "text": "for room_type, idx_file in self.config['idx_to_label_files'].items():"
+        },
+        {
+          "line": 61,
+          "text": "self.room_idx_to_label[room_type] = json.load(f)"
+        },
+        {
+          "line": 69,
+          "text": "def mask_to_bbox(self, mask: np.ndarray) -> np.ndarray:"
+        },
+        {
+          "line": 85,
+          "text": "if room_type not in self.room_idx_to_label:"
+        },
+        {
+          "line": 88,
+          "text": "idx_to_label = self.room_idx_to_label[room_type]"
+        },
+        {
+          "line": 93,
+          "text": "int(idx) for idx, label in idx_to_label.items()"
+        },
+        {
+          "line": 97,
+          "text": "int(idx) for idx, label in idx_to_label.items()"
+        },
+        {
+          "line": 116,
+          "text": "bbox_mask = self.mask_to_bbox(single_object_mask)"
+        },
+        {
+          "line": 127,
+          "text": "bbox_mask = self.mask_to_bbox(single_object_mask)"
+        },
+        {
+          "line": 144,
+          "text": "# Calculate padding"
+        },
+        {
+          "line": 198,
+          "text": "category_names = [k for k, v in self.unified_mapping.items() if v == int(category_id)]"
+        },
+        {
+          "line": 203,
+          "text": "color = self.color_palette.get(category_name, [0, 0, 0])"
+        },
+        {
+          "line": 218,
+          "text": "\"\"\"Process datasets with padding and unification in one step.\"\"\""
+        },
+        {
+          "line": 308,
+          "text": "\"\"\"Process a single room with padding and unification. Always converts masks to bounding boxes.\"\"\""
+        },
+        {
+          "line": 319,
+          "text": "label_path = os.path.join(room_folder, f\"{prefix}Bottom_label_map.png\")"
+        },
+        {
+          "line": 320,
+          "text": "color_path = os.path.join(room_folder, f\"{prefix}Bottom_color.png\")"
+        },
+        {
+          "line": 321,
+          "text": "anno_path = os.path.join(room_folder, f\"{prefix}Bottom_inst_anno.json\")"
+        },
+        {
+          "line": 366,
+          "text": "category_names = [k for k, v in self.unified_mapping.items() if v == int(label)]"
+        },
+        {
+          "line": 371,
+          "text": "color = self.color_palette.get(category_name, [0, 0, 0])"
+        },
+        {
+          "line": 381,
+          "text": "category_names = [k for k, v in self.unified_mapping.items() if v == int(label)]"
+        },
+        {
+          "line": 400,
+          "text": "os.path.join(room_output_dir, \"Updated_Bottom_label_map.png\")"
+        },
+        {
+          "line": 403,
+          "text": "os.path.join(room_output_dir, \"Updated_Bottom_color.png\")"
+        },
+        {
+          "line": 406,
+          "text": "with open(os.path.join(room_output_dir, \"Updated_Bottom_inst_anno.json\"), \"w\") as f:"
+        },
+        {
+          "line": 486,
+          "text": "help=\"Target size for padding (width height)\""
+        },
+        {
+          "line": 496,
+          "text": "\"--unified_mapping_file\","
+        },
+        {
+          "line": 501,
+          "text": "\"--color_palette_file\","
+        },
+        {
+          "line": 514,
+          "text": "'unified_mapping_file': args.unified_mapping_file,"
+        },
+        {
+          "line": 515,
+          "text": "'color_palette_file': args.color_palette_file,"
+        },
+        {
+          "line": 517,
+          "text": "'idx_to_label_files': {}"
+        },
+        {
+          "line": 522,
+          "text": "mapping_file = f\"./config/{room_type}_to_unified_mapping.json\""
+        },
+        {
+          "line": 528,
+          "text": "config['idx_to_label_files'][room_type] = idx_file"
+        }
+      ]
+    },
+    {
+      "source_file": "preprocess/scripts/data_to_npy.py",
+      "exists": true,
+      "evidence": []
+    },
+    {
+      "source_file": "preprocess/scripts/pickle_threed_front_dataset.py",
+      "exists": true,
+      "evidence": []
+    },
+    {
+      "source_file": "preprocess/scripts/json_threed_future_dataset.py",
+      "exists": true,
+      "evidence": []
+    },
+    {
+      "source_file": "preprocess/README.md",
+      "exists": true,
+      "evidence": []
+    },
+    {
+      "source_file": "scripts/train_sldn.py",
+      "exists": true,
+      "evidence": []
+    },
+    {
+      "source_file": "scripts/sample_layout.py",
+      "exists": true,
+      "evidence": []
+    }
+  ]
+}

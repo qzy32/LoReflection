@@ -1,0 +1,618 @@
+{
+  "categories": [
+    {
+      "semantic_id": 0,
+      "category_name": "void",
+      "category_role": "void",
+      "bedroom_applicable": true,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        255,
+        255,
+        255
+      ],
+      "HEX": "#FFFFFF"
+    },
+    {
+      "semantic_id": 1,
+      "category_name": "floor",
+      "category_role": "floor",
+      "bedroom_applicable": true,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        211,
+        211,
+        211
+      ],
+      "HEX": "#D3D3D3"
+    },
+    {
+      "semantic_id": 2,
+      "category_name": "kids_bed",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": false,
+      "dining_room_applicable": false,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        152,
+        223,
+        138
+      ],
+      "HEX": "#98DF8A"
+    },
+    {
+      "semantic_id": 3,
+      "category_name": "single_bed",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": false,
+      "dining_room_applicable": false,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        105,
+        183,
+        100
+      ],
+      "HEX": "#69B764"
+    },
+    {
+      "semantic_id": 4,
+      "category_name": "double_bed",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": false,
+      "dining_room_applicable": false,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        44,
+        160,
+        44
+      ],
+      "HEX": "#2CA02C"
+    },
+    {
+      "semantic_id": 5,
+      "category_name": "corner_side_table",
+      "category_role": "object",
+      "bedroom_applicable": false,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        197,
+        176,
+        213
+      ],
+      "HEX": "#C5B0D5"
+    },
+    {
+      "semantic_id": 6,
+      "category_name": "round_end_table",
+      "category_role": "object",
+      "bedroom_applicable": false,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        187,
+        166,
+        212
+      ],
+      "HEX": "#BBA6D4"
+    },
+    {
+      "semantic_id": 7,
+      "category_name": "coffee_table",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        178,
+        157,
+        212
+      ],
+      "HEX": "#B29DD4"
+    },
+    {
+      "semantic_id": 8,
+      "category_name": "console_table",
+      "category_role": "object",
+      "bedroom_applicable": false,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        169,
+        148,
+        211
+      ],
+      "HEX": "#A994D3"
+    },
+    {
+      "semantic_id": 9,
+      "category_name": "tv_stand",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        160,
+        139,
+        211
+      ],
+      "HEX": "#A08BD3"
+    },
+    {
+      "semantic_id": 10,
+      "category_name": "desk",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        150,
+        129,
+        211
+      ],
+      "HEX": "#9681D3"
+    },
+    {
+      "semantic_id": 11,
+      "category_name": "dressing_table",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": false,
+      "dining_room_applicable": false,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        141,
+        120,
+        210
+      ],
+      "HEX": "#8D78D2"
+    },
+    {
+      "semantic_id": 12,
+      "category_name": "table",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": false,
+      "dining_room_applicable": false,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        132,
+        111,
+        210
+      ],
+      "HEX": "#846FD2"
+    },
+    {
+      "semantic_id": 13,
+      "category_name": "dining_table",
+      "category_role": "object",
+      "bedroom_applicable": false,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        123,
+        102,
+        210
+      ],
+      "HEX": "#7B66D2"
+    },
+    {
+      "semantic_id": 14,
+      "category_name": "stool",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        23,
+        190,
+        207
+      ],
+      "HEX": "#17BECF"
+    },
+    {
+      "semantic_id": 15,
+      "category_name": "dressing_chair",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": false,
+      "dining_room_applicable": false,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        162,
+        200,
+        236
+      ],
+      "HEX": "#A2C8EC"
+    },
+    {
+      "semantic_id": 16,
+      "category_name": "dining_chair",
+      "category_role": "object",
+      "bedroom_applicable": false,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        151,
+        193,
+        231
+      ],
+      "HEX": "#97C1E7"
+    },
+    {
+      "semantic_id": 17,
+      "category_name": "chinese_chair",
+      "category_role": "object",
+      "bedroom_applicable": false,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        140,
+        186,
+        226
+      ],
+      "HEX": "#8CBAE2"
+    },
+    {
+      "semantic_id": 18,
+      "category_name": "armchair",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        74,
+        146,
+        198
+      ],
+      "HEX": "#4A92C6"
+    },
+    {
+      "semantic_id": 19,
+      "category_name": "chair",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": false,
+      "dining_room_applicable": false,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        52,
+        132,
+        189
+      ],
+      "HEX": "#3484BD"
+    },
+    {
+      "semantic_id": 20,
+      "category_name": "lounge_chair",
+      "category_role": "object",
+      "bedroom_applicable": false,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        31,
+        119,
+        180
+      ],
+      "HEX": "#1F77B4"
+    },
+    {
+      "semantic_id": 21,
+      "category_name": "loveseat_sofa",
+      "category_role": "object",
+      "bedroom_applicable": false,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        243,
+        171,
+        207
+      ],
+      "HEX": "#F3ABCF"
+    },
+    {
+      "semantic_id": 22,
+      "category_name": "lazy_sofa",
+      "category_role": "object",
+      "bedroom_applicable": false,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        241,
+        166,
+        205
+      ],
+      "HEX": "#F1A6CD"
+    },
+    {
+      "semantic_id": 23,
+      "category_name": "sofa",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": false,
+      "dining_room_applicable": false,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        240,
+        161,
+        204
+      ],
+      "HEX": "#F0A1CC"
+    },
+    {
+      "semantic_id": 24,
+      "category_name": "multi_seat_sofa",
+      "category_role": "object",
+      "bedroom_applicable": false,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        241,
+        166,
+        205
+      ],
+      "HEX": "#F1A6CD"
+    },
+    {
+      "semantic_id": 25,
+      "category_name": "chaise_longue_sofa",
+      "category_role": "object",
+      "bedroom_applicable": false,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        233,
+        140,
+        199
+      ],
+      "HEX": "#E98CC7"
+    },
+    {
+      "semantic_id": 26,
+      "category_name": "l_shaped_sofa",
+      "category_role": "object",
+      "bedroom_applicable": false,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        227,
+        119,
+        194
+      ],
+      "HEX": "#E377C2"
+    },
+    {
+      "semantic_id": 27,
+      "category_name": "nightstand",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": false,
+      "dining_room_applicable": false,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        255,
+        217,
+        74
+      ],
+      "HEX": "#FFD94A"
+    },
+    {
+      "semantic_id": 28,
+      "category_name": "shelf",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        215,
+        216,
+        130
+      ],
+      "HEX": "#D7D882"
+    },
+    {
+      "semantic_id": 29,
+      "category_name": "bookshelf",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        212,
+        213,
+        119
+      ],
+      "HEX": "#D4D577"
+    },
+    {
+      "semantic_id": 30,
+      "category_name": "children_cabinet",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": false,
+      "dining_room_applicable": false,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        206,
+        207,
+        98
+      ],
+      "HEX": "#CECF62"
+    },
+    {
+      "semantic_id": 31,
+      "category_name": "wine_cabinet",
+      "category_role": "object",
+      "bedroom_applicable": false,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        200,
+        201,
+        76
+      ],
+      "HEX": "#C8C94C"
+    },
+    {
+      "semantic_id": 32,
+      "category_name": "cabinet",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        194,
+        195,
+        55
+      ],
+      "HEX": "#C2C337"
+    },
+    {
+      "semantic_id": 33,
+      "category_name": "wardrobe",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        188,
+        189,
+        34
+      ],
+      "HEX": "#BCBD22"
+    },
+    {
+      "semantic_id": 34,
+      "category_name": "pendant_lamp",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        255,
+        187,
+        120
+      ],
+      "HEX": "#FFBB78"
+    },
+    {
+      "semantic_id": 35,
+      "category_name": "ceiling_lamp",
+      "category_role": "object",
+      "bedroom_applicable": true,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        255,
+        127,
+        14
+      ],
+      "HEX": "#FF7F0E"
+    },
+    {
+      "semantic_id": 36,
+      "category_name": "door",
+      "category_role": "architecture",
+      "bedroom_applicable": true,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        153,
+        0,
+        0
+      ],
+      "HEX": "#990000"
+    },
+    {
+      "semantic_id": 37,
+      "category_name": "window",
+      "category_role": "architecture",
+      "bedroom_applicable": true,
+      "living_room_applicable": true,
+      "dining_room_applicable": true,
+      "source_metadata_file": "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+      "source_mapping_id": "unified_category_mapping_w_arch",
+      "RGB": [
+        255,
+        153,
+        153
+      ],
+      "HEX": "#FF9999"
+    }
+  ],
+  "architecture_condition_to_target_remap": {
+    "0": 0,
+    "1": 1,
+    "2": 36,
+    "3": 37
+  }
+}

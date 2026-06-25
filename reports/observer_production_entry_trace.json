@@ -1,0 +1,9 @@
+{
+  "source_file": "tools/run_u1_freeze_roundtrip_overfit32.py",
+  "class/function": "ProductionObserver.parse",
+  "palette_config": "configs/palette_v1.json",
+  "threshold": 6.681145747868608,
+  "connectivity": 4,
+  "minimum_component_area": 4,
+  "instance_separation_path": "E0 connected components; conditional E1/E2 recommended if contact failures occur"
+}

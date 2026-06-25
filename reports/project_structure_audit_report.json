@@ -1,0 +1,152 @@
+{
+  "schema_version": "project-structure-audit-report-v1",
+  "generated_at": "2026-06-21T13:34:33",
+  "repo_root": "C:\\Users\\紫燕\\Desktop\\LoReflection",
+  "required_files_read": {
+    "README.md": true,
+    "README_SERVER.md": true,
+    "PROGRESS.md": true,
+    "docs/CURRENT_PROJECT_STATE.md": true,
+    "docs/C12_REPAIR_OUTPUT_SANITIZER.md": true,
+    "docs/C13_SEMANTIC_REPAIR4_OVERFIT.md": true,
+    "docs/EXPERIMENT_LOG_SEMANTIC_REPAIR4.md": true,
+    "reports/c11_12_current_repair_protocol_hardening_report.json": true,
+    "reports/current_c12_input_manifest.json": true
+  },
+  "directories_scanned": 199,
+  "files_indexed": 1450,
+  "excluded_paths": [
+    ".git/",
+    "__pycache__/",
+    ".pytest_cache/",
+    ".cache/",
+    "*.pyc",
+    "large external/model directories by summary only"
+  ],
+  "status_counts": {
+    "needs_review": 38,
+    "current": 272,
+    "config": 31,
+    "script": 76,
+    "doc": 35,
+    "generated": 213,
+    "legacy": 8,
+    "manual_review": 592,
+    "schema": 20,
+    "sensitive": 7,
+    "report": 139,
+    "test": 19
+  },
+  "type_counts": {
+    "git config": 1,
+    "JSON": 351,
+    "JSON Schema": 24,
+    "checksum manifest": 4,
+    "Markdown": 96,
+    "YAML config": 17,
+    "document/PDF artifact": 3,
+    "Python": 127,
+    "shell script": 10,
+    "image artifact": 685,
+    "unknown/binary": 37,
+    "archive artifact": 10,
+    "JSONL": 3,
+    "CSV": 67,
+    "text": 8,
+    "sensitive config": 7
+  },
+  "sensitive_files_detected": [
+    "pazhou_ssh_guide.md",
+    "reports/no_secrets_report.json",
+    "reports/no_secrets_report_local.json",
+    "reports/no_secrets_report_server.json",
+    "server_configs/paths.pazhou.template.env",
+    "server_configs/paths.template.env",
+    "tools/check_no_secrets.py"
+  ],
+  "unknown_or_needs_review_count": 94,
+  "generated_artifact_count": 944,
+  "current_mainline_file_count": 272,
+  "legacy_term_hits_count": 7,
+  "legacy_term_hits_sample": [
+    {
+      "path": "examples/toy_editroom/edit_0001/edit_instruction.json",
+      "terms": [
+        "INSERT"
+      ],
+      "status": "legacy"
+    },
+    {
+      "path": "examples/toy_samples/loreview_from_image.json",
+      "terms": [
+        "DELETE"
+      ],
+      "status": "legacy"
+    },
+    {
+      "path": "examples/toy_samples/loreview_v1.json",
+      "terms": [
+        "INSERT"
+      ],
+      "status": "legacy"
+    },
+    {
+      "path": "examples/toy_samples/repairplan_v1.json",
+      "terms": [
+        "INSERT"
+      ],
+      "status": "legacy"
+    },
+    {
+      "path": "LoState_Design_Document_v1_4_9_DynamicCandidates_RepairPlan.md",
+      "terms": [
+        "INSERT",
+        "DELETE",
+        "MOVE"
+      ],
+      "status": "legacy"
+    },
+    {
+      "path": "vlm/infer_planner.py",
+      "terms": [
+        "INSERT"
+      ],
+      "status": "legacy"
+    },
+    {
+      "path": "论文详细文档.md",
+      "terms": [
+        "INSERT",
+        "DELETE",
+        "MOVE"
+      ],
+      "status": "needs_review"
+    }
+  ],
+  "deprecated_current_route_violations": [],
+  "outputs": {
+    "guide": "docs/PROJECT_STRUCTURE_GUIDE.md",
+    "csv": "docs/PROJECT_STRUCTURE_FILE_INDEX.csv",
+    "json": "docs/PROJECT_STRUCTURE_FILE_INDEX.json"
+  },
+  "safety": {
+    "training_run": false,
+    "file_deletion": false,
+    "code_logic_change": false,
+    "external_dataset_change": false,
+    "third_party_source_change": false,
+    "commit_tag_push": false
+  },
+  "sensitive_output_leaks": [],
+  "quality_check": {
+    "required_files_exist": {
+      "docs\\PROJECT_STRUCTURE_GUIDE.md": true,
+      "docs\\PROJECT_STRUCTURE_FILE_INDEX.csv": true,
+      "docs\\PROJECT_STRUCTURE_FILE_INDEX.json": true,
+      "reports\\project_structure_audit_report.json": true
+    },
+    "sensitive_content_leak_count": 0,
+    "current_route_violation_count": 0,
+    "legacy_term_matching": "word-boundary for INSERT/DELETE/MOVE/RESIZE/UPDATE_* to avoid REMOVE/MOVE false positives"
+  }
+}

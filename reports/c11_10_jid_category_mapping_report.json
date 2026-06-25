@@ -1,0 +1,42 @@
+{
+  "mapped_raw_to_training": [
+    {
+      "raw_category": "nightstand",
+      "mapped_category": "nightstand",
+      "count": 30
+    },
+    {
+      "raw_category": "pendant lamp",
+      "mapped_category": "pendant_lamp",
+      "count": 30
+    },
+    {
+      "raw_category": "wardrobe",
+      "mapped_category": "wardrobe",
+      "count": 30
+    },
+    {
+      "raw_category": "king-size bed",
+      "mapped_category": "double_bed",
+      "count": 28
+    },
+    {
+      "raw_category": "dressing table",
+      "mapped_category": "dressing_table",
+      "count": 28
+    }
+  ],
+  "unmapped_raw_categories": [
+    {
+      "raw_category": "sideboard/side cabinet/console table",
+      "count": 30
+    },
+    {
+      "raw_category": "footstool/sofastool/bed end stool/stool",
+      "count": 28
+    }
+  ],
+  "fallback_mapping_used": false,
+  "explicit_alias_mapping_used": true,
+  "notes": "No silent fallback: unmapped categories are skipped and reported in conversion_debug/this report."
+}

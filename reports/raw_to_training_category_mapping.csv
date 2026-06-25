@@ -1,0 +1,21 @@
+raw_category,reference_category,loreflection_category,action,semantic_group,skip_reason
+door/*,door,door,keep_architecture_anchor,architecture,
+window/*,window,window,keep_architecture_anchor,architecture,
+wall/floor/opening,architecture_surface_or_opening,architecture,keep_architecture_anchor,architecture,
+Pendant Lamp,pendant_lamp,pendant_lamp,keep_furniture,lighting,
+Ceiling Lamp,ceiling_lamp,ceiling_lamp,keep_furniture,lighting,
+lamp / lighting,lamp,lamp,keep_furniture,lighting,
+Bed / King-size Bed / Single bed / Kids Bed / Bunk Bed,bed,bed,keep_furniture,core_furniture,
+Nightstand,nightstand,nightstand,keep_furniture,core_furniture,
+Wardrobe,wardrobe,wardrobe,keep_furniture,core_furniture,
+Desk,desk,desk,keep_furniture,core_furniture,
+Chair / Dining Chair / armchair / Lounge Chair,chair,chair,keep_furniture,core_furniture,
+Sofa / Loveseat Sofa / L-shaped Sofa / Multi-seat Sofa,sofa,sofa,keep_furniture,core_furniture,
+Dining Table / Coffee Table / Table,table,table,keep_furniture,core_furniture,
+TV Stand,tv_stand,tv_stand,keep_furniture,core_furniture,
+Sideboard / Side Cabinet / Console Table,cabinet,cabinet,keep_furniture,core_furniture,
+Bookshelf / Shelf,bookshelf,bookshelf,keep_furniture,core_furniture,
+Table,table,table,keep_furniture,core_furniture,
+curtain,curtain,unknown,skip,accessory,accessory_excluded_from_v1
+plants / pillow / decor,decor,unknown,skip,accessory,accessory_excluded_from_v1
+Others,unknown,unknown,skip,unknown,unknown_or_unstable_mapping

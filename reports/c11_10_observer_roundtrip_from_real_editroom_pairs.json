@@ -1,0 +1,112 @@
+{
+  "samples": [
+    {
+      "sample_id": "add_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ADD",
+      "observer_parse_success": true,
+      "bad_instances": 4,
+      "target_instances": 5
+    },
+    {
+      "sample_id": "add_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ADD",
+      "observer_parse_success": true,
+      "bad_instances": 5,
+      "target_instances": 5
+    },
+    {
+      "sample_id": "add_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ADD",
+      "observer_parse_success": true,
+      "bad_instances": 4,
+      "target_instances": 5
+    },
+    {
+      "sample_id": "rotate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ROTATE",
+      "observer_parse_success": true,
+      "bad_instances": 5,
+      "target_instances": 5
+    },
+    {
+      "sample_id": "translate_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "TRANSLATE",
+      "observer_parse_success": true,
+      "bad_instances": 5,
+      "target_instances": 5
+    },
+    {
+      "sample_id": "rotate_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ROTATE",
+      "observer_parse_success": true,
+      "bad_instances": 5,
+      "target_instances": 5
+    },
+    {
+      "sample_id": "translate_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "TRANSLATE",
+      "observer_parse_success": true,
+      "bad_instances": 5,
+      "target_instances": 5
+    },
+    {
+      "sample_id": "rotate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "ROTATE",
+      "observer_parse_success": true,
+      "bad_instances": 5,
+      "target_instances": 5
+    },
+    {
+      "sample_id": "translate_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "TRANSLATE",
+      "observer_parse_success": true,
+      "bad_instances": 5,
+      "target_instances": 5
+    },
+    {
+      "sample_id": "remove_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "REMOVE",
+      "observer_parse_success": true,
+      "bad_instances": 5,
+      "target_instances": 4
+    },
+    {
+      "sample_id": "remove_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "REMOVE",
+      "observer_parse_success": true,
+      "bad_instances": 5,
+      "target_instances": 5
+    },
+    {
+      "sample_id": "remove_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "REMOVE",
+      "observer_parse_success": true,
+      "bad_instances": 5,
+      "target_instances": 4
+    },
+    {
+      "sample_id": "replace_1_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "REPLACE",
+      "observer_parse_success": true,
+      "bad_instances": 5,
+      "target_instances": 5
+    },
+    {
+      "sample_id": "replace_2_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "REPLACE",
+      "observer_parse_success": true,
+      "bad_instances": 5,
+      "target_instances": 5
+    },
+    {
+      "sample_id": "replace_3_015ed8e0-35dc-41ab-9a9e-b3dbba4ec64a_Mas",
+      "action": "REPLACE",
+      "observer_parse_success": true,
+      "bad_instances": 5,
+      "target_instances": 5
+    }
+  ],
+  "success_count": 15,
+  "total": 15,
+  "palette_compat_note": "Used production runtime.observer.observe with a hex-valued palette view derived from palette_frozen.json; omitted void because current observer ignores floor/door/window but not void."
+}

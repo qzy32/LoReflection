@@ -1,0 +1,35 @@
+{
+  "schema_version": "c14-3-evaluator-selftest-palette-fixed-v2",
+  "rows": 320,
+  "per_variant": {
+    "I_target": {
+      "rows": 80,
+      "edit_success_count": 80,
+      "mean_masked_pixel_accuracy": 1.0,
+      "mean_allowed_label_violation_count": 0.0,
+      "mean_palette_validity_raw": 1.0
+    },
+    "oracle_copyback": {
+      "rows": 80,
+      "edit_success_count": 80,
+      "mean_masked_pixel_accuracy": 1.0,
+      "mean_allowed_label_violation_count": 0.0,
+      "mean_palette_validity_raw": 1.0
+    },
+    "I_bad": {
+      "rows": 80,
+      "edit_success_count": 0,
+      "mean_masked_pixel_accuracy": 0.5870229639438523,
+      "mean_allowed_label_violation_count": 1086.025,
+      "mean_palette_validity_raw": 1.0
+    },
+    "random_fixed_palette": {
+      "rows": 80,
+      "edit_success_count": 0,
+      "mean_masked_pixel_accuracy": 0.02573198611755988,
+      "mean_allowed_label_violation_count": 5713.55,
+      "mean_palette_validity_raw": 1.0
+    }
+  },
+  "result": "EVAL_OK"
+}

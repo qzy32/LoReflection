@@ -1,5 +1,12 @@
 #!/usr/bin/env python
-"""Convert SemLayoutDiff-like samples into LoReflection local artifacts."""
+"""Convert SemLayoutDiff-like samples into LoReflection local artifacts.
+
+Status: toy compatibility adapter.
+
+This output-level conversion path is useful for early interface checks only.
+It is not the target real-data pipeline. Native preprocessing reads raw
+3D-FRONT / 3D-FUTURE and directly writes LoReflection artifacts.
+"""
 
 from __future__ import annotations
 
@@ -118,4 +125,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

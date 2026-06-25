@@ -1,0 +1,7 @@
+{
+  "status": "deprecated_13class_prototype",
+  "formal_training_allowed": false,
+  "main_experiment_allowed": false,
+  "reason": "13 classes were produced by a coarse engineering mapping, not the native SemLayoutDiff unified taxonomy.",
+  "deprecated_at": "2026-06-17T10:16:05+0000"
+}

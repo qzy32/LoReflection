@@ -1,0 +1,2 @@
+status,reason
+NOT_RUN_IN_STATIC_PASS,"Static pass validates evaluator, metadata, existing outputs, and train/inference wiring without new sampling. Checkpoint/mask/prompt sampling ablations require a GPU inference pass."

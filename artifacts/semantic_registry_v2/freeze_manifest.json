@@ -1,0 +1,47 @@
+{
+  "status": "active",
+  "formal_training_allowed": true,
+  "dataset_lock_id": "3dfront_a800_v1",
+  "semantic_category_count": 38,
+  "object_count": 34,
+  "hashes": {
+    "architecture_condition_registry.json": "e12e42a1768d49fe26f962ba1595d2ca5df46a724f5eb60351b7843b0e46967f",
+    "evaluation_category_groups.json": "ec00db13a592286a5ca9defc0728ed3afccc5a04cad9d3d465efadf3042b95ef",
+    "loreflection_extension_taxonomy.json": "f0c678232a5effc2b247f91a993ce1527ccd96482cb926eb8b443c9b90379254",
+    "palette_frozen.json": "e36e643514f725f89e5e382ca17767faa40eeeef8442f612a31e4c1c04029044",
+    "raw_to_training_mapping.json": "784fb8d5e36859e20ebfe6f7d830d439b2b0f4674ae99c67a8a8e31f1ef2a6ca",
+    "room_specific_to_unified_mapping.json": "df2791ce1e88b68f8f3055e87c52907667191bc950a9469cb5c70b1a55f2f490",
+    "semantic_footprint_v1.yaml": "3af19021df77765d08cad9830f5db9e50b523aa4900b49d24e905ccee7e3f213",
+    "semantic_target_registry.json": "361bfca15f067bdd640cb83fef01fa6e4cc28d58f83efa3780ec9dc805d251d1",
+    "semlayoutdiff_core_taxonomy.json": "7b673a59142dec263011ea03d7f0cbe2f1b5b235e6da486e0af0fc4b86bd1594",
+    "training_categories.json": "040fd58e65e587de96a3dd50fc6928602f7fed5f6218bf0e5b446b2623892199"
+  },
+  "taxonomy_source": "SemLayoutDiff",
+  "taxonomy_source_commit": "6b12bc4c42aa8377445af108093539073f0495c1",
+  "taxonomy_source_checkout": "/wuqingyaoa800/qiuziyan/third_party_sources/checkouts/SemLayoutDiff_official_6b12bc4c42aa",
+  "taxonomy_source_files": [
+    "configs/sldn/mixed_con_unified_config.yaml",
+    "preprocess/metadata/unified_idx_to_generic_label_w_arch.json",
+    "preprocess/metadata/unified_category_mapping_w_arch",
+    "preprocess/metadata/bedroom_idx_to_generic_label.json",
+    "preprocess/metadata/livingroom_idx_to_generic_label.json",
+    "preprocess/metadata/diningroom_idx_to_generic_label.json",
+    "preprocess/metadata/semantic_color_index_bedroom.csv",
+    "preprocess/metadata/semantic_color_index_livingdiningroom.csv",
+    "preprocess/metadata/color_palette.json",
+    "preprocess/scripts/data_processor.py",
+    "preprocess/scripts/data_to_npy.py",
+    "preprocess/scripts/pickle_threed_front_dataset.py",
+    "preprocess/scripts/json_threed_future_dataset.py",
+    "README.md"
+  ],
+  "not_derived_from": [
+    "parse_json_floorplan.py",
+    "PlanJSON compact taxonomy",
+    "13-class prototype",
+    "Chinese PlanJSON project"
+  ],
+  "provenance_corrected_at": "2026-06-19T04:04:32.399605+00:00",
+  "object_category_count": 34,
+  "provenance_status": "corrected_semlayoutdiff_only"
+}

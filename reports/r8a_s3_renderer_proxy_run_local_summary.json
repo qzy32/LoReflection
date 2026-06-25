@@ -1,0 +1,28 @@
+{
+  "stage": "renderer",
+  "started_at": "2026-06-17T10:46:04",
+  "local_proxy": {
+    "selected": {
+      "scheme": "http",
+      "host": "127.0.0.1",
+      "loopback": true,
+      "port": 7890
+    },
+    "attempts": [
+      {
+        "scheme": "http",
+        "host": "127.0.0.1",
+        "loopback": true,
+        "port": 7890,
+        "ok": true,
+        "status": "HTTP/1.1 200 OK",
+        "error": ""
+      }
+    ],
+    "github_reachable_locally": true
+  },
+  "remote_port": 17890,
+  "remote_rc": 1,
+  "stdout_tail": "RENDER_RC=1\nWarning: Changed install path from /home_local/qiuziyan... to /home/qiuziyan..., there is no /home_local/ on this machine.\nDownloading blender from https://download.blender.org/release/Blender3.0/blender-3.0.0-linux-x64.tar.xz\nTraceback (most recent call last):\n  File \"/wuqingyaoa800/qiuziyan/third_party_envs/r8a_blenderproc_d9f5474f3912/venv_conda_py38/bin/blenderproc\", line 8, in <module>\n    sys.exit(cli())\n  File \"/wuqingyaoa800/qiuziyan/third_party_sources/checkouts/BlenderProc-3DFront_3dfront_2d_layout_d9f5474f3912/blenderproc/command_line.py\", line 92, in cli\n    blender_run_path, major_version = InstallUtility.make_sure_blender_is_installed(custom_blender_path, blender_install_path, args.reinstall_blender)\n  File \"/wuqingyaoa800/qiuziyan/third_party_sources/checkouts/BlenderProc-3DFront_3dfront_2d_layout_d9f5474f3912/blenderproc/python/utility/InstallUtility.py\", line 153, in make_sure_blender_is_installed\n    raise e\n  File \"/wuqingyaoa800/qiuziyan/third_party_sources/checkouts/BlenderProc-3DFront_3dfront_2d_layout_d9f5474f3912/blenderproc/python/utility/InstallUtility.py\", line 140, in make_sure_blender_is_installed\n    file_tmp = urlretrieve(url, None, DownloadProgressBar())[0]\n  File \"/opt/conda/lib/python3.8/urllib/request.py\", line 247, in urlretrieve\n    with contextlib.closing(urlopen(url, data)) as fp:\n  File \"/opt/conda/lib/python3.8/urllib/request.py\", line 222, in urlopen\n    return opener.open(url, data, timeout)\n  File \"/opt/conda/lib/python3.8/urllib/request.py\", line 531, in open\n    response = meth(req, response)\n  File \"/opt/conda/lib/python3.8/urllib/request.py\", line 640, in http_response\n    response = self.parent.error(\n  File \"/opt/conda/lib/python3.8/urllib/request.py\", line 569, in error\n    return self._call_chain(*args)\n  File \"/opt/conda/lib/python3.8/urllib/request.py\", line 502, in _call_chain\n    result = func(*args)\n  File \"/opt/conda/lib/python3.8/urllib/request.py\", line 649, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 403: Forbidden\n",
+  "stderr_tail": ""
+}
