@@ -5,6 +5,8 @@ from pathlib import Path
 import pytest
 from jsonschema import Draft202012Validator
 
+pytestmark = pytest.mark.skip(reason="legacy RepairPlan planner input context test retained for C12-C14 baseline only")
+
 
 SCHEMA = json.loads(Path("artifacts/current_interface/planner_input_context.schema.json").read_text(encoding="utf-8"))
 

@@ -1,6 +1,16 @@
 {
-  "current_interface": "current",
-  "actions": [
+  "current_interface": "statepatch_arch_incontext_current",
+  "method": "StatePatch Editor + Qwen-Image Architecture In-Context Control initial generation",
+  "method_authority": [
+    "01_论文详细文档更新_GoalObservedState_StatePatch中文版.md",
+    "02_LoState_GoalObserved_StatePatch设计文档_v8_ArchInContext中文版.md",
+    "03_Benchmark更新_GoalObserved_StatePatch中文版.md",
+    "04_实验框架更新_GoalObserved_StatePatch中文版.md",
+    "05_推动计划更新_GoalObserved_StatePatch中文版.md",
+    "06_Qwen-Image_Architecture_InContext_Control_方法与实验.md",
+    "docs/MIGRATION_AUDIT_ARCH_INCONTEXT.md"
+  ],
+  "planner_actions": [
     "ADD",
     "REMOVE",
     "TRANSLATE",
@@ -8,27 +18,66 @@
     "SCALE",
     "REPLACE"
   ],
-  "semantic_repair4": [
-    "ADD",
-    "REMOVE",
-    "TRANSLATE",
-    "REPLACE"
-  ],
-  "parametric_update": [
-    "ROTATE",
-    "SCALE"
-  ],
-  "files": [
-    "artifacts/current_interface/mask_spec.schema.json",
-    "artifacts/current_interface/planner_input_context.schema.json",
-    "artifacts/current_interface/repairplan.schema.json",
-    "outputs/current_vlm_planner_handoff/ACTION_PROTOCOL.md",
-    "outputs/current_vlm_planner_handoff/planner_sft_minimal_examples.jsonl",
-    "outputs/current_vlm_planner_handoff/README_VLM_PLANNER_HANDOFF.md",
-    "outputs/current_vlm_planner_handoff/REPAIRPLAN_OUTPUT_SPEC.md",
-    "outputs/current_vlm_planner_handoff/VALIDATION_GUIDE.md",
-    "outputs/current_vlm_planner_handoff/schemas/mask_spec.schema.json",
-    "outputs/current_vlm_planner_handoff/schemas/planner_input_context.schema.json",
-    "outputs/current_vlm_planner_handoff/schemas/repairplan.schema.json"
-  ]
+  "current_mainline": {
+    "initial_generation": {
+      "module": "Qwen-Image Architecture In-Context Control",
+      "metadata_schema": "artifacts/current_interface/qwen_arch_incontext_metadata.schema.json",
+      "metadata_required_columns": [
+        "image",
+        "prompt",
+        "context_image",
+        "sample_id",
+        "goal_lostate",
+        "prompt_package",
+        "verifier_refs"
+      ],
+      "extra_inputs": [
+        "context_image"
+      ]
+    },
+    "local_repair": {
+      "module": "Qwen3.5-VL StatePatch Editor",
+      "output_schema": "artifacts/current_interface/statepatch.schema.json",
+      "input_context_schema": "artifacts/current_interface/statepatch_editor_input_context.schema.json",
+      "execution": "StatePatch Executor + Write-back Serializer writes candidate layout JSON / scene JSON"
+    },
+    "files": [
+      "artifacts/current_interface/statepatch.schema.json",
+      "artifacts/current_interface/statepatch_editor_input_context.schema.json",
+      "artifacts/current_interface/goal_lostate.schema.json",
+      "artifacts/current_interface/observed_lostate.schema.json",
+      "artifacts/current_interface/layout_json.schema.json",
+      "artifacts/current_interface/scene_json.schema.json",
+      "artifacts/current_interface/qwen_arch_incontext_metadata.schema.json",
+      "outputs/current_statepatch_editor_handoff/README_STATEPATCH_EDITOR_HANDOFF.md",
+      "outputs/current_statepatch_editor_handoff/STATEPATCH_OUTPUT_SPEC.md",
+      "outputs/current_statepatch_editor_handoff/INPUT_CONTEXT_SPEC.md",
+      "outputs/current_statepatch_editor_handoff/statepatch_sft_minimal_examples.jsonl",
+      "outputs/current_statepatch_editor_handoff/schemas/statepatch.schema.json",
+      "outputs/current_statepatch_editor_handoff/schemas/statepatch_editor_input_context.schema.json"
+    ]
+  },
+  "legacy_repairplan_interface": {
+    "status": "historical_semantic_repair4_baseline",
+    "not_current_mainline": true,
+    "files": [
+      "artifacts/current_interface/repairplan.schema.json",
+      "artifacts/current_interface/mask_spec.schema.json",
+      "artifacts/current_interface/planner_input_context.schema.json",
+      "outputs/current_vlm_planner_handoff/"
+    ],
+    "deprecated_terms": [
+      "RepairPlan",
+      "mask_spec",
+      "semantic_repair4",
+      "Qwen-Image-Blockwise-ControlNet-Inpaint",
+      "I_bad",
+      "I_target",
+      "control_mask",
+      "blockwise_controlnet_image",
+      "blockwise_controlnet_inpaint_mask",
+      "VLM Correction Planner",
+      "Target LoState Constructor"
+    ]
+  }
 }

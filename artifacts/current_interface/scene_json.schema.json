@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Current executable scene JSON",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "scene_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scene_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "architecture": {
+      "type": "object"
+    },
+    "layout": {
+      "type": "object"
+    },
+    "furniture": {
+      "type": "array"
+    }
+  }
+}

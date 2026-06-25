@@ -1,0 +1,290 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Current StatePatch v1.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "patch_id",
+    "patch_target_space",
+    "execution_target_space",
+    "source_observed_state_id",
+    "action_type",
+    "target",
+    "reason",
+    "constraints_to_satisfy",
+    "protected_refs"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "statepatch-v1.2"
+    },
+    "patch_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "patch_target_space": {
+      "const": "observed_lostate_view"
+    },
+    "execution_target_space": {
+      "enum": [
+        "layout_json",
+        "scene_json"
+      ]
+    },
+    "source_observed_state_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "action_type": {
+      "enum": [
+        "ADD",
+        "REMOVE",
+        "TRANSLATE",
+        "ROTATE",
+        "SCALE",
+        "REPLACE"
+      ]
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_ref",
+        "expected_category"
+      ],
+      "properties": {
+        "target_ref": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^obs:"
+        },
+        "expected_category": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "state_field_updates": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "center_m": {
+          "$ref": "#/$defs/center_update"
+        },
+        "orientation_deg": {
+          "$ref": "#/$defs/scalar_update"
+        },
+        "size_m": {
+          "$ref": "#/$defs/size_update"
+        },
+        "category": {
+          "$ref": "#/$defs/string_update"
+        },
+        "asset_id": {
+          "$ref": "#/$defs/string_update"
+        },
+        "new_instance": {
+          "$ref": "#/$defs/new_instance_update"
+        }
+      }
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "constraints_to_satisfy": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "protected_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^obs:"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "action_type": {
+            "const": "REMOVE"
+          }
+        }
+      },
+      "then": {},
+      "else": {
+        "required": [
+          "state_field_updates"
+        ]
+      }
+    }
+  ],
+  "$defs": {
+    "number_pair": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "number_triplet": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "center_update": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "update_mode"
+      ],
+      "properties": {
+        "update_mode": {
+          "enum": [
+            "relative_delta",
+            "absolute"
+          ]
+        },
+        "delta_m": {
+          "$ref": "#/$defs/number_pair"
+        },
+        "value_m": {
+          "$ref": "#/$defs/number_pair"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "delta_m"
+          ]
+        },
+        {
+          "required": [
+            "value_m"
+          ]
+        }
+      ]
+    },
+    "size_update": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "update_mode"
+      ],
+      "properties": {
+        "update_mode": {
+          "enum": [
+            "relative_scale",
+            "absolute"
+          ]
+        },
+        "scale_xy": {
+          "$ref": "#/$defs/number_pair"
+        },
+        "value_m": {
+          "$ref": "#/$defs/number_pair"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "scale_xy"
+          ]
+        },
+        {
+          "required": [
+            "value_m"
+          ]
+        }
+      ]
+    },
+    "scalar_update": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "update_mode"
+      ],
+      "properties": {
+        "update_mode": {
+          "enum": [
+            "relative_delta",
+            "absolute"
+          ]
+        },
+        "delta_deg": {
+          "type": "number"
+        },
+        "value_deg": {
+          "type": "number"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "delta_deg"
+          ]
+        },
+        {
+          "required": [
+            "value_deg"
+          ]
+        }
+      ]
+    },
+    "string_update": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "update_mode",
+        "value"
+      ],
+      "properties": {
+        "update_mode": {
+          "const": "absolute"
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "new_instance_update": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "update_mode",
+        "category"
+      ],
+      "properties": {
+        "update_mode": {
+          "const": "append"
+        },
+        "category": {
+          "type": "string",
+          "minLength": 1
+        },
+        "asset_id": {
+          "type": "string"
+        },
+        "size_hint": {
+          "type": "string"
+        },
+        "placement_hint": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

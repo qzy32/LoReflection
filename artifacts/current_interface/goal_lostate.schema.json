@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Current Goal LoState v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "state_role",
+    "metadata",
+    "architecture_ref",
+    "semantic_registry_ref",
+    "room_type",
+    "furniture_slots",
+    "goal_constraints",
+    "verification_profile",
+    "prompt_compilation_policy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "goal-lostate-v2"
+    },
+    "state_role": {
+      "const": "goal"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "architecture_ref": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "semantic_registry_ref": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "room_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "furniture_slots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "slot_id",
+          "category",
+          "required",
+          "count"
+        ],
+        "properties": {
+          "slot_id": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "category_id": {
+            "type": "integer"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "role": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "size_hint": {
+            "type": "string"
+          },
+          "style_hint": {
+            "type": "string"
+          },
+          "prompt_hint": {
+            "type": "string"
+          },
+          "numeric_pose": {
+            "type": "null"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "goal_constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "constraint_id",
+          "constraint_kind",
+          "domain",
+          "necessity"
+        ],
+        "properties": {
+          "constraint_id": {
+            "type": "string"
+          },
+          "constraint_kind": {
+            "enum": [
+              "requirement",
+              "pairwise",
+              "region",
+              "global"
+            ]
+          },
+          "domain": {
+            "enum": [
+              "object",
+              "object_object",
+              "object_region",
+              "global"
+            ]
+          },
+          "necessity": {
+            "enum": [
+              "required",
+              "preferred"
+            ]
+          }
+        }
+      }
+    },
+    "verification_profile": {
+      "type": "object"
+    },
+    "prompt_compilation_policy": {
+      "type": "object"
+    }
+  }
+}

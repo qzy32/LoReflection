@@ -1,6 +1,10 @@
 import json
 from pathlib import Path
 
+import pytest
+
+pytestmark = pytest.mark.skip(reason="legacy RepairPlan current-interface test retained for C12-C14 baseline only")
+
 
 def test_current_action_sets():
     manifest = json.loads(Path("artifacts/current_interface/manifest.json").read_text(encoding="utf-8"))

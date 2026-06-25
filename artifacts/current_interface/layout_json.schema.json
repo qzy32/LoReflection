@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Current executable layout JSON",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "layout_id",
+    "room_type",
+    "objects"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "layout_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "room_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "object_id",
+          "category"
+        ],
+        "properties": {
+          "object_id": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "position": {
+            "type": "array"
+          },
+          "size": {
+            "type": "array"
+          },
+          "rotation_y_deg": {
+            "type": "number"
+          },
+          "asset_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  }
+}

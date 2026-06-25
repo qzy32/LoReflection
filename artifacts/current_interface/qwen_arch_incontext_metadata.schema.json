@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Qwen Architecture In-Context training metadata row",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "image",
+    "prompt",
+    "context_image",
+    "sample_id",
+    "goal_lostate",
+    "prompt_package",
+    "verifier_refs"
+  ],
+  "properties": {
+    "image": {
+      "type": "string",
+      "minLength": 1,
+      "description": "target_semantic_layout_image"
+    },
+    "prompt": {
+      "type": "string",
+      "minLength": 1,
+      "description": "compiled_text_prompt"
+    },
+    "context_image": {
+      "type": "string",
+      "minLength": 1,
+      "description": "architecture_condition_image"
+    },
+    "sample_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "goal_lostate": {
+      "type": "string",
+      "minLength": 1
+    },
+    "prompt_package": {
+      "type": "string",
+      "minLength": 1
+    },
+    "verifier_refs": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "not": {
+    "anyOf": [
+      {
+        "required": [
+          "blockwise_controlnet_image"
+        ]
+      },
+      {
+        "required": [
+          "blockwise_controlnet_inpaint_mask"
+        ]
+      },
+      {
+        "required": [
+          "control_mask"
+        ]
+      },
+      {
+        "required": [
+          "I_bad"
+        ]
+      },
+      {
+        "required": [
+          "I_target"
+        ]
+      },
+      {
+        "required": [
+          "repairplan_current"
+        ]
+      },
+      {
+        "required": [
+          "mask_spec_current"
+        ]
+      }
+    ]
+  }
+}

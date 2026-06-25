@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Current Observed LoState v2",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "state_role",
+    "metadata",
+    "architecture_ref",
+    "semantic_registry_ref",
+    "room_type",
+    "furniture_instances",
+    "measured_relations",
+    "hard_constraint_evidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "observed-lostate-v2"
+    },
+    "state_role": {
+      "const": "observed"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "architecture_ref": {
+      "type": "object"
+    },
+    "semantic_registry_ref": {
+      "type": "object"
+    },
+    "room_type": {
+      "type": "string"
+    },
+    "furniture_instances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "observed_ref",
+          "category",
+          "center_m",
+          "size_m",
+          "orientation_deg",
+          "provenance"
+        ],
+        "properties": {
+          "observed_ref": {
+            "type": "string",
+            "pattern": "^obs:"
+          },
+          "category": {
+            "type": "string"
+          },
+          "center_m": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "size_m": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "orientation_deg": {
+            "type": "number"
+          },
+          "footprint_m": {
+            "type": "array"
+          },
+          "provenance": {
+            "type": "object",
+            "required": [
+              "source_object_id",
+              "source_json_path"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "measured_relations": {
+      "type": "array"
+    },
+    "hard_constraint_evidence": {
+      "type": "array"
+    }
+  }
+}

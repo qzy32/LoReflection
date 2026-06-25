@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Current StatePatch editor input context",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_tag",
+    "goal_lostate",
+    "observed_lostate",
+    "loreview",
+    "allowed_actions",
+    "statepatch_output_spec",
+    "verification_profile"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "statepatch-editor-input-context-v1"
+    },
+    "task_tag": {
+      "const": "[STATEPATCH_EDITING]"
+    },
+    "goal_lostate": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "observed_lostate": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "loreview": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "architecture_ref": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "architecture_summary": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "allowed_actions": {
+      "const": [
+        "ADD",
+        "REMOVE",
+        "TRANSLATE",
+        "ROTATE",
+        "SCALE",
+        "REPLACE"
+      ]
+    },
+    "statepatch_output_spec": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "verification_profile": {
+      "type": "object",
+      "minProperties": 1
+    }
+  },
+  "anyOf": [
+    {
+      "required": [
+        "architecture_ref"
+      ]
+    },
+    {
+      "required": [
+        "architecture_summary"
+      ]
+    }
+  ]
+}

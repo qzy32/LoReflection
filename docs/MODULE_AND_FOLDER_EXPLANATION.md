@@ -1,121 +1,62 @@
 # Module And Folder Explanation
 
-## `artifacts/`
+This file describes the current v8 Architecture In-Context + StatePatch layout.
 
-Frozen interface and semantic registry artifacts. Current mainline lives in
-`artifacts/current_interface/`: `repairplan.schema.json`, `mask_spec.schema.json`,
-`planner_input_context.schema.json`, and `manifest.json`. Do not casually edit
-current schemas or frozen palette/registry files.
+## Current Method Documents
 
-## `configs/`
+- `docs/CURRENT_PROJECT_STATE.md`: current source of truth.
+- `01_论文详细文档更新_GoalObservedState_StatePatch中文版.md`: method boundary.
+- `02_LoState_GoalObserved_StatePatch设计文档_v8_ArchInContext中文版.md`: Goal/Observed/StatePatch design.
+- `03_Benchmark更新_GoalObserved_StatePatch中文版.md`: benchmark and metrics.
+- `04_实验框架更新_GoalObserved_StatePatch中文版.md`: experiment chain.
+- `05_推动计划更新_GoalObserved_StatePatch中文版.md`: implementation order.
+- `06_Qwen-Image_Architecture_InContext_Control_方法与实验.md`: Qwen initial generation interface.
+- `docs/MIGRATION_AUDIT_ARCH_INCONTEXT.md`: old-route migration audit.
 
-Configuration files for converters, sanitizer, category/palette mapping, and
-training summaries. Current training config folders are
-`configs/c13_semantic_repair4_overfit/` and `configs/c14_semantic_repair4_medium/`.
+## Current Interface
 
-## `data_pipeline/`
+`artifacts/current_interface/` now contains current v8 schemas:
 
-Older/local data-building scripts for LoState, LoReview, planner SFT,
-perturbations, and semantic layouts. Use `PROJECT_STRUCTURE_FILE_INDEX` before
-editing anything here.
+- `statepatch.schema.json`
+- `statepatch_editor_input_context.schema.json`
+- `goal_lostate.schema.json`
+- `observed_lostate.schema.json`
+- `layout_json.schema.json`
+- `scene_json.schema.json`
+- `qwen_arch_incontext_metadata.schema.json`
+- `manifest.json`
 
-## `diffusion/`
+The old RepairPlan and mask schemas are kept only for the C12-C14 historical
+baseline and are no longer declared as current mainline in `manifest.json`.
 
-Local DiffSynth/Qwen helper templates. `train_diffsynth_qwen_inpaint_lora.sh` is
-a template, not the exact C14 run command.
+## Current Handoff
 
-## `docs/`
+- `outputs/current_statepatch_editor_handoff/`: current VLM StatePatch editor
+  handoff.
+- `outputs/current_vlm_planner_handoff/`: legacy RepairPlan planner handoff for
+  the historical C12-C14 semantic repair baseline.
 
-Human-readable documentation, current state docs, source audits, and experiment
-notes. Start with `CURRENT_PROJECT_STATE.md`, `START_HERE.md`, and the C12/C13/C14
-docs.
+## Runtime And Library Code
 
-## `eval/`
+- `loreflection/semantic_registry.py`: frozen semantic registry loader.
+- `loreflection/data/front3d/`: reusable 3D-FRONT parsing helpers.
+- `loreflection/builders/scene_package_builder.py`: reusable scene package and
+  rendering foundation.
+- `loreflection/rendering/topdown/`: top-down renderer facades.
+- `loreflection/goal/prompt_compiler.py`: current geometry-safe Prompt Compiler.
+- `runtime/`: older smoke/review helpers plus components that can be migrated
+  into the v8 StatePatch loop.
 
-Evaluation conversion and metric scripts. Current semantic repair eval is mainly
-documented through `tools/evaluate_c13_semantic_repair4_outputs.py`.
+## Validators
 
-## `examples/`
+- `tools/validate_current_statepatch.py`
+- `tools/validate_arch_incontext_training_metadata.py`
+- `tools/audit_prompt_geometry_leakage.py`
+- `tools/audit_architecture_condition_no_furniture.py`
+- `tools/validate_architecture_condition.py`
 
-Toy and smoke examples. Useful for schema learning, but do not confuse them with
-real EditRoom-converted semantic repair data.
+## Historical C12-C14 Baseline
 
-## `experiments/`
-
-Experiment organization if present. Treat as NEEDS_REVIEW unless a current
-report points to a specific file.
-
-## `loreflection/`
-
-Project package code. Read this after you know which pipeline component you are
-debugging.
-
-## `outputs/`
-
-Generated artifacts, handoff packages, dataset packages, manual review images,
-and training outputs. Current important subset: `outputs/current_vlm_planner_handoff/`.
-The full C13/C14 datasets and checkpoints are primarily server-side and recorded
-in reports.
-
-## `reports/`
-
-Machine-readable evidence from audits, gates, training, and evaluation. Start
-with `current_c12_input_manifest.json`, `c12_sanitizer_eval.json`,
-`c13_semantic_repair4_pipeline_result.json`, `c14_autonomous_pipeline_result.json`,
-`c14_1_autogpu_resume_result.json`, and `c14_1_autogpu_image_eval_summary.json`.
-
-## `runtime/`
-
-Runtime adapters and geometry/review helpers. Read `runtime/mask_tensor_adapter.py`
-when debugging symbolic mask to binary control mask conversion.
-
-## `schemas/`
-
-Older and auxiliary schemas. Current Planner-facing schemas live under
-`artifacts/current_interface/`.
-
-## `scripts/`
-
-Server run scripts, proxy helpers, and training command mirrors. Current training
-mirrors include `c13_train_*.sh`, `c14_train_*_20.sh`, and C14.1 auto-GPU helpers.
-Do not print local connection files used by server helpers.
-
-## `server_configs/`
-
-Server path templates. Filled local env files are sensitive and should not be
-printed or committed.
-
-## `tests/`
-
-Protocol, schema, manifest, and validator regression tests. Run these before and
-after modifying current schemas or examples.
-
-## `third_party/`
-
-Third-party references or placeholders. Do not edit or delete official source
-checkouts as part of normal project work.
-
-## `third_party_notices/`
-
-License and provenance notices.
-
-## `tools/`
-
-Validators, converters, evaluators, reports, and inspection scripts. High-priority
-current files: `validate_current_repairplan.py`,
-`evaluate_c13_semantic_repair4_outputs.py`,
-`convert_editroom_pair_to_semantic_layout.py`,
-`search_valid_editroom_semantic_repair4_samples.py`, and
-`replace_noop_c12_samples.py`.
-
-## `vlm/`
-
-VLM training/export helpers. For current Planner work, start with
-`outputs/current_vlm_planner_handoff/` before code.
-
-## If You Want To See Results First
-
-Read `reports/c14_1_autogpu_resume_result.json`,
-`reports/c14_1_autogpu_image_eval_summary.json`,
-`docs/C14_MEDIUM_SCALE_DIAGNOSTIC_TRAINING.md`, and
-`outputs/manual_review/c14_1_autogpu_loss_curves/`.
+The C12/C13/C14 docs, reports, configs, scripts, and visual artifacts are
+retained for audit and comparison. They should be described as historical
+semantic repair / inpaint experiments, not as the current LoReflection route.

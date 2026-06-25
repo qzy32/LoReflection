@@ -1,22 +1,85 @@
 # Current Project State
 
-## Current pipeline
+## Current Method Authority
 
-User instruction + Architecture JSON
--> Target LoState Constructor
--> Goal LoState
--> Qwen-Image initial semantic layout generation
--> Programmatic State Observer
--> Observed LoState
--> Dual-Track Reviewer + LoRAM
--> LoReview
--> VLM Correction Planner
--> RepairPlan
--> semantic repair or parametric repair routing
+The current LoReflection method is defined by the v8 Architecture In-Context
+and StatePatch documents:
 
-## Action protocol
+1. `01_论文详细文档更新_GoalObservedState_StatePatch中文版.md`
+2. `02_LoState_GoalObserved_StatePatch设计文档_v8_ArchInContext中文版.md`
+3. `03_Benchmark更新_GoalObserved_StatePatch中文版.md`
+4. `04_实验框架更新_GoalObserved_StatePatch中文版.md`
+5. `05_推动计划更新_GoalObserved_StatePatch中文版.md`
+6. `06_Qwen-Image_Architecture_InContext_Control_方法与实验.md`
+7. `docs/MIGRATION_AUDIT_ARCH_INCONTEXT.md`
 
-Planner-facing canonical actions:
+If older C12/C13/C14 documents disagree with these files, the v8 files above
+win.
+
+## Current Mainline
+
+```text
+User instruction
++ Architecture JSON
++ frozen semantic registry
+        -> Goal State Constructor
+        -> Goal LoState
+        -> Prompt Compiler
+        -> compiled_text_prompt
+
+Architecture JSON
+        -> palette-exact architecture renderer
+        -> architecture_condition_image
+
+compiled_text_prompt + architecture_condition_image
+        -> Qwen-Image Architecture In-Context Control
+        -> initial semantic layout image
+        -> Qwen output parser / layout parser
+        -> layout JSON / scene JSON
+        -> Observed State Builder
+        -> Observed LoState
+        -> Goal-Observed Comparator + LoRAM
+        -> LoReview
+        -> Qwen3.5-VL StatePatch Editor
+        -> StatePatch
+        -> StatePatch Executor + Write-back Serializer
+        -> candidate layout JSON / scene JSON
+        -> Rebuild Observed LoState
+        -> Programmatic Verifier + VLM Reviewer + AcceptanceController
+```
+
+## Initial Generation
+
+The current initial generation module is Qwen-Image Architecture In-Context
+Control:
+
+```text
+compiled_text_prompt + architecture_condition_image
+-> target_semantic_layout_image
+```
+
+The DiffSynth training metadata for this route is:
+
+```csv
+image,prompt,context_image,sample_id,goal_lostate,prompt_package,verifier_refs
+```
+
+Meanings:
+
+- `image` = `target_semantic_layout_image`
+- `prompt` = `compiled_text_prompt`
+- `context_image` = `architecture_condition_image`
+
+Qwen does not perform local repair in the current mainline.
+
+## Local Repair / Editing
+
+Local repair is performed by a Qwen3.5-VL StatePatch Editor. The editor outputs
+only `StatePatch` JSON. The executor resolves the patch against Observed LoState
+and writes candidate layout JSON / scene JSON. It does not write a LoState JSON
+as the executable artifact.
+
+Current StatePatch actions:
 
 - ADD
 - REMOVE
@@ -25,78 +88,44 @@ Planner-facing canonical actions:
 - SCALE
 - REPLACE
 
-## Execution routing
+Current interface files:
 
-semantic_repair4:
+- `artifacts/current_interface/statepatch.schema.json`
+- `artifacts/current_interface/statepatch_editor_input_context.schema.json`
+- `artifacts/current_interface/goal_lostate.schema.json`
+- `artifacts/current_interface/observed_lostate.schema.json`
+- `artifacts/current_interface/layout_json.schema.json`
+- `artifacts/current_interface/scene_json.schema.json`
+- `artifacts/current_interface/qwen_arch_incontext_metadata.schema.json`
+- `outputs/current_statepatch_editor_handoff/`
 
-- ADD
-- REMOVE
-- TRANSLATE
-- REPLACE
+## Historical Baseline
 
-parametric_update:
+The C12/C13/C14 semantic repair work is retained as historical evidence and a
+baseline. It is not the current mainline. This baseline includes the legacy
+RepairPlan planner handoff, mask planning, semantic repair routing,
+Qwen/DiffSynth blockwise inpaint training, `I_bad`, `I_target`, and
+`control_mask` artifacts.
 
-- ROTATE
-- SCALE
+Do not delete those files without a separate archive decision; they document the
+C14.4 palette-fixed diagnostic result and remain useful for comparison.
 
-TRANSLATE is part of semantic_repair4. It must use old_region + new_region in mask_spec. If a RepairPlan carries a TRANSLATE parametric_delta, that field is bookkeeping only and does not change the execution route.
+## Current P0 Status
 
-## DiffSynth contract
+The repository now contains a bounded Qwen Architecture In-Context P0 builder,
+audits, previews, and tests. A local 60-sample deterministic procedural package
+passes the `image,prompt,context_image` contract:
 
-Only semantic_repair4 actions enter DiffSynth/Qwen-Image-Blockwise-ControlNet-Inpaint.
+- condition images are architecture-only;
+- target images are furniture-only;
+- frozen-palette and prompt-leakage audits pass;
+- scene-grouped splits have no cross-split scene leakage.
 
-DiffSynth metadata:
+The generated package is contract-validation data, not real 3D-FRONT benchmark
+data and not model-quality evidence.
 
-- image = I_target
-- blockwise_controlnet_image = I_bad
-- blockwise_controlnet_inpaint_mask = binary control_mask
-- prompt = correction_prompt
+## Current Next Step
 
-Mask:
-
-- white/high = repaint
-- black/low = preserve
-
-## ROTATE / SCALE rule
-
-ROTATE and SCALE are valid Planner actions. They do not enter Qwen semantic repair. They update structured layout fields through parametric_update.
-
-ROTATE fields:
-
-- target_instance_ref
-- rotation_deg or new_yaw_rad
-- geometry validation
-- acceptance criteria
-
-SCALE fields:
-
-- target_instance_ref
-- scale_xy or new_size
-- geometry validation
-- acceptance criteria
-
-## EditRoom path
-
-EditRoom official code/data are upstream editing-pair source. LoReflection does not reimplement EditRoom perturbation policy.
-
-LoReflection conversion bridge converts EditRoom object-level before/after pairs into:
-
-- I_bad
-- I_target
-- mask_spec
-- binary control_mask
-- RepairPlan
-- correction_prompt
-- DiffSynth metadata
-
-Use this name only: EditRoom official-data conversion bridge.
-
-## Current next step
-
-C12 sanitizer has passed on the current semantic_repair4 sample set. C13 small Qwen/DiffSynth overfit has completed through 100-step checkpoints for ADD, REMOVE, TRANSLATE, REPLACE, and a 12-row mixed run.
-
-C14 medium diagnostic data construction has also completed with 20 valid real converted EditRoom samples per semantic_repair4 action. DiffSynth `UnifiedDataset` dry-run passed for ADD, REMOVE, TRANSLATE, REPLACE, and MIXED_80. Medium training was attempted with REMOVE first, but the run stopped before step 1 because the selected server GPU did not have enough available memory, including a low-memory retry.
-
-The current next executable step is to rerun the C14 REMOVE 20-step smoke on a GPU with enough free memory. Do not expand to 50/action or larger semantic_repair4 training until the 20/action medium smoke sequence runs.
-
-Future C12/C13 inputs must not include ROTATE or SCALE in Qwen semantic repair.
+Feed 50-200 real scene-package architecture/layout pairs into the P0 builder,
+rerun the same gates, manually inspect the preview, and only then run a bounded
+Architecture In-Context pipeline sanity training.
