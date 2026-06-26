@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from loreflection.builders.scene_package_builder import vec3, yaw_from_rotation
+from loreflection.qwen_arch_control.metric_transform import build_metric_transform, world_to_pixel
 from loreflection.semantic_registry import SemanticRegistry, load_registry
 
 
@@ -122,15 +123,35 @@ def _world_to_px(point: tuple[float, float], boundary: list[list[float]], image_
     return int(round(x)), int(round(y))
 
 
+def _oriented_footprint_m(center: tuple[float, float], size: tuple[float, float], orientation_deg: float) -> list[list[float]]:
+    cx, cz = center
+    w, d = size
+    theta = math.radians(float(orientation_deg))
+    cos_t = math.cos(theta)
+    sin_t = math.sin(theta)
+    corners = [(-w / 2, -d / 2), (w / 2, -d / 2), (w / 2, d / 2), (-w / 2, d / 2)]
+    return [[cx + dx * cos_t - dz * sin_t, cz + dx * sin_t + dz * cos_t] for dx, dz in corners]
+
+
+def _bbox_from_px(points: list[tuple[int, int]], image_size: int) -> list[int]:
+    xs = [point[0] for point in points]
+    ys = [point[1] for point in points]
+    return [max(0, min(xs)), max(0, min(ys)), min(image_size - 1, max(xs)), min(image_size - 1, max(ys))]
+
+
 def _bbox_px(center: tuple[float, float], size: tuple[float, float], boundary: list[list[float]], image_size: int) -> list[int]:
     corners = [
         (center[0] - size[0] / 2, center[1] - size[1] / 2),
         (center[0] + size[0] / 2, center[1] + size[1] / 2),
     ]
     pixels = [_world_to_px(point, boundary, image_size) for point in corners]
-    xs = [point[0] for point in pixels]
-    ys = [point[1] for point in pixels]
-    return [max(0, min(xs)), max(0, min(ys)), min(image_size - 1, max(xs)), min(image_size - 1, max(ys))]
+    return _bbox_from_px(pixels, image_size)
+
+
+def _bbox_px_metric(center: tuple[float, float], size: tuple[float, float], orientation_deg: float, transform: dict[str, Any], image_size: int) -> tuple[list[int], list[list[float]], list[list[int]]]:
+    footprint_m = _oriented_footprint_m(center, size, orientation_deg)
+    footprint_px = [list(world_to_pixel((point[0], point[1]), transform)) for point in footprint_m]
+    return _bbox_from_px([tuple(point) for point in footprint_px], image_size), footprint_m, footprint_px
 
 
 def _size_m(furniture: dict[str, Any], transform: dict[str, Any], category: str) -> tuple[float, float]:
@@ -165,6 +186,8 @@ def adapt_scene_file(
     model_index: dict[str, dict[str, Any]],
     image_size: int = 256,
     registry: SemanticRegistry | None = None,
+    renderer_version: str = "normalized_v1",
+    canvas_extent_m: float | None = None,
 ) -> list[dict[str, Any]]:
     registry = registry or load_registry()
     scene = json.loads(scene_path.read_text(encoding="utf-8", errors="ignore"))
@@ -240,18 +263,32 @@ def adapt_scene_file(
             warnings.append("room floor mesh unavailable; boundary derived from furniture extents")
         else:
             continue
-        boundary_px = [list(_world_to_px(tuple(point), boundary_m, image_size)) for point in boundary_m]
+        metric_transform = None
+        if renderer_version == "metric_v2":
+            metric_transform = build_metric_transform(boundary_m, image_size, canvas_extent_m=canvas_extent_m)
+            boundary_px = [list(world_to_pixel(tuple(point), metric_transform)) for point in boundary_m]
+        else:
+            boundary_px = [list(_world_to_px(tuple(point), boundary_m, image_size)) for point in boundary_m]
 
         objects = []
         for object_index, (category, center, size, furniture, child) in enumerate(provisional):
+            orientation_deg = math.degrees(yaw_from_rotation(child.get("rot") or child.get("rotation")))
+            if metric_transform:
+                bbox_px, footprint_m, footprint_px = _bbox_px_metric(center, size, orientation_deg, metric_transform, image_size)
+            else:
+                bbox_px = _bbox_px(center, size, boundary_m, image_size)
+                footprint_m = _oriented_footprint_m(center, size, orientation_deg)
+                footprint_px = [list(_world_to_px(tuple(point), boundary_m, image_size)) for point in footprint_m]
             objects.append(
                 {
                     "instance_id": str(child.get("instanceid") or furniture.get("uid") or f"object_{object_index:03d}"),
                     "category": category,
-                    "bbox_px": _bbox_px(center, size, boundary_m, image_size),
+                    "bbox_px": bbox_px,
+                    "footprint_m": footprint_m,
+                    "footprint_px": footprint_px,
                     "center_m": [center[0], center[1]],
                     "size_m": [size[0], size[1]],
-                    "orientation_deg": math.degrees(yaw_from_rotation(child.get("rot") or child.get("rotation"))),
+                    "orientation_deg": orientation_deg,
                     "source_object_id": str(furniture.get("uid") or ""),
                     "source_json_path": str(scene_path),
                 }
@@ -265,7 +302,8 @@ def adapt_scene_file(
                 {
                     "anchor_id": str(child.get("instanceid") or furniture.get("uid")),
                     "anchor_type": anchor_type,
-                    "bbox_px": _bbox_px(center, size, boundary_m, image_size),
+                    "bbox_px": _bbox_px(center, size, boundary_m, image_size) if not metric_transform else _bbox_px_metric(center, size, 0.0, metric_transform, image_size)[0],
+                    "bbox_m": [center[0] - size[0] / 2, center[1] - size[1] / 2, center[0] + size[0] / 2, center[1] + size[1] / 2],
                     "source_object_id": furniture.get("uid"),
                 }
             )
@@ -274,7 +312,7 @@ def adapt_scene_file(
             anchor_type = "door" if "door" in mesh_type else "window" if "window" in mesh_type else None
             points = _mesh_points(mesh)
             if anchor_type and points:
-                px = [_world_to_px(point, boundary_m, image_size) for point in points]
+                px = [_world_to_px(point, boundary_m, image_size) for point in points] if not metric_transform else [world_to_pixel(point, metric_transform) for point in points]
                 anchors.append(
                     {
                         "anchor_id": str(mesh.get("uid")),
@@ -293,7 +331,8 @@ def adapt_scene_file(
             "floorplan_id": scene_id,
             "room_type": _room_type(room.get("type")),
             "image_size_px": [image_size, image_size],
-            "boundary": {"polygon_m": boundary_m, "polygon_px": boundary_px, "source": boundary_source},
+            "boundary": {"polygon_m": boundary_m, "polygon_px": boundary_px, "source": boundary_source, "boundary_source": boundary_source},
+            "metric_transform": metric_transform,
             "anchors": anchors,
             "source": {"kind": "raw_3dfront", "source_scene_json": str(scene_path), "room_index": room_index},
         }
@@ -308,6 +347,7 @@ def adapt_scene_file(
             "image_size_px": [image_size, image_size],
             "objects": objects,
             "skipped_objects": skipped,
+            "metric_transform": metric_transform,
             "source": {"kind": "raw_3dfront", "source_scene_json": str(scene_path), "room_index": room_index},
         }
         adapted.append(

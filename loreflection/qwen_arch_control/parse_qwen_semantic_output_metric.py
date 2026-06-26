@@ -12,6 +12,7 @@ from typing import Any
 import numpy as np
 from PIL import Image
 
+from loreflection.qwen_arch_control.metric_transform import pixel_to_world
 from loreflection.semantic_registry import load_registry
 
 
@@ -23,19 +24,23 @@ def _bbox(points: list[list[float]]) -> tuple[float, float, float, float] | None
     return min(xs), min(ys), max(xs), max(ys)
 
 
-def _pixel_to_world(x: float, y: float, arch: dict[str, Any]) -> tuple[float | None, float | None]:
+def _pixel_to_world(x: float, y: float, arch: dict[str, Any]) -> tuple[float | None, float | None, str]:
+    transform = arch.get("metric_transform")
+    if isinstance(transform, dict):
+        wx, wy = pixel_to_world((x, y), transform)
+        return wx, wy, "metric_transform"
     boundary = arch.get("boundary", {}) if isinstance(arch.get("boundary"), dict) else {}
     poly_m = boundary.get("polygon_m") or []
     poly_px = boundary.get("polygon_px") or []
     bm = _bbox(poly_m)
     bp = _bbox(poly_px)
     if bm is None or bp is None:
-        return None, None
+        return None, None, "unavailable"
     px_w = max(1e-9, bp[2] - bp[0])
     px_h = max(1e-9, bp[3] - bp[1])
     mx = bm[0] + ((x - bp[0]) / px_w) * (bm[2] - bm[0])
     my = bm[1] + ((y - bp[1]) / px_h) * (bm[3] - bm[1])
-    return float(mx), float(my)
+    return float(mx), float(my), "implicit_polygon_bbox_fallback"
 
 
 def _component_bfs(mask: np.ndarray) -> list[tuple[int, int, int, int, int, float, float]]:
@@ -74,9 +79,9 @@ def parse_output(image_path: Path, architecture_path: Path, manifest_path: Path 
         for idx, (x0, y0, x1, y1, area, cx, cy) in enumerate(_component_bfs(mask)):
             if area < min_area:
                 continue
-            wx, wy = _pixel_to_world(cx, cy, arch)
-            wx0, wy0 = _pixel_to_world(x0, y0, arch)
-            wx1, wy1 = _pixel_to_world(x1, y1, arch)
+            wx, wy, mode = _pixel_to_world(cx, cy, arch)
+            wx0, wy0, _ = _pixel_to_world(x0, y0, arch)
+            wx1, wy1, _ = _pixel_to_world(x1, y1, arch)
             size_m = None
             if None not in (wx0, wy0, wx1, wy1):
                 size_m = [abs(float(wx1) - float(wx0)), abs(float(wy1) - float(wy0))]
@@ -90,6 +95,7 @@ def parse_output(image_path: Path, architecture_path: Path, manifest_path: Path 
                     "center_m": [wx, wy] if wx is not None and wy is not None else None,
                     "size_m": size_m,
                     "orientation_deg": 0,
+                    "parse_transform_mode": mode,
                 }
             )
     return {
@@ -100,6 +106,7 @@ def parse_output(image_path: Path, architecture_path: Path, manifest_path: Path 
             "kind": "qwen_semantic_furniture_parse",
             "architecture_source_of_truth": "raw_3dfront",
             "qwen_generates_furniture_only": True,
+            "parse_transform_mode": "metric_transform" if isinstance(arch.get("metric_transform"), dict) else "implicit_polygon_bbox_fallback",
             "source_image": str(image_path),
             "architecture_json": str(architecture_path),
         },

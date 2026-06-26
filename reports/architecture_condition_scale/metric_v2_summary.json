@@ -1,0 +1,48 @@
+{
+  "normalized": {
+    "num_samples": 50,
+    "renderer_version": "normalized_v1",
+    "metric_transform_exists_rate": 0.0,
+    "roundtrip_error_p95_m": null,
+    "area_consistency_error_p95": null,
+    "target_bbox_fallback_rate": 1.0,
+    "condition_contains_furniture_rate": 0.0,
+    "target_has_furniture_pixels_rate": 1.0,
+    "floor_bbox_area_px_variation": 0.6025641025641025,
+    "room_bbox_area_m_variation": 0.9669204699024299,
+    "normalized_v1_scale_risk": true,
+    "metric_v2_recommended": true,
+    "status": "fail"
+  },
+  "metric": {
+    "num_samples": 50,
+    "renderer_version": "metric_v2",
+    "metric_transform_exists_rate": 1.0,
+    "roundtrip_error_p95_m": 0.019740377402673762,
+    "area_consistency_error_p95": 0.014922273150126165,
+    "target_bbox_fallback_rate": 0.0,
+    "condition_contains_furniture_rate": 0.0,
+    "target_has_furniture_pixels_rate": 1.0,
+    "floor_bbox_area_px_variation": 0.9229813664596274,
+    "room_bbox_area_m_variation": 0.9669204699024299,
+    "normalized_v1_scale_risk": false,
+    "metric_v2_recommended": false,
+    "status": "pass"
+  },
+  "p1_metric": {
+    "num_samples": 200,
+    "renderer_version": "metric_v2",
+    "metric_transform_exists_rate": 1.0,
+    "roundtrip_error_p95_m": 0.01956249497439548,
+    "area_consistency_error_p95": 0.014661426519215742,
+    "target_bbox_fallback_rate": 0.0,
+    "condition_contains_furniture_rate": 0.0,
+    "target_has_furniture_pixels_rate": 1.0,
+    "floor_bbox_area_px_variation": 0.9602885558201428,
+    "room_bbox_area_m_variation": 0.9812004024152341,
+    "normalized_v1_scale_risk": false,
+    "metric_v2_recommended": false,
+    "status": "pass"
+  },
+  "p1_metric_v2_build_status": "pass"
+}
