@@ -1,0 +1,50 @@
+[
+  {
+    "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_00",
+    "room_type": "livingroom",
+    "furniture_counts": {
+      "coffee_table": 1,
+      "dining_chair": 4,
+      "dining_table": 1
+    },
+    "prompt_llm_functional": "Context_Control. Position 1 coffee table close to the dining table and place 4 dining chairs around the dining table. Make sure there is no overlap and that all items are within the room. Use the architectural details to guide the placement while ensuring there is enough space near the door."
+  },
+  {
+    "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_01",
+    "room_type": "elderlyroom",
+    "furniture_counts": {
+      "desk": 2
+    },
+    "prompt_llm_functional": "Context_Control. Arrange 2 desks within the room, maintaining the requirement that they remain inside the room boundaries and avoid overlapping each other. Adhere to the specific color palette designated for an elderlyroom."
+  },
+  {
+    "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_02",
+    "room_type": "study",
+    "furniture_counts": {
+      "armchair": 1,
+      "desk": 1
+    },
+    "prompt_llm_functional": "Context_Control. Position 1 armchair and 1 desk in the study. Make sure the desk is used as the primary anchor. Avoid any overlapping and adhere to the specified color palette."
+  },
+  {
+    "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_05",
+    "room_type": "bedroom",
+    "furniture_counts": {
+      "desk": 2,
+      "pendant_lamp": 1
+    },
+    "prompt_llm_functional": "Context_Control. Arrange two desks and one pendant lamp within the bedroom space, making sure there is no overlap and that all items remain within the room boundaries."
+  },
+  {
+    "sample_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_00",
+    "room_type": "bedroom",
+    "furniture_counts": {
+      "ceiling_lamp": 1,
+      "desk": 1,
+      "kids_bed": 1,
+      "lazy_sofa": 1,
+      "single_bed": 1
+    },
+    "prompt_llm_functional": "Context_Control. Arrange the following furniture in the bedroom: 1 ceiling lamp, 1 desk, 1 kids bed, 1 lazy sofa, and 1 single bed. Avoid overlapping and follow the architectural constraints provided."
+  }
+]
