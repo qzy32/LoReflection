@@ -20,6 +20,7 @@ from loreflection.qwen_arch_control.goal_label_extractor_from_layout import extr
 from loreflection.qwen_arch_control.preview_qwen_arch_dataset import build_preview
 from loreflection.qwen_arch_control.raw_3dfront_adapter import adapt_scene_file
 from loreflection.qwen_arch_control.render_architecture_condition import render_architecture_condition
+from loreflection.qwen_arch_control.render_architecture_condition_metric import render_architecture_condition_metric
 from loreflection.qwen_arch_control.render_target_semantic_layout import render_target_semantic_layout
 from loreflection.qwen_arch_control.source_resolver import (
     iter_raw_scene_records,
@@ -165,7 +166,7 @@ def _procedural_records(num_samples: int, image_size: int, seed: int) -> list[di
     return records
 
 
-def _raw_records(data_root: Path, num_samples: int, image_size: int, seed: int) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+def _raw_records(data_root: Path, num_samples: int, image_size: int, seed: int, renderer_version: str = "normalized_v1", canvas_extent_m: float | None = None) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     probe = probe_data_root(data_root)
     model_paths = [Path(path) for path in probe["model_info_paths"]]
     model_index = load_model_info_index(model_paths)
@@ -175,7 +176,7 @@ def _raw_records(data_root: Path, num_samples: int, image_size: int, seed: int) 
     for source in iter_raw_scene_records(data_root, seed):
         scanned_scenes += 1
         try:
-            rooms = adapt_scene_file(Path(source["source_scene_json"]), model_index, image_size)
+            rooms = adapt_scene_file(Path(source["source_scene_json"]), model_index, image_size, renderer_version=renderer_version, canvas_extent_m=canvas_extent_m)
         except Exception as exc:
             key = f"adapter_error:{type(exc).__name__}"
             skip_reasons[key] = skip_reasons.get(key, 0) + 1
@@ -244,6 +245,8 @@ def build_dataset(
     source_mode: str = "procedural_contract",
     data_root: Path | None = None,
     scene_package_root: Path | None = None,
+    renderer_version: str = "metric_v2",
+    canvas_extent_m: float | None = 8.0,
 ) -> dict[str, Any]:
     if not 1 <= num_samples <= 200:
         raise ValueError("P0 num_samples must be between 1 and 200")
@@ -257,12 +260,13 @@ def build_dataset(
     metadata_rows = []
     samples = []
     source_details: dict[str, Any] = {}
+    effective_renderer_version = "normalized_v1" if source_mode == "procedural_contract" else renderer_version
     if source_mode == "procedural_contract":
         records = _procedural_records(num_samples, image_size, seed)
     elif source_mode == "raw_3dfront":
         if data_root is None:
             raise ValueError("--data-root is required for raw_3dfront")
-        records, source_details = _raw_records(data_root, num_samples, image_size, seed)
+        records, source_details = _raw_records(data_root, num_samples, image_size, seed, effective_renderer_version, canvas_extent_m)
     elif source_mode == "real_scene_package":
         if scene_package_root is None:
             raise ValueError("--scene-package-root is required for real_scene_package")
@@ -296,11 +300,16 @@ def build_dataset(
             "verifier": Path("meta") / f"{sample_id}_verifier_refs.json",
             "manifest": Path("meta") / f"{sample_id}_sample_manifest.json",
         }
-        condition_report = render_architecture_condition(
-            architecture, output_root / paths["condition"], image_size, registry
-        )
+        if effective_renderer_version == "metric_v2":
+            condition_report = render_architecture_condition_metric(
+                architecture, output_root / paths["condition"], image_size, registry
+            )
+        else:
+            condition_report = render_architecture_condition(
+                architecture, output_root / paths["condition"], image_size, registry
+            )
         target_report = render_target_semantic_layout(
-            layout, output_root / paths["target"], image_size, registry
+            layout, output_root / paths["target"], image_size, registry, architecture
         )
         _write_json(output_root / paths["architecture"], architecture)
         _write_json(output_root / paths["layout"], layout)
@@ -315,6 +324,12 @@ def build_dataset(
             "source_mode": source_mode,
             "source_kind": architecture["source"]["kind"],
             "source_scene_json": record.get("source_scene_json"),
+            "renderer_version": effective_renderer_version,
+            "scale_policy": (architecture.get("metric_transform") or {}).get("scale_policy") or effective_renderer_version,
+            "metric_transform": architecture.get("metric_transform"),
+            "architecture_source_of_truth": "raw_3dfront",
+            "qwen_generates_architecture": False,
+            "qwen_generates_furniture_only": True,
             "paths": {key: path.as_posix() for key, path in paths.items() if key != "manifest"},
             "condition_contract": condition_report,
             "target_contract": target_report,
@@ -348,6 +363,11 @@ def build_dataset(
         "schema_version": "qwen-arch-control-p0-v1",
         "num_samples": len(samples),
         "source_mode": source_mode,
+        "renderer_version": effective_renderer_version,
+        "scale_policy": "fixed_metric_canvas" if effective_renderer_version == "metric_v2" else "normalized_v1",
+        "architecture_source_of_truth": "raw_3dfront",
+        "qwen_generates_architecture": False,
+        "qwen_generates_furniture_only": True,
         "training_ready": source_mode in {"raw_3dfront", "real_scene_package"},
         "image_contract": {
             "image": "furniture-only target_semantic_layout_image",
@@ -405,6 +425,8 @@ def main() -> int:
     parser.add_argument("--num-samples", type=int, default=60)
     parser.add_argument("--image-size", type=int, default=256)
     parser.add_argument("--seed", type=int, default=4411)
+    parser.add_argument("--renderer-version", choices=["normalized_v1", "metric_v2"], default="metric_v2")
+    parser.add_argument("--canvas-extent-m", type=float, default=8.0)
     parser.add_argument("--no-clean", action="store_true")
     args = parser.parse_args()
     result = build_dataset(
@@ -416,6 +438,8 @@ def main() -> int:
         args.source_mode,
         args.data_root,
         args.scene_package_root,
+        args.renderer_version,
+        args.canvas_extent_m,
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if result["status"] in {"pass", "contract_pass"} else 1
