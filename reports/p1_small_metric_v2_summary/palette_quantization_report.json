@@ -1,0 +1,190 @@
+{
+  "num_images": 20,
+  "unknown_color_rate_before_quantization": 0.219622802734375,
+  "unknown_color_rate_after_quantization": 0.0,
+  "mean_palette_distance": 2.4749909043312073,
+  "max_palette_distance": 153.44053649902344,
+  "samples": [
+    {
+      "sample_id": "1e7966ed-1b5b-426b-aaef-395475df7dcd_room_07",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/1e7966ed-1b5b-426b-aaef-395475df7dcd_room_07_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/1e7966ed-1b5b-426b-aaef-395475df7dcd_room_07_quantized.png",
+      "unknown_color_rate_before_quantization": 0.1563720703125,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 2.04156494140625,
+      "max_palette_distance": 79.2843017578125
+    },
+    {
+      "sample_id": "23a5fa77-0aa5-45f4-8399-3265005b1def_room_00",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/23a5fa77-0aa5-45f4-8399-3265005b1def_room_00_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/23a5fa77-0aa5-45f4-8399-3265005b1def_room_00_quantized.png",
+      "unknown_color_rate_before_quantization": 0.2577362060546875,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 2.075570583343506,
+      "max_palette_distance": 94.09569549560547
+    },
+    {
+      "sample_id": "23a5fa77-0aa5-45f4-8399-3265005b1def_room_05",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/23a5fa77-0aa5-45f4-8399-3265005b1def_room_05_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/23a5fa77-0aa5-45f4-8399-3265005b1def_room_05_quantized.png",
+      "unknown_color_rate_before_quantization": 0.42449951171875,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 6.182441711425781,
+      "max_palette_distance": 153.44053649902344
+    },
+    {
+      "sample_id": "23a5fa77-0aa5-45f4-8399-3265005b1def_room_07",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/23a5fa77-0aa5-45f4-8399-3265005b1def_room_07_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/23a5fa77-0aa5-45f4-8399-3265005b1def_room_07_quantized.png",
+      "unknown_color_rate_before_quantization": 0.257080078125,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 1.6490585803985596,
+      "max_palette_distance": 84.53401947021484
+    },
+    {
+      "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_00",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/36c96aa6-a318-4212-aecc-22a206d7b217_room_00_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/36c96aa6-a318-4212-aecc-22a206d7b217_room_00_quantized.png",
+      "unknown_color_rate_before_quantization": 0.3374481201171875,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 6.684704780578613,
+      "max_palette_distance": 101.33607482910156
+    },
+    {
+      "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_01",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/36c96aa6-a318-4212-aecc-22a206d7b217_room_01_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/36c96aa6-a318-4212-aecc-22a206d7b217_room_01_quantized.png",
+      "unknown_color_rate_before_quantization": 0.15399169921875,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 1.1153149604797363,
+      "max_palette_distance": 76.30203247070312
+    },
+    {
+      "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_02",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/36c96aa6-a318-4212-aecc-22a206d7b217_room_02_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/36c96aa6-a318-4212-aecc-22a206d7b217_room_02_quantized.png",
+      "unknown_color_rate_before_quantization": 0.1463165283203125,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 1.2470602989196777,
+      "max_palette_distance": 85.62126159667969
+    },
+    {
+      "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_05",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/36c96aa6-a318-4212-aecc-22a206d7b217_room_05_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/36c96aa6-a318-4212-aecc-22a206d7b217_room_05_quantized.png",
+      "unknown_color_rate_before_quantization": 0.26556396484375,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 1.4940121173858643,
+      "max_palette_distance": 70.41307067871094
+    },
+    {
+      "sample_id": "60b0ee4f-0ee5-4e85-b907-9d03003c257a_room_03",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/60b0ee4f-0ee5-4e85-b907-9d03003c257a_room_03_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/60b0ee4f-0ee5-4e85-b907-9d03003c257a_room_03_quantized.png",
+      "unknown_color_rate_before_quantization": 0.1257476806640625,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 1.1183886528015137,
+      "max_palette_distance": 74.49160766601562
+    },
+    {
+      "sample_id": "9a6efb10-bdba-46e5-85e8-75993fd1235a_room_03",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/9a6efb10-bdba-46e5-85e8-75993fd1235a_room_03_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/9a6efb10-bdba-46e5-85e8-75993fd1235a_room_03_quantized.png",
+      "unknown_color_rate_before_quantization": 0.1677703857421875,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 1.3644428253173828,
+      "max_palette_distance": 72.68424987792969
+    },
+    {
+      "sample_id": "c3736ed2-0444-41af-a49c-dad4e42a65b6_room_01",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/c3736ed2-0444-41af-a49c-dad4e42a65b6_room_01_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/c3736ed2-0444-41af-a49c-dad4e42a65b6_room_01_quantized.png",
+      "unknown_color_rate_before_quantization": 0.192718505859375,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 1.3809088468551636,
+      "max_palette_distance": 79.37883758544922
+    },
+    {
+      "sample_id": "c3736ed2-0444-41af-a49c-dad4e42a65b6_room_05",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/c3736ed2-0444-41af-a49c-dad4e42a65b6_room_05_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/c3736ed2-0444-41af-a49c-dad4e42a65b6_room_05_quantized.png",
+      "unknown_color_rate_before_quantization": 0.0968780517578125,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 0.5590121150016785,
+      "max_palette_distance": 71.40727996826172
+    },
+    {
+      "sample_id": "c3736ed2-0444-41af-a49c-dad4e42a65b6_room_06",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/c3736ed2-0444-41af-a49c-dad4e42a65b6_room_06_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/c3736ed2-0444-41af-a49c-dad4e42a65b6_room_06_quantized.png",
+      "unknown_color_rate_before_quantization": 0.0706939697265625,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 0.6648865342140198,
+      "max_palette_distance": 100.81170654296875
+    },
+    {
+      "sample_id": "ce9be83e-8209-48cb-910a-17f7375b15c6_room_08",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/ce9be83e-8209-48cb-910a-17f7375b15c6_room_08_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/ce9be83e-8209-48cb-910a-17f7375b15c6_room_08_quantized.png",
+      "unknown_color_rate_before_quantization": 0.2621612548828125,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 4.059405326843262,
+      "max_palette_distance": 99.1665267944336
+    },
+    {
+      "sample_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_00",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/faf62fbc-739a-40da-aac3-12b6807ee7e3_room_00_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/faf62fbc-739a-40da-aac3-12b6807ee7e3_room_00_quantized.png",
+      "unknown_color_rate_before_quantization": 0.226654052734375,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 1.845598578453064,
+      "max_palette_distance": 80.38656616210938
+    },
+    {
+      "sample_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_01",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/faf62fbc-739a-40da-aac3-12b6807ee7e3_room_01_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/faf62fbc-739a-40da-aac3-12b6807ee7e3_room_01_quantized.png",
+      "unknown_color_rate_before_quantization": 0.2238616943359375,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 4.106777667999268,
+      "max_palette_distance": 84.7289810180664
+    },
+    {
+      "sample_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_02",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/faf62fbc-739a-40da-aac3-12b6807ee7e3_room_02_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/faf62fbc-739a-40da-aac3-12b6807ee7e3_room_02_quantized.png",
+      "unknown_color_rate_before_quantization": 0.1623687744140625,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 1.873189926147461,
+      "max_palette_distance": 78.29431915283203
+    },
+    {
+      "sample_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_05",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/faf62fbc-739a-40da-aac3-12b6807ee7e3_room_05_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/faf62fbc-739a-40da-aac3-12b6807ee7e3_room_05_quantized.png",
+      "unknown_color_rate_before_quantization": 0.310150146484375,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 5.080946922302246,
+      "max_palette_distance": 122.00409698486328
+    },
+    {
+      "sample_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_08",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/faf62fbc-739a-40da-aac3-12b6807ee7e3_room_08_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/faf62fbc-739a-40da-aac3-12b6807ee7e3_room_08_quantized.png",
+      "unknown_color_rate_before_quantization": 0.2941436767578125,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 1.9785339832305908,
+      "max_palette_distance": 73.55950164794922
+    },
+    {
+      "sample_id": "fde749eb-c254-4ab8-af73-c9591a476a85_room_04",
+      "input": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/infer/fde749eb-c254-4ab8-af73-c9591a476a85_room_04_raw.png",
+      "output": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/quantized/fde749eb-c254-4ab8-af73-c9591a476a85_room_04_quantized.png",
+      "unknown_color_rate_before_quantization": 0.2602996826171875,
+      "unknown_color_rate_after_quantization": 0.0,
+      "mean_palette_distance": 2.977998733520508,
+      "max_palette_distance": 80.75890350341797
+    }
+  ],
+  "status": "pass"
+}

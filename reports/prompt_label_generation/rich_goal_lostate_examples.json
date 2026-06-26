@@ -1,0 +1,112 @@
+[
+  {
+    "schema_version": "goal-lostate-rich-v1",
+    "state_role": "goal",
+    "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_00",
+    "room_type": "livingroom",
+    "furniture_slots": [
+      {
+        "slot_id": "slot_coffee_table",
+        "category": "coffee_table",
+        "required": true,
+        "count": 1
+      },
+      {
+        "slot_id": "slot_dining_chair",
+        "category": "dining_chair",
+        "required": true,
+        "count": 4
+      },
+      {
+        "slot_id": "slot_dining_table",
+        "category": "dining_table",
+        "required": true,
+        "count": 1
+      }
+    ],
+    "required_counts": {
+      "coffee_table": 1,
+      "dining_chair": 4,
+      "dining_table": 1
+    },
+    "pairwise_constraints": [
+      {
+        "subject": "dining_chair",
+        "predicate": "near",
+        "object": "dining_table",
+        "source": "rule"
+      },
+      {
+        "subject": "coffee_table",
+        "predicate": "near",
+        "object": "dining_table",
+        "source": "rule"
+      }
+    ],
+    "global_constraints": [
+      "inside_room",
+      "avoid_overlap",
+      "palette_exact",
+      "use_architecture_condition_image",
+      "door_clearance_free"
+    ],
+    "architecture_condition_ref": "meta/36c96aa6-a318-4212-aecc-22a206d7b217_room_00_architecture.json"
+  },
+  {
+    "schema_version": "goal-lostate-rich-v1",
+    "state_role": "goal",
+    "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_01",
+    "room_type": "elderlyroom",
+    "furniture_slots": [
+      {
+        "slot_id": "slot_desk",
+        "category": "desk",
+        "required": true,
+        "count": 2
+      }
+    ],
+    "required_counts": {
+      "desk": 2
+    },
+    "pairwise_constraints": [],
+    "global_constraints": [
+      "inside_room",
+      "avoid_overlap",
+      "palette_exact",
+      "use_architecture_condition_image"
+    ],
+    "architecture_condition_ref": "meta/36c96aa6-a318-4212-aecc-22a206d7b217_room_01_architecture.json"
+  },
+  {
+    "schema_version": "goal-lostate-rich-v1",
+    "state_role": "goal",
+    "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_02",
+    "room_type": "study",
+    "furniture_slots": [
+      {
+        "slot_id": "slot_armchair",
+        "category": "armchair",
+        "required": true,
+        "count": 1
+      },
+      {
+        "slot_id": "slot_desk",
+        "category": "desk",
+        "required": true,
+        "count": 1
+      }
+    ],
+    "required_counts": {
+      "armchair": 1,
+      "desk": 1
+    },
+    "pairwise_constraints": [],
+    "global_constraints": [
+      "inside_room",
+      "avoid_overlap",
+      "palette_exact",
+      "use_architecture_condition_image"
+    ],
+    "architecture_condition_ref": "meta/36c96aa6-a318-4212-aecc-22a206d7b217_room_02_architecture.json"
+  }
+]
