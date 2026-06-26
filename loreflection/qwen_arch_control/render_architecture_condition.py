@@ -10,6 +10,19 @@ from PIL import Image, ImageDraw
 from loreflection.semantic_registry import SemanticRegistry, load_registry
 
 
+def _normalize_box(box: list[Any] | tuple[Any, ...], image_size: int) -> tuple[int, int, int, int]:
+    if len(box) != 4:
+        raise ValueError(f"bbox_px must contain 4 values, got {box}")
+    x0, y0, x1, y1 = [int(round(float(v))) for v in box]
+    left, right = sorted((x0, x1))
+    top, bottom = sorted((y0, y1))
+    left = max(0, min(image_size - 1, left))
+    right = max(0, min(image_size - 1, right))
+    top = max(0, min(image_size - 1, top))
+    bottom = max(0, min(image_size - 1, bottom))
+    return left, top, right, bottom
+
+
 def render_architecture_condition(
     architecture: dict[str, Any],
     output_path: Path,
@@ -29,7 +42,7 @@ def render_architecture_condition(
         box = anchor.get("bbox_px")
         polygon = anchor.get("polygon_px")
         if anchor_type in {"door", "window"} and box:
-            draw.rectangle(tuple(box), fill=palette[anchor_type])
+            draw.rectangle(_normalize_box(box, image_size), fill=palette[anchor_type])
             anchor_counts[anchor_type] += 1
         elif anchor_type in {"clearance", "non_placeable"} and polygon:
             # The frozen registry has no separate clearance class. Retain it as

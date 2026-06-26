@@ -1,0 +1,4 @@
+name: p1_small_text_only_baseline
+route: qwen_architecture_incontext_control_ablation
+run_this_round: false
+description: Prompt-only baseline. Do not pass context_image. Prepared for ablation only.

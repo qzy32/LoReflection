@@ -1,0 +1,28 @@
+name: p1_small_full_condition
+route: qwen_architecture_incontext_control
+training_ready: true
+data:
+  dataset_root: data/loreflection_qwen_arch_control_p1_small
+  metadata: data/loreflection_qwen_arch_control_p1_small/metadata.csv
+  image: target_semantic_layout_image
+  prompt: compiled_text_prompt
+  context_image: architecture_condition_image
+training:
+  num_samples: 200
+  image_size: 256
+  num_epochs: 3
+  dataset_repeat: 10
+  learning_rate: 1.0e-4
+  lora_rank: 64
+  max_pixels: 65536
+  init_lora: outputs/qwen_arch_incontext_p0_sanity/train_p0_50/run/epoch-2.safetensors
+  data_file_keys: image,context_image
+  extra_inputs: context_image
+forbidden_legacy_route:
+  - blockwise_controlnet_image
+  - blockwise_controlnet_inpaint_mask
+  - control_mask
+  - I_bad
+  - I_target
+  - Qwen-Image-Blockwise-ControlNet-Inpaint
+  - semantic_repair4
