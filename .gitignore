@@ -34,3 +34,23 @@ third_party/*/
 *.pickle
 *.onnx
 *.log
+
+# P0/P1 generated datasets and training outputs
+data/loreflection_qwen_arch_control_real_p0/
+outputs/qwen_arch_incontext_p0_sanity/
+reports/p0_real_review/
+reports/p0_real_review_package*.tar.gz
+reports/p0_real_review_package*.zip
+reports/p0_sanity/
+
+# model checkpoints
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+
+# generated images
+outputs/**/*.png
+outputs/**/*.jpg
+outputs/**/*.jpeg
+outputs/**/*.webp
