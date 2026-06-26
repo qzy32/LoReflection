@@ -1,0 +1,9 @@
+{
+  "status": "partial_not_verified_locally",
+  "palette_contract_module_added": true,
+  "prompt_compiler_v2_added": true,
+  "compiled_metadata_generated": "NOT VERIFIED: source P1 data directories are not present in local snapshot",
+  "class_color_confusion": "NOT VERIFIED: prediction/quantized output directories are not present locally",
+  "qwen_reads_palette_contract_ref_directly": false,
+  "qwen_receives_palette_control_via_prompt": true
+}

@@ -1,0 +1,80 @@
+{
+  "commit_snapshot": "7385f54 Audit Qwen training inputs and prompt construction",
+  "palette_contract_added": true,
+  "palette_control_compiler_added": true,
+  "qwen_reads_palette_contract_ref_directly": false,
+  "metric_transform_known_snapshot": {
+    "status": "snapshot_verified_from_previous_report_not_recomputed_locally",
+    "qwen_input_resolution": "256x256 from metric_v2 training/eval contract snapshot",
+    "metric_transform_exists_rate": 1.0,
+    "roundtrip_error_p95_m": 0.01956249497439548,
+    "area_consistency_error_p95": 0.014661426519215742,
+    "target_bbox_fallback_rate": 0.0,
+    "condition_contains_furniture_rate": 0.0,
+    "target_has_furniture_pixels_rate": 1.0,
+    "pixels_per_meter": "typically 32.0 for 8m / 256px fixed metric canvas; exact per-sample values require server dataset",
+    "meters_per_pixel": "typically 0.03125m/px for 32 px/m; exact per-sample values require server dataset",
+    "server_recompute": "NOT VERIFIED: P1 metric_v2 dataset not available locally"
+  },
+  "llm_functional_comparison": {
+    "basic_report": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/eval/p1_small_metric_v2_eval_report.json",
+    "llm_functional_report": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2_llm_functional/eval/llm_functional_eval_report.json",
+    "metrics": [
+      {
+        "metric": "target_pixel_agreement_after_quantization",
+        "basic_metric_v2": 0.7908599853515625,
+        "llm_functional": 0.844378662109375,
+        "delta": 0.05351867675781241
+      },
+      {
+        "metric": "furniture_pixel_precision",
+        "basic_metric_v2": 0.28292324104491695,
+        "llm_functional": 0.361098340364261,
+        "delta": 0.07817509931934402
+      },
+      {
+        "metric": "furniture_pixel_recall",
+        "basic_metric_v2": 0.6430866196874864,
+        "llm_functional": 0.6256751433448593,
+        "delta": -0.017411476342627075
+      },
+      {
+        "metric": "furniture_pixel_f1",
+        "basic_metric_v2": 0.39296374354091557,
+        "llm_functional": 0.45791716052151077,
+        "delta": 0.0649534169805952
+      },
+      {
+        "metric": "palette_unknown_rate_after_quantization",
+        "basic_metric_v2": 0.0,
+        "llm_functional": 0.0,
+        "delta": 0.0
+      }
+    ],
+    "decision": "llm_prompt_does_not_break_training"
+  },
+  "goal_aligned_prompt_audit": {
+    "num_samples": 200,
+    "json_parse_success_rate": 1.0,
+    "starts_with_context_control_rate": 1.0,
+    "coordinate_leakage_rate": 0.0,
+    "invented_category_rate": 0.0,
+    "appearance_word_rate": 0.0,
+    "required_slot_coverage_rate": 1.0,
+    "relation_coverage_rate": 0.98,
+    "hallucinated_relation_rate": 0.0,
+    "goal_consistency_rate": 1.0,
+    "architecture_condition_mention_rate": 0.98,
+    "status": "pass",
+    "llm_actual_generation_used": true,
+    "llm_generated_count": 4,
+    "fallback_count": 196,
+    "model_path": "/wuqingyaoa800/chengjiajia_datas/models/Qwen2.5-7B-Instruct"
+  },
+  "recommend_p1_1000_now": false,
+  "recommend_compiled_palette_ablation": true,
+  "local_limitations": [
+    "A800 SSH unavailable",
+    "P1 server data/outputs not present locally"
+  ]
+}
