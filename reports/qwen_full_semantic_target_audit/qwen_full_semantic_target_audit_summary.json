@@ -1,0 +1,13 @@
+{
+  "loreflection_current_target": "furniture_only",
+  "loreflection_context_contains_furniture": false,
+  "loreflection_target_contains_structural_architecture": false,
+  "reference_target": "full_semantic_architecture_plus_furniture",
+  "recommend_change": true,
+  "recommended_route": "target_full_semantic = architecture condition image + furniture overlay; metadata image points to target_full_semantic; keep target_furniture_only for parser/eval.",
+  "full_semantic_contract_status": "pass",
+  "architecture_preservation_rate_where_no_furniture": 1.0,
+  "forbidden_architecture_overwrite_rate": 0.0,
+  "recommend_full_semantic_ablation_training": true,
+  "recommend_p1_1000_now": false
+}
