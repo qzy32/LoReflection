@@ -1,0 +1,10 @@
+# DiffSynth Training Config Audit
+
+| experiment | framework | metadata | output | data_file_keys | extra_inputs | old route terms | params |
+|---|---|---|---|---|---|---|---|
+| basic_metric_v2 | DiffSynth-Studio Qwen Image model_training/train.py | `/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_p1_small_metric_v2/metadata.csv` | `/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/train` | True | True | [] | epochs=3, repeat=10, batch=1, lr=1e-4, lora_rank=64, max_pixels=65536 |
+| llm_functional | DiffSynth-Studio Qwen Image model_training/train.py | `/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_p1_small_metric_v2_prompt_labels_llm/metadata_llm_functional.csv` | `/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2_llm_functional/train` | True | True | [] | epochs=3, repeat=10, batch=1, lr=1e-4, lora_rank=64, max_pixels=65536 |
+| mixed_llm | DiffSynth-Studio Qwen Image model_training/train.py | `/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_p1_small_metric_v2_prompt_labels_llm/metadata_mixed_llm_variants.csv` | `/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2_mixed_llm/train` | True | True | [] | epochs=3, repeat=10, batch=1, lr=1e-4, lora_rank=64, max_pixels=65536 |
+| goal_aligned_llm | DiffSynth-Studio Qwen Image model_training/train.py | `/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_p1_small_metric_v2_goal_aligned_llm_prompts/metadata_goal_aligned_relation_rich.csv` | `/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2_goal_aligned_llm/train` | True | True | [] | epochs=3, repeat=10, batch=1, lr=1e-4, lora_rank=64, max_pixels=65536 |
+
+All current training wrappers route through DiffSynth-Studio `examples/qwen_image/model_training/train.py` and should use Qwen-Image-In-Context-Control-Union with `image,context_image` and `extra_inputs=context_image`.
