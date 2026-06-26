@@ -1,0 +1,61 @@
+[
+  {
+    "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_01",
+    "room_type": "elderlyroom",
+    "reason": "room_type=elderlyroom",
+    "furniture_counts": {
+      "desk": 2
+    },
+    "prompt_llm_functional": "Context_Control. Arrange 2 desks within the room, maintaining the requirement that they remain inside the room boundaries and avoid overlapping each other. Adhere to the specific color palette designated for an elderlyroom."
+  },
+  {
+    "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_05",
+    "room_type": "bedroom",
+    "reason": "bedroom with sparse desk-heavy furniture",
+    "furniture_counts": {
+      "desk": 2,
+      "pendant_lamp": 1
+    },
+    "prompt_llm_functional": "Context_Control. Arrange two desks and one pendant lamp within the bedroom space, making sure there is no overlap and that all items remain within the room boundaries."
+  },
+  {
+    "sample_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_00",
+    "room_type": "bedroom",
+    "reason": "mixed bedroom furniture types",
+    "furniture_counts": {
+      "ceiling_lamp": 1,
+      "desk": 1,
+      "kids_bed": 1,
+      "lazy_sofa": 1,
+      "single_bed": 1
+    },
+    "prompt_llm_functional": "Context_Control. Arrange the following furniture in the bedroom: 1 ceiling lamp, 1 desk, 1 kids bed, 1 lazy sofa, and 1 single bed. Avoid overlapping and follow the architectural constraints provided."
+  },
+  {
+    "sample_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_01",
+    "room_type": "bedroom",
+    "reason": "mixed bedroom furniture types",
+    "furniture_counts": {
+      "ceiling_lamp": 1,
+      "desk": 2,
+      "kids_bed": 1,
+      "lounge_chair": 1
+    },
+    "prompt_llm_functional": "Context_Control. Arrange 1 ceiling lamp, 2 desks, 1 kids bed, and 1 lounge chair within the bedroom. Avoid overlapping and ensure all furniture is positioned inside the room. Use the architectural conditions to guide placement."
+  },
+  {
+    "sample_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_05",
+    "room_type": "livingroom",
+    "reason": "unusual dense furniture combination",
+    "furniture_counts": {
+      "ceiling_lamp": 2,
+      "coffee_table": 1,
+      "desk": 1,
+      "lazy_sofa": 1,
+      "multi_seat_sofa": 1,
+      "table": 1,
+      "tv_stand": 1
+    },
+    "prompt_llm_functional": "Context_Control. Arrange the following furniture in the living room: 2 ceiling lamps, 1 coffee table, 1 desk, 1 lazy sofa, 1 multi seat sofa, 1 table, and 1 tv stand. The tv stand should be placed near the multi seat sofa, and the coffee table should also be near the multi seat sofa. Ensure all items are within the room boundaries, avoid overlapping, use the exact palette, and maintain clearance around doors and windows."
+  }
+]

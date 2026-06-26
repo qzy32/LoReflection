@@ -1,0 +1,15 @@
+{
+  "num_samples": 200,
+  "json_parse_success_rate": 1.0,
+  "starts_with_context_control_rate": 1.0,
+  "coordinate_leakage_rate": 0.0,
+  "required_slot_coverage_rate": 1.0,
+  "unknown_category_term_rate": 0.0,
+  "invented_category_rate": 0.0,
+  "empty_prompt_rate": 0.0,
+  "duplicate_prompt_rate": 0.0,
+  "llm_actual_generation_used": true,
+  "expected_count": 200,
+  "count_matches_expected": true,
+  "status": "pass"
+}
