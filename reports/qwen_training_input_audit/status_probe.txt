@@ -1,0 +1,84 @@
+## branch
+arch-p0-real-sanity
+## log
+7406bf6 Generate LLM prompt labels with Qwen text model
+68903ac Train metric-v2 P1-small and add prompt label dataset
+daa0d08 Add metric-v2 architecture condition renderer
+e55504c Add P1-small baseline eval and architecture scale contract
+ce2bd62 Add real 3D-FRONT Qwen Architecture In-Context P0 sanity pipeline
+## status
+?? loreflection/qwen_arch_control/prompt_labels/audit_goal_aligned_prompts.py
+?? loreflection/qwen_arch_control/prompt_labels/generate_goal_aligned_llm_prompts.py
+?? loreflection/qwen_arch_control/prompt_labels/goal_aligned_llm_request_builder.py
+?? loreflection/qwen_arch_control/prompt_labels/placement_order_planner.py
+?? loreflection/qwen_arch_control/prompt_labels/relation_triplet_extractor.py
+?? reports/p1_small/P1_SMALL_DATASET_SUMMARY.md
+?? reports/p1_small_metric_v2_llm_functional_summary/
+?? reports/prompt_label_generation/GOAL_ALIGNED_LLM_PROMPT_EXAMPLES.md
+?? reports/prompt_label_generation/GOAL_ALIGNED_LLM_PROMPT_SUMMARY.md
+?? reports/prompt_label_generation/LLM_FUNCTIONAL_TRAINING_COMPARISON.md
+?? reports/prompt_label_generation/goal_aligned_llm_prompt_audit_report.json
+?? reports/prompt_label_generation/llm_functional_training_comparison.json
+?? reports/qwen_training_input_audit/
+?? scripts/qwen_arch_control/evaluate_p1_small_metric_v2_goal_aligned_llm_outputs.sh
+?? scripts/qwen_arch_control/evaluate_p1_small_metric_v2_llm_functional_outputs.sh
+?? scripts/qwen_arch_control/evaluate_p1_small_metric_v2_mixed_llm_outputs.sh
+?? scripts/qwen_arch_control/generate_goal_aligned_llm_prompts.py
+?? scripts/qwen_arch_control/run_p1_small_metric_v2_goal_aligned_llm_infer.sh
+?? scripts/qwen_arch_control/run_p1_small_metric_v2_goal_aligned_llm_train.sh
+?? scripts/qwen_arch_control/run_p1_small_metric_v2_llm_functional_infer.sh
+?? scripts/qwen_arch_control/run_p1_small_metric_v2_llm_functional_train.sh
+?? scripts/qwen_arch_control/run_p1_small_metric_v2_mixed_llm_infer.sh
+?? scripts/qwen_arch_control/run_p1_small_metric_v2_mixed_llm_train.sh
+?? scripts/qwen_arch_control/summarize_prompt_source_ablation.py
+?? tests/qwen_arch_control/test_goal_aligned_llm_request_builder.py
+?? tests/qwen_arch_control/test_goal_aligned_prompt_audit.py
+?? tests/qwen_arch_control/test_llm_functional_training_contract.py
+?? tests/qwen_arch_control/test_placement_order_planner.py
+?? tests/qwen_arch_control/test_relation_triplet_extractor.py
+## nvidia-smi
+Fri Jun 26 18:02:35 2026
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.144.03             Driver Version: 550.144.03     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A800-SXM4-80GB          On  |   00000000:10:00.0 Off |                    0 |
+| N/A   48C    P0             66W /  400W |       4MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA A800-SXM4-80GB          On  |   00000000:16:00.0 Off |                    0 |
+| N/A   56C    P0            195W /  400W |   60719MiB /  81920MiB |     59%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA A800-SXM4-80GB          On  |   00000000:49:00.0 Off |                    0 |
+| N/A   65C    P0            195W /  400W |   60737MiB /  81920MiB |     42%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA A800-SXM4-80GB          Off |   00000000:4D:00.0 Off |                    0 |
+| N/A   76C    P0            128W /  400W |   51699MiB /  81920MiB |     75%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
++-----------------------------------------------------------------------------------------+
+## processes
+ 728968 qiuziyan    02:04:59 bash -lc CUDA_VISIBLE_DEVICES=2 bash scripts/qwen_arch_control/run_p1_small_metric_v2_mixed_llm_train.sh && bash scripts/qwen_arch_control/run_p1_small_metric_v2_mixed_llm_infer.sh && bash scripts/qwen_arch_control/evaluate_p1_small_metric_v2_mixed_llm_outputs.sh
+ 728970 qiuziyan    02:04:59 bash scripts/qwen_arch_control/run_p1_small_metric_v2_mixed_llm_train.sh
+ 728973 qiuziyan    02:04:59 bash /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/scripts/qwen_arch_control/run_p1_small_metric_v2_train.sh
+ 728981 qiuziyan    02:04:59 /home/chengjiajia/anaconda3/envs/DiffSynth-Studio/bin/python3.10 /home/chengjiajia/anaconda3/envs/DiffSynth-Studio/bin/accelerate launch --num_processes 1 examples/qwen_image/model_training/train.py --dataset_base_path /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_p1_small_metric_v2_prompt_labels_llm --dataset_metadata_path /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_p1_small_metric_v2_prompt_labels_llm/metadata_mixed_llm_variants.csv --data_file_keys image,context_image --max_pixels 65536 --dataset_repeat 10 --dataset_num_workers 0 --model_id_with_origin_paths Qwen/Qwen-Image:transformer/diffusion_pytorch_model*.safetensors,Qwen/Qwen-Image:text_encoder/model*.safetensors,Qwen/Qwen-Image:vae/diffusion_pytorch_model.safetensors --tokenizer_path models/Qwen/Qwen-Image/tokenizer --processor_path models/Qwen/Qwen-Image-Edit/processor --learning_rate 1e-4 --num_epochs 3 --remove_prefix_in_ckpt pipe.dit. --output_path /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2_mixed_llm/train/run --lora_base_model dit --lora_target_modules to_q,to_k,to_v,add_q_proj,add_k_proj,add_v_proj,to_out.0,to_add_out,img_mlp.net.2,img_mod.1,txt_mlp.net.2,txt_mod.1 --lora_rank 64 --lora_checkpoint /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/train/run/epoch-2.safetensors --extra_inputs context_image --use_gradient_checkpointing --find_unused_parameters
+ 728982 qiuziyan    02:04:59 tee /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2_mixed_llm/logs/train.log
+ 729139 qiuziyan    02:04:56 /home/chengjiajia/anaconda3/envs/DiffSynth-Studio/bin/python3.10 examples/qwen_image/model_training/train.py --dataset_base_path /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_p1_small_metric_v2_prompt_labels_llm --dataset_metadata_path /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_p1_small_metric_v2_prompt_labels_llm/metadata_mixed_llm_variants.csv --data_file_keys image,context_image --max_pixels 65536 --dataset_repeat 10 --dataset_num_workers 0 --model_id_with_origin_paths Qwen/Qwen-Image:transformer/diffusion_pytorch_model*.safetensors,Qwen/Qwen-Image:text_encoder/model*.safetensors,Qwen/Qwen-Image:vae/diffusion_pytorch_model.safetensors --tokenizer_path models/Qwen/Qwen-Image/tokenizer --processor_path models/Qwen/Qwen-Image-Edit/processor --learning_rate 1e-4 --num_epochs 3 --remove_prefix_in_ckpt pipe.dit. --output_path /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2_mixed_llm/train/run --lora_base_model dit --lora_target_modules to_q,to_k,to_v,add_q_proj,add_k_proj,add_v_proj,to_out.0,to_add_out,img_mlp.net.2,img_mod.1,txt_mlp.net.2,txt_mod.1 --lora_rank 64 --lora_checkpoint /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/train/run/epoch-2.safetensors --extra_inputs context_image --use_gradient_checkpointing --find_unused_parameters
+ 787704 qiuziyan    01:04:40 bash -lc CUDA_VISIBLE_DEVICES=1 bash scripts/qwen_arch_control/run_p1_small_metric_v2_goal_aligned_llm_train.sh && bash scripts/qwen_arch_control/run_p1_small_metric_v2_goal_aligned_llm_infer.sh && bash scripts/qwen_arch_control/evaluate_p1_small_metric_v2_goal_aligned_llm_outputs.sh
+ 787706 qiuziyan    01:04:40 bash scripts/qwen_arch_control/run_p1_small_metric_v2_goal_aligned_llm_train.sh
+ 787709 qiuziyan    01:04:40 bash /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/scripts/qwen_arch_control/run_p1_small_metric_v2_train.sh
+ 787717 qiuziyan    01:04:40 /home/chengjiajia/anaconda3/envs/DiffSynth-Studio/bin/python3.10 /home/chengjiajia/anaconda3/envs/DiffSynth-Studio/bin/accelerate launch --num_processes 1 examples/qwen_image/model_training/train.py --dataset_base_path /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_p1_small_metric_v2_goal_aligned_llm_prompts --dataset_metadata_path /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_p1_small_metric_v2_goal_aligned_llm_prompts/metadata_goal_aligned_relation_rich.csv --data_file_keys image,context_image --max_pixels 65536 --dataset_repeat 10 --dataset_num_workers 0 --model_id_with_origin_paths Qwen/Qwen-Image:transformer/diffusion_pytorch_model*.safetensors,Qwen/Qwen-Image:text_encoder/model*.safetensors,Qwen/Qwen-Image:vae/diffusion_pytorch_model.safetensors --tokenizer_path models/Qwen/Qwen-Image/tokenizer --processor_path models/Qwen/Qwen-Image-Edit/processor --learning_rate 1e-4 --num_epochs 3 --remove_prefix_in_ckpt pipe.dit. --output_path /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2_goal_aligned_llm/train/run --lora_base_model dit --lora_target_modules to_q,to_k,to_v,add_q_proj,add_k_proj,add_v_proj,to_out.0,to_add_out,img_mlp.net.2,img_mod.1,txt_mlp.net.2,txt_mod.1 --lora_rank 64 --lora_checkpoint /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/train/run/epoch-2.safetensors --extra_inputs context_image --use_gradient_checkpointing --find_unused_parameters
+ 787718 qiuziyan    01:04:40 tee /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2_goal_aligned_llm/logs/train.log
+ 787904 qiuziyan    01:04:37 /home/chengjiajia/anaconda3/envs/DiffSynth-Studio/bin/python3.10 examples/qwen_image/model_training/train.py --dataset_base_path /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_p1_small_metric_v2_goal_aligned_llm_prompts --dataset_metadata_path /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_p1_small_metric_v2_goal_aligned_llm_prompts/metadata_goal_aligned_relation_rich.csv --data_file_keys image,context_image --max_pixels 65536 --dataset_repeat 10 --dataset_num_workers 0 --model_id_with_origin_paths Qwen/Qwen-Image:transformer/diffusion_pytorch_model*.safetensors,Qwen/Qwen-Image:text_encoder/model*.safetensors,Qwen/Qwen-Image:vae/diffusion_pytorch_model.safetensors --tokenizer_path models/Qwen/Qwen-Image/tokenizer --processor_path models/Qwen/Qwen-Image-Edit/processor --learning_rate 1e-4 --num_epochs 3 --remove_prefix_in_ckpt pipe.dit. --output_path /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2_goal_aligned_llm/train/run --lora_base_model dit --lora_target_modules to_q,to_k,to_v,add_q_proj,add_k_proj,add_v_proj,to_out.0,to_add_out,img_mlp.net.2,img_mod.1,txt_mlp.net.2,txt_mod.1 --lora_rank 64 --lora_checkpoint /wuqingyaoa800/qiuziyan/LoReflection_arch_p0/outputs/qwen_arch_incontext_p1_small_metric_v2/train/run/epoch-2.safetensors --extra_inputs context_image --use_gradient_checkpointing --find_unused_parameters
+ 830075 qiuziyan       20:52 bash -c cd /wuqingyaoa800/qiuziyan/LoReflection_arch_p0 || exit 1 sleep 3600 for name in goal_aligned_llm mixed_llm; do   out=outputs/qwen_arch_incontext_p1_small_metric_v2_${name}   echo "=== $name ==="   echo ckpt=$(test -f $out/train/run/epoch-2.safetensors && echo yes || echo no)   echo eval=$(ls $out/eval/*eval_report.json 2>/dev/null | head -1 || true)   if [ -f $out/logs/train_infer_eval.pid ]; then pid=$(cat $out/logs/train_infer_eval.pid); ps -p "$pid" -o pid,stat,etime,cmd || true; fi   tail -n 8 $out/logs/train_infer_eval_nohup.log 2>/dev/null || true  done nvidia-smi --query-gpu=index,memory.used,memory.free,utilization.gpu --format=csv,noheader
