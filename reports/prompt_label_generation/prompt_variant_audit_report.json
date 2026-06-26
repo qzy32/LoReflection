@@ -1,0 +1,12 @@
+{
+  "num_samples": 200,
+  "variant_count_per_sample": 3,
+  "starts_with_context_control_rate": 1.0,
+  "coordinate_leakage_rate": 0.0,
+  "required_slot_coverage_rate": 1.0,
+  "unknown_category_term_rate": 0.0,
+  "template_variant_rate": 1.0,
+  "llm_request_exported": true,
+  "llm_actual_generation_used": false,
+  "status": "pass"
+}
