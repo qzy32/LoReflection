@@ -1,0 +1,4 @@
+name: p1_small_boundary_only_ablation
+route: qwen_architecture_incontext_control_ablation
+run_this_round: false
+description: Boundary-only architecture condition ablation. Prepared for later diagnosis only.

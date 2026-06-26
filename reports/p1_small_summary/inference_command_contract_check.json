@@ -1,0 +1,11 @@
+{
+  "uses_context_image": true,
+  "uses_p0_lora": false,
+  "uses_p1_lora": true,
+  "uses_lora_checkpoint": true,
+  "uses_incontext_union": true,
+  "missing_required_terms": [],
+  "forbidden_inpaint_fields_present": false,
+  "forbidden_terms_found": [],
+  "status": "pass"
+}

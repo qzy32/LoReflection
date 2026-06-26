@@ -137,6 +137,8 @@ def evaluate(
     metadata_path: Path,
     train_logs: list[Path],
     script_paths: list[Path],
+    checkpoint_used: Path | None = None,
+    phase_label: str = "p0",
 ) -> dict[str, object]:
     text = _read_texts(train_logs + script_paths)
     required = {
@@ -187,7 +189,7 @@ def evaluate(
         "dataset_is_real_3dfront": True,
         "num_train_samples": sum(1 for _ in csv.DictReader(metadata_path.open("r", encoding="utf-8"))),
         "num_infer_samples": len(infer_raw),
-        "checkpoint_used": str(output_root / "train_p0_50" / "run" / "epoch-2.safetensors"),
+        "checkpoint_used": str(checkpoint_used or (output_root / "train_p0_50" / "run" / "epoch-2.safetensors")),
         "palette_unknown_rate_before_quantization": quant_report.get(
             "unknown_color_rate_before_quantization"
         ),
@@ -231,7 +233,9 @@ def evaluate(
     inference_forbidden = [term for term in forbidden if term in inference_text]
     inference_contract = {
         "uses_context_image": "context_image" not in inference_missing,
-        "uses_p0_lora": "epoch-2.safetensors" not in inference_missing,
+        "uses_p0_lora": "epoch-2.safetensors" not in inference_missing and phase_label == "p0",
+        "uses_p1_lora": "epoch-2.safetensors" not in inference_missing and phase_label == "p1",
+        "uses_lora_checkpoint": "epoch-2.safetensors" not in inference_missing,
         "uses_incontext_union": "Qwen-Image-In-Context-Control-Union" not in inference_missing,
         "missing_required_terms": inference_missing,
         "forbidden_inpaint_fields_present": bool(inference_forbidden),
@@ -252,8 +256,10 @@ def main() -> int:
     parser.add_argument("--metadata", type=Path, required=True)
     parser.add_argument("--train-log", action="append", type=Path, default=[])
     parser.add_argument("--script", action="append", type=Path, default=[])
+    parser.add_argument("--checkpoint-used", type=Path, default=None)
+    parser.add_argument("--phase-label", choices=["p0", "p1"], default="p0")
     args = parser.parse_args()
-    report = evaluate(args.output_root, args.dataset_base, args.metadata, args.train_log, args.script)
+    report = evaluate(args.output_root, args.dataset_base, args.metadata, args.train_log, args.script, args.checkpoint_used, args.phase_label)
     return 0 if not report["forbidden_inpaint_fields_present"] else 1
 
 
