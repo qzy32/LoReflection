@@ -1,0 +1,86 @@
+{
+  "schema_version": "goal-lostate-rich-v1",
+  "state_role": "goal",
+  "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_00",
+  "room_type": "livingroom",
+  "furniture_slots": [
+    {
+      "slot_id": "slot_coffee_table",
+      "category": "coffee_table",
+      "required": true,
+      "count": 1
+    },
+    {
+      "slot_id": "slot_dining_chair",
+      "category": "dining_chair",
+      "required": true,
+      "count": 4
+    },
+    {
+      "slot_id": "slot_dining_table",
+      "category": "dining_table",
+      "required": true,
+      "count": 1
+    }
+  ],
+  "required_counts": {
+    "coffee_table": 1,
+    "dining_chair": 4,
+    "dining_table": 1
+  },
+  "pairwise_constraints": [
+    {
+      "subject": "dining_chair",
+      "predicate": "near",
+      "object": "dining_table",
+      "source": "geometry_verified",
+      "geometry_validation": {
+        "status": "pass",
+        "reason": null,
+        "evidence": {
+          "subject_instance_id": "furniture/102",
+          "object_instance_id": "furniture/103",
+          "edge_gap_m": 0.0,
+          "center_distance_m": 0.766599385402832,
+          "edge_gap_threshold_m": 0.6,
+          "center_threshold_m": 1.5
+        }
+      },
+      "validation_source": "layout_json",
+      "prompt_allowed": true
+    }
+  ],
+  "global_constraints": [
+    "inside_room",
+    "avoid_overlap",
+    "palette_exact",
+    "use_architecture_condition_image",
+    "door_clearance_free"
+  ],
+  "architecture_condition_ref": "meta/36c96aa6-a318-4212-aecc-22a206d7b217_room_00_architecture.json",
+  "dropped_pairwise_constraints": [
+    {
+      "subject": "coffee_table",
+      "predicate": "near",
+      "object": "dining_table",
+      "source": "rule",
+      "geometry_validation": {
+        "status": "invalid",
+        "reason": "target_geometry_not_near",
+        "evidence": {
+          "subject_instance_id": "furniture/108",
+          "object_instance_id": "furniture/103",
+          "edge_gap_m": 2.3576117680012874,
+          "center_distance_m": 3.7646782508203804,
+          "edge_gap_threshold_m": 0.8,
+          "center_threshold_m": 1.5
+        }
+      },
+      "validation_source": "layout_json",
+      "prompt_allowed": false,
+      "reason": "target_geometry_not_near"
+    }
+  ],
+  "dropped_required_counts": [],
+  "relation_validation_source": "layout_json"
+}
