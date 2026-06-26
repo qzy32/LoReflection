@@ -1,0 +1,40 @@
+{
+  "branch": "arch-p0-real-sanity",
+  "commit": "7385f54 Audit Qwen training inputs and prompt construction",
+  "has_uncommitted_changes": true,
+  "git_status_short": [
+    "?? arch_p0_real_sanity_ce2bd62.patch",
+    "?? llm_prompt_labels_qwen_text.patch",
+    "?? loreflection/qwen_arch_control/prompt_labels/audit_metric_transform_contract.py",
+    "?? loreflection/qwen_arch_control/prompt_labels/audit_palette_contract.py",
+    "?? loreflection/qwen_arch_control/prompt_labels/audit_rule_template_prompt_correctness.py",
+    "?? loreflection/qwen_arch_control/prompt_labels/palette_contract.py",
+    "?? loreflection/qwen_arch_control/prompt_labels/prompt_compiler_v2.py",
+    "?? metric_v2_arch_renderer.patch",
+    "?? p1_metric_v2_train_prompt_labels.patch",
+    "?? p1_small_baseline_scale_contract.patch",
+    "?? qwen_training_input_audit.patch",
+    "?? qwen_training_input_audit_review/",
+    "?? scripts/qwen_arch_control/audit_metric_transform_contract.py",
+    "?? scripts/qwen_arch_control/audit_palette_contract.py",
+    "?? scripts/qwen_arch_control/audit_rule_template_prompt_correctness.py",
+    "?? scripts/qwen_arch_control/compile_palette_control_prompts.py",
+    "?? scripts/qwen_arch_control/evaluate_p1_small_metric_v2_llm_functional_compiled_palette_outputs.sh",
+    "?? scripts/qwen_arch_control/run_p1_small_metric_v2_llm_functional_compiled_palette_infer.sh",
+    "?? scripts/qwen_arch_control/run_p1_small_metric_v2_llm_functional_compiled_palette_train.sh",
+    "?? statepatch_arch_incontext_interface_bundle_20260626.zip",
+    "?? tests/qwen_arch_control/test_metric_transform_contract_audit.py",
+    "?? tests/qwen_arch_control/test_palette_contract.py",
+    "?? tests/qwen_arch_control/test_palette_contract_audit.py",
+    "?? tests/qwen_arch_control/test_prompt_compiler_v2.py",
+    "?? tests/qwen_arch_control/test_rule_template_prompt_correctness_audit.py"
+  ],
+  "server_runtime_state": "NOT VERIFIED: A800 SSH unavailable from local session; pazhoua800 banner timed out.",
+  "mixed_llm_running": "NOT VERIFIED",
+  "goal_aligned_llm_running": "NOT VERIFIED",
+  "eval_reports_from_snapshot": {
+    "basic_metric_v2": "reports/qwen_training_input_audit/qwen_training_input_audit_summary.json",
+    "llm_functional": "reports/prompt_label_generation/llm_functional_training_comparison.json",
+    "goal_aligned_prompt_audit": "reports/prompt_label_generation/goal_aligned_llm_prompt_audit_report.json"
+  }
+}

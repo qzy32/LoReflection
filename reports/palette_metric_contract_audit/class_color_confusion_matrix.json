@@ -1,0 +1,4 @@
+{
+  "status": "NOT VERIFIED",
+  "reason": "prediction/quantized output directories not present in local snapshot"
+}
