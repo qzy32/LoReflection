@@ -11,6 +11,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 from loreflection.qwen_arch_control.prompt_labels.audit_metric_transform_contract import (
     audit_metric_transform_contract,
+    resolve_architecture_path,
 )
 from loreflection.qwen_arch_control.prompt_labels.audit_palette_contract import (
     audit_metadata_palette_contract,
@@ -115,7 +116,7 @@ def build_review_package(
     target_src = dataset_base / row["image"]
     goal_src = dataset_base / row["goal_lostate"]
     pkg_src = dataset_base / row["prompt_package"]
-    arch_src = dataset_base / "meta" / f"{sid}_architecture.json"
+    arch_src = resolve_architecture_path(dataset_base, row)
 
     shutil.copy2(context_src, review / "context_image.png")
     shutil.copy2(target_src, review / "target_semantic.png")
@@ -124,7 +125,7 @@ def build_review_package(
 
     goal = _read_json(goal_src)
     pkg = _read_json(pkg_src)
-    arch = _read_json(arch_src) if arch_src.exists() else {}
+    arch = _read_json(arch_src) if arch_src and arch_src.exists() else {}
     transform = arch.get("metric_transform", {})
     _write_json(review / "metric_transform.json", transform)
 

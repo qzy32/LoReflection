@@ -27,6 +27,35 @@ def _p95(values: list[float]) -> float | None:
     return values[index]
 
 
+def _candidate_architecture_paths(base: Path, row: dict[str, str]) -> list[Path]:
+    sample_id = row.get("sample_id", "")
+    candidates = [base / "meta" / f"{sample_id}_architecture.json"]
+    for key in ("image", "context_image", "goal_lostate", "prompt_package", "verifier_refs"):
+        value = row.get(key)
+        if not value:
+            continue
+        resolved = (base / value).resolve()
+        # metadata rows may point from a prompt-label dataset back to the source
+        # metric_v2 dataset through ../loreflection_qwen_arch_control_p1_small_metric_v2.
+        candidates.append(resolved.parents[1] / "meta" / f"{sample_id}_architecture.json")
+        candidates.append(resolved.parent.parent / "meta" / f"{sample_id}_architecture.json")
+    unique: list[Path] = []
+    seen: set[str] = set()
+    for path in candidates:
+        key = path.as_posix()
+        if key not in seen:
+            seen.add(key)
+            unique.append(path)
+    return unique
+
+
+def resolve_architecture_path(base: Path, row: dict[str, str]) -> Path | None:
+    for path in _candidate_architecture_paths(base, row):
+        if path.exists():
+            return path
+    return None
+
+
 def audit_metric_transform_contract(metadata_path: str | Path, dataset_base: str | Path) -> dict[str, Any]:
     metadata = Path(metadata_path)
     base = Path(dataset_base)
@@ -52,8 +81,8 @@ def audit_metric_transform_contract(metadata_path: str | Path, dataset_base: str
             same_resolution += 1
         if image_size == (256, 256) and context_size == (256, 256):
             size_256 += 1
-        arch_path = base / "meta" / f"{row.get('sample_id')}_architecture.json"
-        if arch_path.exists():
+        arch_path = resolve_architecture_path(base, row)
+        if arch_path:
             arch = _read_json(arch_path)
             transform = arch.get("metric_transform")
             if transform:
