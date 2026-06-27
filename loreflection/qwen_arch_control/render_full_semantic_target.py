@@ -28,7 +28,7 @@ def compose_full_semantic_target(
 
     The output is intended for Qwen full-semantic target ablations:
     architecture pixels come from ``context_image`` and furniture pixels come
-    from the existing furniture-only target. This function does not repair
+    from the existing full semantic target. This function does not repair
     geometry. If furniture overlaps non-floor architecture, it records the
     overwrite in the report instead of silently fixing it.
     """

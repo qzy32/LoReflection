@@ -117,7 +117,7 @@ audits, previews, and tests. A local 60-sample deterministic procedural package
 passes the `image,prompt,context_image` contract:
 
 - condition images are architecture-only;
-- target images are furniture-only;
+- target images are full semantic;
 - frozen-palette and prompt-leakage audits pass;
 - scene-grouped splits have no cross-split scene leakage.
 

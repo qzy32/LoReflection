@@ -79,12 +79,12 @@ def main() -> None:
     )
 
     _copy(context, out / "context_image.png")
-    _copy(furniture, out / "target_furniture_only.png")
+    _copy(furniture, out / "target_full_semantic.png")
     for name in ["goal_lostate.json", "prompt_package.json", "palette_entries.json", "metric_transform.json"]:
         _copy(src / name, out / name)
     _side_by_side(
-        [out / "context_image.png", out / "target_furniture_only.png", full],
-        ["context: architecture-only", "target: furniture-only", "target_full: architecture+furniture"],
+        [out / "context_image.png", out / "target_full_semantic.png", full],
+        ["context: architecture-only", "target: full semantic", "target_full: architecture+furniture"],
         out / "side_by_side_context_furniture_full.png",
     )
     _legend(full, out / "palette_entries.json", out / "target_full_semantic_with_palette_legend.png")
@@ -92,14 +92,14 @@ def main() -> None:
     record = json.loads((src / "training_record.json").read_text(encoding="utf-8"))
     payload = {
         **record,
-        "target_furniture_only": "target_furniture_only.png",
+        "target_full_semantic": "target_full_semantic.png",
         "target_full_semantic": "target_full_semantic.png",
         "qwen_full_semantic_metadata_image_should_point_to": "target_full_semantic.png",
         "full_semantic_report": full_report,
         "metadata_field_design": {
             "image": "target_full_semantic",
             "target_full_semantic": "target_full_semantic",
-            "target_furniture_only": "target_furniture_only",
+            "target_full_semantic": "target_full_semantic",
             "context_image": "architecture-only condition",
         },
     }
@@ -115,13 +115,13 @@ def main() -> None:
         f"- room_type: `{record.get('room_type', 'unknown')}`",
         f"- metadata_source: `{record.get('metadata_source')}`",
         "- context_image: architecture-only semantic condition.",
-        "- target_furniture_only: current LoReflection furniture-layer supervision.",
+        "- target_full_semantic: current LoReflection furniture-layer supervision.",
         "- target_full_semantic: proposed architecture + furniture supervision.",
         "- Qwen full-semantic metadata `image` should point to `target_full_semantic.png`.",
         "",
         "![context](context_image.png)",
         "",
-        "![furniture only](target_furniture_only.png)",
+        "![full semantic](target_full_semantic.png)",
         "",
         "![full semantic](target_full_semantic.png)",
         "",

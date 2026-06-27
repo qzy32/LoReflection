@@ -1,0 +1,164 @@
+{
+  "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_00",
+  "scene_id": "36c96aa6-a318-4212-aecc-22a206d7b217",
+  "house_id": "",
+  "floorplan_id": "36c96aa6-a318-4212-aecc-22a206d7b217",
+  "source_mode": "raw_3dfront",
+  "source_kind": "raw_3dfront",
+  "source_scene_json": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/36c96aa6-a318-4212-aecc-22a206d7b217.json",
+  "renderer_version": "metric_v2",
+  "scale_policy": "fixed_metric_canvas",
+  "metric_transform": {
+    "schema_version": "metric-transform-v1",
+    "scale_policy": "fixed_metric_canvas",
+    "image_size_px": [
+      256,
+      256
+    ],
+    "canvas_extent_m": 8.0,
+    "pixels_per_meter": 32.0,
+    "origin_world_m": [
+      -4.516445,
+      -3.8775
+    ],
+    "room_center_world_m": [
+      -0.5164449999999998,
+      0.12250000000000005
+    ],
+    "room_bbox_m": [
+      -4.32407,
+      -2.9975,
+      3.29118,
+      3.2425
+    ],
+    "x_axis_direction": "right",
+    "y_axis_direction": "down"
+  },
+  "architecture_source_of_truth": "raw_3dfront",
+  "qwen_generates_architecture": false,
+  "qwen_generates_furniture_only": true,
+  "paths": {
+    "condition": "cond/36c96aa6-a318-4212-aecc-22a206d7b217_room_00_arch_condition.png",
+    "target": "target/36c96aa6-a318-4212-aecc-22a206d7b217_room_00_target_semantic.png",
+    "architecture": "meta/36c96aa6-a318-4212-aecc-22a206d7b217_room_00_architecture.json",
+    "layout": "meta/36c96aa6-a318-4212-aecc-22a206d7b217_room_00_layout.json",
+    "goal": "meta/36c96aa6-a318-4212-aecc-22a206d7b217_room_00_goal_lostate.json",
+    "prompt": "meta/36c96aa6-a318-4212-aecc-22a206d7b217_room_00_prompt_package.json",
+    "verifier": "meta/36c96aa6-a318-4212-aecc-22a206d7b217_room_00_verifier_refs.json"
+  },
+  "condition_contract": {
+    "renderer": "render_architecture_condition_metric_v2",
+    "image_size": [
+      256,
+      256
+    ],
+    "palette_exact": true,
+    "architecture_only": true,
+    "scale_policy": "fixed_metric_canvas",
+    "canvas_extent_m": 8.0,
+    "pixels_per_meter": 32.0,
+    "boundary_source": "room_floor_mesh",
+    "floor_pixel_area": 48912,
+    "condition_contains_furniture": false,
+    "anchor_counts": {
+      "door": 2,
+      "window": 0,
+      "clearance": 0,
+      "non_placeable": 0
+    }
+  },
+  "target_contract": {
+    "image_size": [
+      256,
+      256
+    ],
+    "palette_exact": true,
+    "furniture_only": true,
+    "uses_metric_transform": true,
+    "target_bbox_fallback_rate": 0.0,
+    "rendered_objects": [
+      {
+        "instance_id": "furniture/102",
+        "category": "dining_chair",
+        "render_source": "footprint_m_oriented"
+      },
+      {
+        "instance_id": "furniture/103",
+        "category": "dining_table",
+        "render_source": "footprint_m_oriented"
+      },
+      {
+        "instance_id": "furniture/104",
+        "category": "dining_chair",
+        "render_source": "footprint_m_oriented"
+      },
+      {
+        "instance_id": "furniture/105",
+        "category": "dining_chair",
+        "render_source": "footprint_m_oriented"
+      },
+      {
+        "instance_id": "furniture/106",
+        "category": "dining_chair",
+        "render_source": "footprint_m_oriented"
+      },
+      {
+        "instance_id": "furniture/108",
+        "category": "coffee_table",
+        "render_source": "footprint_m_oriented"
+      }
+    ]
+  },
+  "warnings": [],
+  "skipped_objects": [
+    {
+      "source_object_id": "2021159375944086739200/model",
+      "jid": "1391ceea-7793-4245-9e0c-00a1272ecd52",
+      "reason": "unmapped_frozen_category",
+      "raw_category": null,
+      "title": null
+    },
+    {
+      "source_object_id": "2021159375944086927488/model",
+      "jid": "403f28e4-e1de-443b-8be3-9e0f90439aaa",
+      "reason": "unmapped_frozen_category",
+      "raw_category": null,
+      "title": null
+    },
+    {
+      "source_object_id": "2021159375944087084928/model",
+      "jid": "c5492afe-926b-46a2-9d71-9cbda7c1ff92",
+      "reason": "unmapped_frozen_category",
+      "raw_category": null,
+      "title": null
+    },
+    {
+      "source_object_id": "2021159375944087221600/model",
+      "jid": "253e2da8-eacb-4575-a93d-eec452f49677",
+      "reason": "unmapped_frozen_category",
+      "raw_category": null,
+      "title": null
+    },
+    {
+      "source_object_id": "2021159375944087430816/model",
+      "jid": "a12cab00-ba86-4092-a29e-4014b1b6eaeb",
+      "reason": "unmapped_frozen_category",
+      "raw_category": null,
+      "title": null
+    },
+    {
+      "source_object_id": "2021159375944087565120/model",
+      "jid": "1da5ca10-8b11-460c-acf3-36b547f4801d",
+      "reason": "unmapped_frozen_category",
+      "raw_category": null,
+      "title": null
+    },
+    {
+      "source_object_id": "2021159375944087723264/model",
+      "jid": "19c8047b-0258-4e5d-bd75-4436cb937da8",
+      "reason": "unmapped_frozen_category",
+      "raw_category": null,
+      "title": null
+    }
+  ]
+}

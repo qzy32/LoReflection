@@ -204,12 +204,12 @@ def validate_pairwise_constraints_against_target(
     pairwise_constraints: list[dict[str, Any]],
     *,
     layout_json: dict[str, Any] | None = None,
-    target_furniture_only_path: Path | None = None,
+    target_full_semantic_path: Path | None = None,
 ) -> dict[str, Any]:
     instances = extract_category_instances_from_layout(layout_json or {}) if layout_json else {}
     source = "layout_json"
-    if not instances and target_furniture_only_path:
-        instances = extract_category_instances_from_target_image(target_furniture_only_path)
+    if not instances and target_full_semantic_path:
+        instances = extract_category_instances_from_target_image(target_full_semantic_path)
         source = "target_mask"
 
     verified: list[dict[str, Any]] = []

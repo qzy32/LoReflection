@@ -173,6 +173,7 @@ def _raw_records(data_root: Path, num_samples: int, image_size: int, seed: int, 
     records = []
     skip_reasons: dict[str, int] = {}
     scanned_scenes = 0
+    collect_all = num_samples <= 0
     for source in iter_raw_scene_records(data_root, seed):
         scanned_scenes += 1
         try:
@@ -186,11 +187,15 @@ def _raw_records(data_root: Path, num_samples: int, image_size: int, seed: int, 
             continue
         for room in rooms:
             records.append(room)
-            if len(records) >= num_samples:
+            if not collect_all and len(records) >= num_samples:
                 break
-        if len(records) >= num_samples:
+        if not collect_all and len(records) >= num_samples:
             break
-    if len(records) < num_samples:
+    if collect_all and not records:
+        raise RuntimeError(
+            f"No raw 3D-FRONT room samples were constructed after scanning {scanned_scenes} scenes"
+        )
+    if not collect_all and len(records) < num_samples:
         raise RuntimeError(
             f"Only {len(records)} raw 3D-FRONT room samples were constructed after scanning {scanned_scenes} scenes"
         )
@@ -248,8 +253,10 @@ def build_dataset(
     renderer_version: str = "metric_v2",
     canvas_extent_m: float | None = 8.0,
 ) -> dict[str, Any]:
-    if not 1 <= num_samples <= 200:
-        raise ValueError("P0 num_samples must be between 1 and 200")
+    if num_samples < 0:
+        raise ValueError("num_samples must be non-negative; use 0 for all raw 3D-FRONT samples")
+    if source_mode != "raw_3dfront" and not 1 <= num_samples <= 200:
+        raise ValueError("non-raw_3dfront num_samples must be between 1 and 200")
     if clean and output_root.exists():
         shutil.rmtree(output_root)
     for name in ("cond", "target", "meta", "audits", "splits", "previews"):
@@ -329,7 +336,7 @@ def build_dataset(
             "metric_transform": architecture.get("metric_transform"),
             "architecture_source_of_truth": "raw_3dfront",
             "qwen_generates_architecture": False,
-            "qwen_generates_furniture_only": True,
+            "qwen_generates_full_semantic": True,
             "paths": {key: path.as_posix() for key, path in paths.items() if key != "manifest"},
             "condition_contract": condition_report,
             "target_contract": target_report,
@@ -367,10 +374,10 @@ def build_dataset(
         "scale_policy": "fixed_metric_canvas" if effective_renderer_version == "metric_v2" else "normalized_v1",
         "architecture_source_of_truth": "raw_3dfront",
         "qwen_generates_architecture": False,
-        "qwen_generates_furniture_only": True,
+        "qwen_generates_full_semantic": True,
         "training_ready": source_mode in {"raw_3dfront", "real_scene_package"},
         "image_contract": {
-            "image": "furniture-only target_semantic_layout_image",
+            "image": "full semantic target_semantic_layout_image",
             "context_image": "architecture-only architecture_condition_image",
             "prompt": "Prompt Compiler compiled_text_prompt",
         },

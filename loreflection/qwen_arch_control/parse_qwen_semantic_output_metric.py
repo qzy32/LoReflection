@@ -105,7 +105,7 @@ def parse_output(image_path: Path, architecture_path: Path, manifest_path: Path 
         "source": {
             "kind": "qwen_semantic_furniture_parse",
             "architecture_source_of_truth": "raw_3dfront",
-            "qwen_generates_furniture_only": True,
+            "qwen_generates_full_semantic": True,
             "parse_transform_mode": "metric_transform" if isinstance(arch.get("metric_transform"), dict) else "implicit_polygon_bbox_fallback",
             "source_image": str(image_path),
             "architecture_json": str(architecture_path),

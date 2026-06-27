@@ -34,6 +34,6 @@ This draft route must report these metrics before it can be used for decisions:
 - palette_unknown_rate_before_quantization
 - palette_unknown_rate_after_quantization
 
-Current furniture-only evaluators are insufficient if they collapse this into
+Current full semantic evaluators are insufficient if they collapse this into
 one full-image pixel score.
 EOF

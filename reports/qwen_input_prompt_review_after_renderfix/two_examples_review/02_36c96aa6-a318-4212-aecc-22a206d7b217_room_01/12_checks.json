@@ -1,0 +1,20 @@
+{
+  "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_01",
+  "context_palette_exact": true,
+  "target_palette_exact": true,
+  "context_contains_furniture": false,
+  "target_contains_architecture": true,
+  "target_contains_furniture": true,
+  "furniture_on_void_pixels": 0,
+  "furniture_on_protected_architecture_pixels": 0,
+  "door_window_overwritten_pixels": 0,
+  "clipped_object_count": 0,
+  "zero_written_object_count": 0,
+  "architecture_control_present": true,
+  "palette_control_present": true,
+  "coordinate_leakage_terms": [],
+  "old_route_leakage_terms": [],
+  "context_has_no_door_window": true,
+  "wall_in_registry": false,
+  "looks_ok": true
+}

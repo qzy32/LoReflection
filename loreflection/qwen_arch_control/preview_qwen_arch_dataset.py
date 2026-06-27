@@ -80,7 +80,7 @@ figure{margin:0}img{width:360px;image-rendering:pixelated;border:1px solid #aaa}
 figcaption{font-size:13px;margin-top:4px}p{line-height:1.45}</style>
 <h1>Qwen-Image Architecture In-Context P0 Preview</h1>
 <p>__READINESS__</p>
-<p>Condition is architecture-only. Target is furniture-only.</p>
+<p>Condition is architecture-only. Target is full semantic.</p>
 """.replace("__READINESS__", html.escape(readiness)) + "\n".join(cards)
     (preview_root / "index.html").write_text(page, encoding="utf-8")
 
@@ -97,7 +97,7 @@ figcaption{font-size:13px;margin-top:4px}p{line-height:1.45}</style>
         target = Image.open(dataset_root / row["image"]).convert("RGB").resize((tile, tile))
         draw.text((6, y + 5), row["sample_id"], fill=(0, 0, 0), font=font)
         draw.text((6, y + 22), "architecture condition", fill=(70, 70, 70), font=font)
-        draw.text((tile + 6, y + 22), "furniture-only target", fill=(70, 70, 70), font=font)
+        draw.text((tile + 6, y + 22), "full semantic target", fill=(70, 70, 70), font=font)
         sheet.paste(condition, (0, y + header_height))
         sheet.paste(target, (tile, y + header_height))
     sheet.save(preview_root / "contact_sheet.png")

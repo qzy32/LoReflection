@@ -67,8 +67,8 @@ def audit_metadata(metadata_path: Path, dataset_base: Path) -> dict[str, Any]:
         package = json.loads(_path(dataset_base, row["prompt_package"]).read_text(encoding="utf-8"))
         relation_report = json.loads((dataset_base / "meta" / f"{sample_id}_relation_alignment_report.json").read_text(encoding="utf-8"))
         full_report = relation_report.get("full_semantic_report", {})
-        full_names = _category_pixels(_path(dataset_base, row["target_full_semantic"]))
-        furniture_names = _category_pixels(_path(dataset_base, row["target_furniture_only"]))
+        full_names = _category_pixels(_path(dataset_base, row.get("target_full_semantic") or row["image"]))
+        furniture_names = _category_pixels(_path(dataset_base, row.get("target_full_semantic") or row["image"]))
         required = {k for k, v in goal.get("required_counts", {}).items() if int(v) > 0}
         if required <= furniture_names and all(cat in prompt for cat in required):
             counters["required_category_covered"] += 1

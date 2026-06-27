@@ -1,0 +1,13 @@
+{
+  "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_01",
+  "architecture_ref": "36c96aa6-a318-4212-aecc-22a206d7b217_room_01",
+  "constraint_refs": [
+    "require_desk",
+    "inside_room",
+    "avoid_overlap",
+    "palette_exact"
+  ],
+  "required_slot_refs": [
+    "goal:desk"
+  ]
+}

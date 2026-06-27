@@ -24,4 +24,4 @@ def test_audit_distinguishes_void_background_from_structural_architecture(tmp_pa
     assert report["context_contains_furniture"] is False
     assert report["target_contains_architecture"] is False
     assert report["target_contains_furniture"] is True
-    assert report["target_interpretation"] == "furniture_only"
+    assert report["target_interpretation"] == "full_semantic"

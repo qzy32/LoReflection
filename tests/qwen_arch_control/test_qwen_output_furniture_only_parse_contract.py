@@ -24,7 +24,7 @@ def test_parser_ignores_architecture_colors_and_parses_furniture(tmp_path: Path)
     manifest.write_text(json.dumps({"sample_id": "sample"}), encoding="utf-8")
     result = parse_output(image, arch, manifest, min_area=2)
     assert result["source"]["kind"] == "qwen_semantic_furniture_parse"
-    assert result["source"]["qwen_generates_furniture_only"] is True
+    assert result["source"]["qwen_generates_full_semantic"] is True
     assert len(result["objects"]) == 1
     assert result["objects"][0]["category"] == category
     assert result["objects"][0]["center_m"] is not None

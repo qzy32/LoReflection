@@ -173,7 +173,7 @@ def audit_dataset(dataset_root: Path, output: Path | None = None) -> dict[str, A
         "renderer_version_distribution": renderer_versions,
         "architecture_source_of_truth": "raw_3dfront_json",
         "qwen_generates_architecture": False,
-        "qwen_generates_furniture_only": True,
+        "qwen_generates_full_semantic": True,
         "requires_inverse_transform_for_furniture": True,
         "source_scene_json_exists_rate": counts["source_scene_json"] / n,
         "polygon_m_exists_rate": counts["polygon_m"] / n,

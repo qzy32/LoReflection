@@ -18,15 +18,10 @@ def _color(name: str):
 def test_alignment_audit_rejects_invalid_dropped_relation_in_prompt(tmp_path):
     root = tmp_path / "dataset"
     (root / "cond").mkdir(parents=True)
-    (root / "target_furniture_only").mkdir()
     (root / "target_full_semantic").mkdir()
     (root / "meta").mkdir()
 
     Image.new("RGB", (8, 8), _color("floor")).save(root / "cond" / "s_arch_condition.png")
-    furniture = Image.new("RGB", (8, 8), _color("void"))
-    furniture.putpixel((1, 1), _color("coffee_table"))
-    furniture.putpixel((6, 6), _color("dining_table"))
-    furniture.save(root / "target_furniture_only" / "s_target_furniture_only.png")
     full = Image.new("RGB", (8, 8), _color("floor"))
     full.putpixel((1, 1), _color("coffee_table"))
     full.putpixel((6, 6), _color("dining_table"))
@@ -59,8 +54,6 @@ def test_alignment_audit_rejects_invalid_dropped_relation_in_prompt(tmp_path):
                 "image",
                 "prompt",
                 "context_image",
-                "target_furniture_only",
-                "target_full_semantic",
                 "sample_id",
                 "goal_lostate",
                 "prompt_package",
@@ -73,8 +66,6 @@ def test_alignment_audit_rejects_invalid_dropped_relation_in_prompt(tmp_path):
                 "image": "target_full_semantic/s_target_full_semantic.png",
                 "prompt": "Context_Control. Keep coffee_table near dining_table. Architecture_Control. Follow the architecture condition image. Palette_Control. Use palette.",
                 "context_image": "cond/s_arch_condition.png",
-                "target_furniture_only": "target_furniture_only/s_target_furniture_only.png",
-                "target_full_semantic": "target_full_semantic/s_target_full_semantic.png",
                 "sample_id": "s",
                 "goal_lostate": "meta/s_goal_lostate_geometry_verified.json",
                 "prompt_package": "meta/s_compiled_prompt_package.json",

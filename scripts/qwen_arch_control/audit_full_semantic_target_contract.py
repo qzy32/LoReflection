@@ -57,14 +57,14 @@ def audit(context_path: Path, furniture_path: Path, full_path: Path) -> dict:
     forbidden_overwrite = int(np.logical_and(protected_mask, furniture_furn).sum())
     return {
         "context_image": str(context_path),
-        "target_furniture_only": str(furniture_path),
+        "target_full_semantic": str(furniture_path),
         "target_full_semantic": str(full_path),
         "image_size": [int(context.shape[1]), int(context.shape[0])],
         "context_contains_architecture_categories": bool(context_arch.any()),
         "context_contains_furniture_categories": bool(context_furn.any()),
         "target_full_contains_architecture_categories": bool(full_arch.any()),
         "target_full_contains_furniture_categories": bool(full_furn.any()),
-        "target_furniture_only_contains_furniture_categories": bool(furniture_furn.any()),
+        "target_full_semantic_contains_furniture_categories": bool(furniture_furn.any()),
         "palette_unknown_pixel_count": int(unknown_count),
         "palette_valid": int(unknown_count) == 0,
         "architecture_preservation_rate_where_no_furniture": float(architecture_preserved.mean()),
@@ -83,13 +83,13 @@ def audit(context_path: Path, furniture_path: Path, full_path: Path) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--context-image", type=Path, required=True)
-    parser.add_argument("--target-furniture-only", type=Path, required=True)
+    parser.add_argument("--target-full semantic", type=Path, required=True)
     parser.add_argument("--target-full-semantic", type=Path, required=True)
     parser.add_argument("--output-json", type=Path, required=True)
     parser.add_argument("--output-md", type=Path, required=True)
     args = parser.parse_args()
 
-    report = audit(args.context_image, args.target_furniture_only, args.target_full_semantic)
+    report = audit(args.context_image, args.target_full_semantic, args.target_full_semantic)
     args.output_json.parent.mkdir(parents=True, exist_ok=True)
     args.output_json.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     lines = [

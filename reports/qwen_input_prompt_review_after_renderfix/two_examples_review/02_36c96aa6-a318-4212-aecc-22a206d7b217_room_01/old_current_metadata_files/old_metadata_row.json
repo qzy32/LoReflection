@@ -1,0 +1,11 @@
+{
+  "image": "target_full_semantic/36c96aa6-a318-4212-aecc-22a206d7b217_room_01_target_full_semantic.png",
+  "prompt": "Context_Control. Place the required furniture in the elderlyroom. Keep all furniture inside the room, avoid overlap, and do not block doors or windows.\n\nArchitecture_Control. Follow the architecture condition image for room boundary, walls, doors, windows, clearance regions, and non-placeable regions.\n\nPalette_Control. Generate a fixed-palette semantic layout only. Use the frozen category-to-color semantic palette. Draw each active furniture category with its assigned palette color only. Do not generate realistic texture, material, lighting, shadow, gradient, anti-aliasing, or unknown colors. Active semantic categories: the active furniture categories.",
+  "context_image": "cond/36c96aa6-a318-4212-aecc-22a206d7b217_room_01_arch_condition.png",
+  "target_furniture_only": "target_furniture_only/36c96aa6-a318-4212-aecc-22a206d7b217_room_01_target_furniture_only.png",
+  "target_full_semantic": "target_full_semantic/36c96aa6-a318-4212-aecc-22a206d7b217_room_01_target_full_semantic.png",
+  "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_01",
+  "goal_lostate": "meta/36c96aa6-a318-4212-aecc-22a206d7b217_room_01_goal_lostate_geometry_verified.json",
+  "prompt_package": "meta/36c96aa6-a318-4212-aecc-22a206d7b217_room_01_compiled_prompt_package.json",
+  "verifier_refs": "meta/36c96aa6-a318-4212-aecc-22a206d7b217_room_01_verifier_refs.json"
+}
