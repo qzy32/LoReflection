@@ -12,6 +12,7 @@ from typing import Any
 from jsonschema import Draft202012Validator
 
 from loreflection.goal.prompt_compiler import compile_prompt_package
+from loreflection.goal.prompt_compiler_llm import build_architecture_summary
 from loreflection.qwen_arch_control.audit_palette_exact import audit_palette
 from loreflection.qwen_arch_control.audit_prompt_no_coordinate_leakage import audit_prompts
 from loreflection.qwen_arch_control.audit_qwen_arch_control_dataset import audit_dataset
@@ -252,6 +253,7 @@ def build_dataset(
     scene_package_root: Path | None = None,
     renderer_version: str = "metric_v2",
     canvas_extent_m: float | None = 8.0,
+    prompt_compiler_mode: str = "llm_with_rule_fallback",
 ) -> dict[str, Any]:
     if num_samples < 0:
         raise ValueError("num_samples must be non-negative; use 0 for all raw 3D-FRONT samples")
@@ -289,7 +291,8 @@ def build_dataset(
         errors = list(goal_validator.iter_errors(goal))
         if errors:
             raise ValueError(f"{sample_id} Goal LoState schema failure: {errors[0].message}")
-        prompt_package = compile_prompt_package(goal)
+        architecture_summary = build_architecture_summary(architecture)
+        prompt_package = compile_prompt_package(goal, architecture_summary=architecture_summary, registry=registry, mode=prompt_compiler_mode)
         verifier_refs = {
             "sample_id": sample_id,
             "architecture_ref": architecture["architecture_id"],
@@ -387,6 +390,7 @@ def build_dataset(
             else "real source package suitable for bounded sanity training after all audits pass"
         ),
         "source_details": source_details,
+        "prompt_compiler_mode": prompt_compiler_mode,
         "samples": samples,
     }
     _write_json(output_root / "meta" / "p0_dataset_manifest.json", package_manifest)
@@ -434,6 +438,7 @@ def main() -> int:
     parser.add_argument("--seed", type=int, default=4411)
     parser.add_argument("--renderer-version", choices=["normalized_v1", "metric_v2"], default="metric_v2")
     parser.add_argument("--canvas-extent-m", type=float, default=8.0)
+    parser.add_argument("--prompt-compiler-mode", choices=["rule", "llm", "llm_functional", "llm_with_rule_fallback"], default="llm_with_rule_fallback")
     parser.add_argument("--no-clean", action="store_true")
     args = parser.parse_args()
     result = build_dataset(
@@ -447,6 +452,7 @@ def main() -> int:
         args.scene_package_root,
         args.renderer_version,
         args.canvas_extent_m,
+        args.prompt_compiler_mode,
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if result["status"] in {"pass", "contract_pass"} else 1
