@@ -13,8 +13,7 @@ from loreflection.qwen_arch_control.semantic_topdown_renderer import render_full
 from loreflection.semantic_registry import load_registry
 
 ARCHITECTURE_CONTROL_PROMPT = (
-    "Architecture_Control. Follow the architecture condition image for room boundary, walls, doors, "
-    "windows, clearance regions, and non-placeable regions."
+    "Architecture_Control. Use the architecture condition image for the room floor region, room boundary, and doors/windows when visible. Keep all furniture inside floor pixels and avoid door/window areas."
 )
 
 
