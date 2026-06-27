@@ -9,7 +9,6 @@ from typing import Any
 
 from loreflection.builders.scene_package_builder import vec3, yaw_from_rotation
 from loreflection.qwen_arch_control.metric_transform import build_metric_transform, world_to_pixel
-from loreflection.qwen_arch_control.opening_anchor_recovery import collect_scene_opening_candidates, recover_opening_anchors_for_room
 from loreflection.semantic_registry import SemanticRegistry, load_registry
 
 
@@ -49,7 +48,6 @@ CATEGORY_RULES = [
     ("ceiling_lamp", ("ceiling lamp", "ceiling light")),
     ("table", ("table",)),
 ]
-ARCHITECTURE_RULES = {"door": ("door",), "window": ("window",)}
 SIZE_PRIORS = {
     "double_bed": (2.0, 1.6),
     "single_bed": (1.9, 1.0),
@@ -82,9 +80,6 @@ def map_frozen_category(
         furniture.get("title"),
         furniture.get("type"),
     )
-    for architecture_type, tokens in ARCHITECTURE_RULES.items():
-        if any(token in text for token in tokens):
-            return None, architecture_type
     for category, tokens in CATEGORY_RULES:
         if category in registry.name_to_id and any(token in text for token in tokens):
             return category, None
@@ -104,6 +99,59 @@ def _mesh_points(mesh: dict[str, Any]) -> list[tuple[float, float]]:
             except (TypeError, ValueError):
                 pass
     return points
+
+
+def collect_room_child_openings_sem_layoutdiff_style(
+    scene_json: dict[str, Any],
+    room_json: dict[str, Any],
+    *,
+    assigned_room_id: str,
+) -> list[dict[str, Any]]:
+    """Collect Door/Window anchors using SemLayoutDiff's room-children policy.
+
+    3D-FRONT stores meshes at scene scope, but SemLayoutDiff attaches extra
+    meshes to a room only when the current room.children list references them.
+    Scene-global Door/Window meshes that are not referenced by this room are
+    intentionally ignored here.
+    """
+    meshes_in_scene = {
+        str(mesh.get("uid")): mesh
+        for mesh in scene_json.get("mesh", [])
+        if isinstance(mesh, dict) and mesh.get("uid") is not None
+    }
+    anchors: list[dict[str, Any]] = []
+    children = room_json.get("children", []) if isinstance(room_json.get("children"), list) else []
+    for child in children:
+        if not isinstance(child, dict):
+            continue
+        ref = str(child.get("ref"))
+        mesh = meshes_in_scene.get(ref)
+        if not isinstance(mesh, dict):
+            continue
+        mesh_type = mesh.get("type")
+        if mesh_type not in {"Door", "Window"}:
+            continue
+        points = _mesh_points(mesh)
+        if not points:
+            continue
+        anchor_type = "door" if mesh_type == "Door" else "window"
+        bbox_m = [min(p[0] for p in points), min(p[1] for p in points), max(p[0] for p in points), max(p[1] for p in points)]
+        anchors.append(
+            {
+                "anchor_id": str(mesh.get("uid")),
+                "anchor_type": anchor_type,
+                "source": "room_child_mesh",
+                "source_policy": "semlayoutdiff_room_children_only",
+                "source_id": str(mesh.get("uid")),
+                "source_object_id": str(mesh.get("uid")),
+                "mesh_type": mesh_type,
+                "assigned_room_id": assigned_room_id,
+                "polygon_m": [[float(x), float(z)] for x, z in points],
+                "bbox_m": bbox_m,
+                "confidence": 1.0,
+            }
+        )
+    return anchors
 
 
 def _rect_from_points(points: list[tuple[float, float]]) -> list[list[float]]:
@@ -197,7 +245,6 @@ def adapt_scene_file(
         str(item.get("uid")): item for item in scene.get("furniture", []) if isinstance(item, dict)
     }
     mesh_by_uid = {str(item.get("uid")): item for item in scene.get("mesh", []) if isinstance(item, dict)}
-    scene_opening_candidates = collect_scene_opening_candidates(scene, model_index)
     rooms = scene.get("scene", {}).get("room") or scene.get("scene", {}).get("rooms") or []
     adapted = []
     for room_index, room in enumerate(rooms if isinstance(rooms, list) else []):
@@ -222,7 +269,6 @@ def adapt_scene_file(
         ]
         warnings = []
         provisional = []
-        architecture_candidates = []
         skipped = []
         for child, furniture in linked_furniture:
             jid = str(furniture.get("jid") or "")
@@ -232,9 +278,6 @@ def adapt_scene_file(
                 skipped.append({"source_object_id": furniture.get("uid"), "reason": "missing_position"})
                 continue
             center = (position[0], position[2])
-            if architecture_type:
-                architecture_candidates.append((architecture_type, center, (0.8, 0.2), furniture, child))
-                continue
             if not category:
                 skipped.append(
                     {
@@ -298,47 +341,10 @@ def adapt_scene_file(
         if len(objects) < 2:
             continue
 
-        anchors = []
-        for anchor_type, center, size, furniture, child in architecture_candidates:
-            anchors.append(
-                {
-                    "anchor_id": str(child.get("instanceid") or furniture.get("uid")),
-                    "anchor_type": anchor_type,
-                    "bbox_px": _bbox_px(center, size, boundary_m, image_size) if not metric_transform else _bbox_px_metric(center, size, 0.0, metric_transform, image_size)[0],
-                    "bbox_m": [center[0] - size[0] / 2, center[1] - size[1] / 2, center[0] + size[0] / 2, center[1] + size[1] / 2],
-                    "source_object_id": furniture.get("uid"),
-                }
-            )
-        for _, mesh in linked_meshes:
-            mesh_type = _text(mesh.get("type"), mesh.get("uid"), mesh.get("jid"))
-            anchor_type = "door" if "door" in mesh_type else "window" if "window" in mesh_type else None
-            points = _mesh_points(mesh)
-            if anchor_type and points:
-                px = [_world_to_px(point, boundary_m, image_size) for point in points] if not metric_transform else [world_to_pixel(point, metric_transform) for point in points]
-                bbox_m = [min(p[0] for p in points), min(p[1] for p in points), max(p[0] for p in points), max(p[1] for p in points)]
-                anchors.append(
-                    {
-                        "anchor_id": str(mesh.get("uid")),
-                        "anchor_type": anchor_type,
-                        "bbox_px": [min(p[0] for p in px), min(p[1] for p in px), max(p[0] for p in px), max(p[1] for p in px)],
-                        "bbox_m": bbox_m,
-                        "polygon_m": [[float(x), float(z)] for x, z in points],
-                        "source_object_id": mesh.get("uid"),
-                        "source": "room_child_mesh",
-                    }
-                )
-
         sample_id = f"{scene_id}_room_{room_index:02d}"
-        anchors.extend(
-            recover_opening_anchors_for_room(
-                scene_opening_candidates,
-                boundary_m,
-                assigned_room_id=sample_id,
-                existing_anchors=anchors,
-                metric_transform=metric_transform,
-                image_size=image_size,
-            )
-        )
+        anchors = collect_room_child_openings_sem_layoutdiff_style(scene, room, assigned_room_id=sample_id)
+        door_anchor_count = sum(1 for anchor in anchors if anchor["anchor_type"] == "door")
+        window_anchor_count = sum(1 for anchor in anchors if anchor["anchor_type"] == "window")
         architecture = {
             "schema_version": "architecture-v2-p0",
             "architecture_id": sample_id,
@@ -350,6 +356,13 @@ def adapt_scene_file(
             "boundary": {"polygon_m": boundary_m, "polygon_px": boundary_px, "source": boundary_source, "boundary_source": boundary_source},
             "metric_transform": metric_transform,
             "anchors": anchors,
+            "opening_source_policy": "semlayoutdiff_room_children_only",
+            "door_anchor_count": door_anchor_count,
+            "window_anchor_count": window_anchor_count,
+            "native_room_child_door_count": door_anchor_count,
+            "native_room_child_window_count": window_anchor_count,
+            "has_room_child_door": door_anchor_count > 0,
+            "has_room_child_window": window_anchor_count > 0,
             "source": {"kind": "raw_3dfront", "source_scene_json": str(scene_path), "room_index": room_index},
         }
         layout = {

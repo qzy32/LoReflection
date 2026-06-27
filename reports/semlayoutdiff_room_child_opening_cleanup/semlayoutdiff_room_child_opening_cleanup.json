@@ -1,0 +1,21 @@
+{
+  "total_rooms_scanned": 16403,
+  "rooms_with_room_child_door": 5085,
+  "rooms_with_room_child_window": 6504,
+  "major_rooms_scanned": 14305,
+  "major_rooms_with_room_child_door": 4587,
+  "major_rooms_without_room_child_door": 9718,
+  "drop_no_room_child_door_count": 11318,
+  "opening_source_policy": "semlayoutdiff_room_children_only",
+  "scene_global_door_not_counted_unless_room_child_ref": true,
+  "review_samples": [
+    "reports/semlayoutdiff_room_child_opening_cleanup/review_samples/has_door_36c96aa6-a318-4212-aecc-22a206d7b217_room_00",
+    "reports/semlayoutdiff_room_child_opening_cleanup/review_samples/has_window_faf62fbc-739a-40da-aac3-12b6807ee7e3_room_00",
+    "reports/semlayoutdiff_room_child_opening_cleanup/review_samples/scene_global_ignored_36c96aa6-a318-4212-aecc-22a206d7b217_room_01",
+    "reports/semlayoutdiff_room_child_opening_cleanup/review_samples/drop_major_36c96aa6-a318-4212-aecc-22a206d7b217_room_02"
+  ],
+  "training_started": false,
+  "full_data_regenerated": false,
+  "historical_scene_level_assignment_count_not_current_policy": "15457 rooms in the older scene-level assignment report was historical and is not the current target.",
+  "three_example_review_dir": "reports/semlayoutdiff_room_child_opening_cleanup/review_samples_3"
+}
