@@ -129,3 +129,7 @@ data and not model-quality evidence.
 Feed 50-200 real scene-package architecture/layout pairs into the P0 builder,
 rerun the same gates, manually inspect the preview, and only then run a bounded
 Architecture In-Context pipeline sanity training.
+
+## StatePatch Strict SFT Protocol
+
+For VLM SFT/inference, StatePatch uses the strict subset documented in `outputs/current_statepatch_editor_handoff/STATEPATCH_SFT_STRICT_PROTOCOL.md`. The JSON schema is intentionally wider, but training should not mix relative and absolute update modes. In the strict subset, TRANSLATE uses relative `delta_m`, ROTATE uses relative `delta_deg`, SCALE uses relative `scale_xy`, ADD uses placement hints, and bbox/full executable JSON outputs are forbidden.
