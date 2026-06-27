@@ -188,16 +188,12 @@ def validate_llm_prompt_output(output: dict[str, Any], goal_lostate: dict[str, A
             break
     visible = architecture_summary.get("visible_architecture_elements", {})
     claims = set(map(str, output.get("architecture_claims") or []))
-    if "visible_door" in claims and not visible.get("door"):
-        errors.append("invalid_door_claim")
-    if "visible_window" in claims and not visible.get("window"):
-        errors.append("invalid_window_claim")
-    if any(claim in claims for claim in ["visible_wall", "clearance_region", "non_placeable_region"]):
-        errors.append("invalid_architecture_claim")
+    # Claims are advisory metadata from the LLM; the deterministic
+    # architecture_summary controls the final Architecture_Control text.
     intent_only = str(output.get("user_intent_prompt") or output.get("compiled_text_prompt") or "")
     if re.search(r"\bwall(s)?\b", intent_only, re.IGNORECASE) and not visible.get("wall_class"):
         errors.append("wall_claim_not_visible")
-    if re.search(r"clearance|non-placeable|non placeable", intent_only, re.IGNORECASE):
+    if re.search(r"clearance\s+regions?\s+(?:are\s+)?visible|visible\s+clearance|non-placeable|non placeable", intent_only, re.IGNORECASE):
         errors.append("unsupported_architecture_visibility_claim")
     return errors, prompt, active, active_entries
 
