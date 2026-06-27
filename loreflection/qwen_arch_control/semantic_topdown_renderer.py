@@ -22,6 +22,39 @@ from loreflection.semantic_registry import SemanticRegistry, load_registry
 
 PROTECTED_CATEGORY_NAMES = ("void", "door", "window", "wall", "clearance", "non_placeable")
 OPENING_CATEGORY_NAMES = {"door", "window"}
+LOW_PRIORITY_CATEGORIES = {
+    "air_conditioner",
+    "wall_air_conditioner",
+    "ceiling_air_conditioner",
+    "ceiling_fan",
+}
+HIGH_PRIORITY_CATEGORIES = {"pendant_lamp", "ceiling_lamp", "display_screen"}
+SMALL_PRIORITY_CATEGORIES = {
+    "chair",
+    "dining_chair",
+    "stool",
+    "nightstand",
+    "corner_side_table",
+    "round_end_table",
+    "sideboard_chest",
+    "display_storage_cabinet",
+    "dressing_chair",
+    "chinese_chair",
+    "armchair",
+    "lounge_chair",
+}
+
+
+def semantic_render_priority(category: str) -> int:
+    """Return deterministic semantic overlay priority; lower values render first."""
+    name = str(category or "")
+    if name in LOW_PRIORITY_CATEGORIES:
+        return -20
+    if name in HIGH_PRIORITY_CATEGORIES:
+        return 30
+    if name in SMALL_PRIORITY_CATEGORIES:
+        return 10
+    return 0
 
 
 def _rgb(registry: SemanticRegistry, name: str) -> tuple[int, int, int] | None:
@@ -204,7 +237,7 @@ def render_architecture_condition_image(
 
     wall = _wall_status(architecture, registry)
     report = {
-        "renderer": "semantic_topdown_renderer_v2",
+        "renderer": "semantic_topdown_renderer_v3_render_order",
         "image_size_px": [size, size],
         "palette_exact": True,
         "architecture_only": True,
@@ -223,6 +256,47 @@ def render_architecture_condition_image(
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)
         img.save(output_path)
     return img, report
+
+
+def _candidate_sort_key(candidate: dict[str, Any]) -> tuple[int, int, str, str]:
+    return (
+        int(candidate["render_priority"]),
+        -int(candidate["raw_object_area_px"]),
+        str(candidate["category"]),
+        str(candidate["object_id"]),
+    )
+
+
+def _collect_furniture_candidates(
+    layout: dict[str, Any],
+    transform: dict[str, Any] | None,
+    registry: SemanticRegistry,
+    size: int,
+) -> list[dict[str, Any]]:
+    candidates: list[dict[str, Any]] = []
+    for idx, obj in enumerate(layout.get("objects", []) or []):
+        category = str(obj.get("category") or "")
+        color = _rgb(registry, category)
+        points, render_source, fallback_used = _footprint_to_px(obj, transform)
+        mask_img = Image.new("L", (size, size), 0)
+        if color is not None and len(points) >= 3:
+            ImageDraw.Draw(mask_img).polygon(points, fill=255)
+        object_mask = np.asarray(mask_img) > 0
+        object_id = str(obj.get("instance_id") or obj.get("object_id") or obj.get("source_object_id") or f"object_{idx:06d}")
+        candidates.append({
+            "object": obj,
+            "object_id": object_id,
+            "category": category,
+            "color": color,
+            "points": points,
+            "mask": object_mask,
+            "render_source": render_source,
+            "fallback_used": fallback_used,
+            "raw_object_area_px": int(object_mask.sum()),
+            "render_priority": semantic_render_priority(category),
+        })
+    candidates.sort(key=_candidate_sort_key)
+    return candidates
 
 
 def render_full_semantic_target_image(
@@ -246,6 +320,7 @@ def render_full_semantic_target_image(
     door_rgb = _rgb(registry, "door")
     window_rgb = _rgb(registry, "window")
     protected_rgbs = [rgb for name in PROTECTED_CATEGORY_NAMES if (rgb := _rgb(registry, name)) is not None]
+    rgb_to_name = {tuple(v): k for k, v in registry.name_to_rgb.items()}
     floor_mask = np.all(context == floor_rgb, axis=2) if floor_rgb is not None else np.zeros((size, size), dtype=bool)
     void_mask = np.all(context == void_rgb, axis=2) if void_rgb is not None else np.zeros((size, size), dtype=bool)
     door_mask = np.all(context == door_rgb, axis=2) if door_rgb is not None else np.zeros((size, size), dtype=bool)
@@ -256,46 +331,57 @@ def render_full_semantic_target_image(
 
     transform = architecture.get("metric_transform") or layout.get("metric_transform")
     transform_hash = context_report["transform_debug"].get("metric_transform_hash")
+    candidates = _collect_furniture_candidates(layout, transform, registry, size)
     written_mask = np.zeros((size, size), dtype=bool)
     object_reports = []
-    for obj in layout.get("objects", []) or []:
-        category = obj.get("category")
-        color = _rgb(registry, str(category)) if category else None
-        points, render_source, fallback_used = _footprint_to_px(obj, transform)
-        if color is None or len(points) < 3:
-            object_reports.append({
-                "instance_id": obj.get("instance_id"), "category": category, "render_source": render_source,
-                "raw_object_area_px": 0, "written_area_px": 0, "clipped_area_px": 0, "clipped_ratio": 1.0,
-                "void_overlap_px": 0, "door_overlap_px": 0, "window_overlap_px": 0, "protected_overlap_px": 0,
-                "outside_image_px": 0, "already_occupied_px": 0, "fallback_used": fallback_used,
-                "decision": "hard_fail", "reason": "missing_palette_or_geometry",
-            })
-            continue
-        mask_img = Image.new("L", (size, size), 0)
-        ImageDraw.Draw(mask_img).polygon(points, fill=255)
-        object_mask = np.asarray(mask_img) > 0
-        raw_area = int(object_mask.sum())
-        allowed_mask = object_mask & floor_mask & ~written_mask
+
+    for order_index, candidate in enumerate(candidates):
+        obj = candidate["object"]
+        category = candidate["category"]
+        color = candidate["color"]
+        object_mask = candidate["mask"]
+        raw_area = int(candidate["raw_object_area_px"])
+        missing_geometry_or_color = color is None or raw_area == 0
+        allowed_mask = object_mask & floor_mask if not missing_geometry_or_color else np.zeros((size, size), dtype=bool)
+        previous_overlap_mask = allowed_mask & written_mask
+        overwritten_previous = int(previous_overlap_mask.sum())
+        previous_categories = sorted({
+            rgb_to_name.get(tuple(int(v) for v in rgb), "UNKNOWN")
+            for rgb in target[previous_overlap_mask].reshape(-1, 3)
+        }) if overwritten_previous else []
         void_overlap = int((object_mask & void_mask).sum())
         door_overlap = int((object_mask & door_mask).sum())
         window_overlap = int((object_mask & window_mask).sum())
         protected_overlap = int((object_mask & protected_mask).sum())
-        already_occupied = int((object_mask & written_mask).sum())
-        outside_image = int(any(x < 0 or y < 0 or x >= size or y >= size for x, y in points))
+        outside_image = int(any(x < 0 or y < 0 or x >= size or y >= size for x, y in candidate["points"]))
         written_area = int(allowed_mask.sum())
         clipped_area = max(raw_area - written_area, 0)
-        if written_area > 0:
+        if written_area > 0 and color is not None:
             target[allowed_mask] = color
             written_mask |= allowed_mask
         decision = "written" if written_area == raw_area else ("clipped" if written_area > 0 else "hard_fail")
         object_reports.append({
-            "instance_id": obj.get("instance_id"), "category": category, "render_source": render_source,
-            "raw_object_area_px": raw_area, "written_area_px": written_area,
-            "clipped_area_px": clipped_area, "clipped_ratio": (clipped_area / raw_area) if raw_area else 1.0,
-            "void_overlap_px": void_overlap, "door_overlap_px": door_overlap, "window_overlap_px": window_overlap,
-            "protected_overlap_px": protected_overlap, "outside_image_px": outside_image,
-            "already_occupied_px": already_occupied, "fallback_used": fallback_used,
-            "decision": decision, "reason": "ok" if decision == "written" else "outside_floor_or_protected_or_overlap",
+            "object_id": candidate["object_id"],
+            "instance_id": obj.get("instance_id"),
+            "category": category,
+            "render_priority": candidate["render_priority"],
+            "render_order_index": order_index,
+            "area_px": raw_area,
+            "raw_object_area_px": raw_area,
+            "written_area_px": written_area,
+            "overwritten_previous_furniture_px": overwritten_previous,
+            "overwrites_categories": previous_categories,
+            "clipped_area_px": clipped_area,
+            "clipped_ratio": (clipped_area / raw_area) if raw_area else 1.0,
+            "void_overlap_px": void_overlap,
+            "door_overlap_px": door_overlap,
+            "window_overlap_px": window_overlap,
+            "protected_overlap_px": protected_overlap,
+            "outside_image_px": outside_image,
+            "fallback_used": candidate["fallback_used"],
+            "render_source": candidate["render_source"],
+            "decision": decision,
+            "reason": "ok" if decision == "written" else "outside_floor_or_protected_or_overlap",
         })
 
     protected_pixels_unchanged = bool(np.array_equal(context[protected_mask], target[protected_mask]))
@@ -304,11 +390,17 @@ def render_full_semantic_target_image(
         Path(target_output_path).parent.mkdir(parents=True, exist_ok=True)
         img.save(target_output_path)
     report = {
-        "renderer": "semantic_topdown_renderer_v2",
+        "renderer": "semantic_topdown_renderer_v3_render_order",
         "image_size_px": [size, size],
         "palette_exact": True,
         "target_kind": "full_semantic",
         "target_base": "qwen_input_byte_copy_then_furniture_overlay",
+        "render_order_policy": {
+            "sort_key": ["render_priority_ascending", "area_px_descending", "category_name", "stable_object_id"],
+            "low_priority_categories": sorted(LOW_PRIORITY_CATEGORIES),
+            "small_priority_categories": sorted(SMALL_PRIORITY_CATEGORIES),
+            "high_priority_categories": sorted(HIGH_PRIORITY_CATEGORIES),
+        },
         "context_target_same_shape": list(context.shape) == list(target.shape),
         "context_target_same_transform_hash": True,
         "metric_transform_hash": transform_hash,
@@ -320,10 +412,11 @@ def render_full_semantic_target_image(
         "zero_written_object_count": sum(1 for r in object_reports if r["written_area_px"] == 0),
         "clipped_object_count": sum(1 for r in object_reports if r["clipped_area_px"] > 0),
         "fallback_object_count": sum(1 for r in object_reports if r["fallback_used"]),
+        "overwritten_previous_furniture_px_total": sum(r["overwritten_previous_furniture_px"] for r in object_reports),
         "furniture_on_void_pixels_after_write": 0,
         "furniture_on_protected_pixels_after_write": 0,
         "door_window_overwritten_pixels_after_write": 0,
-        "write_policy": "furniture_pixels_write_to_floor_only",
+        "write_policy": "furniture_pixels_write_to_floor_only_with_deterministic_priority_overlay",
         "wall_rendering_policy": context_report["wall_rendering_policy"],
     }
     return img, report
