@@ -20,7 +20,7 @@ def goal():
 class GoodClient:
     def generate_json(self, system_prompt, user_payload):
         return {
-            "compiled_text_prompt": "Context_Control. Create a top-down fixed-palette semantic bedroom layout with one double_bed and one wardrobe. Architecture_Control. Use the architecture condition image for the room floor boundary and visible doors. Palette_Control. Use only the frozen semantic categories and palette. Active semantic category palette entries: double_bed=(72,224,199), wardrobe=(72,224,128).",
+            "user_intent_prompt": "Context_Control. Create a top-down fixed-palette semantic bedroom layout with one double_bed and one wardrobe.",
             "used_slot_ids": ["goal:bed", "goal:wardrobe"],
             "used_constraint_ids": ["inside_room"],
             "omitted_constraint_ids": [],
