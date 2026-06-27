@@ -38,3 +38,14 @@ def test_prompt_compiler_does_not_leak_geometry():
     assert "bbox" not in prompt
     assert audit_texts([prompt])["status"] == "pass"
 
+
+
+def test_rule_prompt_includes_palette_rgb_entries():
+    package = compile_prompt_package({
+        "room_type": "bedroom",
+        "furniture_slots": [{"slot_id": "goal:bed", "category": "double_bed", "count": 1, "required": True}],
+        "goal_constraints": [],
+        "required_counts": {"double_bed": 1},
+    }, registry=type("R", (), {"palette": {"double_bed": [72, 224, 199]}})())
+    assert "Palette_Control." in package["compiled_text_prompt"]
+    assert "double_bed=(72,224,199)" in package["compiled_text_prompt"]

@@ -11,7 +11,7 @@ from .prompt_compiler_rule import LEAKAGE_REGEX, NEGATIVE_PROMPT, _active_catego
 SYSTEM_PROMPT = """You are a prompt compiler for fixed-palette semantic top-down indoor layout generation.
 Your job is to verbalize a symbolic Goal LoState into a concise prompt for Qwen-Image Architecture In-Context Control.
 The final prompt must contain Context_Control, Architecture_Control, and Palette_Control sections.
-Palette_Control must list every active semantic category provided in the input.
+Palette_Control must list every active semantic category provided in the input with its exact RGB palette entry, formatted like category=(R,G,B).
 Do not invent furniture categories.
 Do not invent doors, windows, walls, clearance regions, or non-placeable regions.
 Only mention architecture elements listed as visible in architecture_summary.
@@ -86,7 +86,7 @@ def _safe_goal_payload(goal_lostate: dict[str, Any], architecture_summary: dict[
         "active_palette_entries": active_palette_entries,
         "architecture_summary": architecture_summary,
         "output_schema": {
-            "compiled_text_prompt": "string with Context_Control, Architecture_Control, Palette_Control",
+            "compiled_text_prompt": "string with Context_Control, Architecture_Control, Palette_Control; Palette_Control must include category=(R,G,B) for each active category",
             "used_slot_ids": ["slot ids from furniture_slots"],
             "used_constraint_ids": ["constraint ids from goal_constraints"],
             "omitted_constraint_ids": ["constraint ids from goal_constraints"],
@@ -125,6 +125,14 @@ def validate_llm_prompt_output(output: dict[str, Any], goal_lostate: dict[str, A
     active = _active_categories(goal_lostate)
     if not all(category in prompt for category in active):
         errors.append("active_category_missing_from_prompt")
+    active_entries = _palette_entries(active, registry)
+    normalized_prompt = prompt.replace(" ", "")
+    for category, rgb in active_entries.items():
+        rgb_text = f"{category}=({int(rgb[0])},{int(rgb[1])},{int(rgb[2])})"
+        alt_text = f"{category}:[{int(rgb[0])},{int(rgb[1])},{int(rgb[2])}]"
+        if rgb_text not in normalized_prompt and alt_text not in normalized_prompt:
+            errors.append("active_palette_rgb_missing_from_prompt")
+            break
 
     allowed_slots = _slot_ids(goal_lostate)
     used_slots = set(map(str, output.get("used_slot_ids") or []))

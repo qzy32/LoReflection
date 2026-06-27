@@ -38,6 +38,17 @@ def _palette_entries(categories: list[str], registry: Any | None) -> dict[str, l
     return {cat: list(palette[cat]) for cat in categories if cat in palette}
 
 
+def _palette_mapping_text(categories: list[str], entries: dict[str, list[int]]) -> str:
+    parts = []
+    for category in categories:
+        rgb = entries.get(category)
+        if rgb and len(rgb) == 3:
+            parts.append(f"{category}=({int(rgb[0])},{int(rgb[1])},{int(rgb[2])})")
+        else:
+            parts.append(category)
+    return ", ".join(parts) if parts else "none"
+
+
 def _slot_phrase(slot: dict[str, Any]) -> str:
     count = int(slot.get("count", 1) or 1)
     category = _safe_text(slot.get("category")) or "object"
@@ -78,13 +89,12 @@ def compile_prompt_package_rule(goal_lostate: dict[str, Any], architecture_summa
     policy = goal_lostate.get("prompt_compilation_policy") or {}
     include_optional_slots = bool(policy.get("include_optional_slots", True))
     include_preferred_constraints = bool(policy.get("include_preferred_constraints", True))
-
     active_categories = _active_categories(goal_lostate)
     active_palette_entries = _palette_entries(active_categories, registry)
+
     slot_phrases = [_slot_phrase(slot) for slot in slots]
     required_slots = [phrase for phrase in slot_phrases if "required" in phrase]
     optional_slots = [phrase for phrase in slot_phrases if "optional" in phrase] if include_optional_slots else []
-
     constraint_routes = dict(_constraint_route(c) for c in constraints)
     if not include_preferred_constraints:
         for constraint in constraints:
@@ -102,14 +112,12 @@ def compile_prompt_package_rule(goal_lostate: dict[str, Any], architecture_summa
         parts.append("Optional furniture when feasible: " + ", ".join(optional_slots) + ".")
     if prompt_hints:
         parts.append("Layout guidance: " + " ".join(prompt_hints))
-    active_text = ", ".join(active_categories) if active_categories else "none"
-    parts.append("Palette_Control. Generate a fixed-palette semantic layout only. Use the frozen category-to-color semantic palette. Draw each active furniture category with its assigned palette color only. Active semantic categories: " + active_text + ".")
-
+    active_text = _palette_mapping_text(active_categories, active_palette_entries)
+    parts.append("Palette_Control. Generate a fixed-palette semantic layout only. Use the frozen category-to-color semantic palette. Draw each active furniture category with its assigned RGB palette color only. Active semantic category palette entries: " + active_text + ".")
     compiled_text_prompt = " ".join(parts)
     leaked = [pattern for pattern, regex in zip(LEAKAGE_PATTERNS, LEAKAGE_REGEX) if regex.search(compiled_text_prompt)]
     if leaked:
         raise ValueError(f"compiled prompt contains geometry leakage: {leaked}")
-
     return {
         "schema_version": "prompt-package-v3",
         "task_id": task_id,
