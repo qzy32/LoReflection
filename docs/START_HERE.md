@@ -70,3 +70,9 @@ historical baseline. See `docs/DEPRECATED_ROUTES.md`.
 - Do not change taxonomy, palette, or semantic registry.
 - Do not ask the VLM to output a full Edited LoState or executable scene file.
 - Do not print server credentials or local environment files.
+
+## StatePatch Strict SFT Protocol
+
+VLM teammates should read `outputs/current_statepatch_editor_handoff/STATEPATCH_SFT_STRICT_PROTOCOL.md` before StatePatch SFT or inference work.
+
+For StatePatch SFT, follow the strict subset protocol instead of using every mode allowed by the wider JSON schema.

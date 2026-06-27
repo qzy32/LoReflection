@@ -40,3 +40,19 @@ From the repository root:
 python tools/validate_current_statepatch.py outputs/current_statepatch_editor_handoff/statepatch_sft_minimal_examples.jsonl --sft-jsonl
 ```
 
+
+- `STATEPATCH_SFT_STRICT_PROTOCOL.md`: strict training/inference subset for StatePatch SFT.
+
+## Strict SFT Protocol
+
+For VLM SFT and inference, use `STATEPATCH_SFT_STRICT_PROTOCOL.md`.
+
+The JSON schema is intentionally wider than the training subset. The strict subset is the current training/inference contract:
+
+- ADD uses `new_instance.category/asset_id/size_hint/placement_hint`; the executor decides concrete placement.
+- REMOVE uses `target.target_ref`.
+- TRANSLATE uses only `center_m.relative_delta.delta_m`.
+- ROTATE uses only `orientation_deg.relative_delta.delta_deg`.
+- SCALE uses only `size_m.relative_scale.scale_xy`.
+- REPLACE uses `category` / `asset_id` and optional relative scale.
+- The VLM must not output bbox, footprint, complete layout JSON, or complete scene JSON.

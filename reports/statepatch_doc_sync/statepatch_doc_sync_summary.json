@@ -1,0 +1,17 @@
+{
+  "server_original_head": "d36c7bacd17ce487fee0b5971c47b9739c986cec",
+  "server_updated_head_before_commit": "d36c7bacd17ce487fee0b5971c47b9739c986cec",
+  "sync_mode": "patch-only on current server HEAD; no merge/reset/rebase/ff-only branch sync",
+  "strict_protocol_added": true,
+  "strict_protocol_path": "outputs/current_statepatch_editor_handoff/STATEPATCH_SFT_STRICT_PROTOCOL.md",
+  "readme_references_strict_protocol": true,
+  "start_here_references_strict_protocol": true,
+  "current_project_state_references_strict_protocol": true,
+  "strict_validator_added": false,
+  "strict_validator_test_added": false,
+  "training_pid_1425465_preserved": true,
+  "git_diff_check_result": "pass",
+  "pytest_statepatch_handoff_result": "pass: 3 passed",
+  "validate_current_statepatch_result": "pass: validated 2 StatePatch objects",
+  "global_git_diff_check_note": "Initial global git diff --check failed on pre-existing non-doc server work. Non-doc work was temporarily stashed, the required git diff --check was rerun for this doc patch and passed, then non-doc work will be restored after commit."
+}
