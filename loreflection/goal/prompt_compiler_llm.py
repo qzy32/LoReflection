@@ -6,7 +6,7 @@ import json
 import re
 from typing import Any, Protocol
 
-from .prompt_compiler_rule import LEAKAGE_REGEX, NEGATIVE_PROMPT, _active_categories, _palette_entries, compile_prompt_package_rule
+from .prompt_compiler_rule import LEAKAGE_REGEX, NEGATIVE_PROMPT, _active_categories, _palette_entries, _registry_palette, compile_prompt_package_rule
 
 SYSTEM_PROMPT = """You are a prompt compiler for fixed-palette semantic top-down indoor layout generation.
 Your job is to verbalize a symbolic Goal LoState into a concise Context_Control user intent for Qwen-Image Architecture In-Context Control.
@@ -48,11 +48,8 @@ def build_architecture_summary(architecture: dict[str, Any] | None = None) -> di
 
 def _allowed_categories(goal_lostate: dict[str, Any], registry: Any | None = None) -> set[str]:
     cats = set(_active_categories(goal_lostate))
-    palette = getattr(registry, "palette", None) if registry is not None else None
-    if not isinstance(palette, dict):
-        palette = getattr(registry, "colors", None) if registry is not None else None
-    if isinstance(palette, dict):
-        cats.update(str(k) for k in palette if k not in {"void", "floor", "door", "window"})
+    palette = _registry_palette(registry)
+    cats.update(str(k) for k in palette if k not in {"void", "floor", "door", "window"})
     return cats
 
 
