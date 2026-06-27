@@ -29,13 +29,24 @@ def _active_categories(goal_lostate: dict[str, Any]) -> list[str]:
     return sorted(cats)
 
 
-def _palette_entries(categories: list[str], registry: Any | None) -> dict[str, list[int]]:
-    palette = getattr(registry, "palette", None) if registry is not None else None
-    if not isinstance(palette, dict):
-        palette = getattr(registry, "colors", None) if registry is not None else None
-    if not isinstance(palette, dict):
+def _registry_palette(registry: Any | None) -> dict[str, Any]:
+    if registry is None:
         return {}
-    return {cat: list(palette[cat]) for cat in categories if cat in palette}
+    for attr in ("name_to_rgb", "palette", "colors"):
+        value = getattr(registry, attr, None)
+        if isinstance(value, dict):
+            return value
+    if isinstance(registry, dict):
+        colors = registry.get("colors")
+        if isinstance(colors, dict):
+            return colors
+        return registry
+    return {}
+
+
+def _palette_entries(categories: list[str], registry: Any | None) -> dict[str, list[int]]:
+    palette = _registry_palette(registry)
+    return {cat: [int(v) for v in palette[cat]] for cat in categories if cat in palette}
 
 
 def _palette_mapping_text(categories: list[str], entries: dict[str, list[int]]) -> str:
