@@ -1,0 +1,743 @@
+[
+  {
+    "candidate_id": "scene_mesh:F39024D7-0BFC-4055-A665-8D6670F4CC9A/299872",
+    "opening_type": "window",
+    "source": "scene_global_mesh",
+    "source_id": "F39024D7-0BFC-4055-A665-8D6670F4CC9A/299872",
+    "distance_to_room_boundary_m": 1.35459056013247,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        -2.6243
+      ],
+      [
+        6.0353,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:22AF4542-ADC2-4E02-A3F3-315E45E09D07/299891",
+    "opening_type": "window",
+    "source": "scene_global_mesh",
+    "source_id": "22AF4542-ADC2-4E02-A3F3-315E45E09D07/299891",
+    "distance_to_room_boundary_m": 1.3841359936436874,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        -2.6243
+      ],
+      [
+        6.0353,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:65381593632165559/0",
+    "opening_type": "window",
+    "source": "scene_global_mesh",
+    "source_id": "65381593632165559/0",
+    "distance_to_room_boundary_m": 5.538,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:66841593632165577/0",
+    "opening_type": "window",
+    "source": "scene_global_mesh",
+    "source_id": "66841593632165577/0",
+    "distance_to_room_boundary_m": 0.0,
+    "intersects_room_boundary_buffer": true,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        -2.6243
+      ],
+      [
+        6.0353,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:91811593632165610/0",
+    "opening_type": "window",
+    "source": "scene_global_mesh",
+    "source_id": "91811593632165610/0",
+    "distance_to_room_boundary_m": 6.2361435357438655,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        -2.6243
+      ],
+      [
+        6.0353,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:93451593632165656/0",
+    "opening_type": "door",
+    "source": "scene_global_mesh",
+    "source_id": "93451593632165656/0",
+    "distance_to_room_boundary_m": 3.8689999999999998,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        0.3472
+      ],
+      [
+        2.735,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:95391593632165698/0",
+    "opening_type": "window",
+    "source": "scene_global_mesh",
+    "source_id": "95391593632165698/0",
+    "distance_to_room_boundary_m": 3.8689999999999998,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        0.3472
+      ],
+      [
+        2.735,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:98311593632165710/0",
+    "opening_type": "window",
+    "source": "scene_global_mesh",
+    "source_id": "98311593632165710/0",
+    "distance_to_room_boundary_m": 4.1817761442836705,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:99771593632165719/0",
+    "opening_type": "window",
+    "source": "scene_global_mesh",
+    "source_id": "99771593632165719/0",
+    "distance_to_room_boundary_m": 7.391383773692177,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:101231593632165728/0",
+    "opening_type": "window",
+    "source": "scene_global_mesh",
+    "source_id": "101231593632165728/0",
+    "distance_to_room_boundary_m": 7.053754109699317,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:102691593632165738/0",
+    "opening_type": "window",
+    "source": "scene_global_mesh",
+    "source_id": "102691593632165738/0",
+    "distance_to_room_boundary_m": 5.91999,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:3185731593632165751/0",
+    "opening_type": "door",
+    "source": "scene_global_mesh",
+    "source_id": "3185731593632165751/0",
+    "distance_to_room_boundary_m": 7.63843713252914,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        -2.6243
+      ],
+      [
+        6.0353,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:3186611593632165796/0",
+    "opening_type": "door",
+    "source": "scene_global_mesh",
+    "source_id": "3186611593632165796/0",
+    "distance_to_room_boundary_m": 1.4584499999999998,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        -2.6243
+      ],
+      [
+        6.0353,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:3191431593632165878/0",
+    "opening_type": "door",
+    "source": "scene_global_mesh",
+    "source_id": "3191431593632165878/0",
+    "distance_to_room_boundary_m": 1.1137,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        0.3472
+      ],
+      [
+        2.735,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:3191431593632165878/1",
+    "opening_type": "door",
+    "source": "scene_global_mesh",
+    "source_id": "3191431593632165878/1",
+    "distance_to_room_boundary_m": 1.1126999999999998,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        0.3472
+      ],
+      [
+        2.735,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:3191521593632165899/0",
+    "opening_type": "door",
+    "source": "scene_global_mesh",
+    "source_id": "3191521593632165899/0",
+    "distance_to_room_boundary_m": 1.1137,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        0.3472
+      ],
+      [
+        2.735,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:3523881593632165992/0",
+    "opening_type": "door",
+    "source": "scene_global_mesh",
+    "source_id": "3523881593632165992/0",
+    "distance_to_room_boundary_m": 1.2163500000000003,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        -2.6243
+      ],
+      [
+        6.0353,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:3564851593632166004/0",
+    "opening_type": "window",
+    "source": "scene_global_mesh",
+    "source_id": "3564851593632166004/0",
+    "distance_to_room_boundary_m": 4.427715521304412,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        -2.6243
+      ],
+      [
+        6.0353,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:3917831593632166017/0",
+    "opening_type": "window",
+    "source": "scene_global_mesh",
+    "source_id": "3917831593632166017/0",
+    "distance_to_room_boundary_m": 5.580824240342998,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:3981831593632166043/0",
+    "opening_type": "door",
+    "source": "scene_global_mesh",
+    "source_id": "3981831593632166043/0",
+    "distance_to_room_boundary_m": 1.0229770226647321,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:3982701593632166057/0",
+    "opening_type": "door",
+    "source": "scene_global_mesh",
+    "source_id": "3982701593632166057/0",
+    "distance_to_room_boundary_m": 0.27724999999999994,
+    "intersects_room_boundary_buffer": true,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_mesh:3984651593632166068/0",
+    "opening_type": "door",
+    "source": "scene_global_mesh",
+    "source_id": "3984651593632166068/0",
+    "distance_to_room_boundary_m": 4.440892098500626e-16,
+    "intersects_room_boundary_buffer": true,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        0.3472
+      ],
+      [
+        2.735,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/103",
+    "opening_type": "window",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/103",
+    "distance_to_room_boundary_m": 5.5680000000000005,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/147",
+    "opening_type": "window",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/147",
+    "distance_to_room_boundary_m": 0.1200000000000001,
+    "intersects_room_boundary_buffer": true,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        -2.6243
+      ],
+      [
+        6.0353,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/189",
+    "opening_type": "window",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/189",
+    "distance_to_room_boundary_m": 6.900785836526156,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        -2.6243
+      ],
+      [
+        6.0353,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/197",
+    "opening_type": "door",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/197",
+    "distance_to_room_boundary_m": 7.425986592204432,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        -2.6243
+      ],
+      [
+        6.0353,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/243",
+    "opening_type": "window",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/243",
+    "distance_to_room_boundary_m": 3.564,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        0.3472
+      ],
+      [
+        2.735,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/244",
+    "opening_type": "window",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/244",
+    "distance_to_room_boundary_m": 4.1342857436321445,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/275",
+    "opening_type": "window",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/275",
+    "distance_to_room_boundary_m": 7.590080444896484,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/276",
+    "opening_type": "window",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/276",
+    "distance_to_room_boundary_m": 7.4456958902442425,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/277",
+    "opening_type": "window",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/277",
+    "distance_to_room_boundary_m": 6.5593,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/327",
+    "opening_type": "window",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/327",
+    "distance_to_room_boundary_m": 4.569275115376618,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        -2.6243
+      ],
+      [
+        6.0353,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/349",
+    "opening_type": "door",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/349",
+    "distance_to_room_boundary_m": 2.1263700000000005,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        -2.6243
+      ],
+      [
+        6.0353,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/371",
+    "opening_type": "door",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/371",
+    "distance_to_room_boundary_m": 0.8451999999999997,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        0.3472
+      ],
+      [
+        2.735,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/417",
+    "opening_type": "door",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/417",
+    "distance_to_room_boundary_m": 1.8015999999999999,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        0.3472
+      ],
+      [
+        2.735,
+        -2.6243
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/490",
+    "opening_type": "window",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/490",
+    "distance_to_room_boundary_m": 5.801581726529413,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/630",
+    "opening_type": "door",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/630",
+    "distance_to_room_boundary_m": 1.48104,
+    "intersects_room_boundary_buffer": false,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/631",
+    "opening_type": "door",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/631",
+    "distance_to_room_boundary_m": 0.21243000000000006,
+    "intersects_room_boundary_buffer": true,
+    "candidate_center_inside_room": false,
+    "nearest_boundary_segment_m": [
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ]
+  },
+  {
+    "candidate_id": "scene_furniture:furniture/632",
+    "opening_type": "door",
+    "source": "scene_global_furniture",
+    "source_id": "furniture/632",
+    "distance_to_room_boundary_m": 0.023660000000000014,
+    "intersects_room_boundary_buffer": true,
+    "candidate_center_inside_room": true,
+    "nearest_boundary_segment_m": [
+      [
+        2.735,
+        -2.6243
+      ],
+      [
+        6.0353,
+        -2.6243
+      ]
+    ]
+  }
+]

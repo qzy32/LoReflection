@@ -9,6 +9,7 @@ from typing import Any
 
 from loreflection.builders.scene_package_builder import vec3, yaw_from_rotation
 from loreflection.qwen_arch_control.metric_transform import build_metric_transform, world_to_pixel
+from loreflection.qwen_arch_control.opening_anchor_recovery import collect_scene_opening_candidates, recover_opening_anchors_for_room
 from loreflection.semantic_registry import SemanticRegistry, load_registry
 
 
@@ -196,6 +197,7 @@ def adapt_scene_file(
         str(item.get("uid")): item for item in scene.get("furniture", []) if isinstance(item, dict)
     }
     mesh_by_uid = {str(item.get("uid")): item for item in scene.get("mesh", []) if isinstance(item, dict)}
+    scene_opening_candidates = collect_scene_opening_candidates(scene, model_index)
     rooms = scene.get("scene", {}).get("room") or scene.get("scene", {}).get("rooms") or []
     adapted = []
     for room_index, room in enumerate(rooms if isinstance(rooms, list) else []):
@@ -313,16 +315,30 @@ def adapt_scene_file(
             points = _mesh_points(mesh)
             if anchor_type and points:
                 px = [_world_to_px(point, boundary_m, image_size) for point in points] if not metric_transform else [world_to_pixel(point, metric_transform) for point in points]
+                bbox_m = [min(p[0] for p in points), min(p[1] for p in points), max(p[0] for p in points), max(p[1] for p in points)]
                 anchors.append(
                     {
                         "anchor_id": str(mesh.get("uid")),
                         "anchor_type": anchor_type,
                         "bbox_px": [min(p[0] for p in px), min(p[1] for p in px), max(p[0] for p in px), max(p[1] for p in px)],
+                        "bbox_m": bbox_m,
+                        "polygon_m": [[float(x), float(z)] for x, z in points],
                         "source_object_id": mesh.get("uid"),
+                        "source": "room_child_mesh",
                     }
                 )
 
         sample_id = f"{scene_id}_room_{room_index:02d}"
+        anchors.extend(
+            recover_opening_anchors_for_room(
+                scene_opening_candidates,
+                boundary_m,
+                assigned_room_id=sample_id,
+                existing_anchors=anchors,
+                metric_transform=metric_transform,
+                image_size=image_size,
+            )
+        )
         architecture = {
             "schema_version": "architecture-v2-p0",
             "architecture_id": sample_id,

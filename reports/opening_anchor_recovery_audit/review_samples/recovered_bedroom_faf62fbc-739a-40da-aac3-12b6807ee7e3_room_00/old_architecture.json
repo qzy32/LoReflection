@@ -1,0 +1,113 @@
+{
+  "schema_version": "architecture-v2-p0",
+  "architecture_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_00",
+  "scene_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3",
+  "house_id": "",
+  "floorplan_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3",
+  "room_type": "bedroom",
+  "image_size_px": [
+    256,
+    256
+  ],
+  "boundary": {
+    "polygon_m": [
+      [
+        2.735,
+        0.5872
+      ],
+      [
+        6.0353,
+        0.5872
+      ],
+      [
+        6.0353,
+        5.8852
+      ],
+      [
+        2.735,
+        5.8852
+      ]
+    ],
+    "polygon_px": [
+      [
+        75,
+        43
+      ],
+      [
+        181,
+        43
+      ],
+      [
+        181,
+        213
+      ],
+      [
+        75,
+        213
+      ]
+    ],
+    "source": "room_floor_mesh",
+    "boundary_source": "room_floor_mesh"
+  },
+  "metric_transform": {
+    "schema_version": "metric-transform-v1",
+    "scale_policy": "fixed_metric_canvas",
+    "image_size_px": [
+      256,
+      256
+    ],
+    "canvas_extent_m": 8.0,
+    "pixels_per_meter": 32.0,
+    "origin_world_m": [
+      0.3851500000000003,
+      -0.7637999999999998
+    ],
+    "room_center_world_m": [
+      4.38515,
+      3.2362
+    ],
+    "room_bbox_m": [
+      2.735,
+      0.5872,
+      6.0353,
+      5.8852
+    ],
+    "x_axis_direction": "right",
+    "y_axis_direction": "down"
+  },
+  "anchors": [
+    {
+      "anchor_id": "furniture/103",
+      "anchor_type": "window",
+      "bbox_px": [
+        116,
+        213,
+        142,
+        220
+      ],
+      "bbox_m": [
+        4.024299999999999,
+        5.905200000000001,
+        4.8243,
+        6.1052
+      ],
+      "source_object_id": "696/model"
+    },
+    {
+      "anchor_id": "65381593632165559/0",
+      "anchor_type": "window",
+      "bbox_px": [
+        88,
+        213,
+        171,
+        220
+      ],
+      "source_object_id": "65381593632165559/0"
+    }
+  ],
+  "source": {
+    "kind": "raw_3dfront",
+    "source_scene_json": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/faf62fbc-739a-40da-aac3-12b6807ee7e3.json",
+    "room_index": 0
+  }
+}

@@ -1,0 +1,687 @@
+{
+  "schema_version": "architecture-v2-p0",
+  "architecture_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_01",
+  "scene_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3",
+  "house_id": "",
+  "floorplan_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3",
+  "room_type": "bedroom",
+  "image_size_px": [
+    256,
+    256
+  ],
+  "boundary": {
+    "polygon_m": [
+      [
+        2.735,
+        -2.6243
+      ],
+      [
+        6.0353,
+        -2.6243
+      ],
+      [
+        6.0353,
+        0.3472
+      ],
+      [
+        2.735,
+        0.3472
+      ]
+    ],
+    "polygon_px": [
+      [
+        75,
+        80
+      ],
+      [
+        181,
+        80
+      ],
+      [
+        181,
+        176
+      ],
+      [
+        75,
+        176
+      ]
+    ],
+    "source": "room_floor_mesh",
+    "boundary_source": "room_floor_mesh"
+  },
+  "metric_transform": {
+    "schema_version": "metric-transform-v1",
+    "scale_policy": "fixed_metric_canvas",
+    "image_size_px": [
+      256,
+      256
+    ],
+    "canvas_extent_m": 8.0,
+    "pixels_per_meter": 32.0,
+    "origin_world_m": [
+      0.3851500000000003,
+      -5.13855
+    ],
+    "room_center_world_m": [
+      4.38515,
+      -1.13855
+    ],
+    "room_bbox_m": [
+      2.735,
+      -2.6243,
+      6.0353,
+      0.3472
+    ],
+    "x_axis_direction": "right",
+    "y_axis_direction": "down"
+  },
+  "anchors": [
+    {
+      "anchor_id": "furniture/147",
+      "anchor_type": "window",
+      "bbox_px": [
+        172,
+        125,
+        197,
+        131
+      ],
+      "bbox_m": [
+        5.7553,
+        -1.2401900000000001,
+        6.555300000000001,
+        -1.04019
+      ],
+      "source_object_id": "696/model"
+    },
+    {
+      "anchor_id": "66841593632165577/0",
+      "anchor_type": "window",
+      "bbox_px": [
+        181,
+        89,
+        188,
+        167
+      ],
+      "source_object_id": "66841593632165577/0"
+    },
+    {
+      "anchor_id": "recovered_door_3982701593632166057/0",
+      "anchor_type": "door",
+      "source": "scene_global_mesh_recovered",
+      "source_id": "3982701593632166057/0",
+      "source_object_id": "3982701593632166057/0",
+      "assigned_room_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_01",
+      "assignment_method": "boundary_distance_buffer_intersection",
+      "confidence": 0.75,
+      "distance_to_room_boundary_m": 0.27724999999999994,
+      "polygon_m": [
+        [
+          2.495,
+          1.30466
+        ],
+        [
+          2.735,
+          1.30466
+        ],
+        [
+          2.735,
+          1.30466
+        ],
+        [
+          2.735,
+          1.30466
+        ],
+        [
+          2.495,
+          1.30466
+        ],
+        [
+          2.495,
+          1.30466
+        ],
+        [
+          2.495,
+          1.30466
+        ],
+        [
+          2.735,
+          0.62445
+        ],
+        [
+          2.495,
+          0.62445
+        ],
+        [
+          2.735,
+          0.62445
+        ],
+        [
+          2.495,
+          1.30466
+        ],
+        [
+          2.735,
+          1.30466
+        ],
+        [
+          2.735,
+          0.62445
+        ],
+        [
+          2.495,
+          0.62445
+        ],
+        [
+          2.495,
+          0.62445
+        ],
+        [
+          2.495,
+          0.62445
+        ],
+        [
+          2.735,
+          0.62445
+        ],
+        [
+          2.735,
+          0.62445
+        ]
+      ],
+      "bbox_m": [
+        2.495,
+        0.62445,
+        2.735,
+        1.30466
+      ],
+      "nearest_boundary_segment_m": [
+        [
+          6.0353,
+          0.3472
+        ],
+        [
+          2.735,
+          0.3472
+        ]
+      ],
+      "render_policy": "project_to_room_boundary_min_visible_strip",
+      "polygon_px": [
+        [
+          68,
+          206
+        ],
+        [
+          75,
+          206
+        ],
+        [
+          75,
+          206
+        ],
+        [
+          75,
+          206
+        ],
+        [
+          68,
+          206
+        ],
+        [
+          68,
+          206
+        ],
+        [
+          68,
+          206
+        ],
+        [
+          75,
+          184
+        ],
+        [
+          68,
+          184
+        ],
+        [
+          75,
+          184
+        ],
+        [
+          68,
+          206
+        ],
+        [
+          75,
+          206
+        ],
+        [
+          75,
+          184
+        ],
+        [
+          68,
+          184
+        ],
+        [
+          68,
+          184
+        ],
+        [
+          68,
+          184
+        ],
+        [
+          75,
+          184
+        ],
+        [
+          75,
+          184
+        ]
+      ],
+      "bbox_px": [
+        68,
+        184,
+        75,
+        206
+      ]
+    },
+    {
+      "anchor_id": "recovered_door_3984651593632166068/0",
+      "anchor_type": "door",
+      "source": "scene_global_mesh_recovered",
+      "source_id": "3984651593632166068/0",
+      "source_object_id": "3984651593632166068/0",
+      "assigned_room_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_01",
+      "assignment_method": "boundary_distance_buffer_intersection",
+      "confidence": 0.9,
+      "distance_to_room_boundary_m": 4.440892098500626e-16,
+      "polygon_m": [
+        [
+          2.495,
+          -1.90293
+        ],
+        [
+          2.735,
+          -1.90293
+        ],
+        [
+          2.735,
+          -1.90293
+        ],
+        [
+          2.735,
+          -1.90293
+        ],
+        [
+          2.495,
+          -1.90293
+        ],
+        [
+          2.495,
+          -1.90293
+        ],
+        [
+          2.495,
+          -1.90293
+        ],
+        [
+          2.735,
+          -2.58314
+        ],
+        [
+          2.495,
+          -2.58314
+        ],
+        [
+          2.735,
+          -2.58314
+        ],
+        [
+          2.495,
+          -1.90293
+        ],
+        [
+          2.735,
+          -1.90293
+        ],
+        [
+          2.735,
+          -2.58314
+        ],
+        [
+          2.495,
+          -2.58314
+        ],
+        [
+          2.495,
+          -2.58314
+        ],
+        [
+          2.495,
+          -2.58314
+        ],
+        [
+          2.735,
+          -2.58314
+        ],
+        [
+          2.735,
+          -2.58314
+        ]
+      ],
+      "bbox_m": [
+        2.495,
+        -2.58314,
+        2.735,
+        -1.90293
+      ],
+      "nearest_boundary_segment_m": [
+        [
+          2.735,
+          0.3472
+        ],
+        [
+          2.735,
+          -2.6243
+        ]
+      ],
+      "render_policy": "project_to_room_boundary_min_visible_strip",
+      "polygon_px": [
+        [
+          68,
+          104
+        ],
+        [
+          75,
+          104
+        ],
+        [
+          75,
+          104
+        ],
+        [
+          75,
+          104
+        ],
+        [
+          68,
+          104
+        ],
+        [
+          68,
+          104
+        ],
+        [
+          68,
+          104
+        ],
+        [
+          75,
+          82
+        ],
+        [
+          68,
+          82
+        ],
+        [
+          75,
+          82
+        ],
+        [
+          68,
+          104
+        ],
+        [
+          75,
+          104
+        ],
+        [
+          75,
+          82
+        ],
+        [
+          68,
+          82
+        ],
+        [
+          68,
+          82
+        ],
+        [
+          68,
+          82
+        ],
+        [
+          75,
+          82
+        ],
+        [
+          75,
+          82
+        ]
+      ],
+      "bbox_px": [
+        68,
+        82,
+        75,
+        104
+      ]
+    },
+    {
+      "anchor_id": "recovered_window_furniture/147",
+      "anchor_type": "window",
+      "source": "scene_global_furniture_recovered",
+      "source_id": "furniture/147",
+      "source_object_id": "furniture/147",
+      "assigned_room_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_01",
+      "assignment_method": "boundary_distance_buffer_intersection",
+      "confidence": 0.7,
+      "distance_to_room_boundary_m": 0.1200000000000001,
+      "polygon_m": [
+        [
+          5.730300000000001,
+          -1.2301900000000001
+        ],
+        [
+          6.5803,
+          -1.2301900000000001
+        ],
+        [
+          6.5803,
+          -1.05019
+        ],
+        [
+          5.730300000000001,
+          -1.05019
+        ]
+      ],
+      "bbox_m": [
+        5.730300000000001,
+        -1.2301900000000001,
+        6.5803,
+        -1.05019
+      ],
+      "nearest_boundary_segment_m": [
+        [
+          6.0353,
+          -2.6243
+        ],
+        [
+          6.0353,
+          0.3472
+        ]
+      ],
+      "render_policy": "project_to_room_boundary_min_visible_strip",
+      "polygon_px": [
+        [
+          171,
+          125
+        ],
+        [
+          198,
+          125
+        ],
+        [
+          198,
+          131
+        ],
+        [
+          171,
+          131
+        ]
+      ],
+      "bbox_px": [
+        171,
+        125,
+        198,
+        131
+      ]
+    },
+    {
+      "anchor_id": "recovered_door_furniture/631",
+      "anchor_type": "door",
+      "source": "scene_global_furniture_recovered",
+      "source_id": "furniture/631",
+      "source_object_id": "furniture/631",
+      "assigned_room_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_01",
+      "assignment_method": "boundary_distance_buffer_intersection",
+      "confidence": 0.7,
+      "distance_to_room_boundary_m": 0.21243000000000006,
+      "polygon_m": [
+        [
+          2.59276,
+          0.5596300000000001
+        ],
+        [
+          3.44276,
+          0.5596300000000001
+        ],
+        [
+          3.44276,
+          0.73963
+        ],
+        [
+          2.59276,
+          0.73963
+        ]
+      ],
+      "bbox_m": [
+        2.59276,
+        0.5596300000000001,
+        3.44276,
+        0.73963
+      ],
+      "nearest_boundary_segment_m": [
+        [
+          6.0353,
+          0.3472
+        ],
+        [
+          2.735,
+          0.3472
+        ]
+      ],
+      "render_policy": "project_to_room_boundary_min_visible_strip",
+      "polygon_px": [
+        [
+          71,
+          182
+        ],
+        [
+          98,
+          182
+        ],
+        [
+          98,
+          188
+        ],
+        [
+          71,
+          188
+        ]
+      ],
+      "bbox_px": [
+        71,
+        182,
+        98,
+        188
+      ]
+    },
+    {
+      "anchor_id": "recovered_door_furniture/632",
+      "anchor_type": "door",
+      "source": "scene_global_furniture_recovered",
+      "source_id": "furniture/632",
+      "source_object_id": "furniture/632",
+      "assigned_room_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_01",
+      "assignment_method": "boundary_distance_buffer_intersection",
+      "confidence": 0.7,
+      "distance_to_room_boundary_m": 0.023660000000000014,
+      "polygon_m": [
+        [
+          2.59276,
+          -2.64796
+        ],
+        [
+          3.44276,
+          -2.64796
+        ],
+        [
+          3.44276,
+          -2.46796
+        ],
+        [
+          2.59276,
+          -2.46796
+        ]
+      ],
+      "bbox_m": [
+        2.59276,
+        -2.64796,
+        3.44276,
+        -2.46796
+      ],
+      "nearest_boundary_segment_m": [
+        [
+          2.735,
+          -2.6243
+        ],
+        [
+          6.0353,
+          -2.6243
+        ]
+      ],
+      "render_policy": "project_to_room_boundary_min_visible_strip",
+      "polygon_px": [
+        [
+          71,
+          80
+        ],
+        [
+          98,
+          80
+        ],
+        [
+          98,
+          85
+        ],
+        [
+          71,
+          85
+        ]
+      ],
+      "bbox_px": [
+        71,
+        80,
+        98,
+        85
+      ]
+    }
+  ],
+  "source": {
+    "kind": "raw_3dfront",
+    "source_scene_json": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/faf62fbc-739a-40da-aac3-12b6807ee7e3.json",
+    "room_index": 1
+  }
+}

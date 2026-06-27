@@ -1,0 +1,141 @@
+{
+  "schema_version": "architecture-v2-p0",
+  "architecture_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3_room_02",
+  "scene_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3",
+  "house_id": "",
+  "floorplan_id": "faf62fbc-739a-40da-aac3-12b6807ee7e3",
+  "room_type": "courtyard",
+  "image_size_px": [
+    256,
+    256
+  ],
+  "boundary": {
+    "polygon_m": [
+      [
+        -5.1166,
+        -6.8221
+      ],
+      [
+        -1.12718,
+        -6.8221
+      ],
+      [
+        -1.12718,
+        -2.8643
+      ],
+      [
+        -5.1166,
+        -2.8643
+      ]
+    ],
+    "polygon_px": [
+      [
+        64,
+        65
+      ],
+      [
+        192,
+        65
+      ],
+      [
+        192,
+        191
+      ],
+      [
+        64,
+        191
+      ]
+    ],
+    "source": "room_floor_mesh",
+    "boundary_source": "room_floor_mesh"
+  },
+  "metric_transform": {
+    "schema_version": "metric-transform-v1",
+    "scale_policy": "fixed_metric_canvas",
+    "image_size_px": [
+      256,
+      256
+    ],
+    "canvas_extent_m": 8.0,
+    "pixels_per_meter": 32.0,
+    "origin_world_m": [
+      -7.1218900000000005,
+      -8.8432
+    ],
+    "room_center_world_m": [
+      -3.12189,
+      -4.8431999999999995
+    ],
+    "room_bbox_m": [
+      -5.1166,
+      -6.8221,
+      -1.12718,
+      -2.8643
+    ],
+    "x_axis_direction": "right",
+    "y_axis_direction": "down"
+  },
+  "anchors": [
+    {
+      "anchor_id": "furniture/189",
+      "anchor_type": "window",
+      "bbox_px": [
+        114,
+        58,
+        140,
+        64
+      ],
+      "bbox_m": [
+        -3.54404,
+        -7.0421,
+        -2.74404,
+        -6.8421
+      ],
+      "source_object_id": "722/model"
+    },
+    {
+      "anchor_id": "furniture/197",
+      "anchor_type": "door",
+      "bbox_px": [
+        54,
+        158,
+        80,
+        164
+      ],
+      "bbox_m": [
+        -5.4341,
+        -3.91406,
+        -4.634099999999999,
+        -3.71406
+      ],
+      "source_object_id": "318518/model"
+    },
+    {
+      "anchor_id": "91811593632165610/0",
+      "anchor_type": "window",
+      "bbox_px": [
+        87,
+        57,
+        168,
+        65
+      ],
+      "source_object_id": "91811593632165610/0"
+    },
+    {
+      "anchor_id": "3185731593632165751/0",
+      "anchor_type": "door",
+      "bbox_px": [
+        64,
+        143,
+        72,
+        179
+      ],
+      "source_object_id": "3185731593632165751/0"
+    }
+  ],
+  "source": {
+    "kind": "raw_3dfront",
+    "source_scene_json": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/faf62fbc-739a-40da-aac3-12b6807ee7e3.json",
+    "room_index": 2
+  }
+}
