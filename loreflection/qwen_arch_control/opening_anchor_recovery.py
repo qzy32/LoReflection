@@ -269,6 +269,81 @@ def opening_assignment_debug(
     }
 
 
+def _project_point_to_segment(point: tuple[float, float], a: tuple[float, float], b: tuple[float, float]) -> tuple[float, tuple[float, float]]:
+    px, py = point
+    ax, ay = a
+    bx, by = b
+    dx, dy = bx - ax, by - ay
+    denom = dx * dx + dy * dy
+    if denom <= 1e-12:
+        return 0.0, a
+    t = max(0.0, min(1.0, ((px - ax) * dx + (py - ay) * dy) / denom))
+    return t, (ax + t * dx, ay + t * dy)
+
+
+def _boundary_centroid(boundary: list[list[float]]) -> tuple[float, float]:
+    if not boundary:
+        return 0.0, 0.0
+    return sum(float(p[0]) for p in boundary) / len(boundary), sum(float(p[1]) for p in boundary) / len(boundary)
+
+
+def _project_opening_to_boundary_strip(
+    candidate: dict[str, Any],
+    boundary_m: list[list[float]],
+    nearest_segment: list[list[float]] | None,
+    *,
+    min_length_m: float = 0.70,
+    thickness_m: float = 0.12,
+) -> list[list[float]] | None:
+    """Project an opening candidate onto the assigned room boundary as an inward strip.
+
+    Scene-level Door meshes can be vertical surfaces or include wall-thickness geometry.
+    They are evidence for an opening, not the exact 2D semantic shape to draw.  The Qwen
+    architecture condition should show a clean boundary-aligned strip.
+    """
+    if not nearest_segment or len(nearest_segment) != 2:
+        return None
+    a = (float(nearest_segment[0][0]), float(nearest_segment[0][1]))
+    b = (float(nearest_segment[1][0]), float(nearest_segment[1][1]))
+    vx, vz = b[0] - a[0], b[1] - a[1]
+    seg_len = math.hypot(vx, vz)
+    if seg_len <= 1e-6:
+        return None
+    tx, tz = vx / seg_len, vz / seg_len
+    polygon = candidate.get("polygon_m") or _rect_from_bbox([float(v) for v in candidate.get("bbox_m") or [0, 0, 0, 0]])
+    ts = []
+    for x, z in polygon:
+        t, _ = _project_point_to_segment((float(x), float(z)), a, b)
+        ts.append(t * seg_len)
+    center = candidate.get("center_m") or [sum(float(x) for x, _ in polygon) / len(polygon), sum(float(z) for _, z in polygon) / len(polygon)]
+    center_t, _ = _project_point_to_segment((float(center[0]), float(center[1])), a, b)
+    center_s = center_t * seg_len
+    lo = min(ts) if ts else center_s - min_length_m / 2
+    hi = max(ts) if ts else center_s + min_length_m / 2
+    if hi - lo < min_length_m:
+        lo = center_s - min_length_m / 2
+        hi = center_s + min_length_m / 2
+    lo = max(0.0, min(seg_len, lo))
+    hi = max(0.0, min(seg_len, hi))
+    if hi - lo < min_length_m:
+        if lo <= 1e-6:
+            hi = min(seg_len, lo + min_length_m)
+        elif hi >= seg_len - 1e-6:
+            lo = max(0.0, hi - min_length_m)
+    p0 = (a[0] + tx * lo, a[1] + tz * lo)
+    p1 = (a[0] + tx * hi, a[1] + tz * hi)
+    # Pick the normal pointing toward room centroid, so the official semantic strip lies on the floor side.
+    n1 = (-tz, tx)
+    n2 = (tz, -tx)
+    mid = ((p0[0] + p1[0]) / 2.0, (p0[1] + p1[1]) / 2.0)
+    centroid = _boundary_centroid(boundary_m)
+    to_centroid = (centroid[0] - mid[0], centroid[1] - mid[1])
+    normal = n1 if (n1[0] * to_centroid[0] + n1[1] * to_centroid[1]) >= (n2[0] * to_centroid[0] + n2[1] * to_centroid[1]) else n2
+    p0i = (p0[0] + normal[0] * thickness_m, p0[1] + normal[1] * thickness_m)
+    p1i = (p1[0] + normal[0] * thickness_m, p1[1] + normal[1] * thickness_m)
+    return [[p0[0], p0[1]], [p1[0], p1[1]], [p1i[0], p1i[1]], [p0i[0], p0i[1]]]
+
+
 def _confidence(candidate: dict[str, Any], distance_m: float) -> float | None:
     source = str(candidate.get("source") or "")
     if source == "room_child_mesh":
@@ -321,7 +396,9 @@ def recover_opening_anchors_for_room(
         if key in seen:
             continue
         seen.add(key)
-        polygon_m = candidate.get("polygon_m") or _rect_from_bbox([float(v) for v in bbox])
+        raw_polygon_m = candidate.get("polygon_m") or _rect_from_bbox([float(v) for v in bbox])
+        projected_polygon_m = _project_opening_to_boundary_strip(candidate, boundary_m, debug["nearest_boundary_segment_m"])
+        polygon_m = projected_polygon_m or raw_polygon_m
         bbox_m = [float(v) for v in bbox]
         anchor: dict[str, Any] = {
             "anchor_id": f"recovered_{opening_type}_{source_id}",
@@ -333,8 +410,10 @@ def recover_opening_anchors_for_room(
             "assignment_method": "boundary_distance_buffer_intersection",
             "confidence": confidence,
             "distance_to_room_boundary_m": distance,
+            "raw_polygon_m": raw_polygon_m,
+            "raw_bbox_m": bbox_m,
             "polygon_m": polygon_m,
-            "bbox_m": bbox_m,
+            "projected_polygon_m": polygon_m,
             "nearest_boundary_segment_m": debug["nearest_boundary_segment_m"],
             "render_policy": "project_to_room_boundary_min_visible_strip",
         }
@@ -342,6 +421,7 @@ def recover_opening_anchors_for_room(
             px = [world_to_pixel((float(x), float(z)), metric_transform) for x, z in polygon_m]
             if px:
                 anchor["polygon_px"] = [[int(x), int(y)] for x, y in px]
+                anchor["projected_polygon_px"] = [[int(x), int(y)] for x, y in px]
                 anchor["bbox_px"] = [
                     max(0, min(x for x, _ in px)),
                     max(0, min(y for _, y in px)),

@@ -8,8 +8,8 @@ sample_id: `faf62fbc-739a-40da-aac3-12b6807ee7e3_room_00`
 - window before: `2`
 - door after: `4`
 - window after: `3`
-- new_qwen_input door pixels: `785`
-- new_qwen_input window pixels: `672`
+- new_qwen_input door pixels: `300`
+- new_qwen_input window pixels: `336`
 - training_gate_status: `pass`
 
 ## Images

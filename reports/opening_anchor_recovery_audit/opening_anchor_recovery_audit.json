@@ -1,21 +1,24 @@
 {
-  "total_rooms_scanned": 16403,
-  "rooms_with_door_before_recovery": 8855,
-  "rooms_with_door_after_recovery": 15457,
-  "major_rooms_scanned": 14305,
-  "major_rooms_with_door_before_recovery": 7912,
-  "major_rooms_with_door_after_recovery": 13581,
-  "major_rooms_still_without_recoverable_door": 724,
-  "rooms_still_without_recoverable_door": 946,
+  "total_rooms_scanned": 200,
+  "rooms_with_door_before_recovery": 113,
+  "rooms_with_door_after_recovery": 187,
+  "rooms_with_window_before_recovery": 130,
+  "rooms_with_window_after_recovery": 157,
+  "major_rooms_scanned": 175,
+  "major_rooms_with_door_before_recovery": 103,
+  "major_rooms_with_door_after_recovery": 167,
+  "major_rooms_with_window_before_recovery": 115,
+  "major_rooms_with_window_after_recovery": 141,
+  "major_rooms_still_without_recoverable_door": 8,
+  "rooms_still_without_recoverable_door": 13,
   "recovery_source_distribution": {
-    "scene_global_furniture_recovered": 24991,
-    "scene_global_mesh_recovered": 33430
+    "scene_global_furniture_recovered": 340,
+    "scene_global_mesh_recovered": 537
   },
   "boundary_source_distribution": {
-    "room_floor_mesh": 16386,
-    "furniture_extent_fallback": 17
+    "room_floor_mesh": 200
   },
-  "bbox_fallback_boundary_rate": 0.0010363957812595257,
+  "bbox_fallback_boundary_rate": 0.0,
   "false_positive_prevention_rules": [
     "wardrobe/cabinet/drawer/shower/appliance door text is excluded",
     "candidate must be explicit Door/Window mesh or structural door/window furniture",
@@ -29,25 +32,5 @@
     "reports/opening_anchor_recovery_audit/review_samples/extra_recovered_03_faf62fbc-739a-40da-aac3-12b6807ee7e3_room_01",
     "reports/opening_anchor_recovery_audit/review_samples/extra_recovered_04_faf62fbc-739a-40da-aac3-12b6807ee7e3_room_02"
   ],
-  "training_recommendation": "do_not_train_until_full_semantic_compiled_main_is_regenerated_with_recovered_opening_anchors_and no-door major rooms are dropped",
-  "rooms_with_window_before_recovery": 11263,
-  "rooms_with_window_after_recovery": 12788,
-  "major_rooms_with_window_before_recovery": 10003,
-  "major_rooms_with_window_after_recovery": 11426,
-  "room_05_gate_status": {
-    "boundary_is_bbox_fallback": "False",
-    "boundary_source": "room_floor_mesh",
-    "door_anchor_count_after_recovery": "0",
-    "door_anchor_count_before": "0",
-    "door_recovered": "False",
-    "door_recovery_source": "",
-    "is_major_room": "True",
-    "room_type": "bedroom",
-    "sample_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_05",
-    "source_scene_json": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/36c96aa6-a318-4212-aecc-22a206d7b217.json",
-    "training_gate_status": "drop_no_recoverable_door_anchor",
-    "window_anchor_count_after_recovery": "0",
-    "window_anchor_count_before": "0",
-    "window_recovered": "False"
-  }
+  "training_recommendation": "do_not_train_until_full_semantic_compiled_main_is_regenerated_with_recovered_opening_anchors_and no-door major rooms are dropped"
 }

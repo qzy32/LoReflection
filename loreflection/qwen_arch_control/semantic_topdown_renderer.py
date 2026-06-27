@@ -102,7 +102,82 @@ def _expand_opening_bbox(points: list[tuple[int, int]], size: int) -> tuple[list
     return [(x0, y0), (x1, y0), (x1, y1), (x0, y1)], changed
 
 
+def _project_opening_to_boundary_strip_px(
+    points: list[tuple[int, int]],
+    boundary_points: list[tuple[int, int]],
+    size: int,
+) -> tuple[list[tuple[int, int]], bool]:
+    """Render openings as room-boundary strips instead of raw wall mesh bboxes."""
+    if not points or len(boundary_points) < 2:
+        return _expand_opening_bbox(points, size)
+    min_px = _opening_min_px_for_target_size(size)
+    min_len = max(10, min_px * 4)
+    pts = [(float(x), float(y)) for x, y in points]
+    boundary = [(float(x), float(y)) for x, y in boundary_points]
+    cx = sum(x for x, _ in boundary) / len(boundary)
+    cy = sum(y for _, y in boundary) / len(boundary)
+
+    def project(p, a, b):
+        px, py = p
+        ax, ay = a
+        bx, by = b
+        dx, dy = bx - ax, by - ay
+        denom = dx * dx + dy * dy
+        if denom <= 1e-9:
+            return 0.0, a, (px - ax) ** 2 + (py - ay) ** 2
+        t = max(0.0, min(1.0, ((px - ax) * dx + (py - ay) * dy) / denom))
+        q = (ax + t * dx, ay + t * dy)
+        return t, q, (px - q[0]) ** 2 + (py - q[1]) ** 2
+
+    best = None
+    for i, a in enumerate(boundary):
+        b = boundary[(i + 1) % len(boundary)]
+        seg_len = ((b[0] - a[0]) ** 2 + (b[1] - a[1]) ** 2) ** 0.5
+        if seg_len <= 1e-6:
+            continue
+        projections = [project(point, a, b) for point in pts]
+        score = min(item[2] for item in projections)
+        if best is None or score < best[0]:
+            best = (score, a, b, seg_len, projections)
+    if best is None:
+        return _expand_opening_bbox(points, size)
+    _, a, b, seg_len, projections = best
+    ax, ay = a
+    bx, by = b
+    tx, ty = (bx - ax) / seg_len, (by - ay) / seg_len
+    distances = [t * seg_len for t, _, _ in projections]
+    center_s = sum(distances) / len(distances)
+    lo, hi = min(distances), max(distances)
+    if hi - lo < min_len:
+        lo, hi = center_s - min_len / 2, center_s + min_len / 2
+    lo, hi = max(0.0, lo), min(seg_len, hi)
+    if hi - lo < min_len:
+        if lo <= 1e-6:
+            hi = min(seg_len, lo + min_len)
+        elif hi >= seg_len - 1e-6:
+            lo = max(0.0, hi - min_len)
+    p0 = (ax + tx * lo, ay + ty * lo)
+    p1 = (ax + tx * hi, ay + ty * hi)
+    n1 = (-ty, tx)
+    n2 = (ty, -tx)
+    mid = ((p0[0] + p1[0]) / 2, (p0[1] + p1[1]) / 2)
+    to_center = (cx - mid[0], cy - mid[1])
+    normal = n1 if (n1[0] * to_center[0] + n1[1] * to_center[1]) >= (n2[0] * to_center[0] + n2[1] * to_center[1]) else n2
+    thickness = float(min_px)
+    p0i = (p0[0] + normal[0] * thickness, p0[1] + normal[1] * thickness)
+    p1i = (p1[0] + normal[0] * thickness, p1[1] + normal[1] * thickness)
+    out = []
+    for x, y in (p0, p1, p1i, p0i):
+        out.append((max(0, min(size - 1, int(round(x)))), max(0, min(size - 1, int(round(y))))))
+    return out, True
+
+
 def _anchor_points(anchor: dict[str, Any], transform: dict[str, Any] | None, size: int) -> tuple[list[tuple[int, int]], str]:
+    if anchor.get("render_policy") == "project_to_room_boundary_min_visible_strip":
+        if anchor.get("projected_polygon_m") and transform:
+            return [world_to_pixel((float(x), float(z)), transform) for x, z in anchor["projected_polygon_m"]], "projected_polygon_m_metric_transform"
+        if anchor.get("projected_polygon_px"):
+            return [(int(round(x)), int(round(y))) for x, y in anchor["projected_polygon_px"]], "projected_polygon_px"
     if anchor.get("bbox_m") and transform:
         x0, z0, x1, z1 = [float(v) for v in anchor["bbox_m"]]
         p0 = world_to_pixel((x0, z0), transform)
@@ -221,7 +296,8 @@ def render_architecture_condition_image(
         pts, source = _anchor_points(anchor, transform, size)
         min_visible_applied = False
         if kind in OPENING_CATEGORY_NAMES:
-            pts, min_visible_applied = _expand_opening_bbox(pts, size)
+            pts, min_visible_applied = _project_opening_to_boundary_strip_px(pts, boundary_px, size)
+            source = f"{source}_boundary_projected_strip"
         before = np.asarray(img).copy()
         if pts:
             _draw_polygon(draw, pts, color)
