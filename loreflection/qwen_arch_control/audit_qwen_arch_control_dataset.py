@@ -85,7 +85,7 @@ def audit_dataset(dataset_root: Path) -> dict[str, Any]:
         procedural_source.append(source_kind == "procedural_contract")
         target_from_layout.append(
             layout_path.exists()
-            and sample_manifest.get("target_contract", {}).get("furniture_only") is True
+            and sample_manifest.get("target_contract", {}).get("full_semantic") is True
         )
         condition_from_architecture.append(
             architecture_path.exists()

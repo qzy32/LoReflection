@@ -403,7 +403,7 @@ package.
 
 v8 docs say `image = target_semantic_layout_image`; this should be clarified in
 the new schema as architecture + furniture fixed-palette semantic layout, unless
-you intentionally define it as furniture-only. Current old docs sometimes use
+you intentionally define it as full semantic. Current old docs sometimes use
 "semantic layout" broadly and old C14 images are local repair targets.
 
 ## H. Next Migration Plan

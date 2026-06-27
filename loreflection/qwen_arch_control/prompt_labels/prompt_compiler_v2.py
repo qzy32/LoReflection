@@ -64,5 +64,7 @@ def compile_prompt_package_v2(
         "source_prompt_package": source_prompt_package,
         "goal_lostate_ref": goal_lostate_ref,
         "source_prompt_schema_version": prompt_package.get("schema_version"),
+        "geometry_verified_constraints": prompt_package.get("geometry_verified_constraints", []),
+        "dropped_constraints": prompt_package.get("dropped_constraints", []),
         "notes": notes,
     }

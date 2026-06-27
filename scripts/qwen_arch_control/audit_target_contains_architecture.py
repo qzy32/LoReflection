@@ -79,7 +79,7 @@ def audit_pair(context_image: Path, target_image: Path) -> dict[str, Any]:
         "target_interpretation": (
             "full_semantic_architecture_plus_furniture"
             if target_counts["structural_architecture_pixel_count"] > 0 and target_counts["furniture_pixel_count"] > 0
-            else "furniture_only"
+            else "full_semantic"
             if target_counts["furniture_pixel_count"] > 0
             else "not_verified"
         ),

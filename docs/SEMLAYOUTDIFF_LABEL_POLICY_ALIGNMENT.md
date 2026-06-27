@@ -17,7 +17,7 @@ The alignment inspector checks:
 - Whether door, window, curtain, and lamp are treated as architecture
   condition, furniture labels, accessory labels, ignored objects, or unknown.
 - Whether processed `Updated_Bottom_label_map.png` and
-  `Updated_Bottom_inst_anno.json` are furniture-only, architecture-only, mixed,
+  `Updated_Bottom_inst_anno.json` are full semantic, architecture-only, mixed,
   or unclear.
 
 ## LoReflection Intended Policy

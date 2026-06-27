@@ -1,0 +1,41 @@
+{
+  "image_size": [
+    256,
+    256
+  ],
+  "unique_colors": [
+    {
+      "rgb": [
+        210,
+        210,
+        210
+      ],
+      "category": "floor",
+      "pixels": 24384
+    },
+    {
+      "rgb": [
+        212,
+        224,
+        72
+      ],
+      "category": "desk",
+      "pixels": 513
+    },
+    {
+      "rgb": [
+        255,
+        255,
+        255
+      ],
+      "category": "void",
+      "pixels": 40639
+    }
+  ],
+  "counts_by_category": {
+    "floor": 24384,
+    "desk": 513,
+    "void": 40639
+  },
+  "palette_exact": true
+}

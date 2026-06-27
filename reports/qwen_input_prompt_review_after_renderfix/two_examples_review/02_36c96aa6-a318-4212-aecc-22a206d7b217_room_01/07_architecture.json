@@ -1,0 +1,84 @@
+{
+  "schema_version": "architecture-v2-p0",
+  "architecture_id": "36c96aa6-a318-4212-aecc-22a206d7b217_room_01",
+  "scene_id": "36c96aa6-a318-4212-aecc-22a206d7b217",
+  "house_id": "",
+  "floorplan_id": "36c96aa6-a318-4212-aecc-22a206d7b217",
+  "room_type": "elderlyroom",
+  "image_size_px": [
+    256,
+    256
+  ],
+  "boundary": {
+    "polygon_m": [
+      [
+        3.53118,
+        -2.7575
+      ],
+      [
+        7.53118,
+        -2.7575
+      ],
+      [
+        7.53118,
+        3.2425
+      ],
+      [
+        3.53118,
+        3.2425
+      ]
+    ],
+    "polygon_px": [
+      [
+        64,
+        32
+      ],
+      [
+        192,
+        32
+      ],
+      [
+        192,
+        224
+      ],
+      [
+        64,
+        224
+      ]
+    ],
+    "source": "room_floor_mesh",
+    "boundary_source": "room_floor_mesh"
+  },
+  "metric_transform": {
+    "schema_version": "metric-transform-v1",
+    "scale_policy": "fixed_metric_canvas",
+    "image_size_px": [
+      256,
+      256
+    ],
+    "canvas_extent_m": 8.0,
+    "pixels_per_meter": 32.0,
+    "origin_world_m": [
+      1.53118,
+      -3.7575
+    ],
+    "room_center_world_m": [
+      5.53118,
+      0.24250000000000016
+    ],
+    "room_bbox_m": [
+      3.53118,
+      -2.7575,
+      7.53118,
+      3.2425
+    ],
+    "x_axis_direction": "right",
+    "y_axis_direction": "down"
+  },
+  "anchors": [],
+  "source": {
+    "kind": "raw_3dfront",
+    "source_scene_json": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/36c96aa6-a318-4212-aecc-22a206d7b217.json",
+    "room_index": 1
+  }
+}

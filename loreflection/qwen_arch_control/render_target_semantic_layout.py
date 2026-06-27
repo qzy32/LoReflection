@@ -1,6 +1,6 @@
-"""Render a palette-exact furniture-only semantic target image.
+"""Render a palette-exact full semantic semantic target image.
 
-Qwen target images contain furniture only. Architecture and scale remain sourced
+Qwen target images contain full semantic. Architecture and scale remain sourced
 from raw 3D-FRONT-derived Architecture JSON and its metric transform.
 """
 
@@ -80,7 +80,7 @@ def render_target_semantic_layout(
     return {
         "image_size": [image_size, image_size],
         "palette_exact": True,
-        "furniture_only": True,
+        "full_semantic": True,
         "uses_metric_transform": bool(transform),
         "target_bbox_fallback_rate": fallback_count / max(1, object_count),
         "rendered_objects": rendered,
