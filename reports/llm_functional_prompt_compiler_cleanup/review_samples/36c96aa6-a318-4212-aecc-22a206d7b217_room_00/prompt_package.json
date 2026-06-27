@@ -1,0 +1,202 @@
+{
+  "schema_version": "prompt-package-v3",
+  "prompt_compiler": "llm_functional",
+  "compiled_text_prompt": "Context_Control. Create a top-down fixed-palette semantic livingroom layout. Include the required semantic furniture categories: coffee_table, dining_chair, dining_table. Keep furniture inside the room floor region, preserve openings, and avoid blocking usable access. Use the architecture condition image for the room floor boundary and visible doors. Arrange the room for clear indoor function using only allowed semantic categories. Use only the frozen semantic palette. Active semantic category RGB palette entries: coffee_table=(78,224,72), dining_chair=(224,72,174), dining_table=(224,103,72).",
+  "negative_prompt": "photorealistic texture, perspective view, shadows, labels, text, clutter, cropped room",
+  "used_slot_ids": [],
+  "used_constraint_ids": [],
+  "omitted_constraint_ids": [
+    "require_coffee_table",
+    "require_dining_chair",
+    "require_dining_table",
+    "inside_room",
+    "avoid_overlap",
+    "palette_exact",
+    "door_clearance_free"
+  ],
+  "architecture_claims": [
+    "room_floor_boundary",
+    "visible_door"
+  ],
+  "constraint_routes": {},
+  "validation_report": {
+    "status": "pass",
+    "errors": [],
+    "geometry_leakage": [],
+    "unknown_categories": [],
+    "invalid_architecture_claims": []
+  },
+  "llm_request": {
+    "room_type": "livingroom",
+    "furniture_slots": [],
+    "goal_constraints": [
+      {
+        "constraint_id": "require_coffee_table",
+        "constraint_kind": "requirement",
+        "necessity": "required",
+        "prompt_hint": "Include the required coffee_table."
+      },
+      {
+        "constraint_id": "require_dining_chair",
+        "constraint_kind": "requirement",
+        "necessity": "required",
+        "prompt_hint": "Include the required dining_chair."
+      },
+      {
+        "constraint_id": "require_dining_table",
+        "constraint_kind": "requirement",
+        "necessity": "required",
+        "prompt_hint": "Include the required dining_table."
+      },
+      {
+        "constraint_id": "inside_room",
+        "constraint_kind": "global",
+        "necessity": "required",
+        "prompt_hint": "Keep all furniture inside the room."
+      },
+      {
+        "constraint_id": "avoid_overlap",
+        "constraint_kind": "global",
+        "necessity": "required",
+        "prompt_hint": "Avoid furniture overlap."
+      },
+      {
+        "constraint_id": "palette_exact",
+        "constraint_kind": "global",
+        "necessity": "required",
+        "prompt_hint": "Use only the frozen semantic palette."
+      },
+      {
+        "constraint_id": "door_clearance_free",
+        "constraint_kind": "region",
+        "necessity": "required",
+        "prompt_hint": "Keep the door clearance area free."
+      }
+    ],
+    "prompt_compilation_policy": {
+      "include_optional_slots": false,
+      "include_preferred_constraints": true,
+      "geometry_in_prompt": false
+    },
+    "allowed_furniture_categories": [
+      "armchair",
+      "bookshelf",
+      "cabinet",
+      "ceiling_lamp",
+      "chair",
+      "chaise_longue_sofa",
+      "children_cabinet",
+      "chinese_chair",
+      "coffee_table",
+      "console_table",
+      "corner_side_table",
+      "desk",
+      "dining_chair",
+      "dining_table",
+      "double_bed",
+      "dressing_chair",
+      "dressing_table",
+      "kids_bed",
+      "l_shaped_sofa",
+      "lazy_sofa",
+      "lounge_chair",
+      "loveseat_sofa",
+      "multi_seat_sofa",
+      "nightstand",
+      "pendant_lamp",
+      "round_end_table",
+      "shelf",
+      "single_bed",
+      "sofa",
+      "stool",
+      "table",
+      "tv_stand",
+      "wardrobe",
+      "wine_cabinet"
+    ],
+    "active_palette_categories": [
+      "coffee_table",
+      "dining_chair",
+      "dining_table"
+    ],
+    "active_palette_entries": {
+      "coffee_table": [
+        78,
+        224,
+        72
+      ],
+      "dining_chair": [
+        224,
+        72,
+        174
+      ],
+      "dining_table": [
+        224,
+        103,
+        72
+      ]
+    },
+    "architecture_summary": {
+      "room_type": "livingroom",
+      "visible_architecture_elements": {
+        "room_floor_boundary": true,
+        "door": true,
+        "window": false,
+        "wall_class": false,
+        "clearance_region": false,
+        "non_placeable_region": false
+      },
+      "opening_source_policy": "semlayoutdiff_room_children_only",
+      "qwen_input_is_palette_exact": true
+    },
+    "output_schema": {
+      "compiled_text_prompt": "one concise English Qwen prompt",
+      "used_slot_ids": [],
+      "used_constraint_ids": [
+        "avoid_overlap",
+        "door_clearance_free",
+        "inside_room",
+        "palette_exact",
+        "require_coffee_table",
+        "require_dining_chair",
+        "require_dining_table"
+      ],
+      "omitted_constraint_ids": [
+        "avoid_overlap",
+        "door_clearance_free",
+        "inside_room",
+        "palette_exact",
+        "require_coffee_table",
+        "require_dining_chair",
+        "require_dining_table"
+      ],
+      "architecture_claims": [
+        "room_floor_boundary",
+        "visible_door",
+        "visible_window"
+      ],
+      "notes": []
+    }
+  },
+  "llm_raw_response": {
+    "compiled_text_prompt": "Context_Control. Create a top-down fixed-palette semantic livingroom layout. Include the required semantic furniture categories: coffee_table, dining_chair, dining_table. Keep furniture inside the room floor region, preserve openings, and avoid blocking usable access. Use the architecture condition image for the room floor boundary and visible doors. Arrange the room for clear indoor function using only allowed semantic categories.",
+    "used_slot_ids": [],
+    "used_constraint_ids": [],
+    "omitted_constraint_ids": [
+      "require_coffee_table",
+      "require_dining_chair",
+      "require_dining_table",
+      "inside_room",
+      "avoid_overlap",
+      "palette_exact",
+      "door_clearance_free"
+    ],
+    "architecture_claims": [
+      "room_floor_boundary",
+      "visible_door"
+    ],
+    "notes": [
+      "mock review client used; no rule fallback"
+    ]
+  }
+}

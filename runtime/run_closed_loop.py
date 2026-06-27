@@ -11,7 +11,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from runtime.loram import align
-from runtime.prompt_builder import compile_prompt_package
+from loreflection.goal.prompt_package_validator import ERROR_CLIENT_MISSING, PromptCompilerError
 from runtime.track_a_geometry_review import review_geometry
 from runtime.track_b_semantic_review import semantic_review_stub
 
@@ -33,7 +33,7 @@ def main() -> int:
     arch = load_json(args.architecture)
     goal = load_json(args.goal_lostate)
     observed = load_json(args.observed_lostate)
-    prompt = compile_prompt_package(goal, arch)
+    raise PromptCompilerError(ERROR_CLIENT_MISSING, "runtime closed-loop smoke requires an upstream LLM PromptPackage")
     alignment = align(goal, observed)
     issues = review_geometry(goal, observed, alignment) + semantic_review_stub(goal, observed)
     review = {

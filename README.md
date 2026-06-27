@@ -77,3 +77,9 @@ not the current mainline.
 - Do not expose low-level `source_json_path` or engine uid values to the VLM.
 - Keep executable writes inside the deterministic StatePatch Executor and
   Write-back Serializer.
+
+## LLM Functional Prompt Compiler
+
+LoReflection now uses an LLM Functional Prompt Compiler as the current Qwen text-prompt path. The compiler verbalizes Goal LoState into a concise, geometry-safe Qwen-Image Architecture In-Context prompt and validates the resulting PromptPackage before it can be written to metadata.
+
+The LLM does not generate coordinates, layout JSON, StatePatch JSON, object ids, raw source paths, or metric dimensions. It only receives a geometry-safe Goal LoState summary, semantic category registry information, active RGB palette entries, and an architecture summary limited to visible floor boundary / door / window booleans. If no LLM client is provided, prompt compilation fails with `LLM_PROMPT_CLIENT_MISSING`; there is no rule prompt fallback in the current mainline.

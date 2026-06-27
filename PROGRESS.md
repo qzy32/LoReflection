@@ -57,3 +57,9 @@ Connect the P0 builder to real scene-package outputs:
 3. manually inspect architecture-condition diversity and target fidelity;
 4. then run a bounded P0 pipeline sanity training, without treating procedural
    samples as model-quality evidence.
+
+## LLM Functional Prompt Compiler
+
+LoReflection now uses an LLM Functional Prompt Compiler as the current Qwen text-prompt path. The compiler verbalizes Goal LoState into a concise, geometry-safe Qwen-Image Architecture In-Context prompt and validates the resulting PromptPackage before it can be written to metadata.
+
+The LLM does not generate coordinates, layout JSON, StatePatch JSON, object ids, raw source paths, or metric dimensions. It only receives a geometry-safe Goal LoState summary, semantic category registry information, active RGB palette entries, and an architecture summary limited to visible floor boundary / door / window booleans. If no LLM client is provided, prompt compilation fails with `LLM_PROMPT_CLIENT_MISSING`; there is no rule prompt fallback in the current mainline.
