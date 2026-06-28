@@ -8,7 +8,7 @@
     "04_实验框架更新_GoalObserved_StatePatch中文版.md",
     "05_推动计划更新_GoalObserved_StatePatch中文版.md",
     "06_Qwen-Image_Architecture_InContext_Control_方法与实验.md",
-    "docs/MIGRATION_AUDIT_ARCH_INCONTEXT.md"
+    "docs/START_HERE.md"
   ],
   "planner_actions": [
     "ADD",
@@ -57,27 +57,9 @@
       "outputs/current_statepatch_editor_handoff/schemas/statepatch_editor_input_context.schema.json"
     ]
   },
-  "legacy_repairplan_interface": {
-    "status": "historical_semantic_repair4_baseline",
-    "not_current_mainline": true,
-    "files": [
-      "artifacts/current_interface/repairplan.schema.json",
-      "artifacts/current_interface/mask_spec.schema.json",
-      "artifacts/current_interface/planner_input_context.schema.json",
-      "outputs/current_vlm_planner_handoff/"
-    ],
-    "deprecated_terms": [
-      "RepairPlan",
-      "mask_spec",
-      "semantic_repair4",
-      "Qwen-Image-Blockwise-ControlNet-Inpaint",
-      "I_bad",
-      "I_target",
-      "control_mask",
-      "blockwise_controlnet_image",
-      "blockwise_controlnet_inpaint_mask",
-      "VLM Correction Planner",
-      "Target LoState Constructor"
-    ]
+  "qwen_prompt_compiler": {
+    "mode": "llm_functional_only",
+    "rule_fallback": false,
+    "requires_valid_prompt_package": true
   }
 }

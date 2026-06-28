@@ -11,10 +11,7 @@ and StatePatch documents:
 4. `04_实验框架更新_GoalObserved_StatePatch中文版.md`
 5. `05_推动计划更新_GoalObserved_StatePatch中文版.md`
 6. `06_Qwen-Image_Architecture_InContext_Control_方法与实验.md`
-7. `docs/MIGRATION_AUDIT_ARCH_INCONTEXT.md`
-
-If older C12/C13/C14 documents disagree with these files, the v8 files above
-win.
+If older experiment notes disagree with these files, the v8 files above win.
 
 ## Current Mainline
 
@@ -24,7 +21,7 @@ User instruction
 + frozen semantic registry
         -> Goal State Constructor
         -> Goal LoState
-        -> Prompt Compiler
+        -> LLM Functional Prompt Compiler
         -> compiled_text_prompt
 
 Architecture JSON
@@ -33,7 +30,7 @@ Architecture JSON
 
 compiled_text_prompt + architecture_condition_image
         -> Qwen-Image Architecture In-Context Control
-        -> initial semantic layout image
+        -> target_full_semantic image
         -> Qwen output parser / layout parser
         -> layout JSON / scene JSON
         -> Observed State Builder
@@ -55,7 +52,7 @@ Control:
 
 ```text
 compiled_text_prompt + architecture_condition_image
--> target_semantic_layout_image
+-> target_full_semantic
 ```
 
 The DiffSynth training metadata for this route is:
@@ -66,7 +63,7 @@ image,prompt,context_image,sample_id,goal_lostate,prompt_package,verifier_refs
 
 Meanings:
 
-- `image` = `target_semantic_layout_image`
+- `image` = `target_full_semantic`
 - `prompt` = `compiled_text_prompt`
 - `context_image` = `architecture_condition_image`
 
@@ -99,36 +96,19 @@ Current interface files:
 - `artifacts/current_interface/qwen_arch_incontext_metadata.schema.json`
 - `outputs/current_statepatch_editor_handoff/`
 
-## Historical Baseline
+## Current Qwen Data Status
 
-The C12/C13/C14 semantic repair work is retained as historical evidence and a
-baseline. It is not the current mainline. This baseline includes the legacy
-RepairPlan planner handoff, mask planning, semantic repair routing,
-Qwen/DiffSynth blockwise inpaint training, `I_bad`, `I_target`, and
-`control_mask` artifacts.
+The current Qwen training data route is `full_semantic_compiled_main`:
 
-Do not delete those files without a separate archive decision; they document the
-C14.4 palette-fixed diagnostic result and remain useful for comparison.
-
-## Current P0 Status
-
-The repository now contains a bounded Qwen Architecture In-Context P0 builder,
-audits, previews, and tests. A local 60-sample deterministic procedural package
-passes the `image,prompt,context_image` contract:
-
-- condition images are architecture-only;
-- target images are full semantic;
-- frozen-palette and prompt-leakage audits pass;
-- scene-grouped splits have no cross-split scene leakage.
-
-The generated package is contract-validation data, not real 3D-FRONT benchmark
-data and not model-quality evidence.
+- input prompt: LLM Functional PromptPackage `compiled_text_prompt`;
+- input image: palette-exact `architecture_condition_image`;
+- supervised image: palette-exact `target_full_semantic`;
+- metadata columns: `image,prompt,context_image,sample_id,goal_lostate,prompt_package,verifier_refs`.
 
 ## Current Next Step
 
-Feed 50-200 real scene-package architecture/layout pairs into the P0 builder,
-rerun the same gates, manually inspect the preview, and only then run a bounded
-Architecture In-Context pipeline sanity training.
+Monitor Qwen LoRA training, then run inference, quantization, and evaluation on
+the produced checkpoints.
 
 ## StatePatch Strict SFT Protocol
 

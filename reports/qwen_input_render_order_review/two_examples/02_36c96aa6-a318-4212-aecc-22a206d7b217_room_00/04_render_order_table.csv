@@ -1,7 +1,0 @@
-render_order_index,object_id,category,render_priority,area_px,raw_object_area_px,written_area_px,overwritten_previous_furniture_px,void_overlap_px,door_overlap_px,window_overlap_px,protected_overlap_px,fallback_used
-0,furniture/103,dining_table,0,1521,1521,1521,0,0,0,0,0,False
-1,furniture/108,coffee_table,0,1188,1188,1188,0,0,0,0,0,False
-2,furniture/106,dining_chair,10,380,380,380,119,0,0,0,0,False
-3,furniture/102,dining_chair,10,360,360,360,119,0,0,0,0,False
-4,furniture/104,dining_chair,10,360,360,360,100,0,0,0,0,False
-5,furniture/105,dining_chair,10,360,360,360,133,0,0,0,0,False

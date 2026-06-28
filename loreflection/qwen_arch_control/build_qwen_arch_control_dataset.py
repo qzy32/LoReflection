@@ -381,9 +381,9 @@ def build_dataset(
         "qwen_generates_full_semantic": True,
         "training_ready": source_mode in {"raw_3dfront", "real_scene_package"},
         "image_contract": {
-            "image": "full semantic target_semantic_layout_image",
+            "image": "target_full_semantic",
             "context_image": "architecture-only architecture_condition_image",
-            "prompt": "Prompt Compiler compiled_text_prompt",
+            "prompt": "LLM Functional PromptPackage compiled_text_prompt",
         },
         "source_policy": (
             "procedural_contract is only for interface smoke test, not real training data"

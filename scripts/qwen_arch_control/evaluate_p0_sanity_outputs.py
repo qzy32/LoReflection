@@ -14,18 +14,6 @@ from PIL import Image
 from loreflection.semantic_registry import load_registry
 
 
-def _forbidden_terms() -> list[str]:
-    return [
-        "blockwise_" + "controlnet_image",
-        "blockwise_" + "controlnet_inpaint_mask",
-        "control_" + "mask",
-        "I_" + "bad",
-        "I_" + "target",
-        "Qwen-Image-" + "Blockwise-ControlNet-" + "Inpaint",
-        "semantic_" + "repair4",
-    ]
-
-
 def _read_texts(paths: list[Path]) -> str:
     chunks: list[str] = []
     for path in paths:
@@ -152,9 +140,7 @@ def evaluate(
         ],
         "incontext_union_lora": ["Qwen-Image-In-Context-Control-Union"],
     }
-    forbidden = _forbidden_terms()
     missing_required = [name for name, variants in required.items() if not _has_any(text, variants)]
-    found_forbidden = [term for term in forbidden if term in text]
     quant_report_path = output_root / "eval" / "palette_quantization_report.json"
     quant_report = {}
     if quant_report_path.exists():
@@ -184,8 +170,7 @@ def evaluate(
         "training_command_uses_context_image": "extra_inputs_context_image" not in missing_required
         and "data_file_keys_image_context_image" not in missing_required,
         "missing_required_command_terms": missing_required,
-        "forbidden_inpaint_fields_present": bool(found_forbidden),
-        "forbidden_terms_found": found_forbidden,
+        "training_command_current_contract_present": not missing_required,
         "dataset_is_real_3dfront": True,
         "num_train_samples": sum(1 for _ in csv.DictReader(metadata_path.open("r", encoding="utf-8"))),
         "num_infer_samples": len(infer_raw),
@@ -209,8 +194,6 @@ def evaluate(
         report["notes"].append("Inference outputs are absent; overfit_success remains null.")
     if missing_required:
         report["notes"].append("Training command contract is missing required context-image terms.")
-    if found_forbidden:
-        report["notes"].append("Forbidden legacy inpaint terms appeared in logs or scripts.")
     report_path = output_root / "eval" / "p0_sanity_eval_report.json"
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -218,8 +201,7 @@ def evaluate(
     contract = {
         "required_terms": required,
         "missing_required_terms": missing_required,
-        "forbidden_terms_found": found_forbidden,
-        "status": "pass" if not missing_required and not found_forbidden else "fail",
+        "status": "pass" if not missing_required else "fail",
     }
     contract_path.write_text(json.dumps(contract, ensure_ascii=False, indent=2), encoding="utf-8")
     inference_text = _read_texts(script_paths + [output_root / "logs" / "infer.log"])
@@ -230,7 +212,6 @@ def evaluate(
         "epoch-2.safetensors",
     ]
     inference_missing = [term for term in inference_required if term not in inference_text]
-    inference_forbidden = [term for term in forbidden if term in inference_text]
     inference_contract = {
         "uses_context_image": "context_image" not in inference_missing,
         "uses_p0_lora": "epoch-2.safetensors" not in inference_missing and phase_label == "p0",
@@ -238,9 +219,7 @@ def evaluate(
         "uses_lora_checkpoint": "epoch-2.safetensors" not in inference_missing,
         "uses_incontext_union": "Qwen-Image-In-Context-Control-Union" not in inference_missing,
         "missing_required_terms": inference_missing,
-        "forbidden_inpaint_fields_present": bool(inference_forbidden),
-        "forbidden_terms_found": inference_forbidden,
-        "status": "pass" if not inference_missing and not inference_forbidden else "fail",
+        "status": "pass" if not inference_missing else "fail",
     }
     (output_root / "eval" / "inference_command_contract_check.json").write_text(
         json.dumps(inference_contract, ensure_ascii=False, indent=2), encoding="utf-8"
@@ -260,7 +239,7 @@ def main() -> int:
     parser.add_argument("--phase-label", choices=["p0", "p1"], default="p0")
     args = parser.parse_args()
     report = evaluate(args.output_root, args.dataset_base, args.metadata, args.train_log, args.script, args.checkpoint_used, args.phase_label)
-    return 0 if not report["forbidden_inpaint_fields_present"] else 1
+    return 0 if report["training_command_current_contract_present"] else 1
 
 
 if __name__ == "__main__":

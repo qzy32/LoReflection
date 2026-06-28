@@ -1,9 +1,0 @@
-{
-  "schema_version": "c14-4-gpu-wait-and-selection-v1",
-  "timestamp": "2026-06-22T10:58:00.643982+00:00",
-  "status": "COMPLETE_WITH_MIXED",
-  "detail": "single actions and mixed completed",
-  "prefer_free_memory_mb": 60000,
-  "min_try_free_memory_mb": 30000,
-  "wait_log": "/wuqingyaoa800/qiuziyan/LoReflection/outputs/qwen_semantic_repair4_palette_fixed_v1/c14_4_wait.log"
-}

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Regenerate a small set of failed LLM prompt shard rows.
 
-This calls the LLM-only prompt compiler. It does not use rule fallback and it
+This calls the LLM-only prompt compiler. It does not use a template fallback and it
 refuses to write rows whose prompt package fails strict prompt checks.
 """
 

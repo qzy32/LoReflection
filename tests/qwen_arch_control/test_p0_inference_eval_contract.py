@@ -63,4 +63,4 @@ def test_p0_eval_reports_overfit_success_from_quantized_outputs(tmp_path: Path):
     assert report["target_pixel_agreement_after_quantization"] == 1.0
     assert report["furniture_pixel_f1"] == 1.0
     assert report["overfit_success"] is True
-    assert report["forbidden_inpaint_fields_present"] is False
+    assert report["training_command_current_contract_present"] is True

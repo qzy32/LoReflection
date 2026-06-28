@@ -1,6 +1,0 @@
-action,rows,edit_success_rate,avg_masked_pixel_accuracy,avg_nonmask_equality_after_copyback,avg_palette_validity_snapped,avg_object_count_f1,avg_allowed_label_violation_count,gate,out_root
-REMOVE,3,0.0,0.0,1.0,1.0,1.0,7688.666666666667,SINGLE_ACTION_FAIL,/wuqingyaoa800/qiuziyan/LoReflection/outputs/manual_review/c13_overfit_REMOVE/c14_1_autogpu_REMOVE_step300_eval
-REPLACE,3,0.0,0.0,1.0,1.0,0.6349206349206349,2928.3333333333335,SINGLE_ACTION_PARTIAL,/wuqingyaoa800/qiuziyan/LoReflection/outputs/manual_review/c13_overfit_REPLACE/c14_1_autogpu_REPLACE_step300_eval
-TRANSLATE,3,0.0,0.0,1.0,1.0,0.7222222222222222,4594.666666666667,SINGLE_ACTION_PARTIAL,/wuqingyaoa800/qiuziyan/LoReflection/outputs/manual_review/c13_overfit_TRANSLATE/c14_1_autogpu_TRANSLATE_step300_eval
-ADD,3,0.0,0.0,1.0,1.0,0.5793650793650794,7388.0,SINGLE_ACTION_PARTIAL,/wuqingyaoa800/qiuziyan/LoReflection/outputs/manual_review/c13_overfit_ADD/c14_1_autogpu_ADD_step300_eval
-MIXED,4,0.0,0.0,1.0,1.0,0.6174560733384262,10829.75,SINGLE_ACTION_PARTIAL,/wuqingyaoa800/qiuziyan/LoReflection/outputs/manual_review/c13_overfit_MIXED/c14_1_autogpu_MIXED_step300_eval

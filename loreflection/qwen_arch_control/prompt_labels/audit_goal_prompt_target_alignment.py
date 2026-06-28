@@ -13,14 +13,14 @@ from loreflection.semantic_registry import load_registry
 
 
 GEOMETRY_TERMS = re.compile(r"\b(center_m|size_m|orientation_deg|bbox|footprint|pixel|px|cm|meter|source_json_path)\b", re.I)
-OLD_FIELDS = {
-    "blockwise_controlnet_image",
-    "blockwise_controlnet_inpaint_mask",
-    "control_mask",
-    "I_bad",
-    "I_target",
-    "RepairPlan",
-    "mask_spec",
+CURRENT_METADATA_COLUMNS = {
+    "image",
+    "prompt",
+    "context_image",
+    "sample_id",
+    "goal_lostate",
+    "prompt_package",
+    "verifier_refs",
 }
 
 
@@ -54,7 +54,7 @@ def audit_metadata(metadata_path: Path, dataset_base: Path) -> dict[str, Any]:
         "full_contains_arch": 0,
         "full_contains_required_furn": 0,
         "coordinate_leak": 0,
-        "old_fields": 0,
+        "unexpected_metadata_columns": 0,
         "metric_transform": 0,
         "same_resolution": 0,
         "shared_transform": 0,
@@ -103,8 +103,8 @@ def audit_metadata(metadata_path: Path, dataset_base: Path) -> dict[str, Any]:
         forbidden_overwrite_rates.append(float(full_report.get("forbidden_architecture_overwrite_rate", 0.0)))
         if GEOMETRY_TERMS.search(prompt):
             counters["coordinate_leak"] += 1
-        if any(field in ",".join(row.keys()) or field in prompt for field in OLD_FIELDS):
-            counters["old_fields"] += 1
+        if set(row.keys()) - CURRENT_METADATA_COLUMNS:
+            counters["unexpected_metadata_columns"] += 1
         metric = goal.get("metric_transform")
         if not metric:
             # Goal should not contain metric transform; check sample package metadata instead.
@@ -129,7 +129,7 @@ def audit_metadata(metadata_path: Path, dataset_base: Path) -> dict[str, Any]:
         "target_full_semantic_contains_required_furniture_rate": counters["full_contains_required_furn"] / n,
         "forbidden_architecture_overwrite_rate": max(forbidden_overwrite_rates or [0.0]),
         "coordinate_leakage_rate": counters["coordinate_leak"] / n,
-        "old_route_fields_present": counters["old_fields"] > 0,
+        "unexpected_metadata_columns_present": counters["unexpected_metadata_columns"] > 0,
         "metric_transform_exists_rate": counters["metric_transform"] / n,
         "same_resolution_rate": counters["same_resolution"] / n,
         "context_and_target_share_transform": counters["shared_transform"] == len(rows),
@@ -148,7 +148,7 @@ def audit_metadata(metadata_path: Path, dataset_base: Path) -> dict[str, Any]:
         and report["target_full_semantic_contains_required_furniture_rate"] >= 0.99
         and report["forbidden_architecture_overwrite_rate"] <= 0.001
         and report["coordinate_leakage_rate"] == 0.0
-        and not report["old_route_fields_present"]
+        and not report["unexpected_metadata_columns_present"]
         and report["metric_transform_exists_rate"] == 1.0
         and report["same_resolution_rate"] == 1.0
         and report["context_and_target_share_transform"]

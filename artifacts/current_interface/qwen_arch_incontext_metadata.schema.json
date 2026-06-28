@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Qwen Architecture In-Context training metadata row",
   "type": "object",
-  "additionalProperties": true,
+  "additionalProperties": false,
   "required": [
     "image",
     "prompt",
@@ -16,7 +16,7 @@
     "image": {
       "type": "string",
       "minLength": 1,
-      "description": "target_semantic_layout_image"
+      "description": "target_full_semantic"
     },
     "prompt": {
       "type": "string",
@@ -45,43 +45,5 @@
       "minLength": 1
     }
   },
-  "not": {
-    "anyOf": [
-      {
-        "required": [
-          "blockwise_controlnet_image"
-        ]
-      },
-      {
-        "required": [
-          "blockwise_controlnet_inpaint_mask"
-        ]
-      },
-      {
-        "required": [
-          "control_mask"
-        ]
-      },
-      {
-        "required": [
-          "I_bad"
-        ]
-      },
-      {
-        "required": [
-          "I_target"
-        ]
-      },
-      {
-        "required": [
-          "repairplan_current"
-        ]
-      },
-      {
-        "required": [
-          "mask_spec_current"
-        ]
-      }
-    ]
-  }
+  "description": "Exact current Qwen full-semantic Architecture In-Context metadata row. Only the seven declared columns are valid."
 }

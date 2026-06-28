@@ -1,9 +1,0 @@
-{
-  "schema_version": "c14-3-invalidated-runs-v1",
-  "old_runs": [
-    "outputs/qwen_semantic_repair4_medium_v1/*/gpu2_rank32_300steps",
-    "reports/c14_1_autogpu_*"
-  ],
-  "reason": "C14.1 checkpoints were trained/evaluated under a palette-contract mismatch. Retain for audit; do not use as valid model-quality evidence.",
-  "delete_old_runs": false
-}

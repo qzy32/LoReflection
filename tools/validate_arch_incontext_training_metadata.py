@@ -19,15 +19,6 @@ REQUIRED_COLUMNS = [
     "prompt_package",
     "verifier_refs",
 ]
-FORBIDDEN_COLUMNS = {
-    "blockwise_controlnet_image",
-    "blockwise_controlnet_inpaint_mask",
-    "control_mask",
-    "I_bad",
-    "I_target",
-    "repairplan_current",
-    "mask_spec_current",
-}
 PATH_COLUMNS = ["image", "context_image", "goal_lostate", "prompt_package", "verifier_refs"]
 
 
@@ -49,11 +40,11 @@ def validate_metadata(metadata_path: Path, dataset_base: Path | None = None) -> 
         reader = csv.DictReader(f)
         fieldnames = reader.fieldnames or []
         missing = [name for name in REQUIRED_COLUMNS if name not in fieldnames]
-        forbidden = [name for name in fieldnames if name in FORBIDDEN_COLUMNS]
+        unexpected = [name for name in fieldnames if name not in REQUIRED_COLUMNS]
         if missing:
             failures.append(f"missing required columns: {missing}")
-        if forbidden:
-            failures.append(f"forbidden old inpaint columns: {forbidden}")
+        if unexpected:
+            failures.append(f"unexpected metadata columns: {unexpected}")
         for row in reader:
             rows.append(row)
 
@@ -71,7 +62,7 @@ def validate_metadata(metadata_path: Path, dataset_base: Path | None = None) -> 
         "dataset_base": str(dataset_base) if dataset_base else None,
         "row_count": len(rows),
         "required_columns": REQUIRED_COLUMNS,
-        "forbidden_columns": sorted(FORBIDDEN_COLUMNS),
+        "allowed_columns": REQUIRED_COLUMNS,
         "failures": failures,
         "status": "pass" if not failures else "fail",
     }

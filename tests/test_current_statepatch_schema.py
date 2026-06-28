@@ -33,14 +33,14 @@ def test_valid_statepatch_schema_and_validator():
     validate_statepatch(patch)
 
 
-def test_statepatch_rejects_mask_spec_and_blockwise_fields():
+def test_statepatch_rejects_extra_fields_and_raw_paths():
     patch = _valid_patch()
-    patch["mask_spec"] = {}
+    patch["unexpected_field"] = {}
     with pytest.raises(Exception):
         Draft202012Validator(SCHEMA).validate(patch)
 
     patch = _valid_patch()
-    patch["reason"] = "contains blockwise_controlnet_image"
+    patch["reason"] = "contains source_json_path"
     with pytest.raises(ValidationError):
         validate_statepatch(patch)
 
@@ -59,4 +59,3 @@ def test_remove_may_omit_state_field_updates():
     del patch["state_field_updates"]
     Draft202012Validator(SCHEMA).validate(patch)
     validate_statepatch(patch)
-

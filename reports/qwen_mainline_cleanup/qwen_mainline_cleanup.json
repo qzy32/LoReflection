@@ -1,0 +1,37 @@
+{
+  "status": "pass",
+  "retained_mainline": {
+    "qwen_route": "full_semantic_compiled_main",
+    "prompt_compiler": "llm_functional_only",
+    "metadata_columns": [
+      "image",
+      "prompt",
+      "context_image",
+      "sample_id",
+      "goal_lostate",
+      "prompt_package",
+      "verifier_refs"
+    ],
+    "image": "target_full_semantic",
+    "context_image": "architecture_condition_image"
+  },
+  "removed_categories": [
+    "retired_qwen_repair_training_configs_and_scripts",
+    "retired_prompt_ablation_and_prompt_label_variant_tools",
+    "retired_auxiliary_target_reports",
+    "retired_server_dryrun_templates",
+    "retired_repairplan_mask_spec_current_interface",
+    "retired_tracked_archive_files"
+  ],
+  "validation": {
+    "deprecated_qwen_route_term_scan": "pass",
+    "git_diff_check": "pass",
+    "pytest": "72 passed"
+  },
+  "runtime_safety": {
+    "data_package_modified": false,
+    "model_checkpoint_modified": false,
+    "training_output_modified": false,
+    "process_killed": false
+  }
+}

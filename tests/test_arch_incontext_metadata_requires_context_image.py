@@ -39,14 +39,13 @@ def test_arch_incontext_metadata_requires_context_image(tmp_path):
     assert validate_metadata(metadata)["status"] == "pass"
 
 
-def test_arch_incontext_metadata_rejects_old_inpaint_fields(tmp_path):
+def test_arch_incontext_metadata_rejects_extra_columns(tmp_path):
     metadata = tmp_path / "metadata.csv"
     metadata.write_text(
-        "image,prompt,context_image,sample_id,goal_lostate,prompt_package,verifier_refs,blockwise_controlnet_image\n"
-        "a.png,p,c.png,s,g.json,p.json,v.json,bad.png\n",
+        "image,prompt,context_image,sample_id,goal_lostate,prompt_package,verifier_refs,extra_column\n"
+        "a.png,p,c.png,s,g.json,p.json,v.json,unexpected\n",
         encoding="utf-8",
     )
     report = validate_metadata(metadata)
     assert report["status"] == "fail"
-    assert "forbidden old inpaint columns" in " ".join(report["failures"])
-
+    assert "unexpected metadata columns" in " ".join(report["failures"])

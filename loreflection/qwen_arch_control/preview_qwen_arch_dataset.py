@@ -34,7 +34,7 @@ def build_preview(dataset_root: Path, max_contact_samples: int = 12) -> dict[str
         cards.append(
             "<section><h2>{sid}</h2><div class='images'>"
             "<figure><img src='../{cond}'><figcaption>architecture_condition_image</figcaption></figure>"
-            "<figure><img src='../{target}'><figcaption>target_semantic_layout_image</figcaption></figure>"
+            "<figure><img src='../{target}'><figcaption>target_full_semantic</figcaption></figure>"
             "</div><p><b>Room:</b> {room}</p><p><b>Required:</b> {required}</p>"
             "<p><b>Prompt:</b> {prompt}</p><p><b>Warnings:</b> {warnings}</p></section>".format(
                 sid=html.escape(row["sample_id"]),

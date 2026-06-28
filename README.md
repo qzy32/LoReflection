@@ -10,7 +10,7 @@ pipeline.
 User instruction + Architecture JSON + frozen semantic registry
 -> Goal State Constructor
 -> Goal LoState
--> Prompt Compiler
+-> LLM Functional Prompt Compiler
 -> compiled_text_prompt
 
 Architecture JSON
@@ -19,7 +19,7 @@ Architecture JSON
 
 compiled_text_prompt + architecture_condition_image
 -> Qwen-Image Architecture In-Context Control
--> initial semantic layout image
+-> target_full_semantic image
 -> layout parser
 -> layout JSON / scene JSON
 -> Observed State Builder
@@ -62,21 +62,18 @@ Read these first:
 2. `01_论文详细文档更新_GoalObservedState_StatePatch中文版.md`
 3. `02_LoState_GoalObserved_StatePatch设计文档_v8_ArchInContext中文版.md`
 4. `06_Qwen-Image_Architecture_InContext_Control_方法与实验.md`
-5. `docs/MIGRATION_AUDIT_ARCH_INCONTEXT.md`
-6. `docs/START_HERE.md`
-
-The C12/C13/C14 semantic repair and inpaint experiments are historical
-baselines. They remain in the repository for audit and comparison, but they are
-not the current mainline.
+5. `docs/START_HERE.md`
 
 ## Safety Boundaries
 
-- Do not train Qwen/DiffSynth inpaint as the current local repair route.
 - Do not ask the VLM to output a full Edited LoState.
 - Do not ask the VLM to output executable layout JSON / scene JSON directly.
 - Do not expose low-level `source_json_path` or engine uid values to the VLM.
 - Keep executable writes inside the deterministic StatePatch Executor and
   Write-back Serializer.
+- Keep Qwen training on the full-semantic Architecture In-Context route:
+  `image=target_full_semantic`, `prompt=compiled_text_prompt`, and
+  `context_image=architecture_condition_image`.
 
 ## LLM Functional Prompt Compiler
 

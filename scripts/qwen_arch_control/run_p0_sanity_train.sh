@@ -13,14 +13,14 @@ mkdir -p "$(dirname "$FIELD_LOG")"
 cat > "$FIELD_LOG" <<'EOF'
 # P0 Sanity Field Adjustment Log
 
-- Core metadata semantics preserved: image=target_semantic_layout_image, prompt=compiled_text_prompt, context_image=architecture_condition_image.
+- Core metadata semantics preserved: image=target_full_semantic, prompt=compiled_text_prompt, context_image=architecture_condition_image.
 - Training uses `--data_file_keys "image,context_image"` and `--extra_inputs "context_image"`.
 - max_pixels is set to 65536 because P0-real images are 256x256.
 - dataset_num_workers is set to 0 for a conservative server sanity run.
 - per_device_batch_size is not passed because the current DiffSynth train.py does not expose that argument; it uses the DiffSynth training default.
 - model loading uses DiffSynth model_id_with_origin_paths with DIFFSYNTH_MODEL_BASE_PATH and DIFFSYNTH_SKIP_DOWNLOAD=true so local Qwen/Qwen-Image files are used without network access.
 - LD_LIBRARY_PATH is prefixed with the selected conda environment lib directory so DiffSynth-Studio uses the matching libstdc++/PIL runtime.
-- This run must not fall back to legacy inpaint fields or models.
+- This run uses the Qwen Architecture In-Context metadata contract.
 EOF
 
 find_diffsynth() {
@@ -189,7 +189,7 @@ cat > "$OUT/P0_SANITY_TRAINING_SUMMARY.md" <<EOF
 - Checkpoint path: \`train_p0_50/run\`
 - Train logs: \`logs/train_tiny.log\`, \`logs/train_p0_50.log\`
 - Uses context_image: yes
-- Legacy inpaint fields present: see \`eval/training_command_contract_check.json\`
+- Training command contract: see \`eval/training_command_contract_check.json\`
 - Inference samples: \`infer/\`
 - Quantized outputs: \`quantized/\`
 - Eval report: \`eval/p0_sanity_eval_report.json\`

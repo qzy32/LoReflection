@@ -10,11 +10,11 @@ Current mainline:
 ```text
 Goal State Constructor
 -> Goal LoState
--> Prompt Compiler
+-> LLM Functional Prompt Compiler
 -> compiled_text_prompt
 + architecture_condition_image
 -> Qwen-Image Architecture In-Context Control
--> target_semantic_layout_image
+-> target_full_semantic
 -> layout JSON / scene JSON
 -> Observed LoState
 -> LoReview
@@ -27,36 +27,25 @@ Goal State Constructor
 
 ## Completed
 
-- C14.4 palette-fixed semantic repair training completed and is retained as a
-  historical diagnostic baseline.
-- `docs/MIGRATION_AUDIT_ARCH_INCONTEXT.md` identified the old route residuals.
 - Current interface schemas for StatePatch and Qwen Architecture In-Context
   metadata have been added.
 - A current StatePatch editor handoff package has been added.
-- Validators and tests have been added for StatePatch, metadata, prompt leakage,
-  and architecture-condition furniture-color leakage.
-- A 60-sample deterministic procedural P0 contract package has been generated
-  locally under `data/loreflection_qwen_arch_control/`. Metadata, palette,
-  prompt, split, condition/target separation, and preview audits pass.
-- The P0 package validates the software and data contract only. It is not a
-  replacement for a real 3D-FRONT/3D-FUTURE scene package.
-
-## Historical Baseline
-
-The C12/C13/C14 work remains useful as provenance and comparison. It includes
-legacy RepairPlan planning, mask planning, semantic repair routing, and
-Qwen/DiffSynth blockwise inpaint experiments. It is not the current executable
-mainline.
+- The Qwen route has been consolidated to `full_semantic_compiled_main`.
+- The Qwen prompt path is LLM-only: Goal LoState plus a geometry-safe
+  architecture summary is compiled into a validated PromptPackage.
+- Full-semantic Qwen data is generated with `image,prompt,context_image` only.
+- Retired Qwen repair, prompt-ablation, and auxiliary target artifacts have
+  been removed from the tracked mainline.
 
 ## Next Step
 
-Connect the P0 builder to real scene-package outputs:
+Continue training and evaluation on the full-semantic Architecture In-Context
+data package:
 
-1. supply 50-200 real scene-grouped architecture/layout pairs;
-2. rerun the same metadata, palette, prompt, split, and visual audits;
-3. manually inspect architecture-condition diversity and target fidelity;
-4. then run a bounded P0 pipeline sanity training, without treating procedural
-   samples as model-quality evidence.
+1. monitor the active Qwen LoRA training run;
+2. run inference, quantization, and evaluation once checkpoints are available;
+3. only promote checkpoints that pass palette, architecture-preservation, and
+   furniture reconstruction gates.
 
 ## LLM Functional Prompt Compiler
 

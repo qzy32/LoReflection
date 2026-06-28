@@ -20,8 +20,7 @@ Qwen does not do local repair in the current mainline.
 2. `01_论文详细文档更新_GoalObservedState_StatePatch中文版.md` - method boundary.
 3. `02_LoState_GoalObserved_StatePatch设计文档_v8_ArchInContext中文版.md` - Goal/Observed/StatePatch schema details.
 4. `06_Qwen-Image_Architecture_InContext_Control_方法与实验.md` - Qwen initial generation data format.
-5. `docs/MIGRATION_AUDIT_ARCH_INCONTEXT.md` - old-route audit and migration notes.
-6. `README.md` and `PROGRESS.md`.
+5. `README.md` and `PROGRESS.md`.
 
 ## Current Interface
 
@@ -54,19 +53,12 @@ image,prompt,context_image,sample_id,goal_lostate,prompt_package,verifier_refs
 
 Where:
 
-- `image` is the target semantic layout image.
-- `prompt` is the compiled text prompt.
+- `image` is the full semantic target image.
+- `prompt` is the LLM-compiled text prompt.
 - `context_image` is the architecture condition image.
-
-## Historical Baseline
-
-The old RepairPlan planner handoff, mask planning, semantic repair routing, and
-Qwen/DiffSynth blockwise inpaint artifacts are retained only as the C12-C14
-historical baseline. See `docs/DEPRECATED_ROUTES.md`.
 
 ## Do Not Do This Without A New Protocol Decision
 
-- Do not turn the historical inpaint route back into the current repair route.
 - Do not change taxonomy, palette, or semantic registry.
 - Do not ask the VLM to output a full Edited LoState or executable scene file.
 - Do not print server credentials or local environment files.

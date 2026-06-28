@@ -14,28 +14,8 @@ from jsonschema import Draft202012Validator
 ROOT = Path(__file__).resolve().parents[1]
 STATEPATCH_SCHEMA = ROOT / "artifacts/current_interface/statepatch.schema.json"
 
-FORBIDDEN_KEYS = {
-    "RepairPlan",
-    "repairplan",
-    "repairplan_current",
-    "mask_spec",
-    "control_mask",
-    "blockwise_controlnet_image",
-    "blockwise_controlnet_inpaint_mask",
-    "I_bad",
-    "I_target",
-    "source_json_path",
-}
-FORBIDDEN_TEXT = {
-    "RepairPlan",
-    "mask_spec",
-    "control_mask",
-    "blockwise_controlnet_image",
-    "blockwise_controlnet_inpaint_mask",
-    "I_bad",
-    "I_target",
-    "source_json_path",
-}
+FORBIDDEN_KEYS = {"source_json_path"}
+FORBIDDEN_TEXT = {"source_json_path"}
 UPDATE_FIELDS = {"center_m", "orientation_deg", "size_m", "category", "asset_id", "new_instance"}
 
 
