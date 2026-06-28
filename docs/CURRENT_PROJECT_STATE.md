@@ -133,3 +133,9 @@ Architecture In-Context pipeline sanity training.
 ## StatePatch Strict SFT Protocol
 
 For VLM SFT/inference, StatePatch uses the strict subset documented in `outputs/current_statepatch_editor_handoff/STATEPATCH_SFT_STRICT_PROTOCOL.md`. The JSON schema is intentionally wider, but training should not mix relative and absolute update modes. In the strict subset, TRANSLATE uses relative `delta_m`, ROTATE uses relative `delta_deg`, SCALE uses relative `scale_xy`, ADD uses placement hints, and bbox/full executable JSON outputs are forbidden.
+
+## LLM Functional Prompt Compiler
+
+LoReflection now uses an LLM Functional Prompt Compiler as the current Qwen text-prompt path. The compiler verbalizes Goal LoState into a concise, geometry-safe Qwen-Image Architecture In-Context prompt and validates the resulting PromptPackage before it can be written to metadata.
+
+The LLM does not generate coordinates, layout JSON, StatePatch JSON, object ids, raw source paths, or metric dimensions. It only receives a geometry-safe Goal LoState summary, semantic category registry information, active RGB palette entries, and an architecture summary limited to visible floor boundary / door / window booleans. If no LLM client is provided, prompt compilation fails with `LLM_PROMPT_CLIENT_MISSING`; there is no rule prompt fallback in the current mainline.

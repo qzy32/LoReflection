@@ -1,0 +1,51 @@
+{
+  "dataset_root": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_full_metric_v2_full_semantic_compiled",
+  "metadata_path": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_full_metric_v2_full_semantic_compiled/metadata.csv",
+  "metadata_rows": 4879,
+  "metadata_columns": [
+    "image",
+    "prompt",
+    "context_image",
+    "sample_id",
+    "goal_lostate",
+    "prompt_package",
+    "verifier_refs"
+  ],
+  "path_checks": 24395,
+  "missing_paths_count": 0,
+  "duplicate_sample_id_count": 0,
+  "palette_bad_count": 0,
+  "protected_bad_count": 0,
+  "opening_policy_bad_count": 0,
+  "door_pixel_bad_count": 0,
+  "target_no_furniture_count": 0,
+  "split_files": [],
+  "split_warning": "splits directory missing or empty; DiffSynth training uses full metadata.csv directly",
+  "prompt_apply_status": "pass",
+  "metadata_prompt_audit_status": "pass",
+  "prompt_package_audit_status": "pass",
+  "full_gate_audit_status": "pass",
+  "ready_for_training": true,
+  "hard_failures": {
+    "columns_ok": true,
+    "metadata_rows_ok": true,
+    "unique_sample_ids_ok": true,
+    "paths_ok": true,
+    "metadata_prompt_audit_ok": true,
+    "prompt_package_audit_ok": true,
+    "apply_ok": true,
+    "palette_exact_ok": true,
+    "protected_pixels_unchanged_ok": true,
+    "opening_policy_ok": true,
+    "door_pixels_ok": true,
+    "target_contains_furniture_ok": true
+  },
+  "examples": {
+    "missing_paths": [],
+    "palette_bad": [],
+    "protected_bad": [],
+    "opening_policy_bad": [],
+    "door_pixel_bad": [],
+    "target_no_furniture": []
+  }
+}

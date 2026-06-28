@@ -1,0 +1,174 @@
+{
+  "room_type": "courtyard",
+  "furniture_slots": [],
+  "goal_constraints": [
+    {
+      "constraint_id": "require_corner_side_table",
+      "constraint_kind": "requirement",
+      "necessity": "required",
+      "prompt_hint": "Include the required corner_side_table."
+    },
+    {
+      "constraint_id": "require_desk",
+      "constraint_kind": "requirement",
+      "necessity": "required",
+      "prompt_hint": "Include the required desk."
+    },
+    {
+      "constraint_id": "require_lounge_chair",
+      "constraint_kind": "requirement",
+      "necessity": "required",
+      "prompt_hint": "Include the required lounge_chair."
+    },
+    {
+      "constraint_id": "require_pendant_lamp",
+      "constraint_kind": "requirement",
+      "necessity": "required",
+      "prompt_hint": "Include the required pendant_lamp."
+    },
+    {
+      "constraint_id": "inside_room",
+      "constraint_kind": "global",
+      "necessity": "required",
+      "prompt_hint": "Keep all furniture inside the room."
+    },
+    {
+      "constraint_id": "avoid_overlap",
+      "constraint_kind": "global",
+      "necessity": "required",
+      "prompt_hint": "Avoid furniture overlap."
+    },
+    {
+      "constraint_id": "palette_exact",
+      "constraint_kind": "global",
+      "necessity": "required",
+      "prompt_hint": "Use only the frozen semantic palette."
+    },
+    {
+      "constraint_id": "door_clearance_free",
+      "constraint_kind": "region",
+      "necessity": "required",
+      "prompt_hint": "Keep the door clearance area free."
+    },
+    {
+      "constraint_id": "window_clearance_free",
+      "constraint_kind": "region",
+      "necessity": "required",
+      "prompt_hint": "Keep the window clearance area free."
+    }
+  ],
+  "prompt_compilation_policy": {
+    "include_optional_slots": false,
+    "include_preferred_constraints": true,
+    "geometry_in_prompt": false
+  },
+  "allowed_furniture_categories": [
+    "armchair",
+    "bookshelf",
+    "cabinet",
+    "ceiling_lamp",
+    "chair",
+    "chaise_longue_sofa",
+    "children_cabinet",
+    "chinese_chair",
+    "coffee_table",
+    "console_table",
+    "corner_side_table",
+    "desk",
+    "dining_chair",
+    "dining_table",
+    "double_bed",
+    "dressing_chair",
+    "dressing_table",
+    "kids_bed",
+    "l_shaped_sofa",
+    "lazy_sofa",
+    "lounge_chair",
+    "loveseat_sofa",
+    "multi_seat_sofa",
+    "nightstand",
+    "pendant_lamp",
+    "round_end_table",
+    "shelf",
+    "single_bed",
+    "sofa",
+    "stool",
+    "table",
+    "tv_stand",
+    "wardrobe",
+    "wine_cabinet"
+  ],
+  "active_palette_categories": [
+    "corner_side_table",
+    "desk",
+    "lounge_chair",
+    "pendant_lamp"
+  ],
+  "active_palette_entries": {
+    "corner_side_table": [
+      224,
+      154,
+      72
+    ],
+    "desk": [
+      212,
+      224,
+      72
+    ],
+    "lounge_chair": [
+      72,
+      224,
+      97
+    ],
+    "pendant_lamp": [
+      224,
+      84,
+      72
+    ]
+  },
+  "architecture_summary": {
+    "room_type": "courtyard",
+    "visible_architecture_elements": {
+      "room_floor_boundary": true,
+      "door": true,
+      "window": true,
+      "wall_class": false,
+      "clearance_region": false,
+      "non_placeable_region": false
+    },
+    "opening_source_policy": "semlayoutdiff_room_children_only",
+    "qwen_input_is_palette_exact": true
+  },
+  "output_schema": {
+    "compiled_text_prompt": "one concise English Qwen prompt",
+    "used_slot_ids": [],
+    "used_constraint_ids": [
+      "avoid_overlap",
+      "door_clearance_free",
+      "inside_room",
+      "palette_exact",
+      "require_corner_side_table",
+      "require_desk",
+      "require_lounge_chair",
+      "require_pendant_lamp",
+      "window_clearance_free"
+    ],
+    "omitted_constraint_ids": [
+      "avoid_overlap",
+      "door_clearance_free",
+      "inside_room",
+      "palette_exact",
+      "require_corner_side_table",
+      "require_desk",
+      "require_lounge_chair",
+      "require_pendant_lamp",
+      "window_clearance_free"
+    ],
+    "architecture_claims": [
+      "room_floor_boundary",
+      "visible_door",
+      "visible_window"
+    ],
+    "notes": []
+  }
+}

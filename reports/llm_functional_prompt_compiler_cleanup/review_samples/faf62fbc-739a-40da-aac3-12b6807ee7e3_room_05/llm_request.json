@@ -1,0 +1,216 @@
+{
+  "room_type": "livingroom",
+  "furniture_slots": [],
+  "goal_constraints": [
+    {
+      "constraint_id": "require_ceiling_lamp",
+      "constraint_kind": "requirement",
+      "necessity": "required",
+      "prompt_hint": "Include the required ceiling_lamp."
+    },
+    {
+      "constraint_id": "require_coffee_table",
+      "constraint_kind": "requirement",
+      "necessity": "required",
+      "prompt_hint": "Include the required coffee_table."
+    },
+    {
+      "constraint_id": "require_desk",
+      "constraint_kind": "requirement",
+      "necessity": "required",
+      "prompt_hint": "Include the required desk."
+    },
+    {
+      "constraint_id": "require_lazy_sofa",
+      "constraint_kind": "requirement",
+      "necessity": "required",
+      "prompt_hint": "Include the required lazy_sofa."
+    },
+    {
+      "constraint_id": "require_multi_seat_sofa",
+      "constraint_kind": "requirement",
+      "necessity": "required",
+      "prompt_hint": "Include the required multi_seat_sofa."
+    },
+    {
+      "constraint_id": "require_table",
+      "constraint_kind": "requirement",
+      "necessity": "required",
+      "prompt_hint": "Include the required table."
+    },
+    {
+      "constraint_id": "require_tv_stand",
+      "constraint_kind": "requirement",
+      "necessity": "required",
+      "prompt_hint": "Include the required tv_stand."
+    },
+    {
+      "constraint_id": "inside_room",
+      "constraint_kind": "global",
+      "necessity": "required",
+      "prompt_hint": "Keep all furniture inside the room."
+    },
+    {
+      "constraint_id": "avoid_overlap",
+      "constraint_kind": "global",
+      "necessity": "required",
+      "prompt_hint": "Avoid furniture overlap."
+    },
+    {
+      "constraint_id": "palette_exact",
+      "constraint_kind": "global",
+      "necessity": "required",
+      "prompt_hint": "Use only the frozen semantic palette."
+    },
+    {
+      "constraint_id": "door_clearance_free",
+      "constraint_kind": "region",
+      "necessity": "required",
+      "prompt_hint": "Keep the door clearance area free."
+    },
+    {
+      "constraint_id": "window_clearance_free",
+      "constraint_kind": "region",
+      "necessity": "required",
+      "prompt_hint": "Keep the window clearance area free."
+    }
+  ],
+  "prompt_compilation_policy": {
+    "include_optional_slots": false,
+    "include_preferred_constraints": true,
+    "geometry_in_prompt": false
+  },
+  "allowed_furniture_categories": [
+    "armchair",
+    "bookshelf",
+    "cabinet",
+    "ceiling_lamp",
+    "chair",
+    "chaise_longue_sofa",
+    "children_cabinet",
+    "chinese_chair",
+    "coffee_table",
+    "console_table",
+    "corner_side_table",
+    "desk",
+    "dining_chair",
+    "dining_table",
+    "double_bed",
+    "dressing_chair",
+    "dressing_table",
+    "kids_bed",
+    "l_shaped_sofa",
+    "lazy_sofa",
+    "lounge_chair",
+    "loveseat_sofa",
+    "multi_seat_sofa",
+    "nightstand",
+    "pendant_lamp",
+    "round_end_table",
+    "shelf",
+    "single_bed",
+    "sofa",
+    "stool",
+    "table",
+    "tv_stand",
+    "wardrobe",
+    "wine_cabinet"
+  ],
+  "active_palette_categories": [
+    "ceiling_lamp",
+    "coffee_table",
+    "desk",
+    "lazy_sofa",
+    "multi_seat_sofa",
+    "table",
+    "tv_stand"
+  ],
+  "active_palette_entries": {
+    "ceiling_lamp": [
+      72,
+      104,
+      224
+    ],
+    "coffee_table": [
+      78,
+      224,
+      72
+    ],
+    "desk": [
+      212,
+      224,
+      72
+    ],
+    "lazy_sofa": [
+      72,
+      136,
+      224
+    ],
+    "multi_seat_sofa": [
+      224,
+      72,
+      224
+    ],
+    "table": [
+      72,
+      224,
+      148
+    ],
+    "tv_stand": [
+      72,
+      167,
+      224
+    ]
+  },
+  "architecture_summary": {
+    "room_type": "livingroom",
+    "visible_architecture_elements": {
+      "room_floor_boundary": true,
+      "door": true,
+      "window": true,
+      "wall_class": false,
+      "clearance_region": false,
+      "non_placeable_region": false
+    },
+    "opening_source_policy": "semlayoutdiff_room_children_only",
+    "qwen_input_is_palette_exact": true
+  },
+  "output_schema": {
+    "compiled_text_prompt": "one concise English Qwen prompt",
+    "used_slot_ids": [],
+    "used_constraint_ids": [
+      "avoid_overlap",
+      "door_clearance_free",
+      "inside_room",
+      "palette_exact",
+      "require_ceiling_lamp",
+      "require_coffee_table",
+      "require_desk",
+      "require_lazy_sofa",
+      "require_multi_seat_sofa",
+      "require_table",
+      "require_tv_stand",
+      "window_clearance_free"
+    ],
+    "omitted_constraint_ids": [
+      "avoid_overlap",
+      "door_clearance_free",
+      "inside_room",
+      "palette_exact",
+      "require_ceiling_lamp",
+      "require_coffee_table",
+      "require_desk",
+      "require_lazy_sofa",
+      "require_multi_seat_sofa",
+      "require_table",
+      "require_tv_stand",
+      "window_clearance_free"
+    ],
+    "architecture_claims": [
+      "room_floor_boundary",
+      "visible_door",
+      "visible_window"
+    ],
+    "notes": []
+  }
+}

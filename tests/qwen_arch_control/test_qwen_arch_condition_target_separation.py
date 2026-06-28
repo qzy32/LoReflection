@@ -5,6 +5,7 @@ from PIL import Image
 
 from loreflection.qwen_arch_control.build_qwen_arch_control_dataset import build_dataset
 from loreflection.semantic_registry import load_registry
+from llm_prompt_test_client import MockDatasetPromptLLMClient
 
 
 def _colors(path: Path):
@@ -14,7 +15,7 @@ def _colors(path: Path):
 
 def test_condition_excludes_furniture_and_target_contains_it(tmp_path: Path):
     root = tmp_path / "p0"
-    build_dataset(root, num_samples=3, image_size=96, seed=17)
+    build_dataset(root, num_samples=3, image_size=96, seed=17, llm_client=MockDatasetPromptLLMClient())
     registry = load_registry()
     furniture = {category.rgb for category in registry.categories if category.semantic_id in registry.object_ids}
     with (root / "metadata.csv").open("r", encoding="utf-8", newline="") as handle:

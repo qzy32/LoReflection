@@ -1,0 +1,10 @@
+{
+  "prompt_package_files": 4879,
+  "llm_functional_count": 4879,
+  "rgb_prompt_count": 4879,
+  "fallback_true_count": 0,
+  "bad_count": 0,
+  "bad_examples": [],
+  "fallback_examples": [],
+  "status": "pass"
+}

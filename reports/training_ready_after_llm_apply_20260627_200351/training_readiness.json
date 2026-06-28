@@ -1,0 +1,27 @@
+{
+  "dataset_root": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_full_metric_v2_full_semantic_compiled",
+  "metadata_rows": 4879,
+  "prompt_apply_status": "fail",
+  "metadata_prompt_audit_status": "not_run_apply_failed",
+  "prompt_package_audit_status": "not_run_apply_failed",
+  "full_gate_audit_status": "fail_apply_gate",
+  "ready_for_training": false,
+  "training_started": false,
+  "blocked_reason": "9 shard rows have fallback_used=true / validation_failed; strict apply refused to modify metadata",
+  "fallback_false_rows": 4870,
+  "fallback_true_count": 9,
+  "fallback_true_sample_ids": [
+    "14ef0cd9-ba3e-4b97-afee-d4f53a0eb7d7_room_02",
+    "6e18eae0-40b9-43e8-a718-11ebf2f73051_room_04",
+    "a065a8b5-2593-489b-949f-9334f982dddb_room_19",
+    "f50e31b6-7aba-4d78-8847-1822f568fa3e_room_00",
+    "51508cc8-618a-4537-b753-53a381c1af0d_room_01",
+    "36a434a5-ed7a-4f92-ba94-57685e289b37_room_00",
+    "e3681044-5e15-41f4-9d87-49746b7f26ec_room_03",
+    "d2e1869f-9e98-4169-8643-28cb1be0ef41_room_01",
+    "b8d5c14b-b931-4b1e-969f-b96f5c1f3bb5_room_00"
+  ],
+  "metadata_prompt_with_rgb_rows": 0,
+  "updated_metadata_prompt_rows": 0,
+  "updated_prompt_package_files": 0
+}

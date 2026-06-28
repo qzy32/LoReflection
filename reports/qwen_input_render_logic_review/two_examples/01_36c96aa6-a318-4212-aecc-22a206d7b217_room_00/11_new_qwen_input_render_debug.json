@@ -1,0 +1,67 @@
+{
+  "renderer": "semantic_topdown_renderer_v2",
+  "image_size_px": [
+    256,
+    256
+  ],
+  "palette_exact": true,
+  "architecture_only": true,
+  "boundary_source": "polygon_m_metric_transform",
+  "transform_debug": {
+    "metric_transform_exists": true,
+    "metric_transform_hash": "6738bb2ae8adc1ad647612c8544deeb0133b40bbcde3da419f73af359a7cb6cd",
+    "room_bbox_m": [
+      -4.32407,
+      -2.9975,
+      3.29118,
+      3.2425
+    ],
+    "pixels_per_meter": 32.0,
+    "pixels_per_cm": 0.32,
+    "cm_per_pixel": 3.125,
+    "canvas_w": 256,
+    "canvas_h": 256,
+    "pad_left": 0,
+    "pad_top": 0,
+    "target_size": [
+      256,
+      256
+    ],
+    "local_crop_enabled": false,
+    "crop_policy": "fixed_metric_canvas_from_architecture_metric_transform",
+    "nearest_neighbor_semantic_resize": false,
+    "source_transform_schema": "metric-transform-v1"
+  },
+  "wall_in_registry": false,
+  "wall_in_architecture_json": false,
+  "wall_source_mesh_available": false,
+  "wall_rendering_policy": "no_wall_class_floor_void_boundary_only",
+  "anchor_counts": {
+    "door": 2,
+    "window": 0
+  },
+  "anchor_pixel_counts": {
+    "door": 333,
+    "window": 0
+  },
+  "anchor_reports": [
+    {
+      "anchor_id": "furniture/107",
+      "anchor_type": "door",
+      "geometry_source": "bbox_m_metric_transform",
+      "pixel_count": 189,
+      "min_visible_strip_applied": false
+    },
+    {
+      "anchor_id": "226631593574676267/0",
+      "anchor_type": "door",
+      "geometry_source": "bbox_px",
+      "pixel_count": 144,
+      "min_visible_strip_applied": false
+    }
+  ],
+  "opening_min_visible_px": 3,
+  "no_alpha": true,
+  "no_antialiasing": true,
+  "official_qwen_input": true
+}

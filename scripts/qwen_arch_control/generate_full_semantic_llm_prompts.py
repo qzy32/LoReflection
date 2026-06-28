@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from typing import Any
 
 from loreflection.goal.prompt_compiler import compile_prompt_package
-from loreflection.goal.prompt_compiler_llm import SYSTEM_PROMPT, build_architecture_summary
+from loreflection.goal.llm_functional_prompt_compiler import SYSTEM_PROMPT, build_architecture_summary
 from loreflection.semantic_registry import load_registry
 
 
@@ -83,7 +83,7 @@ def generate_shard(args: argparse.Namespace) -> int:
         verifier = load_json(root, row["verifier_refs"])
         architecture = load_json(root, verifier["architecture_json"])
         arch_summary = build_architecture_summary(architecture)
-        package = compile_prompt_package(goal, architecture_summary=arch_summary, registry=registry, llm_client=client, mode="llm_with_rule_fallback")
+        package = compile_prompt_package(goal, architecture_summary=arch_summary, registry=registry, llm_client=client)
         package["sample_id"] = sid
         package["required_counts"] = goal.get("required_counts") or {}
         package["architecture_summary"] = arch_summary
@@ -96,7 +96,7 @@ def generate_shard(args: argparse.Namespace) -> int:
         })
         if local_idx % args.flush_every == 0:
             write_jsonl(args.output_jsonl, out_rows)
-        print(json.dumps({"shard": args.shard_index, "idx": local_idx, "sample_id": sid, "fallback": package.get("llm_prompt_compiler_report", {}).get("fallback_used")}, ensure_ascii=False), flush=True)
+        print(json.dumps({"shard": args.shard_index, "idx": local_idx, "sample_id": sid, "validation_status": package.get("validation_report", {}).get("status")}, ensure_ascii=False), flush=True)
     write_jsonl(args.output_jsonl, out_rows)
     return 0
 
@@ -112,13 +112,12 @@ def apply_shards(args: argparse.Namespace) -> int:
     if missing:
         raise RuntimeError(f"Missing LLM prompt rows: {len(missing)}; first={missing[:5]}")
     new_rows = []
-    used_llm = fallback = 0
+    used_llm = failed = 0
     for row in rows:
         obj = by_id[row["sample_id"]]
         package = obj["prompt_package"]
-        report = package.get("llm_prompt_compiler_report") or {}
-        used_llm += int(bool(report.get("used_llm")))
-        fallback += int(bool(report.get("fallback_used")))
+        used_llm += int(package.get("prompt_compiler") == "llm_functional")
+        failed += int(package.get("validation_report", {}).get("status") != "pass")
         pkg_path = root / row["prompt_package"]
         pkg_path.write_text(json.dumps(package, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         new_row = dict(row)
@@ -127,7 +126,7 @@ def apply_shards(args: argparse.Namespace) -> int:
     with (root / "metadata.csv").open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=["image", "prompt", "context_image", "sample_id", "goal_lostate", "prompt_package", "verifier_refs"])
         writer.writeheader(); writer.writerows(new_rows)
-    summary = {"metadata_rows": len(new_rows), "used_llm": used_llm, "fallback_used": fallback, "fallback_rate": fallback / len(new_rows) if new_rows else 0.0, "shard_dir": str(args.shard_dir)}
+    summary = {"metadata_rows": len(new_rows), "used_llm": used_llm, "validation_failed": failed, "validation_failed_rate": failed / len(new_rows) if new_rows else 0.0, "shard_dir": str(args.shard_dir)}
     args.summary_json.parent.mkdir(parents=True, exist_ok=True)
     args.summary_json.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(summary, ensure_ascii=False, indent=2))

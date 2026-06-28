@@ -76,3 +76,9 @@ historical baseline. See `docs/DEPRECATED_ROUTES.md`.
 VLM teammates should read `outputs/current_statepatch_editor_handoff/STATEPATCH_SFT_STRICT_PROTOCOL.md` before StatePatch SFT or inference work.
 
 For StatePatch SFT, follow the strict subset protocol instead of using every mode allowed by the wider JSON schema.
+
+## LLM Functional Prompt Compiler
+
+LoReflection now uses an LLM Functional Prompt Compiler as the current Qwen text-prompt path. The compiler verbalizes Goal LoState into a concise, geometry-safe Qwen-Image Architecture In-Context prompt and validates the resulting PromptPackage before it can be written to metadata.
+
+The LLM does not generate coordinates, layout JSON, StatePatch JSON, object ids, raw source paths, or metric dimensions. It only receives a geometry-safe Goal LoState summary, semantic category registry information, active RGB palette entries, and an architecture summary limited to visible floor boundary / door / window booleans. If no LLM client is provided, prompt compilation fails with `LLM_PROMPT_CLIENT_MISSING`; there is no rule prompt fallback in the current mainline.
