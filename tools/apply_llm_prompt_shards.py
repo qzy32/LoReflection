@@ -53,6 +53,7 @@ def main() -> int:
     parser.add_argument("--shard", type=Path, action="append", required=True)
     parser.add_argument("--output-summary", type=Path, required=True)
     parser.add_argument("--apply", action="store_true", help="write metadata and prompt packages after strict validation passes")
+    parser.add_argument("--dry-run", action="store_true", help="validate only; do not write metadata or prompt packages")
     args = parser.parse_args()
 
     metadata_path = args.dataset_root / "metadata.csv"
@@ -117,11 +118,13 @@ def main() -> int:
         "updated_metadata_prompt_rows": 0,
         "updated_prompt_package_files": 0,
         "metadata_prompt_with_rgb_rows": 0,
+        "metadata_prompt_with_rgb_rows_after_apply": len(metadata_rows) if can_apply else 0,
         "fallback_false_rows": len(shard_by_id) - len(fallback_ids),
         "duplicate_sample_ids": duplicate_ids[:50],
         "missing_sample_ids": missing_sample_ids[:50],
         "extra_shard_sample_ids": extra_shard_sample_ids[:50],
         "fallback_true_count": len(fallback_ids),
+        "fallback_true_rows": len(fallback_ids),
         "fallback_true_sample_ids": fallback_ids[:50],
         "missing_rgb_count": len(missing_rgb_ids),
         "missing_rgb_sample_ids": missing_rgb_ids[:50],
@@ -129,7 +132,7 @@ def main() -> int:
         "non_llm_sample_ids": non_llm_ids[:50],
         "validation_failed_count": len(validation_failed_ids),
         "validation_failed_sample_ids": validation_failed_ids[:50],
-        "status": "pass_ready_to_apply" if can_apply else "fail",
+        "status": "pass" if can_apply else "fail",
         "applied": False,
     }
 

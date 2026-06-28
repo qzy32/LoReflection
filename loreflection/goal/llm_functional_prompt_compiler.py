@@ -32,6 +32,15 @@ You must not invent architecture elements. Only mention room floor boundary, doo
 
 You must not include raw field names such as center_m, size_m, bbox, footprint, pixel, px, cm, meter, coordinate, source_json_path, or uid.
 
+The compiled_text_prompt must contain exactly these three labeled sections in order:
+Context_Control. ...
+Architecture_Control. ...
+Palette_Control. ...
+
+Architecture_Control may mention only visible elements from architecture_summary. Do not mention visible windows when window is false. Do not use the words pixel, px, cm, meter, coordinate, bbox, or footprint.
+
+Palette_Control must mention the frozen semantic palette. The program will append active RGB palette entries after validation.
+
 Output only valid JSON matching the requested schema."""
 
 
@@ -98,11 +107,21 @@ def _safe_goal_payload(goal_lostate: dict[str, Any], architecture_summary: dict[
         "active_palette_entries": active_palette_entries(goal_lostate, registry),
         "architecture_summary": architecture_summary,
         "output_schema": {
-            "compiled_text_prompt": "one concise English Qwen prompt",
+            "compiled_text_prompt": "one concise English Qwen prompt with Context_Control, Architecture_Control, and Palette_Control sections",
+            "required_prompt_sections": ["Context_Control", "Architecture_Control", "Palette_Control"],
             "used_slot_ids": sorted(allowed_slot_ids(goal_lostate)),
             "used_constraint_ids": sorted(allowed_constraint_ids(goal_lostate)),
             "omitted_constraint_ids": sorted(allowed_constraint_ids(goal_lostate)),
-            "architecture_claims": ["room_floor_boundary", "visible_door", "visible_window"],
+            "allowed_architecture_claims": [
+                claim for claim, enabled in {
+                    "room_floor_boundary": architecture_summary.get("visible_architecture_elements", {}).get("room_floor_boundary", False),
+                    "visible_door": architecture_summary.get("visible_architecture_elements", {}).get("door", False),
+                    "visible_window": architecture_summary.get("visible_architecture_elements", {}).get("window", False),
+                    "wall_class": architecture_summary.get("visible_architecture_elements", {}).get("wall_class", False),
+                    "clearance_region": architecture_summary.get("visible_architecture_elements", {}).get("clearance_region", False),
+                    "non_placeable_region": architecture_summary.get("visible_architecture_elements", {}).get("non_placeable_region", False),
+                }.items() if enabled
+            ],
             "notes": [],
         },
     }

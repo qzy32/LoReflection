@@ -1,5 +1,5 @@
 {
-  "dataset_root": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_full_metric_v2_full_semantic_compiled",
+  "dataset_root": "data/loreflection_qwen_arch_control_full_metric_v2_full_semantic_compiled",
   "metadata_rows": 4879,
   "metadata_columns": [
     "image",
@@ -12,9 +12,9 @@
   ],
   "shard_rows": 4879,
   "matched_rows": 4879,
-  "updated_metadata_prompt_rows": 4879,
-  "updated_prompt_package_files": 4879,
-  "metadata_prompt_with_rgb_rows": 4879,
+  "updated_metadata_prompt_rows": 0,
+  "updated_prompt_package_files": 0,
+  "metadata_prompt_with_rgb_rows": 0,
   "metadata_prompt_with_rgb_rows_after_apply": 4879,
   "fallback_false_rows": 4879,
   "duplicate_sample_ids": [],
@@ -30,5 +30,5 @@
   "validation_failed_count": 0,
   "validation_failed_sample_ids": [],
   "status": "pass",
-  "applied": true
+  "applied": false
 }

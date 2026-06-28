@@ -1,0 +1,14 @@
+{
+  "metadata_rows": 4879,
+  "required_token_counts": {
+    "Context_Control": 4879,
+    "Architecture_Control": 4879,
+    "Palette_Control": 4879,
+    "Active semantic category RGB palette entries": 4879
+  },
+  "empty_prompt_count": 0,
+  "geometry_leak_count": 0,
+  "empty_examples": [],
+  "leak_examples": [],
+  "status": "pass"
+}
