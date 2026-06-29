@@ -130,6 +130,28 @@ def test_hard_footprint_collision_pairs_detects_bad_overlap():
     assert collisions[0]["intersection_over_min_area"] > 0.5
 
 
+def test_lamps_do_not_participate_in_hard_footprint_collisions():
+    objects = [
+        {
+            "category": "pendant_lamp",
+            "source_object_id": "lamp/model",
+            "footprint_m": [[0, 0], [2, 0], [2, 1], [0, 1]],
+        },
+        {
+            "category": "double_bed",
+            "source_object_id": "bed/model",
+            "footprint_m": [[0.2, 0.1], [1.8, 0.1], [1.8, 0.9], [0.2, 0.9]],
+        },
+        {
+            "category": "ceiling_lamp",
+            "source_object_id": "ceiling/model",
+            "footprint_m": [[0.2, 0.1], [1.8, 0.1], [1.8, 0.9], [0.2, 0.9]],
+        },
+    ]
+
+    assert hard_footprint_collision_pairs(objects) == []
+
+
 def test_hard_collision_gate_is_documented_as_loreflection_only():
     assert "LoReflection clean-data sanity gate" in (hard_footprint_collision_pairs.__doc__ or "")
     assert "not a SemLayoutDiff baseline rule" in (hard_footprint_collision_pairs.__doc__ or "")

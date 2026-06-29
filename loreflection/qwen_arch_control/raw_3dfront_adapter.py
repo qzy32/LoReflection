@@ -17,6 +17,10 @@ from loreflection.semantic_registry import SemanticRegistry, load_registry
 HARD_FOOTPRINT_COLLISION_MIN_AREA_RATIO = 0.5
 SEMLAYOUTDIFF_MIN_CHILD_SCALE = 1e-5
 SEMLAYOUTDIFF_MAX_CHILD_SCALE = 5.0
+NON_BLOCKING_COLLISION_CATEGORIES = {
+    "pendant_lamp",
+    "ceiling_lamp",
+}
 
 
 @dataclass(frozen=True)
@@ -347,12 +351,16 @@ def hard_footprint_collision_pairs(
     """LoReflection clean-data sanity gate; not a SemLayoutDiff baseline rule."""
     collisions: list[dict[str, Any]] = []
     for left_index, left in enumerate(objects):
+        if left.get("category") in NON_BLOCKING_COLLISION_CATEGORIES:
+            continue
         left_poly = left.get("footprint_m") or []
         left_area = _polygon_area(left_poly)
         if left_area <= 1e-9:
             continue
         for right_index in range(left_index + 1, len(objects)):
             right = objects[right_index]
+            if right.get("category") in NON_BLOCKING_COLLISION_CATEGORIES:
+                continue
             right_poly = right.get("footprint_m") or []
             right_area = _polygon_area(right_poly)
             if right_area <= 1e-9:
