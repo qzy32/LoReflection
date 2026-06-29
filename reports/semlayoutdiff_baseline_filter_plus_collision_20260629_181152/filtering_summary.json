@@ -1,0 +1,264 @@
+{
+  "raw_root": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front",
+  "scene_root": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT",
+  "scene_jsons_available": 6813,
+  "model_info_paths": [
+    "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FUTURE-model-part1/model_info.json",
+    "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FUTURE-model-part2/model_info.json",
+    "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FUTURE-model-part3/model_info.json",
+    "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FUTURE-model-part4/model_info.json"
+  ],
+  "scenes_scanned": 200,
+  "rooms_kept": 101,
+  "room_drop_reason": {
+    "unsupported_room_type": 1236,
+    "hard_footprint_collision": 278,
+    "insufficient_mapped_objects": 29,
+    "semlayoutdiff_invalid_scale": 4
+  },
+  "unsupported_room_type_count": 1236,
+  "invalid_scale_dropped_room_count": 4,
+  "insufficient_mapped_objects_count": 29,
+  "hard_collision_dropped_room_count": 278,
+  "hard_collision_pair_distribution": {
+    "double_bed | pendant_lamp": 85,
+    "coffee_table | pendant_lamp": 28,
+    "nightstand | wardrobe": 66,
+    "ceiling_lamp | double_bed": 39,
+    "dining_table | pendant_lamp": 34,
+    "dining_chair | dressing_table": 5,
+    "dining_table | stool": 1,
+    "coffee_table | coffee_table": 1,
+    "corner_side_table | multi_seat_sofa": 3,
+    "nightstand | pendant_lamp": 42,
+    "pendant_lamp | wardrobe": 12,
+    "corner_side_table | pendant_lamp": 9,
+    "pendant_lamp | pendant_lamp": 1,
+    "corner_side_table | wardrobe": 5,
+    "wardrobe | wardrobe": 12,
+    "ceiling_lamp | wardrobe": 7,
+    "dressing_chair | pendant_lamp": 1,
+    "ceiling_lamp | single_bed": 5,
+    "ceiling_lamp | kids_bed": 7,
+    "dining_chair | dining_table": 14,
+    "multi_seat_sofa | pendant_lamp": 1,
+    "double_bed | wardrobe": 4,
+    "desk | nightstand": 1,
+    "bookshelf | lounge_chair": 1,
+    "double_bed | kids_bed": 1,
+    "nightstand | nightstand": 1,
+    "kids_bed | single_bed": 1,
+    "corner_side_table | dining_table": 2,
+    "desk | dining_table": 2,
+    "corner_side_table | desk": 4,
+    "desk | desk": 3,
+    "dressing_table | kids_bed": 1,
+    "dressing_chair | kids_bed": 1,
+    "kids_bed | pendant_lamp": 2,
+    "dining_chair | pendant_lamp": 3,
+    "cabinet | wardrobe": 3,
+    "armchair | desk": 1,
+    "ceiling_lamp | ceiling_lamp": 1,
+    "ceiling_lamp | dressing_chair": 1,
+    "pendant_lamp | stool": 2,
+    "desk | lounge_chair": 2,
+    "dressing_table | nightstand": 1,
+    "dressing_chair | dressing_table": 7,
+    "corner_side_table | double_bed": 2,
+    "cabinet | ceiling_lamp": 5,
+    "stool | stool": 1,
+    "children_cabinet | kids_bed": 1,
+    "single_bed | wardrobe": 1,
+    "ceiling_lamp | desk": 1,
+    "children_cabinet | nightstand": 1,
+    "corner_side_table | stool": 1,
+    "ceiling_lamp | corner_side_table": 1,
+    "desk | stool": 4,
+    "pendant_lamp | single_bed": 7,
+    "bookshelf | ceiling_lamp": 1,
+    "bookshelf | kids_bed": 1,
+    "coffee_table | wardrobe": 2,
+    "tv_stand | tv_stand": 2,
+    "stool | wardrobe": 3,
+    "ceiling_lamp | dining_table": 1,
+    "double_bed | nightstand": 2,
+    "dining_chair | wardrobe": 4,
+    "dining_table | wardrobe": 1,
+    "desk | wardrobe": 1,
+    "cabinet | dining_chair": 2,
+    "desk | dining_chair": 1,
+    "bookshelf | dining_table": 1,
+    "l_shaped_sofa | pendant_lamp": 6,
+    "armchair | pendant_lamp": 1,
+    "coffee_table | l_shaped_sofa": 2,
+    "desk | pendant_lamp": 2,
+    "cabinet | pendant_lamp": 2,
+    "cabinet | stool": 4,
+    "corner_side_table | dressing_table": 1,
+    "lounge_chair | pendant_lamp": 2,
+    "shelf | wardrobe": 1,
+    "nightstand | single_bed": 2,
+    "bookshelf | stool": 1,
+    "bookshelf | corner_side_table": 1,
+    "bookshelf | wardrobe": 1,
+    "corner_side_table | lounge_chair": 1,
+    "dining_chair | l_shaped_sofa": 1,
+    "kids_bed | wardrobe": 1,
+    "lounge_chair | wardrobe": 1,
+    "ceiling_lamp | lounge_chair": 1,
+    "pendant_lamp | wine_cabinet": 1,
+    "nightstand | shelf": 1
+  },
+  "top_collision_pairs": [
+    [
+      "double_bed | pendant_lamp",
+      85
+    ],
+    [
+      "nightstand | wardrobe",
+      66
+    ],
+    [
+      "nightstand | pendant_lamp",
+      42
+    ],
+    [
+      "ceiling_lamp | double_bed",
+      39
+    ],
+    [
+      "dining_table | pendant_lamp",
+      34
+    ],
+    [
+      "coffee_table | pendant_lamp",
+      28
+    ],
+    [
+      "dining_chair | dining_table",
+      14
+    ],
+    [
+      "pendant_lamp | wardrobe",
+      12
+    ],
+    [
+      "wardrobe | wardrobe",
+      12
+    ],
+    [
+      "corner_side_table | pendant_lamp",
+      9
+    ],
+    [
+      "ceiling_lamp | wardrobe",
+      7
+    ],
+    [
+      "ceiling_lamp | kids_bed",
+      7
+    ],
+    [
+      "dressing_chair | dressing_table",
+      7
+    ],
+    [
+      "pendant_lamp | single_bed",
+      7
+    ],
+    [
+      "l_shaped_sofa | pendant_lamp",
+      6
+    ],
+    [
+      "dining_chair | dressing_table",
+      5
+    ],
+    [
+      "corner_side_table | wardrobe",
+      5
+    ],
+    [
+      "ceiling_lamp | single_bed",
+      5
+    ],
+    [
+      "cabinet | ceiling_lamp",
+      5
+    ],
+    [
+      "double_bed | wardrobe",
+      4
+    ]
+  ],
+  "invalid_scale_examples": [
+    {
+      "sample_id": "00fc9d81-7397-4578-a865-920c4d89b44b_room_00",
+      "room_drop_reason": "semlayoutdiff_invalid_scale",
+      "invalid_scale_child": {
+        "child_ref": "2021159371501608738624/model",
+        "instanceid": "furniture/121",
+        "scale": [
+          11.428455051358302,
+          1.0,
+          12.031985767780885
+        ]
+      }
+    },
+    {
+      "sample_id": "02e49abe-2551-4f90-9717-ac1b21dc5f6a_room_01",
+      "room_drop_reason": "semlayoutdiff_invalid_scale",
+      "invalid_scale_child": {
+        "child_ref": "2021159375782581524768/model",
+        "instanceid": "furniture/169",
+        "scale": [
+          0.8774050730489729,
+          1.0,
+          5.410407636793176
+        ]
+      }
+    },
+    {
+      "sample_id": "0446844d-66c4-4f8f-8b0f-69048e6c2d8c_room_02",
+      "room_drop_reason": "semlayoutdiff_invalid_scale",
+      "invalid_scale_child": {
+        "child_ref": "2021159401550156231808/model",
+        "instanceid": "furniture/239",
+        "scale": [
+          6.114361213974444,
+          1.0,
+          6.110641103998456
+        ]
+      }
+    },
+    {
+      "sample_id": "0540bfc9-07ff-4b74-bf09-ceef34250b0a_room_00",
+      "room_drop_reason": "semlayoutdiff_invalid_scale",
+      "invalid_scale_child": {
+        "child_ref": "2021159374917230019872/model",
+        "instanceid": "furniture/123",
+        "scale": [
+          11.582538843847834,
+          1.0,
+          11.582597900213429
+        ]
+      }
+    }
+  ],
+  "invalid_or_unmapped_furniture_count": 54,
+  "enabled_filters": [
+    "semlayoutdiff_valid_true_furniture_only",
+    "semlayoutdiff_room_children_furniture_only",
+    "semlayoutdiff_invalid_child_scale_drop_room",
+    "semlayoutdiff_more_than_one_mapped_object_required",
+    "loreflection_hard_footprint_collision_pairs"
+  ],
+  "disabled_custom_filters": [
+    "inside_floor_ratio_gate",
+    "door_window_required_gate",
+    "furniture_count_upper_bound_gate",
+    "semantic_relation_gate",
+    "door_window_visibility_gate",
+    "strict_bbox_outside_floor_gate"
+  ]
+}

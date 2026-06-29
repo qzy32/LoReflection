@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 from loreflection.qwen_arch_control.raw_3dfront_adapter import (
@@ -7,16 +8,106 @@ from loreflection.qwen_arch_control.raw_3dfront_adapter import (
 from loreflection.qwen_arch_control.source_resolver import load_model_info_index, probe_data_root
 
 
+def _load_model_index(root: Path):
+    probe = probe_data_root(root)
+    return load_model_info_index([Path(path) for path in probe["model_info_paths"]])
+
+
+def _scene_path(root: Path) -> Path:
+    return next((root / "3D-FRONT").glob("*.json"))
+
+
+def _load_scene(root: Path) -> dict:
+    return json.loads(_scene_path(root).read_text(encoding="utf-8"))
+
+
+def _write_scene(root: Path, scene: dict) -> None:
+    _scene_path(root).write_text(json.dumps(scene), encoding="utf-8")
+
+
 def test_raw_adapter_builds_room_layout(tiny_raw_3dfront_root):
-    probe = probe_data_root(tiny_raw_3dfront_root)
-    model_index = load_model_info_index([Path(path) for path in probe["model_info_paths"]])
-    scene_path = next((tiny_raw_3dfront_root / "3D-FRONT").glob("*.json"))
-    records = adapt_scene_file(scene_path, model_index, image_size=128)
+    records = adapt_scene_file(_scene_path(tiny_raw_3dfront_root), _load_model_index(tiny_raw_3dfront_root), image_size=128)
     assert len(records) == 1
     record = records[0]
     assert record["architecture"]["boundary"]["source"] == "room_floor_mesh"
     assert len(record["layout"]["objects"]) == 2
     assert {obj["category"] for obj in record["layout"]["objects"]} == {"coffee_table", "dining_chair"}
+
+
+def test_furniture_valid_false_is_not_collected(tiny_raw_3dfront_root):
+    scene = _load_scene(tiny_raw_3dfront_root)
+    scene["furniture"][1]["valid"] = False
+    _write_scene(tiny_raw_3dfront_root, scene)
+    drop_reports = []
+
+    records = adapt_scene_file(_scene_path(tiny_raw_3dfront_root), _load_model_index(tiny_raw_3dfront_root), drop_reports=drop_reports)
+
+    assert records == []
+    assert drop_reports[-1]["room_drop_reason"] == "insufficient_mapped_objects"
+    assert drop_reports[-1]["mapped_object_count"] == 1
+
+
+def test_unreferenced_furniture_is_not_collected(tiny_raw_3dfront_root):
+    scene = _load_scene(tiny_raw_3dfront_root)
+    scene["furniture"].append({"uid": "unused/model", "jid": "jid_chair", "size": [0.6, 0.8, 0.6], "valid": True})
+    _write_scene(tiny_raw_3dfront_root, scene)
+
+    records = adapt_scene_file(_scene_path(tiny_raw_3dfront_root), _load_model_index(tiny_raw_3dfront_root), image_size=128)
+
+    assert len(records) == 1
+    assert {obj["source_object_id"] for obj in records[0]["layout"]["objects"]} == {"table/model", "chair/model"}
+
+
+def test_invalid_tiny_scale_drops_whole_room(tiny_raw_3dfront_root):
+    scene = _load_scene(tiny_raw_3dfront_root)
+    scene["scene"]["room"][0]["children"][1]["scale"] = [1e-6, 1, 1]
+    _write_scene(tiny_raw_3dfront_root, scene)
+    drop_reports = []
+
+    records = adapt_scene_file(_scene_path(tiny_raw_3dfront_root), _load_model_index(tiny_raw_3dfront_root), drop_reports=drop_reports)
+
+    assert records == []
+    assert drop_reports[-1]["room_drop_reason"] == "semlayoutdiff_invalid_scale"
+
+
+def test_invalid_large_scale_drops_whole_room(tiny_raw_3dfront_root):
+    scene = _load_scene(tiny_raw_3dfront_root)
+    scene["scene"]["room"][0]["children"][1]["scale"] = [6, 1, 1]
+    _write_scene(tiny_raw_3dfront_root, scene)
+    drop_reports = []
+
+    records = adapt_scene_file(_scene_path(tiny_raw_3dfront_root), _load_model_index(tiny_raw_3dfront_root), drop_reports=drop_reports)
+
+    assert records == []
+    assert drop_reports[-1]["room_drop_reason"] == "semlayoutdiff_invalid_scale"
+
+
+def test_mapped_objects_less_than_two_drops_room(tiny_raw_3dfront_root):
+    scene = _load_scene(tiny_raw_3dfront_root)
+    scene["scene"]["room"][0]["children"] = [
+        child for child in scene["scene"]["room"][0]["children"] if child["ref"] != "chair/model"
+    ]
+    _write_scene(tiny_raw_3dfront_root, scene)
+    drop_reports = []
+
+    records = adapt_scene_file(_scene_path(tiny_raw_3dfront_root), _load_model_index(tiny_raw_3dfront_root), drop_reports=drop_reports)
+
+    assert records == []
+    assert drop_reports[-1]["room_drop_reason"] == "insufficient_mapped_objects"
+    assert drop_reports[-1]["mapped_object_count"] == 1
+
+
+def test_hard_footprint_collision_drops_whole_room(tiny_raw_3dfront_root):
+    scene = _load_scene(tiny_raw_3dfront_root)
+    scene["scene"]["room"][0]["children"][1]["pos"] = [0, 0, 0]
+    _write_scene(tiny_raw_3dfront_root, scene)
+    drop_reports = []
+
+    records = adapt_scene_file(_scene_path(tiny_raw_3dfront_root), _load_model_index(tiny_raw_3dfront_root), drop_reports=drop_reports)
+
+    assert records == []
+    assert drop_reports[-1]["room_drop_reason"] == "hard_footprint_collision"
+    assert drop_reports[-1]["hard_collisions"][0]["intersection_over_min_area"] > 0.5
 
 
 def test_hard_footprint_collision_pairs_detects_bad_overlap():
@@ -37,3 +128,8 @@ def test_hard_footprint_collision_pairs_detects_bad_overlap():
 
     assert len(collisions) == 1
     assert collisions[0]["intersection_over_min_area"] > 0.5
+
+
+def test_hard_collision_gate_is_documented_as_loreflection_only():
+    assert "LoReflection clean-data sanity gate" in (hard_footprint_collision_pairs.__doc__ or "")
+    assert "not a SemLayoutDiff baseline rule" in (hard_footprint_collision_pairs.__doc__ or "")

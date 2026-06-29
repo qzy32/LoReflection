@@ -15,6 +15,8 @@ from loreflection.semantic_registry import SemanticRegistry, load_registry
 
 
 HARD_FOOTPRINT_COLLISION_MIN_AREA_RATIO = 0.5
+SEMLAYOUTDIFF_MIN_CHILD_SCALE = 1e-5
+SEMLAYOUTDIFF_MAX_CHILD_SCALE = 5.0
 
 
 @dataclass(frozen=True)
@@ -342,6 +344,7 @@ def hard_footprint_collision_pairs(
     *,
     min_area_ratio: float = HARD_FOOTPRINT_COLLISION_MIN_AREA_RATIO,
 ) -> list[dict[str, Any]]:
+    """LoReflection clean-data sanity gate; not a SemLayoutDiff baseline rule."""
     collisions: list[dict[str, Any]] = []
     for left_index, left in enumerate(objects):
         left_poly = left.get("footprint_m") or []
@@ -430,6 +433,27 @@ def _room_type(raw: Any) -> str | None:
     return normalize_room_type(raw)
 
 
+def _is_valid_furniture(item: dict[str, Any]) -> bool:
+    return item.get("valid") is True
+
+
+def _invalid_child_scale(child: dict[str, Any]) -> list[float] | None:
+    scale = vec3(child.get("scale"))
+    if scale is None:
+        return None
+    if any(abs(value) < SEMLAYOUTDIFF_MIN_CHILD_SCALE or abs(value) > SEMLAYOUTDIFF_MAX_CHILD_SCALE for value in scale):
+        return [float(value) for value in scale]
+    return None
+
+
+def _record_room_drop(drop_reports: list[dict[str, Any]] | None, sample_id: str, reason: str, **extra: Any) -> None:
+    if drop_reports is None:
+        return
+    report = {"sample_id": sample_id, "room_drop_reason": reason}
+    report.update(extra)
+    drop_reports.append(report)
+
+
 def adapt_scene_file(
     scene_path: Path,
     model_index: dict[str, dict[str, Any]],
@@ -437,32 +461,59 @@ def adapt_scene_file(
     registry: SemanticRegistry | None = None,
     renderer_version: str = "normalized_v1",
     canvas_extent_m: float | None = None,
+    drop_reports: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
     registry = registry or load_registry()
     scene = json.loads(scene_path.read_text(encoding="utf-8", errors="ignore"))
     scene_id = str(scene.get("uid") or scene_path.stem).replace("/", "_")
     furniture_by_uid = {
-        str(item.get("uid")): item for item in scene.get("furniture", []) if isinstance(item, dict)
+        str(item.get("uid")): item
+        for item in scene.get("furniture", [])
+        if isinstance(item, dict) and item.get("uid") is not None and _is_valid_furniture(item)
     }
     mesh_by_uid = {str(item.get("uid")): item for item in scene.get("mesh", []) if isinstance(item, dict)}
     rooms = scene.get("scene", {}).get("room") or scene.get("scene", {}).get("rooms") or []
     adapted = []
     for room_index, room in enumerate(rooms if isinstance(rooms, list) else []):
+        sample_id = f"{scene_id}_room_{room_index:02d}"
         if not isinstance(room, dict) or room.get("empty") is True:
             continue
         normalized_room_type = normalize_room_type(room.get("type"))
         if normalized_room_type is None:
+            _record_room_drop(
+                drop_reports,
+                sample_id,
+                "unsupported_room_type",
+                raw_room_type=room.get("type"),
+            )
             continue
         linked_furniture = []
         linked_meshes = []
+        invalid_scale_child = None
         for child in room.get("children", []) if isinstance(room.get("children"), list) else []:
             if not isinstance(child, dict):
                 continue
             ref = str(child.get("ref"))
             if ref in furniture_by_uid:
+                invalid_scale = _invalid_child_scale(child)
+                if invalid_scale is not None:
+                    invalid_scale_child = {
+                        "child_ref": ref,
+                        "instanceid": child.get("instanceid"),
+                        "scale": invalid_scale,
+                    }
+                    break
                 linked_furniture.append((child, furniture_by_uid[ref]))
             if ref in mesh_by_uid:
                 linked_meshes.append((child, mesh_by_uid[ref]))
+        if invalid_scale_child is not None:
+            _record_room_drop(
+                drop_reports,
+                sample_id,
+                "semlayoutdiff_invalid_scale",
+                invalid_scale_child=invalid_scale_child,
+            )
+            continue
 
         floor_points = [
             point
@@ -510,6 +561,13 @@ def adapt_scene_file(
             boundary_source = "furniture_extent_fallback"
             warnings.append("room floor mesh unavailable; boundary derived from furniture extents")
         else:
+            _record_room_drop(
+                drop_reports,
+                sample_id,
+                "insufficient_mapped_objects",
+                mapped_object_count=0,
+                skipped_object_count=len(skipped),
+            )
             continue
         metric_transform = None
         if renderer_version == "metric_v2":
@@ -542,13 +600,28 @@ def adapt_scene_file(
                 }
             )
         if len(objects) < 2:
+            _record_room_drop(
+                drop_reports,
+                sample_id,
+                "insufficient_mapped_objects",
+                mapped_object_count=len(objects),
+                skipped_object_count=len(skipped),
+            )
             continue
 
+        # LoReflection added clean-data sanity gate; SemLayoutDiff baseline
+        # filtering only covers valid furniture, room.children membership,
+        # invalid scale room rejection, and >1 valid furniture.
         hard_collisions = hard_footprint_collision_pairs(objects)
         if hard_collisions:
+            _record_room_drop(
+                drop_reports,
+                sample_id,
+                "hard_footprint_collision",
+                hard_collisions=hard_collisions,
+            )
             continue
 
-        sample_id = f"{scene_id}_room_{room_index:02d}"
         anchors = collect_room_child_openings_sem_layoutdiff_style(scene, room, assigned_room_id=sample_id)
         door_anchor_count = sum(1 for anchor in anchors if anchor["anchor_type"] == "door")
         window_anchor_count = sum(1 for anchor in anchors if anchor["anchor_type"] == "window")

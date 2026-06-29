@@ -20,8 +20,8 @@ def tiny_raw_3dfront_root(tmp_path: Path) -> Path:
         "uid": "tiny_scene",
         "jobid": "tiny_house",
         "furniture": [
-            {"uid": "table/model", "jid": "jid_table", "size": [1.2, 0.6, 0.8]},
-            {"uid": "chair/model", "jid": "jid_chair", "size": [0.6, 0.8, 0.6]},
+            {"uid": "table/model", "jid": "jid_table", "size": [1.2, 0.6, 0.8], "valid": True},
+            {"uid": "chair/model", "jid": "jid_chair", "size": [0.6, 0.8, 0.6], "valid": True},
         ],
         "mesh": [
             {
