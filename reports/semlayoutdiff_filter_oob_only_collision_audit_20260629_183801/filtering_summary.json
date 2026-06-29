@@ -1,0 +1,246 @@
+{
+  "raw_root": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front",
+  "scene_root": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT",
+  "scenes_scanned": 200,
+  "rooms_kept": 137,
+  "room_drop_reason": {
+    "unsupported_room_type": 1236,
+    "severe_oob_footprint": 242,
+    "insufficient_mapped_objects": 29,
+    "semlayoutdiff_invalid_scale": 4
+  },
+  "severe_oob_dropped_room_count": 242,
+  "severe_oob_category_distribution": {
+    "cabinet": 50,
+    "wardrobe": 149,
+    "nightstand": 88,
+    "bookshelf": 33,
+    "dressing_table": 27,
+    "children_cabinet": 8,
+    "pendant_lamp": 11,
+    "tv_stand": 7,
+    "round_end_table": 1,
+    "wine_cabinet": 5,
+    "desk": 12,
+    "kids_bed": 1,
+    "corner_side_table": 6,
+    "stool": 2,
+    "shelf": 6,
+    "dining_table": 1
+  },
+  "top_severe_oob_categories": [
+    [
+      "wardrobe",
+      149
+    ],
+    [
+      "nightstand",
+      88
+    ],
+    [
+      "cabinet",
+      50
+    ],
+    [
+      "bookshelf",
+      33
+    ],
+    [
+      "dressing_table",
+      27
+    ],
+    [
+      "desk",
+      12
+    ],
+    [
+      "pendant_lamp",
+      11
+    ],
+    [
+      "children_cabinet",
+      8
+    ],
+    [
+      "tv_stand",
+      7
+    ],
+    [
+      "corner_side_table",
+      6
+    ],
+    [
+      "shelf",
+      6
+    ],
+    [
+      "wine_cabinet",
+      5
+    ],
+    [
+      "stool",
+      2
+    ],
+    [
+      "round_end_table",
+      1
+    ],
+    [
+      "kids_bed",
+      1
+    ],
+    [
+      "dining_table",
+      1
+    ]
+  ],
+  "inter_object_collision_room_drop_count": 0,
+  "inter_object_collision_pair_distribution_audit_only": {
+    "nightstand | wardrobe": 66,
+    "dining_chair | dressing_table": 5,
+    "dining_table | stool": 1,
+    "coffee_table | coffee_table": 1,
+    "corner_side_table | multi_seat_sofa": 3,
+    "corner_side_table | wardrobe": 5,
+    "wardrobe | wardrobe": 12,
+    "dining_chair | dining_table": 14,
+    "double_bed | wardrobe": 4,
+    "desk | nightstand": 1,
+    "bookshelf | lounge_chair": 1,
+    "kids_bed | single_bed": 1,
+    "corner_side_table | dining_table": 2,
+    "desk | dining_table": 2,
+    "corner_side_table | desk": 4,
+    "desk | desk": 3,
+    "double_bed | kids_bed": 1,
+    "nightstand | nightstand": 1,
+    "dressing_table | kids_bed": 1,
+    "dressing_chair | kids_bed": 1,
+    "cabinet | wardrobe": 3,
+    "armchair | desk": 1,
+    "desk | lounge_chair": 2,
+    "dressing_table | nightstand": 1,
+    "dressing_chair | dressing_table": 7,
+    "corner_side_table | double_bed": 2,
+    "stool | stool": 1,
+    "children_cabinet | kids_bed": 1,
+    "single_bed | wardrobe": 1,
+    "children_cabinet | nightstand": 1,
+    "corner_side_table | stool": 1,
+    "desk | stool": 4,
+    "bookshelf | kids_bed": 1,
+    "coffee_table | wardrobe": 2,
+    "tv_stand | tv_stand": 2,
+    "stool | wardrobe": 3,
+    "double_bed | nightstand": 2,
+    "dining_chair | wardrobe": 4,
+    "dining_table | wardrobe": 1,
+    "bookshelf | dining_table": 1,
+    "desk | wardrobe": 1,
+    "cabinet | dining_chair": 2,
+    "desk | dining_chair": 1,
+    "coffee_table | l_shaped_sofa": 2,
+    "cabinet | stool": 4,
+    "corner_side_table | dressing_table": 1,
+    "shelf | wardrobe": 1,
+    "nightstand | single_bed": 2,
+    "bookshelf | stool": 1,
+    "bookshelf | corner_side_table": 1,
+    "bookshelf | wardrobe": 1,
+    "corner_side_table | lounge_chair": 1,
+    "dining_chair | l_shaped_sofa": 1,
+    "kids_bed | wardrobe": 1,
+    "lounge_chair | wardrobe": 1,
+    "nightstand | shelf": 1
+  },
+  "top_inter_object_collision_pairs_audit_only": [
+    [
+      "nightstand | wardrobe",
+      66
+    ],
+    [
+      "dining_chair | dining_table",
+      14
+    ],
+    [
+      "wardrobe | wardrobe",
+      12
+    ],
+    [
+      "dressing_chair | dressing_table",
+      7
+    ],
+    [
+      "dining_chair | dressing_table",
+      5
+    ],
+    [
+      "corner_side_table | wardrobe",
+      5
+    ],
+    [
+      "double_bed | wardrobe",
+      4
+    ],
+    [
+      "corner_side_table | desk",
+      4
+    ],
+    [
+      "desk | stool",
+      4
+    ],
+    [
+      "dining_chair | wardrobe",
+      4
+    ],
+    [
+      "cabinet | stool",
+      4
+    ],
+    [
+      "corner_side_table | multi_seat_sofa",
+      3
+    ],
+    [
+      "desk | desk",
+      3
+    ],
+    [
+      "cabinet | wardrobe",
+      3
+    ],
+    [
+      "stool | wardrobe",
+      3
+    ],
+    [
+      "corner_side_table | dining_table",
+      2
+    ],
+    [
+      "desk | dining_table",
+      2
+    ],
+    [
+      "desk | lounge_chair",
+      2
+    ],
+    [
+      "corner_side_table | double_bed",
+      2
+    ],
+    [
+      "coffee_table | wardrobe",
+      2
+    ]
+  ],
+  "invalid_scale_dropped_room_count": 4,
+  "insufficient_mapped_objects_count": 29,
+  "unsupported_room_type_count": 1236,
+  "invalid_or_unmapped_furniture_count": 103,
+  "severe_oob_outside_area_ratio": 0.2,
+  "baseline_previous_no_lamp_report": "reports/semlayoutdiff_filter_collision_no_lamps_20260629_182556/filtering_summary.json",
+  "previous_no_lamp_rooms_kept": 252,
+  "previous_no_lamp_hard_collision_dropped_room_count": 127
+}

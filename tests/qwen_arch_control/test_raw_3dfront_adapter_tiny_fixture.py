@@ -97,7 +97,7 @@ def test_mapped_objects_less_than_two_drops_room(tiny_raw_3dfront_root):
     assert drop_reports[-1]["mapped_object_count"] == 1
 
 
-def test_hard_footprint_collision_drops_whole_room(tiny_raw_3dfront_root):
+def test_inter_object_collision_is_audit_only_not_room_drop(tiny_raw_3dfront_root):
     scene = _load_scene(tiny_raw_3dfront_root)
     scene["scene"]["room"][0]["children"][1]["pos"] = [0, 0, 0]
     _write_scene(tiny_raw_3dfront_root, scene)
@@ -105,9 +105,23 @@ def test_hard_footprint_collision_drops_whole_room(tiny_raw_3dfront_root):
 
     records = adapt_scene_file(_scene_path(tiny_raw_3dfront_root), _load_model_index(tiny_raw_3dfront_root), drop_reports=drop_reports)
 
+    assert len(records) == 1
+    assert drop_reports == []
+    collisions = records[0]["layout"]["inter_object_collision_pairs_for_audit"]
+    assert collisions[0]["intersection_over_min_area"] > 0.5
+
+
+def test_severe_oob_footprint_drops_whole_room(tiny_raw_3dfront_root):
+    scene = _load_scene(tiny_raw_3dfront_root)
+    scene["scene"]["room"][0]["children"][1]["pos"] = [10, 0, 10]
+    _write_scene(tiny_raw_3dfront_root, scene)
+    drop_reports = []
+
+    records = adapt_scene_file(_scene_path(tiny_raw_3dfront_root), _load_model_index(tiny_raw_3dfront_root), drop_reports=drop_reports)
+
     assert records == []
-    assert drop_reports[-1]["room_drop_reason"] == "hard_footprint_collision"
-    assert drop_reports[-1]["hard_collisions"][0]["intersection_over_min_area"] > 0.5
+    assert drop_reports[-1]["room_drop_reason"] == "severe_oob_footprint"
+    assert drop_reports[-1]["severe_oob_objects"][0]["outside_area_ratio"] > 0.20
 
 
 def test_hard_footprint_collision_pairs_detects_bad_overlap():

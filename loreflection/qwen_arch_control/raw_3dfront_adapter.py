@@ -15,6 +15,7 @@ from loreflection.semantic_registry import SemanticRegistry, load_registry
 
 
 HARD_FOOTPRINT_COLLISION_MIN_AREA_RATIO = 0.5
+SEVERE_OOB_OUTSIDE_AREA_RATIO = 0.20
 SEMLAYOUTDIFF_MIN_CHILD_SCALE = 1e-5
 SEMLAYOUTDIFF_MAX_CHILD_SCALE = 5.0
 NON_BLOCKING_COLLISION_CATEGORIES = {
@@ -387,6 +388,56 @@ def hard_footprint_collision_pairs(
     return collisions
 
 
+def inter_object_collision_pairs_for_audit(objects: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Audit-only inter-object footprint overlaps; these do not drop rooms."""
+    return hard_footprint_collision_pairs(objects)
+
+
+def severe_oob_footprint_objects(
+    objects: list[dict[str, Any]],
+    boundary_m: list[list[float]],
+    *,
+    outside_area_ratio: float = SEVERE_OOB_OUTSIDE_AREA_RATIO,
+) -> list[dict[str, Any]]:
+    """LoReflection severe OOB gate against the room boundary bbox."""
+    if not boundary_m:
+        return []
+    xs = [float(point[0]) for point in boundary_m]
+    ys = [float(point[1]) for point in boundary_m]
+    min_x, max_x = min(xs), max(xs)
+    min_y, max_y = min(ys), max(ys)
+    boundary_rect = [[min_x, min_y], [max_x, min_y], [max_x, max_y], [min_x, max_y]]
+    oob: list[dict[str, Any]] = []
+    for index, obj in enumerate(objects):
+        footprint = obj.get("footprint_m") or []
+        area = _polygon_area(footprint)
+        if area <= 1e-9:
+            continue
+        center = obj.get("center_m") or []
+        center_outside = not (
+            isinstance(center, list)
+            and len(center) >= 2
+            and min_x <= float(center[0]) <= max_x
+            and min_y <= float(center[1]) <= max_y
+        )
+        inside_area = _polygon_area(_convex_polygon_intersection(footprint, boundary_rect))
+        outside_ratio = max(0.0, 1.0 - inside_area / max(area, 1e-9))
+        if center_outside or outside_ratio > outside_area_ratio:
+            oob.append(
+                {
+                    "object_index": index,
+                    "category": obj.get("category"),
+                    "source_object_id": obj.get("source_object_id"),
+                    "center_m": center,
+                    "area_m2": area,
+                    "inside_area_m2": inside_area,
+                    "outside_area_ratio": outside_ratio,
+                    "center_outside_boundary_bbox": center_outside,
+                }
+            )
+    return oob
+
+
 def _bbox_from_px(points: list[tuple[int, int]], image_size: int) -> list[int]:
     xs = [point[0] for point in points]
     ys = [point[1] for point in points]
@@ -619,14 +670,18 @@ def adapt_scene_file(
 
         # LoReflection added clean-data sanity gate; SemLayoutDiff baseline
         # filtering only covers valid furniture, room.children membership,
-        # invalid scale room rejection, and >1 valid furniture.
-        hard_collisions = hard_footprint_collision_pairs(objects)
-        if hard_collisions:
+        # invalid scale room rejection, and >1 valid furniture. Inter-object
+        # overlaps are audit-only because chair-table and furniture-wall
+        # adjacency can be valid in top-down footprints.
+        inter_object_collisions = inter_object_collision_pairs_for_audit(objects)
+        severe_oob_objects = severe_oob_footprint_objects(objects, boundary_m)
+        if severe_oob_objects:
             _record_room_drop(
                 drop_reports,
                 sample_id,
-                "hard_footprint_collision",
-                hard_collisions=hard_collisions,
+                "severe_oob_footprint",
+                severe_oob_objects=severe_oob_objects,
+                inter_object_collision_pairs_for_audit=inter_object_collisions,
             )
             continue
 
@@ -664,6 +719,8 @@ def adapt_scene_file(
             "image_size_px": [image_size, image_size],
             "objects": objects,
             "skipped_objects": skipped,
+            "inter_object_collision_pairs_for_audit": inter_object_collisions,
+            "severe_oob_footprint_objects": severe_oob_objects,
             "metric_transform": metric_transform,
             "source": {"kind": "raw_3dfront", "source_scene_json": str(scene_path), "room_index": room_index},
         }
