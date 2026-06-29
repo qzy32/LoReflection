@@ -14,6 +14,9 @@ from loreflection.qwen_arch_control.metric_transform import build_metric_transfo
 from loreflection.semantic_registry import SemanticRegistry, load_registry
 
 
+HARD_FOOTPRINT_COLLISION_MIN_AREA_RATIO = 0.5
+
+
 @dataclass(frozen=True)
 class CategoryMappingResult:
     category: str | None
@@ -270,6 +273,109 @@ def _oriented_footprint_m(center: tuple[float, float], size: tuple[float, float]
     return [[cx + dx * cos_t - dz * sin_t, cz + dx * sin_t + dz * cos_t] for dx, dz in corners]
 
 
+def _polygon_signed_area(poly: list[list[float]]) -> float:
+    if len(poly) < 3:
+        return 0.0
+    return 0.5 * sum(
+        x1 * y2 - x2 * y1
+        for (x1, y1), (x2, y2) in zip(poly, poly[1:] + poly[:1])
+    )
+
+
+def _polygon_area(poly: list[list[float]]) -> float:
+    return abs(_polygon_signed_area(poly))
+
+
+def _inside_half_plane(point: list[float], edge_start: list[float], edge_end: list[float]) -> bool:
+    return (
+        (edge_end[0] - edge_start[0]) * (point[1] - edge_start[1])
+        - (edge_end[1] - edge_start[1]) * (point[0] - edge_start[0])
+    ) >= -1e-9
+
+
+def _line_intersection(
+    segment_start: list[float],
+    segment_end: list[float],
+    edge_start: list[float],
+    edge_end: list[float],
+) -> list[float]:
+    x1, y1 = segment_start
+    x2, y2 = segment_end
+    x3, y3 = edge_start
+    x4, y4 = edge_end
+    denominator = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4)
+    if abs(denominator) < 1e-9:
+        return segment_end
+    px = ((x1 * y2 - y1 * x2) * (x3 - x4) - (x1 - x2) * (x3 * y4 - y3 * x4)) / denominator
+    py = ((x1 * y2 - y1 * x2) * (y3 - y4) - (y1 - y2) * (x3 * y4 - y3 * x4)) / denominator
+    return [px, py]
+
+
+def _convex_polygon_intersection(subject: list[list[float]], clipper: list[list[float]]) -> list[list[float]]:
+    if len(subject) < 3 or len(clipper) < 3:
+        return []
+    output = [list(point) for point in subject]
+    clip = [list(point) for point in clipper]
+    if _polygon_signed_area(clip) < 0:
+        clip.reverse()
+    for edge_start, edge_end in zip(clip, clip[1:] + clip[:1]):
+        input_points = output
+        output = []
+        if not input_points:
+            break
+        previous = input_points[-1]
+        for current in input_points:
+            current_inside = _inside_half_plane(current, edge_start, edge_end)
+            previous_inside = _inside_half_plane(previous, edge_start, edge_end)
+            if current_inside:
+                if not previous_inside:
+                    output.append(_line_intersection(previous, current, edge_start, edge_end))
+                output.append(current)
+            elif previous_inside:
+                output.append(_line_intersection(previous, current, edge_start, edge_end))
+            previous = current
+    return output
+
+
+def hard_footprint_collision_pairs(
+    objects: list[dict[str, Any]],
+    *,
+    min_area_ratio: float = HARD_FOOTPRINT_COLLISION_MIN_AREA_RATIO,
+) -> list[dict[str, Any]]:
+    collisions: list[dict[str, Any]] = []
+    for left_index, left in enumerate(objects):
+        left_poly = left.get("footprint_m") or []
+        left_area = _polygon_area(left_poly)
+        if left_area <= 1e-9:
+            continue
+        for right_index in range(left_index + 1, len(objects)):
+            right = objects[right_index]
+            right_poly = right.get("footprint_m") or []
+            right_area = _polygon_area(right_poly)
+            if right_area <= 1e-9:
+                continue
+            intersection_area = _polygon_area(_convex_polygon_intersection(left_poly, right_poly))
+            if intersection_area <= 1e-9:
+                continue
+            ratio = intersection_area / max(1e-9, min(left_area, right_area))
+            if ratio > min_area_ratio:
+                collisions.append(
+                    {
+                        "left_index": left_index,
+                        "right_index": right_index,
+                        "left_category": left.get("category"),
+                        "right_category": right.get("category"),
+                        "left_source_object_id": left.get("source_object_id"),
+                        "right_source_object_id": right.get("source_object_id"),
+                        "intersection_area_m2": intersection_area,
+                        "left_area_m2": left_area,
+                        "right_area_m2": right_area,
+                        "intersection_over_min_area": ratio,
+                    }
+                )
+    return collisions
+
+
 def _bbox_from_px(points: list[tuple[int, int]], image_size: int) -> list[int]:
     xs = [point[0] for point in points]
     ys = [point[1] for point in points]
@@ -436,6 +542,10 @@ def adapt_scene_file(
                 }
             )
         if len(objects) < 2:
+            continue
+
+        hard_collisions = hard_footprint_collision_pairs(objects)
+        if hard_collisions:
             continue
 
         sample_id = f"{scene_id}_room_{room_index:02d}"
