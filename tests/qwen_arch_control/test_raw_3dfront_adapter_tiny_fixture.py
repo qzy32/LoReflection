@@ -4,6 +4,7 @@ from pathlib import Path
 from loreflection.qwen_arch_control.raw_3dfront_adapter import (
     adapt_scene_file,
     hard_footprint_collision_pairs,
+    severe_oob_footprint_objects,
 )
 from loreflection.qwen_arch_control.source_resolver import load_model_info_index, probe_data_root
 
@@ -121,7 +122,49 @@ def test_severe_oob_footprint_drops_whole_room(tiny_raw_3dfront_root):
 
     assert records == []
     assert drop_reports[-1]["room_drop_reason"] == "severe_oob_footprint"
-    assert drop_reports[-1]["severe_oob_objects"][0]["outside_area_ratio"] > 0.20
+    assert drop_reports[-1]["severe_oob_objects"][0]["outside_area_ratio"] > 0.50
+
+
+def test_severe_oob_ratio_at_or_below_threshold_does_not_drop():
+    objects = [
+        {
+            "category": "wardrobe",
+            "source_object_id": "wardrobe/model",
+            "center_m": [0.5, 0.5],
+            "footprint_m": [[-0.5, 0.0], [1.5, 0.0], [1.5, 1.0], [-0.5, 1.0]],
+        }
+    ]
+
+    assert severe_oob_footprint_objects(objects, [[0, 0], [2, 0], [2, 2], [0, 2]]) == []
+
+
+def test_severe_oob_ratio_above_threshold_drops():
+    objects = [
+        {
+            "category": "wardrobe",
+            "source_object_id": "wardrobe/model",
+            "center_m": [-0.75, 0.5],
+            "footprint_m": [[-2.0, 0.0], [0.5, 0.0], [0.5, 1.0], [-2.0, 1.0]],
+        }
+    ]
+
+    oob = severe_oob_footprint_objects(objects, [[0, 0], [2, 0], [2, 2], [0, 2]])
+
+    assert len(oob) == 1
+    assert oob[0]["outside_area_ratio"] > 0.50
+
+
+def test_center_outside_boundary_bbox_is_audit_only():
+    objects = [
+        {
+            "category": "wardrobe",
+            "source_object_id": "wardrobe/model",
+            "center_m": [3.0, 3.0],
+            "footprint_m": [[0.25, 0.25], [0.75, 0.25], [0.75, 0.75], [0.25, 0.75]],
+        }
+    ]
+
+    assert severe_oob_footprint_objects(objects, [[0, 0], [2, 0], [2, 2], [0, 2]]) == []
 
 
 def test_hard_footprint_collision_pairs_detects_bad_overlap():

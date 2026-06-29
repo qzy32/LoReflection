@@ -1,0 +1,175 @@
+{
+  "schema_version": "architecture-v2-p0",
+  "architecture_id": "43907bbc-4b39-4f1a-8747-3287c8bce690_room_00",
+  "scene_id": "43907bbc-4b39-4f1a-8747-3287c8bce690",
+  "house_id": null,
+  "floorplan_id": "43907bbc-4b39-4f1a-8747-3287c8bce690",
+  "room_type": "bedroom",
+  "image_size_px": [
+    512,
+    512
+  ],
+  "boundary": {
+    "polygon_m": [
+      [
+        0.5379,
+        0.4993
+      ],
+      [
+        3.5375,
+        0.4993
+      ],
+      [
+        3.5375,
+        4.9166
+      ],
+      [
+        0.5379,
+        4.9166
+      ]
+    ],
+    "polygon_px": [
+      [
+        160,
+        115
+      ],
+      [
+        352,
+        115
+      ],
+      [
+        352,
+        397
+      ],
+      [
+        160,
+        397
+      ]
+    ],
+    "source": "room_floor_mesh",
+    "boundary_source": "room_floor_mesh"
+  },
+  "metric_transform": {
+    "schema_version": "metric-transform-v1",
+    "scale_policy": "fixed_metric_canvas",
+    "image_size_px": [
+      512,
+      512
+    ],
+    "canvas_extent_m": 8.0,
+    "pixels_per_meter": 64.0,
+    "origin_world_m": [
+      -1.9623,
+      -1.2920500000000001
+    ],
+    "room_center_world_m": [
+      2.0377,
+      2.70795
+    ],
+    "room_bbox_m": [
+      0.5379,
+      0.4993,
+      3.5375,
+      4.9166
+    ],
+    "x_axis_direction": "right",
+    "y_axis_direction": "down"
+  },
+  "anchors": [
+    {
+      "anchor_id": "f1250f13-c9fe-4035-a2f0-00f6d7984cdf/41581316",
+      "anchor_type": "window",
+      "source": "room_child_mesh",
+      "source_policy": "semlayoutdiff_room_children_only",
+      "source_id": "f1250f13-c9fe-4035-a2f0-00f6d7984cdf/41581316",
+      "source_object_id": "f1250f13-c9fe-4035-a2f0-00f6d7984cdf/41581316",
+      "mesh_type": "Window",
+      "assigned_room_id": "43907bbc-4b39-4f1a-8747-3287c8bce690_room_00",
+      "polygon_m": [
+        [
+          1.29965,
+          4.9166
+        ],
+        [
+          1.29965,
+          5.1566
+        ],
+        [
+          1.29965,
+          5.1566
+        ],
+        [
+          1.29965,
+          4.9166
+        ],
+        [
+          2.81355,
+          5.1566
+        ],
+        [
+          2.81355,
+          4.9166
+        ],
+        [
+          2.81355,
+          4.9166
+        ],
+        [
+          2.81355,
+          5.1566
+        ],
+        [
+          2.81355,
+          5.1566
+        ],
+        [
+          1.29965,
+          5.1566
+        ],
+        [
+          1.29965,
+          4.9166
+        ],
+        [
+          2.81355,
+          4.9166
+        ],
+        [
+          1.29965,
+          5.1566
+        ],
+        [
+          2.81355,
+          5.1566
+        ],
+        [
+          2.81355,
+          4.9166
+        ],
+        [
+          1.29965,
+          4.9166
+        ]
+      ],
+      "bbox_m": [
+        1.29965,
+        4.9166,
+        2.81355,
+        5.1566
+      ],
+      "confidence": 1.0
+    }
+  ],
+  "opening_source_policy": "semlayoutdiff_room_children_only",
+  "door_anchor_count": 0,
+  "window_anchor_count": 1,
+  "native_room_child_door_count": 0,
+  "native_room_child_window_count": 1,
+  "has_room_child_door": false,
+  "has_room_child_window": true,
+  "source": {
+    "kind": "raw_3dfront",
+    "source_scene_json": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/43907bbc-4b39-4f1a-8747-3287c8bce690.json",
+    "room_index": 0
+  }
+}

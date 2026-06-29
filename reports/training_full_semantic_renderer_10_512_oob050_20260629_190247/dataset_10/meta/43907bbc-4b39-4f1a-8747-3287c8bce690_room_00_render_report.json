@@ -1,0 +1,241 @@
+{
+  "renderer": "semantic_topdown_renderer_v3_render_order",
+  "image_size_px": [
+    512,
+    512
+  ],
+  "palette_exact": true,
+  "target_kind": "full_semantic",
+  "target_base": "qwen_input_byte_copy_then_furniture_overlay",
+  "render_order_policy": {
+    "sort_key": [
+      "render_priority_ascending",
+      "area_px_descending",
+      "category_name",
+      "stable_object_id"
+    ],
+    "low_priority_categories": [
+      "air_conditioner",
+      "ceiling_air_conditioner",
+      "ceiling_fan",
+      "wall_air_conditioner"
+    ],
+    "small_priority_categories": [
+      "armchair",
+      "chair",
+      "chinese_chair",
+      "corner_side_table",
+      "dining_chair",
+      "display_storage_cabinet",
+      "dressing_chair",
+      "lounge_chair",
+      "nightstand",
+      "round_end_table",
+      "sideboard_chest",
+      "stool"
+    ],
+    "high_priority_categories": [
+      "ceiling_lamp",
+      "display_screen",
+      "pendant_lamp"
+    ]
+  },
+  "context_target_same_shape": true,
+  "context_target_same_transform_hash": true,
+  "metric_transform_hash": "876540ec1750c2e45e1ae51456d81327c3a20c882697e56ef8beb00b8f8cb4e7",
+  "protected_pixels_unchanged": true,
+  "protected_pixels_changed_count": 0,
+  "context_report": {
+    "renderer": "semantic_topdown_renderer_v3_render_order",
+    "image_size_px": [
+      512,
+      512
+    ],
+    "palette_exact": true,
+    "architecture_only": true,
+    "boundary_source": "polygon_m_metric_transform",
+    "transform_debug": {
+      "metric_transform_exists": true,
+      "metric_transform_hash": "876540ec1750c2e45e1ae51456d81327c3a20c882697e56ef8beb00b8f8cb4e7",
+      "room_bbox_m": [
+        0.5379,
+        0.4993,
+        3.5375,
+        4.9166
+      ],
+      "pixels_per_meter": 64.0,
+      "pixels_per_cm": 0.64,
+      "cm_per_pixel": 1.5625,
+      "canvas_w": 512,
+      "canvas_h": 512,
+      "pad_left": 0,
+      "pad_top": 0,
+      "target_size": [
+        512,
+        512
+      ],
+      "local_crop_enabled": false,
+      "crop_policy": "fixed_metric_canvas_from_architecture_metric_transform",
+      "nearest_neighbor_semantic_resize": false,
+      "source_transform_schema": "metric-transform-v1"
+    },
+    "wall_in_registry": false,
+    "wall_in_architecture_json": false,
+    "wall_source_mesh_available": false,
+    "wall_rendering_policy": "no_wall_class_floor_void_boundary_only",
+    "anchor_counts": {
+      "door": 0,
+      "window": 1
+    },
+    "anchor_pixel_counts": {
+      "door": 0,
+      "window": 490
+    },
+    "anchor_reports": [
+      {
+        "anchor_id": "f1250f13-c9fe-4035-a2f0-00f6d7984cdf/41581316",
+        "anchor_type": "window",
+        "geometry_source": "bbox_m_metric_transform_boundary_projected_strip",
+        "pixel_count": 490,
+        "min_visible_strip_applied": true
+      }
+    ],
+    "opening_min_visible_px": 4,
+    "no_alpha": true,
+    "no_antialiasing": true,
+    "official_qwen_input": true
+  },
+  "object_reports": [
+    {
+      "object_id": "furniture/118",
+      "instance_id": "furniture/118",
+      "category": "wardrobe",
+      "render_priority": 0,
+      "render_order_index": 0,
+      "area_px": 19608,
+      "raw_object_area_px": 19608,
+      "written_area_px": 12513,
+      "overwritten_previous_furniture_px": 0,
+      "overwrites_categories": [],
+      "clipped_area_px": 7095,
+      "clipped_ratio": 0.3618421052631579,
+      "void_overlap_px": 7095,
+      "door_overlap_px": 0,
+      "window_overlap_px": 0,
+      "protected_overlap_px": 7095,
+      "outside_image_px": 0,
+      "fallback_used": false,
+      "render_source": "footprint_m_oriented",
+      "decision": "clipped",
+      "reason": "outside_floor_or_protected_or_overlap"
+    },
+    {
+      "object_id": "furniture/104",
+      "instance_id": "furniture/104",
+      "category": "double_bed",
+      "render_priority": 0,
+      "render_order_index": 1,
+      "area_px": 5633,
+      "raw_object_area_px": 5633,
+      "written_area_px": 5633,
+      "overwritten_previous_furniture_px": 215,
+      "overwrites_categories": [
+        "wardrobe"
+      ],
+      "clipped_area_px": 0,
+      "clipped_ratio": 0.0,
+      "void_overlap_px": 0,
+      "door_overlap_px": 0,
+      "window_overlap_px": 0,
+      "protected_overlap_px": 0,
+      "outside_image_px": 0,
+      "fallback_used": false,
+      "render_source": "footprint_m_oriented",
+      "decision": "written",
+      "reason": "ok"
+    },
+    {
+      "object_id": "furniture/105",
+      "instance_id": "furniture/105",
+      "category": "nightstand",
+      "render_priority": 10,
+      "render_order_index": 2,
+      "area_px": 812,
+      "raw_object_area_px": 812,
+      "written_area_px": 812,
+      "overwritten_previous_furniture_px": 812,
+      "overwrites_categories": [
+        "wardrobe"
+      ],
+      "clipped_area_px": 0,
+      "clipped_ratio": 0.0,
+      "void_overlap_px": 0,
+      "door_overlap_px": 0,
+      "window_overlap_px": 0,
+      "protected_overlap_px": 0,
+      "outside_image_px": 0,
+      "fallback_used": false,
+      "render_source": "footprint_m_oriented",
+      "decision": "written",
+      "reason": "ok"
+    },
+    {
+      "object_id": "furniture/106",
+      "instance_id": "furniture/106",
+      "category": "nightstand",
+      "render_priority": 10,
+      "render_order_index": 3,
+      "area_px": 783,
+      "raw_object_area_px": 783,
+      "written_area_px": 783,
+      "overwritten_previous_furniture_px": 0,
+      "overwrites_categories": [],
+      "clipped_area_px": 0,
+      "clipped_ratio": 0.0,
+      "void_overlap_px": 0,
+      "door_overlap_px": 0,
+      "window_overlap_px": 0,
+      "protected_overlap_px": 0,
+      "outside_image_px": 0,
+      "fallback_used": false,
+      "render_source": "footprint_m_oriented",
+      "decision": "written",
+      "reason": "ok"
+    },
+    {
+      "object_id": "furniture/110",
+      "instance_id": "furniture/110",
+      "category": "ceiling_lamp",
+      "render_priority": 30,
+      "render_order_index": 4,
+      "area_px": 370,
+      "raw_object_area_px": 370,
+      "written_area_px": 370,
+      "overwritten_previous_furniture_px": 230,
+      "overwrites_categories": [
+        "double_bed"
+      ],
+      "clipped_area_px": 0,
+      "clipped_ratio": 0.0,
+      "void_overlap_px": 0,
+      "door_overlap_px": 0,
+      "window_overlap_px": 0,
+      "protected_overlap_px": 0,
+      "outside_image_px": 0,
+      "fallback_used": false,
+      "render_source": "footprint_m_oriented",
+      "decision": "written",
+      "reason": "ok"
+    }
+  ],
+  "num_objects": 5,
+  "zero_written_object_count": 0,
+  "clipped_object_count": 1,
+  "fallback_object_count": 0,
+  "overwritten_previous_furniture_px_total": 1257,
+  "furniture_on_void_pixels_after_write": 0,
+  "furniture_on_protected_pixels_after_write": 0,
+  "door_window_overwritten_pixels_after_write": 0,
+  "write_policy": "furniture_pixels_write_to_floor_only_with_deterministic_priority_overlay",
+  "wall_rendering_policy": "no_wall_class_floor_void_boundary_only"
+}

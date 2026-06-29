@@ -1,0 +1,296 @@
+{
+  "schema_version": "architecture-v2-p0",
+  "architecture_id": "14648240-209f-4784-91e0-d8fca22d545b_room_03",
+  "scene_id": "14648240-209f-4784-91e0-d8fca22d545b",
+  "house_id": null,
+  "floorplan_id": "14648240-209f-4784-91e0-d8fca22d545b",
+  "room_type": "livingroom",
+  "image_size_px": [
+    512,
+    512
+  ],
+  "boundary": {
+    "polygon_m": [
+      [
+        -1.3673,
+        -0.6712
+      ],
+      [
+        3.1083,
+        -0.6712
+      ],
+      [
+        3.1083,
+        3.9448
+      ],
+      [
+        -1.3673,
+        3.9448
+      ]
+    ],
+    "polygon_px": [
+      [
+        113,
+        108
+      ],
+      [
+        399,
+        108
+      ],
+      [
+        399,
+        404
+      ],
+      [
+        113,
+        404
+      ]
+    ],
+    "source": "room_floor_mesh",
+    "boundary_source": "room_floor_mesh"
+  },
+  "metric_transform": {
+    "schema_version": "metric-transform-v1",
+    "scale_policy": "fixed_metric_canvas",
+    "image_size_px": [
+      512,
+      512
+    ],
+    "canvas_extent_m": 8.0,
+    "pixels_per_meter": 64.0,
+    "origin_world_m": [
+      -3.1295,
+      -2.3632
+    ],
+    "room_center_world_m": [
+      0.8704999999999999,
+      1.6368
+    ],
+    "room_bbox_m": [
+      -1.3673,
+      -0.6712,
+      3.1083,
+      3.9448
+    ],
+    "x_axis_direction": "right",
+    "y_axis_direction": "down"
+  },
+  "anchors": [
+    {
+      "anchor_id": "0fdde2ce-2651-461f-ae31-f701203abc24/64204904",
+      "anchor_type": "door",
+      "source": "room_child_mesh",
+      "source_policy": "semlayoutdiff_room_children_only",
+      "source_id": "0fdde2ce-2651-461f-ae31-f701203abc24/64204904",
+      "source_object_id": "0fdde2ce-2651-461f-ae31-f701203abc24/64204904",
+      "mesh_type": "Door",
+      "assigned_room_id": "14648240-209f-4784-91e0-d8fca22d545b_room_03",
+      "polygon_m": [
+        [
+          1.28555,
+          3.9448
+        ],
+        [
+          1.28555,
+          4.1848
+        ],
+        [
+          1.28555,
+          4.1848
+        ],
+        [
+          1.28555,
+          3.9448
+        ],
+        [
+          2.82185,
+          4.1848
+        ],
+        [
+          2.82185,
+          3.9448
+        ],
+        [
+          2.82185,
+          3.9448
+        ],
+        [
+          2.82185,
+          4.1848
+        ],
+        [
+          2.82185,
+          4.1848
+        ],
+        [
+          1.28555,
+          4.1848
+        ],
+        [
+          1.28555,
+          3.9448
+        ],
+        [
+          2.82185,
+          3.9448
+        ]
+      ],
+      "bbox_m": [
+        1.28555,
+        3.9448,
+        2.82185,
+        4.1848
+      ],
+      "confidence": 1.0
+    },
+    {
+      "anchor_id": "0fdde2ce-2651-461f-ae31-f701203abc24/64204907",
+      "anchor_type": "door",
+      "source": "room_child_mesh",
+      "source_policy": "semlayoutdiff_room_children_only",
+      "source_id": "0fdde2ce-2651-461f-ae31-f701203abc24/64204907",
+      "source_object_id": "0fdde2ce-2651-461f-ae31-f701203abc24/64204907",
+      "mesh_type": "Door",
+      "assigned_room_id": "14648240-209f-4784-91e0-d8fca22d545b_room_03",
+      "polygon_m": [
+        [
+          2.82185,
+          3.9448
+        ],
+        [
+          1.28555,
+          3.9448
+        ],
+        [
+          1.28555,
+          4.1848
+        ],
+        [
+          2.82185,
+          4.1848
+        ]
+      ],
+      "bbox_m": [
+        1.28555,
+        3.9448,
+        2.82185,
+        4.1848
+      ],
+      "confidence": 1.0
+    },
+    {
+      "anchor_id": "23501ee4-30c8-4746-bc42-62ec0e32de33/64204912",
+      "anchor_type": "door",
+      "source": "room_child_mesh",
+      "source_policy": "semlayoutdiff_room_children_only",
+      "source_id": "23501ee4-30c8-4746-bc42-62ec0e32de33/64204912",
+      "source_object_id": "23501ee4-30c8-4746-bc42-62ec0e32de33/64204912",
+      "mesh_type": "Door",
+      "assigned_room_id": "14648240-209f-4784-91e0-d8fca22d545b_room_03",
+      "polygon_m": [
+        [
+          1.0747,
+          2.23565
+        ],
+        [
+          0.8347,
+          2.23565
+        ],
+        [
+          0.8347,
+          2.23565
+        ],
+        [
+          1.0747,
+          2.23565
+        ],
+        [
+          0.8347,
+          3.77195
+        ],
+        [
+          1.0747,
+          3.77195
+        ],
+        [
+          1.0747,
+          3.77195
+        ],
+        [
+          0.8347,
+          3.77195
+        ],
+        [
+          0.8347,
+          3.77195
+        ],
+        [
+          0.8347,
+          2.23565
+        ],
+        [
+          1.0747,
+          2.23565
+        ],
+        [
+          1.0747,
+          3.77195
+        ]
+      ],
+      "bbox_m": [
+        0.8347,
+        2.23565,
+        1.0747,
+        3.77195
+      ],
+      "confidence": 1.0
+    },
+    {
+      "anchor_id": "23501ee4-30c8-4746-bc42-62ec0e32de33/64204915",
+      "anchor_type": "door",
+      "source": "room_child_mesh",
+      "source_policy": "semlayoutdiff_room_children_only",
+      "source_id": "23501ee4-30c8-4746-bc42-62ec0e32de33/64204915",
+      "source_object_id": "23501ee4-30c8-4746-bc42-62ec0e32de33/64204915",
+      "mesh_type": "Door",
+      "assigned_room_id": "14648240-209f-4784-91e0-d8fca22d545b_room_03",
+      "polygon_m": [
+        [
+          1.0747,
+          2.23565
+        ],
+        [
+          0.8347,
+          2.23565
+        ],
+        [
+          0.8347,
+          3.77195
+        ],
+        [
+          1.0747,
+          3.77195
+        ]
+      ],
+      "bbox_m": [
+        0.8347,
+        2.23565,
+        1.0747,
+        3.77195
+      ],
+      "confidence": 1.0
+    }
+  ],
+  "opening_source_policy": "semlayoutdiff_room_children_only",
+  "door_anchor_count": 4,
+  "window_anchor_count": 0,
+  "native_room_child_door_count": 4,
+  "native_room_child_window_count": 0,
+  "has_room_child_door": true,
+  "has_room_child_window": false,
+  "source": {
+    "kind": "raw_3dfront",
+    "source_scene_json": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/14648240-209f-4784-91e0-d8fca22d545b.json",
+    "room_index": 3
+  }
+}

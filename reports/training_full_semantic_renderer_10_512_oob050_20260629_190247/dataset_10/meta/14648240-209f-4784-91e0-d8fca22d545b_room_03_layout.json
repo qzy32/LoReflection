@@ -1,0 +1,892 @@
+{
+  "schema_version": "layout-json-v1",
+  "layout_id": "14648240-209f-4784-91e0-d8fca22d545b_room_03_layout",
+  "sample_id": "14648240-209f-4784-91e0-d8fca22d545b_room_03",
+  "scene_id": "14648240-209f-4784-91e0-d8fca22d545b",
+  "house_id": null,
+  "floorplan_id": "14648240-209f-4784-91e0-d8fca22d545b",
+  "room_type": "livingroom",
+  "image_size_px": [
+    512,
+    512
+  ],
+  "objects": [
+    {
+      "instance_id": "furniture/198",
+      "category": "dining_table",
+      "bbox_px": [
+        303,
+        109,
+        350,
+        275
+      ],
+      "footprint_m": [
+        [
+          1.6125448422208317,
+          1.9364060714843458
+        ],
+        [
+          1.6125448422208313,
+          -0.6539738723633106
+        ],
+        [
+          2.3328398709073546,
+          -0.6539738723633108
+        ],
+        [
+          2.332839870907355,
+          1.9364060714843458
+        ]
+      ],
+      "footprint_px": [
+        [
+          303,
+          275
+        ],
+        [
+          303,
+          109
+        ],
+        [
+          350,
+          109
+        ],
+        [
+          350,
+          275
+        ]
+      ],
+      "center_m": [
+        1.9726923565640933,
+        0.6412160995605175
+      ],
+      "size_m": [
+        2.5903799438476565,
+        0.7202950286865234
+      ],
+      "orientation_deg": 270.0,
+      "source_object_id": "10794/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/14648240-209f-4784-91e0-d8fca22d545b.json"
+    },
+    {
+      "instance_id": "furniture/199",
+      "category": "dining_chair",
+      "bbox_px": [
+        259,
+        204,
+        313,
+        244
+      ],
+      "footprint_m": [
+        [
+          1.7552627492812418,
+          0.8185975557767872
+        ],
+        [
+          1.7552627492812418,
+          1.4529355532133106
+        ],
+        [
+          0.9142177511122964,
+          1.4529355532133106
+        ],
+        [
+          0.9142177511122964,
+          0.818597555776787
+        ]
+      ],
+      "footprint_px": [
+        [
+          313,
+          204
+        ],
+        [
+          313,
+          244
+        ],
+        [
+          259,
+          244
+        ],
+        [
+          259,
+          204
+        ]
+      ],
+      "center_m": [
+        1.3347402501967691,
+        1.1357665544950488
+      ],
+      "size_m": [
+        0.6343379974365234,
+        0.8410449981689453
+      ],
+      "orientation_deg": -270.0,
+      "source_object_id": "10795/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/14648240-209f-4784-91e0-d8fca22d545b.json"
+    },
+    {
+      "instance_id": "furniture/200",
+      "category": "dining_chair",
+      "bbox_px": [
+        258,
+        145,
+        312,
+        185
+      ],
+      "footprint_m": [
+        [
+          1.750000469816668,
+          -0.10507517233963715
+        ],
+        [
+          1.750000469816668,
+          0.5292628250968863
+        ],
+        [
+          0.9089554716477226,
+          0.529262825096886
+        ],
+        [
+          0.9089554716477226,
+          -0.10507517233963731
+        ]
+      ],
+      "footprint_px": [
+        [
+          312,
+          145
+        ],
+        [
+          312,
+          185
+        ],
+        [
+          258,
+          185
+        ],
+        [
+          258,
+          145
+        ]
+      ],
+      "center_m": [
+        1.3294779707321953,
+        0.21209382637862448
+      ],
+      "size_m": [
+        0.6343379974365234,
+        0.8410449981689453
+      ],
+      "orientation_deg": -270.0,
+      "source_object_id": "10795/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/14648240-209f-4784-91e0-d8fca22d545b.json"
+    },
+    {
+      "instance_id": "furniture/201",
+      "category": "dining_chair",
+      "bbox_px": [
+        345,
+        201,
+        399,
+        241
+      ],
+      "footprint_m": [
+        [
+          2.2569548082757183,
+          1.409817197652729
+        ],
+        [
+          2.2569548082757183,
+          0.7754792002162055
+        ],
+        [
+          3.097999806444663,
+          0.7754792002162053
+        ],
+        [
+          3.097999806444663,
+          1.409817197652729
+        ]
+      ],
+      "footprint_px": [
+        [
+          345,
+          241
+        ],
+        [
+          345,
+          201
+        ],
+        [
+          399,
+          201
+        ],
+        [
+          399,
+          241
+        ]
+      ],
+      "center_m": [
+        2.6774773073601907,
+        1.0926481989344672
+      ],
+      "size_m": [
+        0.6343379974365234,
+        0.8410449981689453
+      ],
+      "orientation_deg": 270.0,
+      "source_object_id": "10795/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/14648240-209f-4784-91e0-d8fca22d545b.json"
+    },
+    {
+      "instance_id": "furniture/202",
+      "category": "dining_chair",
+      "bbox_px": [
+        340,
+        145,
+        394,
+        185
+      ],
+      "footprint_m": [
+        [
+          2.1877322653149993,
+          0.5313590706078761
+        ],
+        [
+          2.1877322653149993,
+          -0.10297892682864734
+        ],
+        [
+          3.0287772634839443,
+          -0.10297892682864751
+        ],
+        [
+          3.0287772634839443,
+          0.5313590706078759
+        ]
+      ],
+      "footprint_px": [
+        [
+          340,
+          185
+        ],
+        [
+          340,
+          145
+        ],
+        [
+          394,
+          145
+        ],
+        [
+          394,
+          185
+        ]
+      ],
+      "center_m": [
+        2.608254764399472,
+        0.21419007188961428
+      ],
+      "size_m": [
+        0.6343379974365234,
+        0.8410449981689453
+      ],
+      "orientation_deg": 270.0,
+      "source_object_id": "10795/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/14648240-209f-4784-91e0-d8fca22d545b.json"
+    },
+    {
+      "instance_id": "furniture/203",
+      "category": "dining_chair",
+      "bbox_px": [
+        308,
+        100,
+        349,
+        154
+      ],
+      "footprint_m": [
+        [
+          1.689857339534481,
+          -0.7967370440888566
+        ],
+        [
+          2.324186224897985,
+          -0.8001370713347604
+        ],
+        [
+          2.328694193710135,
+          0.040895845477768256
+        ],
+        [
+          1.6943653083466308,
+          0.04429587272367208
+        ]
+      ],
+      "footprint_px": [
+        [
+          308,
+          100
+        ],
+        [
+          349,
+          100
+        ],
+        [
+          349,
+          154
+        ],
+        [
+          309,
+          154
+        ]
+      ],
+      "center_m": [
+        2.009275766622308,
+        -0.37792059930554417
+      ],
+      "size_m": [
+        0.6343379974365234,
+        0.8410449981689453
+      ],
+      "orientation_deg": 359.692895357058,
+      "source_object_id": "10795/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/14648240-209f-4784-91e0-d8fca22d545b.json"
+    },
+    {
+      "instance_id": "furniture/204",
+      "category": "dining_chair",
+      "bbox_px": [
+        304,
+        243,
+        344,
+        297
+      ],
+      "footprint_m": [
+        [
+          2.2523513992494917,
+          2.2783809697840414
+        ],
+        [
+          1.6180134018129684,
+          2.2783809697840414
+        ],
+        [
+          1.6180134018129684,
+          1.4373359716150962
+        ],
+        [
+          2.2523513992494917,
+          1.4373359716150962
+        ]
+      ],
+      "footprint_px": [
+        [
+          344,
+          297
+        ],
+        [
+          304,
+          297
+        ],
+        [
+          304,
+          243
+        ],
+        [
+          344,
+          243
+        ]
+      ],
+      "center_m": [
+        1.9351824005312301,
+        1.8578584706995689
+      ],
+      "size_m": [
+        0.6343379974365234,
+        0.8410449981689453
+      ],
+      "orientation_deg": 180.0,
+      "source_object_id": "10795/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/14648240-209f-4784-91e0-d8fca22d545b.json"
+    },
+    {
+      "instance_id": "furniture/207",
+      "category": "multi_seat_sofa",
+      "bbox_px": [
+        120,
+        206,
+        262,
+        257
+      ],
+      "footprint_m": [
+        [
+          0.9665661055077912,
+          1.6462645933044247
+        ],
+        [
+          -1.2594638627539276,
+          1.6462645933044242
+        ],
+        [
+          -1.2594638627539276,
+          0.8510736295593069
+        ],
+        [
+          0.9665661055077912,
+          0.8510736295593073
+        ]
+      ],
+      "footprint_px": [
+        [
+          262,
+          257
+        ],
+        [
+          120,
+          257
+        ],
+        [
+          120,
+          206
+        ],
+        [
+          262,
+          206
+        ]
+      ],
+      "center_m": [
+        -0.14644887862306818,
+        1.2486691114318658
+      ],
+      "size_m": [
+        2.226029968261719,
+        0.7951909637451172
+      ],
+      "orientation_deg": -180.0,
+      "source_object_id": "10803/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/14648240-209f-4784-91e0-d8fca22d545b.json"
+    },
+    {
+      "instance_id": "furniture/209",
+      "category": "armchair",
+      "bbox_px": [
+        321,
+        283,
+        392,
+        343
+      ],
+      "footprint_m": [
+        [
+          2.1063860625674757,
+          3.0038362996386208
+        ],
+        [
+          1.89270040597756,
+          2.3482504265174327
+        ],
+        [
+          2.7816963281241898,
+          2.0584856754479053
+        ],
+        [
+          2.9953819847141054,
+          2.7140715485690934
+        ]
+      ],
+      "footprint_px": [
+        [
+          335,
+          343
+        ],
+        [
+          321,
+          302
+        ],
+        [
+          378,
+          283
+        ],
+        [
+          392,
+          325
+        ]
+      ],
+      "center_m": [
+        2.4440411953458328,
+        2.531160987543263
+      ],
+      "size_m": [
+        0.6895320129394531,
+        0.9350279998779297
+      ],
+      "orientation_deg": 251.94682332979175,
+      "source_object_id": "10805/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/14648240-209f-4784-91e0-d8fca22d545b.json"
+    },
+    {
+      "instance_id": "furniture/211",
+      "category": "armchair",
+      "bbox_px": [
+        239,
+        143,
+        311,
+        205
+      ],
+      "footprint_m": [
+        [
+          0.6094344201268933,
+          0.4537017436260734
+        ],
+        [
+          0.877940953507897,
+          -0.13628385466571583
+        ],
+        [
+          1.736162092013071,
+          0.25429853148323334
+        ],
+        [
+          1.4676555586320672,
+          0.8442841297750227
+        ]
+      ],
+      "footprint_px": [
+        [
+          239,
+          180
+        ],
+        [
+          256,
+          143
+        ],
+        [
+          311,
+          168
+        ],
+        [
+          294,
+          205
+        ]
+      ],
+      "center_m": [
+        1.1727982560699821,
+        0.35400013755465337
+      ],
+      "size_m": [
+        0.6482119750976563,
+        0.9429199981689453
+      ],
+      "orientation_deg": 294.47061064220793,
+      "source_object_id": "10807/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/14648240-209f-4784-91e0-d8fca22d545b.json"
+    },
+    {
+      "instance_id": "furniture/212",
+      "category": "tv_stand",
+      "bbox_px": [
+        113,
+        111,
+        305,
+        139
+      ],
+      "footprint_m": [
+        [
+          -1.3634210774817963,
+          -0.6310482130895558
+        ],
+        [
+          1.6405788614830477,
+          -0.6310482130895558
+        ],
+        [
+          1.6405788614830477,
+          -0.19104722126826673
+        ],
+        [
+          -1.3634210774817963,
+          -0.19104722126826673
+        ]
+      ],
+      "footprint_px": [
+        [
+          113,
+          111
+        ],
+        [
+          305,
+          111
+        ],
+        [
+          305,
+          139
+        ],
+        [
+          113,
+          139
+        ]
+      ],
+      "center_m": [
+        0.13857889200062568,
+        -0.41104771717891125
+      ],
+      "size_m": [
+        3.003999938964844,
+        0.44000099182128904
+      ],
+      "orientation_deg": 0.0,
+      "source_object_id": "10808/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/14648240-209f-4784-91e0-d8fca22d545b.json"
+    },
+    {
+      "instance_id": "furniture/219",
+      "category": "cabinet",
+      "bbox_px": [
+        108,
+        143,
+        145,
+        187
+      ],
+      "footprint_m": [
+        [
+          -0.8675097856136926,
+          -0.12509154980506446
+        ],
+        [
+          -0.8675097856136926,
+          0.5595434599605605
+        ],
+        [
+          -1.4378747758480677,
+          0.5595434599605605
+        ],
+        [
+          -1.4378747758480677,
+          -0.1250915498050644
+        ]
+      ],
+      "footprint_px": [
+        [
+          145,
+          143
+        ],
+        [
+          145,
+          187
+        ],
+        [
+          108,
+          187
+        ],
+        [
+          108,
+          143
+        ]
+      ],
+      "center_m": [
+        -1.1526922807308801,
+        0.21722595507774806
+      ],
+      "size_m": [
+        0.684635009765625,
+        0.570364990234375
+      ],
+      "orientation_deg": 90.0,
+      "source_object_id": "10815/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/14648240-209f-4784-91e0-d8fca22d545b.json"
+    },
+    {
+      "instance_id": "furniture/223",
+      "category": "corner_side_table",
+      "bbox_px": [
+        274,
+        263,
+        299,
+        296
+      ],
+      "footprint_m": [
+        [
+          1.159327001953125,
+          1.7499379966735842
+        ],
+        [
+          1.5364729980468752,
+          1.7499379966735842
+        ],
+        [
+          1.5364729980468752,
+          2.257162003326416
+        ],
+        [
+          1.159327001953125,
+          2.257162003326416
+        ]
+      ],
+      "footprint_px": [
+        [
+          274,
+          263
+        ],
+        [
+          299,
+          263
+        ],
+        [
+          299,
+          296
+        ],
+        [
+          274,
+          296
+        ]
+      ],
+      "center_m": [
+        1.3479,
+        2.00355
+      ],
+      "size_m": [
+        0.37714599609375,
+        0.5072240066528321
+      ],
+      "orientation_deg": 0.0,
+      "source_object_id": "10819/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/14648240-209f-4784-91e0-d8fca22d545b.json"
+    },
+    {
+      "instance_id": "furniture/240",
+      "category": "pendant_lamp",
+      "bbox_px": [
+        265,
+        327,
+        318,
+        403
+      ],
+      "footprint_m": [
+        [
+          1.0140280090332032,
+          3.9333999979654948
+        ],
+        [
+          1.0140280090332032,
+          2.7467999613444007
+        ],
+        [
+          1.843171990966797,
+          2.7467999613444007
+        ],
+        [
+          1.843171990966797,
+          3.9333999979654948
+        ]
+      ],
+      "footprint_px": [
+        [
+          265,
+          403
+        ],
+        [
+          265,
+          327
+        ],
+        [
+          318,
+          327
+        ],
+        [
+          318,
+          403
+        ]
+      ],
+      "center_m": [
+        1.4286,
+        3.3400999796549478
+      ],
+      "size_m": [
+        1.1866000366210938,
+        0.8291439819335937
+      ],
+      "orientation_deg": 270.0,
+      "source_object_id": "10836/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/14648240-209f-4784-91e0-d8fca22d545b.json"
+    }
+  ],
+  "skipped_objects": [
+    {
+      "source_object_id": "10814/model",
+      "jid": "50e050e8-ba69-4eef-b76f-120369aca884",
+      "reason": "unmapped_frozen_category",
+      "raw_category": null,
+      "title": ""
+    }
+  ],
+  "inter_object_collision_pairs_for_audit": [
+    {
+      "left_index": 0,
+      "right_index": 5,
+      "left_category": "dining_table",
+      "right_category": "dining_chair",
+      "left_source_object_id": "10794/model",
+      "right_source_object_id": "10795/model",
+      "intersection_area_m2": 0.4418669958172225,
+      "left_area_m2": 1.8658377959627417,
+      "right_area_m2": 0.5335067998924933,
+      "intersection_over_min_area": 0.8282312351150218
+    },
+    {
+      "left_index": 0,
+      "right_index": 6,
+      "left_category": "dining_table",
+      "right_category": "dining_chair",
+      "left_source_object_id": "10794/model",
+      "right_source_object_id": "10795/model",
+      "intersection_area_m2": 0.3165791277315051,
+      "left_area_m2": 1.8658377959627417,
+      "right_area_m2": 0.5335067998924927,
+      "intersection_over_min_area": 0.5933928635873041
+    },
+    {
+      "left_index": 2,
+      "right_index": 9,
+      "left_category": "dining_chair",
+      "right_category": "armchair",
+      "left_source_object_id": "10795/model",
+      "right_source_object_id": "10807/model",
+      "intersection_area_m2": 0.36563519138392414,
+      "left_area_m2": 0.5335067998924933,
+      "right_area_m2": 0.6112120343721703,
+      "intersection_over_min_area": 0.6853430761474889
+    }
+  ],
+  "severe_oob_footprint_objects": [],
+  "metric_transform": {
+    "schema_version": "metric-transform-v1",
+    "scale_policy": "fixed_metric_canvas",
+    "image_size_px": [
+      512,
+      512
+    ],
+    "canvas_extent_m": 8.0,
+    "pixels_per_meter": 64.0,
+    "origin_world_m": [
+      -3.1295,
+      -2.3632
+    ],
+    "room_center_world_m": [
+      0.8704999999999999,
+      1.6368
+    ],
+    "room_bbox_m": [
+      -1.3673,
+      -0.6712,
+      3.1083,
+      3.9448
+    ],
+    "x_axis_direction": "right",
+    "y_axis_direction": "down"
+  },
+  "source": {
+    "kind": "raw_3dfront",
+    "source_scene_json": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/14648240-209f-4784-91e0-d8fca22d545b.json",
+    "room_index": 3
+  }
+}

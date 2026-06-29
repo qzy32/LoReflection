@@ -1,0 +1,362 @@
+{
+  "raw_root": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front",
+  "scene_root": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT",
+  "scenes_scanned": 200,
+  "rooms_kept": 373,
+  "room_drop_reason": {
+    "unsupported_room_type": 1236,
+    "severe_oob_footprint": 6,
+    "insufficient_mapped_objects": 29,
+    "semlayoutdiff_invalid_scale": 4
+  },
+  "unsupported_room_type_count": 1236,
+  "invalid_scale_dropped_room_count": 4,
+  "insufficient_mapped_objects_count": 29,
+  "severe_oob_dropped_room_count": 6,
+  "center_outside_boundary_bbox_audit_count": 1,
+  "inter_object_collision_room_drop_count": 0,
+  "inter_object_collision_pair_distribution_audit_only": {
+    "nightstand | wardrobe": 66,
+    "dining_chair | dressing_table": 5,
+    "dining_table | stool": 1,
+    "coffee_table | coffee_table": 1,
+    "corner_side_table | multi_seat_sofa": 3,
+    "corner_side_table | wardrobe": 5,
+    "wardrobe | wardrobe": 12,
+    "dining_chair | dining_table": 14,
+    "double_bed | wardrobe": 4,
+    "desk | nightstand": 1,
+    "bookshelf | lounge_chair": 1,
+    "double_bed | kids_bed": 1,
+    "nightstand | nightstand": 1,
+    "kids_bed | single_bed": 1,
+    "corner_side_table | dining_table": 2,
+    "desk | dining_table": 2,
+    "corner_side_table | desk": 4,
+    "desk | desk": 3,
+    "dressing_table | kids_bed": 1,
+    "dressing_chair | kids_bed": 1,
+    "cabinet | wardrobe": 3,
+    "armchair | desk": 1,
+    "desk | lounge_chair": 2,
+    "dressing_table | nightstand": 1,
+    "dressing_chair | dressing_table": 7,
+    "corner_side_table | double_bed": 2,
+    "stool | stool": 1,
+    "children_cabinet | kids_bed": 1,
+    "single_bed | wardrobe": 1,
+    "children_cabinet | nightstand": 1,
+    "corner_side_table | stool": 1,
+    "desk | stool": 4,
+    "bookshelf | kids_bed": 1,
+    "coffee_table | wardrobe": 2,
+    "tv_stand | tv_stand": 2,
+    "stool | wardrobe": 3,
+    "double_bed | nightstand": 2,
+    "dining_chair | wardrobe": 4,
+    "dining_table | wardrobe": 1,
+    "desk | wardrobe": 1,
+    "cabinet | dining_chair": 2,
+    "desk | dining_chair": 1,
+    "bookshelf | dining_table": 1,
+    "coffee_table | l_shaped_sofa": 2,
+    "cabinet | stool": 4,
+    "corner_side_table | dressing_table": 1,
+    "shelf | wardrobe": 1,
+    "nightstand | single_bed": 2,
+    "bookshelf | stool": 1,
+    "bookshelf | corner_side_table": 1,
+    "bookshelf | wardrobe": 1,
+    "corner_side_table | lounge_chair": 1,
+    "dining_chair | l_shaped_sofa": 1,
+    "kids_bed | wardrobe": 1,
+    "lounge_chair | wardrobe": 1,
+    "nightstand | shelf": 1
+  },
+  "top_inter_object_collision_pairs_audit_only": [
+    [
+      "nightstand | wardrobe",
+      66
+    ],
+    [
+      "dining_chair | dining_table",
+      14
+    ],
+    [
+      "wardrobe | wardrobe",
+      12
+    ],
+    [
+      "dressing_chair | dressing_table",
+      7
+    ],
+    [
+      "dining_chair | dressing_table",
+      5
+    ],
+    [
+      "corner_side_table | wardrobe",
+      5
+    ],
+    [
+      "double_bed | wardrobe",
+      4
+    ],
+    [
+      "corner_side_table | desk",
+      4
+    ],
+    [
+      "desk | stool",
+      4
+    ],
+    [
+      "dining_chair | wardrobe",
+      4
+    ],
+    [
+      "cabinet | stool",
+      4
+    ],
+    [
+      "corner_side_table | multi_seat_sofa",
+      3
+    ],
+    [
+      "desk | desk",
+      3
+    ],
+    [
+      "cabinet | wardrobe",
+      3
+    ],
+    [
+      "stool | wardrobe",
+      3
+    ],
+    [
+      "corner_side_table | dining_table",
+      2
+    ],
+    [
+      "desk | dining_table",
+      2
+    ],
+    [
+      "desk | lounge_chair",
+      2
+    ],
+    [
+      "corner_side_table | double_bed",
+      2
+    ],
+    [
+      "coffee_table | wardrobe",
+      2
+    ]
+  ],
+  "severe_oob_category_distribution": {
+    "bookshelf": 2,
+    "wardrobe": 4
+  },
+  "top_severe_oob_categories": [
+    [
+      "wardrobe",
+      4
+    ],
+    [
+      "bookshelf",
+      2
+    ]
+  ],
+  "top_severe_oob_examples": [
+    {
+      "sample_id": "00321452-517d-431b-a21b-f52750684910_room_02",
+      "room_drop_reason": "severe_oob_footprint",
+      "severe_oob_objects": [
+        {
+          "object_index": 0,
+          "category": "bookshelf",
+          "source_object_id": "28973/model",
+          "center_m": [
+            -8.79984,
+            -0.49133653396975
+          ],
+          "area_m2": 9.125764282397645,
+          "inside_area_m2": 4.228557196577524,
+          "outside_area_ratio": 0.5366352816351136,
+          "center_outside_boundary_bbox": false
+        }
+      ],
+      "inter_object_collision_pairs_for_audit": []
+    },
+    {
+      "sample_id": "03704744-6330-41f6-9983-928466e9a39b_room_06",
+      "room_drop_reason": "severe_oob_footprint",
+      "severe_oob_objects": [
+        {
+          "object_index": 0,
+          "category": "bookshelf",
+          "source_object_id": "313351/model",
+          "center_m": [
+            2.3416280941326226,
+            0.5098751017954491
+          ],
+          "area_m2": 14.989386192948745,
+          "inside_area_m2": 5.8816539645594474,
+          "outside_area_ratio": 0.6076120870562215,
+          "center_outside_boundary_bbox": true
+        }
+      ],
+      "inter_object_collision_pairs_for_audit": [
+        {
+          "left_index": 0,
+          "right_index": 2,
+          "left_category": "bookshelf",
+          "right_category": "kids_bed",
+          "left_source_object_id": "313351/model",
+          "right_source_object_id": "335819/model",
+          "intersection_area_m2": 4.8114155998144295,
+          "left_area_m2": 14.989386192948745,
+          "right_area_m2": 4.8114155998144295,
+          "intersection_over_min_area": 1.0
+        }
+      ]
+    },
+    {
+      "sample_id": "04f0aee8-b117-434b-bcd2-a78766f49106_room_04",
+      "room_drop_reason": "severe_oob_footprint",
+      "severe_oob_objects": [
+        {
+          "object_index": 4,
+          "category": "wardrobe",
+          "source_object_id": "11125/model",
+          "center_m": [
+            -1.3953956521739128,
+            -1.5537999999999998
+          ],
+          "area_m2": 12.5748,
+          "inside_area_m2": 4.066365986956521,
+          "outside_area_ratio": 0.6766257923023411,
+          "center_outside_boundary_bbox": false
+        }
+      ],
+      "inter_object_collision_pairs_for_audit": []
+    },
+    {
+      "sample_id": "057af01e-97b2-46b7-9bd3-eefbdfe4f31c_room_04",
+      "room_drop_reason": "severe_oob_footprint",
+      "severe_oob_objects": [
+        {
+          "object_index": 0,
+          "category": "wardrobe",
+          "source_object_id": "24021/model",
+          "center_m": [
+            -2.453690907235998,
+            0.9810872375488281
+          ],
+          "area_m2": 6.939523023199756,
+          "inside_area_m2": 3.429652740633138,
+          "outside_area_ratio": 0.5057797590457804,
+          "center_outside_boundary_bbox": false
+        }
+      ],
+      "inter_object_collision_pairs_for_audit": [
+        {
+          "left_index": 0,
+          "right_index": 1,
+          "left_category": "wardrobe",
+          "right_category": "nightstand",
+          "left_source_object_id": "24021/model",
+          "right_source_object_id": "24022/model",
+          "intersection_area_m2": 0.3176005419557213,
+          "left_area_m2": 6.939523023199756,
+          "right_area_m2": 0.3176005419557214,
+          "intersection_over_min_area": 0.9999999999999997
+        }
+      ]
+    },
+    {
+      "sample_id": "057d0255-2178-4594-a21a-74bf5b0f380d_room_02",
+      "room_drop_reason": "severe_oob_footprint",
+      "severe_oob_objects": [
+        {
+          "object_index": 4,
+          "category": "wardrobe",
+          "source_object_id": "13882/model",
+          "center_m": [
+            -0.26761478657805393,
+            3.154087538507865
+          ],
+          "area_m2": 8.162537460327147,
+          "inside_area_m2": 3.6179374959939414,
+          "outside_area_ratio": 0.5567631372501,
+          "center_outside_boundary_bbox": false
+        }
+      ],
+      "inter_object_collision_pairs_for_audit": [
+        {
+          "left_index": 1,
+          "right_index": 4,
+          "left_category": "double_bed",
+          "right_category": "wardrobe",
+          "left_source_object_id": "13876/model",
+          "right_source_object_id": "13882/model",
+          "intersection_area_m2": 1.29999983041133,
+          "left_area_m2": 1.7830823143031804,
+          "right_area_m2": 8.162537460327147,
+          "intersection_over_min_area": 0.7290744908315483
+        }
+      ]
+    },
+    {
+      "sample_id": "062fec71-ea9d-4e11-a650-ed5829298c73_room_04",
+      "room_drop_reason": "severe_oob_footprint",
+      "severe_oob_objects": [
+        {
+          "object_index": 1,
+          "category": "wardrobe",
+          "source_object_id": "33200/model",
+          "center_m": [
+            -2.00812,
+            -0.7076310595703124
+          ],
+          "area_m2": 6.839562738693785,
+          "inside_area_m2": 3.1698674441836108,
+          "outside_area_ratio": 0.5365394594232511,
+          "center_outside_boundary_bbox": false
+        }
+      ],
+      "inter_object_collision_pairs_for_audit": [
+        {
+          "left_index": 0,
+          "right_index": 1,
+          "left_category": "kids_bed",
+          "right_category": "wardrobe",
+          "left_source_object_id": "33044/model",
+          "right_source_object_id": "33200/model",
+          "intersection_area_m2": 1.2445422088623048,
+          "left_area_m2": 1.2445422088623048,
+          "right_area_m2": 6.839562738693785,
+          "intersection_over_min_area": 1.0
+        },
+        {
+          "left_index": 1,
+          "right_index": 3,
+          "left_category": "wardrobe",
+          "right_category": "lounge_chair",
+          "left_source_object_id": "33200/model",
+          "right_source_object_id": "33205/model",
+          "intersection_area_m2": 0.37242640945972794,
+          "left_area_m2": 6.839562738693785,
+          "right_area_m2": 0.42869896264179547,
+          "intersection_over_min_area": 0.8687364372535542
+        }
+      ]
+    }
+  ],
+  "invalid_or_unmapped_furniture_count": 217,
+  "severe_oob_outside_area_ratio": 0.5,
+  "prompt_missing_count": null,
+  "note": "200-scene filter audit only; no prompt generation and no training data generation."
+}

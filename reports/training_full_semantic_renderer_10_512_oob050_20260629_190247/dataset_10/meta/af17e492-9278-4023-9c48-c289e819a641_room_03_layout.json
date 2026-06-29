@@ -1,0 +1,277 @@
+{
+  "schema_version": "layout-json-v1",
+  "layout_id": "af17e492-9278-4023-9c48-c289e819a641_room_03_layout",
+  "sample_id": "af17e492-9278-4023-9c48-c289e819a641_room_03",
+  "scene_id": "af17e492-9278-4023-9c48-c289e819a641",
+  "house_id": null,
+  "floorplan_id": "af17e492-9278-4023-9c48-c289e819a641",
+  "room_type": "bedroom",
+  "image_size_px": [
+    512,
+    512
+  ],
+  "objects": [
+    {
+      "instance_id": "furniture/270",
+      "category": "double_bed",
+      "bbox_px": [
+        208,
+        193,
+        260,
+        322
+      ],
+      "footprint_m": [
+        [
+          -3.097795128979376,
+          -1.14324745415443
+        ],
+        [
+          -3.097795128979376,
+          0.8745426154256484
+        ],
+        [
+          -3.910403161205939,
+          0.8745426154256484
+        ],
+        [
+          -3.910403161205939,
+          -1.14324745415443
+        ]
+      ],
+      "footprint_px": [
+        [
+          260,
+          193
+        ],
+        [
+          260,
+          322
+        ],
+        [
+          208,
+          322
+        ],
+        [
+          208,
+          193
+        ]
+      ],
+      "center_m": [
+        -3.5040991450926575,
+        -0.1343524193643908
+      ],
+      "size_m": [
+        2.0177900695800783,
+        0.8126080322265625
+      ],
+      "orientation_deg": 90.0,
+      "source_object_id": "1101/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/af17e492-9278-4023-9c48-c289e819a641.json"
+    },
+    {
+      "instance_id": "furniture/271",
+      "category": "nightstand",
+      "bbox_px": [
+        173,
+        313,
+        213,
+        355
+      ],
+      "footprint_m": [
+        [
+          -3.830976577015866,
+          0.7271329194218346
+        ],
+        [
+          -3.830976577015866,
+          1.378160904040975
+        ],
+        [
+          -4.458182578297604,
+          1.378160904040975
+        ],
+        [
+          -4.458182578297604,
+          0.7271329194218346
+        ]
+      ],
+      "footprint_px": [
+        [
+          213,
+          313
+        ],
+        [
+          213,
+          355
+        ],
+        [
+          173,
+          355
+        ],
+        [
+          173,
+          313
+        ]
+      ],
+      "center_m": [
+        -4.144579577656735,
+        1.0526469117314048
+      ],
+      "size_m": [
+        0.6510279846191406,
+        0.6272060012817383
+      ],
+      "orientation_deg": 90.0,
+      "source_object_id": "1102/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/af17e492-9278-4023-9c48-c289e819a641.json"
+    },
+    {
+      "instance_id": "furniture/276",
+      "category": "wardrobe",
+      "bbox_px": [
+        256,
+        157,
+        395,
+        299
+      ],
+      "footprint_m": [
+        [
+          -3.1660568419647173,
+          0.5008624432690226
+        ],
+        [
+          -3.1660568419647173,
+          -1.7130074908130084
+        ],
+        [
+          -0.9842968932342484,
+          -1.7130074908130084
+        ],
+        [
+          -0.9842968932342484,
+          0.5008624432690229
+        ]
+      ],
+      "footprint_px": [
+        [
+          256,
+          299
+        ],
+        [
+          256,
+          157
+        ],
+        [
+          395,
+          157
+        ],
+        [
+          395,
+          299
+        ]
+      ],
+      "center_m": [
+        -2.075176867599483,
+        -0.6060725237719928
+      ],
+      "size_m": [
+        2.213869934082031,
+        2.181759948730469
+      ],
+      "orientation_deg": -90.0,
+      "source_object_id": "1107/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/af17e492-9278-4023-9c48-c289e819a641.json"
+    },
+    {
+      "instance_id": "furniture/279",
+      "category": "ceiling_lamp",
+      "bbox_px": [
+        254,
+        239,
+        267,
+        276
+      ],
+      "footprint_m": [
+        [
+          -2.9963354989624027,
+          -0.4229874906921387
+        ],
+        [
+          -2.9963354989624027,
+          0.14440749069213865
+        ],
+        [
+          -3.1864845010375977,
+          0.14440749069213865
+        ],
+        [
+          -3.1864845010375977,
+          -0.4229874906921387
+        ]
+      ],
+      "footprint_px": [
+        [
+          267,
+          239
+        ],
+        [
+          267,
+          276
+        ],
+        [
+          254,
+          276
+        ],
+        [
+          254,
+          239
+        ]
+      ],
+      "center_m": [
+        -3.09141,
+        -0.13929000000000002
+      ],
+      "size_m": [
+        0.5673949813842774,
+        0.1901490020751953
+      ],
+      "orientation_deg": 90.0,
+      "source_object_id": "1111/model",
+      "source_json_path": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/af17e492-9278-4023-9c48-c289e819a641.json"
+    }
+  ],
+  "skipped_objects": [],
+  "inter_object_collision_pairs_for_audit": [],
+  "severe_oob_footprint_objects": [],
+  "metric_transform": {
+    "schema_version": "metric-transform-v1",
+    "scale_policy": "fixed_metric_canvas",
+    "image_size_px": [
+      512,
+      512
+    ],
+    "canvas_extent_m": 8.0,
+    "pixels_per_meter": 64.0,
+    "origin_world_m": [
+      -7.1606,
+      -4.1645
+    ],
+    "room_center_world_m": [
+      -3.1605999999999996,
+      -0.16449999999999998
+    ],
+    "room_bbox_m": [
+      -4.5722,
+      -1.7402,
+      -1.749,
+      1.4112
+    ],
+    "x_axis_direction": "right",
+    "y_axis_direction": "down"
+  },
+  "source": {
+    "kind": "raw_3dfront",
+    "source_scene_json": "/wuqingyaoa800/chengjiajia_datas/dataset/JIAQI-CHEN/3D-Front/3D-FRONT/af17e492-9278-4023-9c48-c289e819a641.json",
+    "room_index": 3
+  }
+}

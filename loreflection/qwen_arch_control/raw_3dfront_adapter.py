@@ -15,7 +15,7 @@ from loreflection.semantic_registry import SemanticRegistry, load_registry
 
 
 HARD_FOOTPRINT_COLLISION_MIN_AREA_RATIO = 0.5
-SEVERE_OOB_OUTSIDE_AREA_RATIO = 0.20
+SEVERE_OOB_OUTSIDE_AREA_RATIO = 0.50
 SEMLAYOUTDIFF_MIN_CHILD_SCALE = 1e-5
 SEMLAYOUTDIFF_MAX_CHILD_SCALE = 5.0
 NON_BLOCKING_COLLISION_CATEGORIES = {
@@ -422,7 +422,7 @@ def severe_oob_footprint_objects(
         )
         inside_area = _polygon_area(_convex_polygon_intersection(footprint, boundary_rect))
         outside_ratio = max(0.0, 1.0 - inside_area / max(area, 1e-9))
-        if center_outside or outside_ratio > outside_area_ratio:
+        if outside_ratio > outside_area_ratio:
             oob.append(
                 {
                     "object_index": index,
