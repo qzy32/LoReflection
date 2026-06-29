@@ -1,0 +1,323 @@
+﻿
+loreflection\builders\scene_package_builder.py:203:        raise ValueError(f"Category mapping rule is missing action: 
+{out.get('raw_category', '<unknown>')}")
+loreflection\builders\scene_package_builder.py:215:        raise ValueError(f"Category mapping rule is missing semantic
+_group: {out.get('raw_category', '<unknown>')}")
+loreflection\builders\scene_package_builder.py:217:        raise ValueError(f"keep_furniture rule is missing loreflecti
+on_category: {out.get('raw_category', '<unknown>')}")
+loreflection\builders\scene_package_builder.py:219:        raise ValueError(f"skip rule is missing skip_reason: {out.ge
+t('raw_category', '<unknown>')}")
+loreflection\builders\scene_package_builder.py:225:    # Match higher-confidence fields first. In 3D-FUTURE, model_info
+.category is
+loreflection\builders\scene_package_builder.py:227:    # pulled into desk just because a later fallback string contains
+ "desk".
+loreflection\builders\scene_package_builder.py:252:        "wardrobe": (1.4, 0.6),
+loreflection\builders\scene_package_builder.py:253:        "desk": (1.2, 0.7),
+loreflection\builders\scene_package_builder.py:260:        "nightstand": (0.55, 0.45),
+loreflection\builders\scene_package_builder.py:269:def index_model_info(future_root: Path, max_raw_examples: int = 0, m
+odel_info_path: Path | None = None) -> dict[str, Any]:
+loreflection\builders\scene_package_builder.py:270:    model_info = model_info_path or (future_root / "model_info.json"
+)
+loreflection\builders\scene_package_builder.py:271:    if not model_info.exists():
+loreflection\builders\scene_package_builder.py:272:        raise FileNotFoundError(f"Missing 3D-FUTURE model_info.json:
+ {model_info}")
+loreflection\builders\scene_package_builder.py:273:    data = load_json(model_info)
+loreflection\builders\scene_package_builder.py:288:        category = item.get("category") or item.get("super-category"
+) or item.get("super_category") or item.get("name")
+loreflection\builders\scene_package_builder.py:289:        for key in ("category", "super-category", "super_category", 
+"name"):
+loreflection\builders\scene_package_builder.py:294:            "super_category": item.get("super-category") or item.get
+("super_category") or "",
+loreflection\builders\scene_package_builder.py:298:        "index_version": "model_info_index_v1",
+loreflection\builders\scene_package_builder.py:299:        "source": model_info.as_posix(),
+loreflection\builders\scene_package_builder.py:444:    raw_category = model_meta.get("category") or furniture.get("cate
+gory") or ""
+loreflection\builders\scene_package_builder.py:445:    raw_super_category = model_meta.get("super_category") or ""
+loreflection\builders\scene_package_builder.py:447:    category_rule = map_category([raw_category, raw_super_category, 
+raw_title, furniture.get("type")], category_mapping)
+loreflection\builders\scene_package_builder.py:506:        "raw_category": raw_category,
+loreflection\builders\scene_package_builder.py:507:        "raw_super_category": raw_super_category,
+loreflection\builders\scene_package_builder.py:805:            "new_raw_category_histogram": jid_report.get("raw_catego
+ry_histogram", {}),
+loreflection\builders\scene_package_builder.py:806:            "remaining_unknown_examples": jid_report.get("unknown_ra
+w_category_histogram", {}),
+loreflection\builders\scene_package_builder.py:952:    model_index = index_model_info(future_root, model_info_path=data
+set_paths.future_model_info)
+loreflection\builders\scene_package_builder.py:953:    model_index_path = dirs["mapping"] / "model_info_index.json"
+loreflection\builders\scene_package_builder.py:955:    mark_progress("wrote_model_info_index")
+loreflection\builders\scene_package_builder.py:974:    raw_category_histogram = Counter()
+loreflection\builders\scene_package_builder.py:975:    unknown_raw_category_histogram = Counter()
+loreflection\builders\scene_package_builder.py:1055:            raw_key = str(entity.get("raw_category") or entity.get(
+"raw_title") or entity.get("raw_super_category") or "unknown")
+loreflection\builders\scene_package_builder.py:1056:            raw_category_histogram[raw_key] += 1
+loreflection\builders\scene_package_builder.py:1062:                    unknown_raw_category_histogram[raw_key] += 1
+loreflection\builders\scene_package_builder.py:1168:                "raw_category": entity.get("raw_category"),
+loreflection\builders\scene_package_builder.py:1222:                    "raw_category": entity["raw_category"],
+loreflection\builders\scene_package_builder.py:1223:                    "raw_super_category": entity["raw_super_categor
+y"],
+loreflection\builders\scene_package_builder.py:1288:        "raw_category_histogram": dict(raw_category_histogram.most_
+common()),
+loreflection\builders\scene_package_builder.py:1289:        "unknown_raw_category_histogram": dict(unknown_raw_category
+_histogram.most_common(50)),
+loreflection\builders\scene_package_builder.py:1314:            "threed_future_model_info": dataset_paths.future_model_
+info.as_posix(),
+loreflection\builders\scene_package_builder.py:1349:        "model_info": {
+loreflection\builders\scene_package_builder.py:1392:            "raw_category_histogram": dict(raw_category_histogram.m
+ost_common(50)),
+loreflection\builders\scene_package_builder.py:1395:            "top_unknown_raw_categories": dict(unknown_raw_category
+_histogram.most_common(30)),
+loreflection\builders\scene_package_builder.py:1450:                "top_unknown_raw_categories": dict(unknown_raw_cate
+gory_histogram.most_common(30)),
+loreflection\config\paths.py:44:    future_model_info: Path
+loreflection\config\paths.py:64:    future_model_info: str | Path | None = None,
+loreflection\config\paths.py:73:        "THREED_FUTURE_MODEL_INFO": future_model_info,
+loreflection\config\paths.py:80:    model_info_text = _pick("THREED_FUTURE_MODEL_INFO", env_values, explicit)
+loreflection\config\paths.py:92:    if not model_info_text and future_root_text:
+loreflection\config\paths.py:93:        candidate = Path(future_root_text) / "model_info.json"
+loreflection\config\paths.py:95:            model_info_text = str(candidate)
+loreflection\config\paths.py:103:            ("THREED_FUTURE_MODEL_INFO", model_info_text),
+loreflection\config\paths.py:117:        future_model_info=Path(model_info_text),
+loreflection\config\paths.py:124:        ("THREED_FUTURE_MODEL_INFO", paths.future_model_info),
+loreflection\qwen_arch_control\build_qwen_arch_control_dataset.py:22:from loreflection.qwen_arch_control.raw_3dfront_ad
+apter import adapt_scene_file
+loreflection\qwen_arch_control\build_qwen_arch_control_dataset.py:28:    load_model_info_index,
+loreflection\qwen_arch_control\build_qwen_arch_control_dataset.py:39:    "bedroom": ["double_bed", "nightstand", "wardr
+obe", "desk", "chair"],
+loreflection\qwen_arch_control\build_qwen_arch_control_dataset.py:42:    "study": ["desk", "chair", "bookshelf", "cabin
+et", "lounge_chair"],
+loreflection\qwen_arch_control\build_qwen_arch_control_dataset.py:172:    model_paths = [Path(path) for path in probe["
+model_info_paths"]]
+loreflection\qwen_arch_control\build_qwen_arch_control_dataset.py:173:    model_index = load_model_info_index(model_pat
+hs)
+loreflection\qwen_arch_control\build_qwen_arch_control_dataset.py:205:        "model_info_entry_count": len(model_index
+),
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:22:    raw_category: str
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:24:    super_category: str = ""
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:28:# SemLayoutDiff-style category normalization: model_info.categ
+ory is the
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:29:# primary label. 3D-FUTURE super-category is diagnostic only; 
+it is too coarse
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:34:    ("double_bed", ("king-size bed", "king size bed", "queen-s
+ize bed", "queen size bed", "double bed")),
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:35:    ("nightstand", ("nightstand", "night stand", "bedside tabl
+e", "bedside")),
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:36:    ("wardrobe", ("wardrobe", "closet")),
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:37:    ("bookshelf", ("bookcase / jewelry armoire", "bookcase", "
+jewelry armoire", "bookshelf")),
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:41:    ("cabinet", ("drawer chest / corner cabinet", "drawer ches
+t", "corner cabinet", "cabinet", "sideboard", "side cabinet", "console")),
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:42:    ("stool", ("footstool / sofastool / bed end stool / stool"
+, "footstool", "sofastool", "sofa stool", "bed end stool", "stool", "ottoman")),
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:50:    ("desk", ("writing desk", "computer desk", "desk")),
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:68:    "double_bed": (2.0, 1.6),
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:77:    "wardrobe": (1.4, 0.6),
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:116:    raw_category: str | None,
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:119:    super_category: str = "",
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:123:    raw_category_s = str(raw_category or "")
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:125:    super_category_s = str(super_category or "")
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:127:    category, alias = _match_alias(raw_category_s, registry)
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:131:            confidence="exact_category" if normalize_3dfuture
+_category(raw_category_s) == normalize_3dfuture_category(alias) else "alias_category",
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:132:            source="model_info.category",
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:133:            raw_category=raw_category_s,
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:135:            super_category=super_category_s,
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:145:            raw_category=raw_category_s,
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:147:            super_category=super_category_s,
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:148:            notes=["model_info.category missing or unmapped; 
+title fallback used"],
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:155:        raw_category=raw_category_s,
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:157:        super_category=super_category_s,
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:164:    model_info: dict[str, Any] | None,
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:167:    model_info = model_info or {}
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:169:        model_info.get("category"),
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:171:        super_category=str(model_info.get("super-category") o
+r model_info.get("super_category") or ""),
+loreflection\qwen_arch_control\raw_3dfront_adapter.py:384:                        "raw_category": (model_index.get(jid)
+ or {}).get("category"),
+loreflection\qwen_arch_control\semantic_topdown_renderer.py:36:    "nightstand",
+loreflection\qwen_arch_control\source_resolver.py:37:    model_info_paths = sorted(
+loreflection\qwen_arch_control\source_resolver.py:39:        for path in data_root.rglob("model_info.json")
+loreflection\qwen_arch_control\source_resolver.py:54:        "model_info_paths": [str(path) for path in model_info_path
+s],
+loreflection\qwen_arch_control\source_resolver.py:61:def load_model_info_index(model_info_paths: list[Path]) -> dict[st
+r, dict[str, Any]]:
+loreflection\qwen_arch_control\source_resolver.py:63:    for path in model_info_paths:
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:18:from loreflection.qwen_arch_control.raw_3dfront_adap
+ter import (  # noqa: E402
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:23:    load_model_info_index,
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:54:def _forbidden_flags(raw_category: str, mapped_categ
+ory: str | None) -> list[str]:
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:55:    text = raw_category.lower()
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:57:    if ("footstool" in text or "sofastool" in text) 
+and mapped_category == "double_bed":
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:58:        flags.append("forbidden_footstool_to_double_
+bed")
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:59:    if "bed end stool" in text and mapped_category =
+= "double_bed":
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:60:        flags.append("forbidden_bed_end_stool_to_dou
+ble_bed")
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:61:    if "nightstand" in text and mapped_category == "
+desk":
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:62:        flags.append("forbidden_nightstand_to_desk")
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:63:    if "wardrobe" in text and mapped_category == "de
+sk":
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:64:        flags.append("forbidden_wardrobe_to_desk")
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:65:    if ("bookcase" in text or "jewelry armoire" in t
+ext) and mapped_category == "desk":
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:66:        flags.append("forbidden_bookcase_to_desk")
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:67:    if text.strip() == "shelf" and mapped_category =
+= "desk":
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:68:        flags.append("forbidden_shelf_to_desk")
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:69:    if "drawer chest" in text and mapped_category ==
+ "desk":
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:70:        flags.append("forbidden_drawer_chest_to_desk
+")
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:88:    model_index = load_model_info_index([Path(p) for
+ p in probe["model_info_paths"]])
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:142:                model_info = model_index.get(jid) o
+r {}
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:143:                raw_category = str(model_info.get("
+category") or "")
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:145:                super_category = str(model_info.get
+("super-category") or model_info.get("super_category") or "")
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:147:                    raw_category,
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:149:                    super_category=super_category,
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:164:                            "raw_category": raw_cat
+egory,
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:166:                            "super_category": super
+_category,
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:173:                flags = _forbidden_flags(raw_catego
+ry, result.category)
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:182:                            "raw_category": raw_cat
+egory,
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:184:                            "super_category": super
+_category,
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:190:                for flag in _forbidden_flags(raw_ca
+tegory, old_category):
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:203:                            "model_info_category": 
+raw_category,
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:204:                            "model_info_super_categ
+ory": super_category,
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:217:                cat in {"double_bed", "single_bed",
+ "kids_bed"} for cat in new_categories
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:222:        "forbidden_footstool_to_double_bed",
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:223:        "forbidden_bed_end_stool_to_double_bed",
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:224:        "forbidden_nightstand_to_desk",
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:225:        "forbidden_wardrobe_to_desk",
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:226:        "forbidden_bookcase_to_desk",
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:227:        "forbidden_shelf_to_desk",
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:228:        "forbidden_drawer_chest_to_desk",
+scripts\qwen_arch_control\audit_raw_3dfront_category_mapping.py:229:        "super_category_triggered_primary_mapping_c
+ount",
+scripts\qwen_arch_control\audit_renderer_input_category_boundary.py:30:        r"model_info",
+scripts\qwen_arch_control\audit_renderer_input_category_boundary.py:31:        r"super-category",
+scripts\qwen_arch_control\audit_renderer_input_category_boundary.py:32:        r"super_category",
+scripts\qwen_arch_control\audit_renderer_input_category_boundary.py:33:        r"raw_category",
+scripts\qwen_arch_control\audit_renderer_input_category_boundary.py:51:        "renderer_reads_raw_model_info_or_keywor
+d_mapping": renderer_reads_raw_mapping,
+scripts\qwen_arch_control\audit_renderer_input_category_boundary.py:63:        "The checked renderer files consume alre
+ady mapped semantic categories or ids and palette values. They may contain normalized semantic category names for draw 
+order, but they do not read 3D-FUTURE `model_info.category`, `model_info.super-category`, or raw furniture titles for c
+ategory mapping.",
+scripts\qwen_arch_control\audit_renderer_input_category_boundary.py:67:        f"renderer_reads_raw_model_info_or_keywo
+rd_mapping: `{report['renderer_reads_raw_model_info_or_keyword_mapping']}`",
+scripts\qwen_arch_control\audit_semlayoutdiff_room_child_openings.py:17:from loreflection.qwen_arch_control.raw_3dfront
+_adapter import collect_room_child_openings_sem_layoutdiff_style
+scripts\qwen_arch_control\build_full_semantic_compiled_dataset.py:14:from loreflection.qwen_arch_control.raw_3dfront_ad
+apter import collect_room_child_openings_sem_layoutdiff_style
+tests\qwen_arch_control\conftest.py:14:    model_info = [
+tests\qwen_arch_control\conftest.py:15:        {"model_id": "jid_table", "category": "Coffee Table", "super-category": 
+"Table"},
+tests\qwen_arch_control\conftest.py:16:        {"model_id": "jid_chair", "category": "Dining Chair", "super-category": 
+"Chair"},
+tests\qwen_arch_control\conftest.py:18:    (future_root / "model_info.json").write_text(json.dumps(model_info), encodin
+g="utf-8")
+tests\qwen_arch_control\test_full_semantic_target_contract.py:19:            furniture.putpixel((x, y), palette["desk"]
+)
+tests\qwen_arch_control\test_palette_contract.py:9:    c2rgb = {"desk": [1, 2, 3], "double_bed": [4, 5, 6]}
+tests\qwen_arch_control\test_palette_contract.py:10:    active = get_active_palette_entries({"desk": 1, "chair": 0}, c2
+rgb)
+tests\qwen_arch_control\test_palette_contract.py:11:    assert active == {"desk": [1, 2, 3]}
+tests\qwen_arch_control\test_palette_contract.py:12:    assert validate_active_palette_entries(["desk"], c2rgb)["valid"
+]
+tests\qwen_arch_control\test_palette_contract.py:16:    prompt = build_palette_control_prompt(["desk", "double_bed"])
+tests\qwen_arch_control\test_palette_contract.py:18:    assert "desk" in prompt
+tests\qwen_arch_control\test_palette_contract.py:19:    assert "double_bed" in prompt
+tests\qwen_arch_control\test_palette_contract_audit.py:11:    goal.write_text(json.dumps({"required_counts": {"desk": 1
+}}), encoding="utf-8")
+tests\qwen_arch_control\test_palette_contract_audit.py:14:        json.dumps({"palette_contract_ref": "palette.json", "
+active_palette_entries": {"desk": [1, 2, 3]}}),
+tests\qwen_arch_control\test_placement_order_planner.py:6:    out=plan_placement_order({"primary_anchor":"double_bed","
+furniture_counts":{"double_bed":1,"nightstand":2,"wardrobe":1}}, {}, [])
+tests\qwen_arch_control\test_placement_order_planner.py:8:    assert out["main_anchors"] == ["double_bed"]
+tests\qwen_arch_control\test_prompt_compiler_v2.py:8:    palette.write_text(json.dumps({"desk": [1, 2, 3], "double_bed"
+: [4, 5, 6]}), encoding="utf-8")
+tests\qwen_arch_control\test_prompt_compiler_v2.py:10:        user_intent_prompt="Context_Control. Create a study with 
+one desk.",
+tests\qwen_arch_control\test_prompt_compiler_v2.py:11:        goal_lostate={"required_counts": {"desk": 1}},
+tests\qwen_arch_control\test_prompt_compiler_v2.py:18:    assert package["active_palette_entries"] == {"desk": [1, 2, 3
+]}
+tests\qwen_arch_control\test_prompt_goal_lostate_rich.py:7:    facts = {"sample_id": "s1", "room_type": "bedroom", "fur
+niture_counts": {"double_bed": 1}, "relation_facts": [], "global_constraints": ["inside_room"]}
+tests\qwen_arch_control\test_prompt_goal_lostate_rich.py:9:    assert goal["required_counts"] == {"double_bed": 1}
+tests\qwen_arch_control\test_prompt_scene_fact_extractor.py:5:    layout = {"objects": [{"category": "double_bed"}, {"c
+ategory": "nightstand"}, {"category": "nightstand"}]}
+tests\qwen_arch_control\test_prompt_scene_fact_extractor.py:9:    assert facts["furniture_counts"]["nightstand"] == 2
+tests\qwen_arch_control\test_raw_3dfront_adapter_tiny_fixture.py:3:from loreflection.qwen_arch_control.raw_3dfront_adap
+ter import adapt_scene_file
+tests\qwen_arch_control\test_raw_3dfront_adapter_tiny_fixture.py:4:from loreflection.qwen_arch_control.source_resolver 
+import load_model_info_index, probe_data_root
+tests\qwen_arch_control\test_raw_3dfront_adapter_tiny_fixture.py:9:    model_index = load_model_info_index([Path(path) 
+for path in probe["model_info_paths"]])
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:1:from loreflection.qwen_arch_control.raw_3dfront_adapter 
+import (
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:7:def mapper(raw_category: str, *, raw_title: str = "", su
+per_category: str = ""):
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:9:        raw_category, raw_title=raw_title, super_categor
+y=super_category
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:13:def test_footstool_not_double_bed():
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:14:    assert mapper("Footstool / Sofastool / Bed End Stoo
+l / Stool").category == "stool"
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:17:def test_bed_end_stool_not_double_bed():
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:18:    result = mapper("Bed End Stool")
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:20:    assert result.category != "double_bed"
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:23:def test_nightstand_not_desk():
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:24:    assert mapper("Nightstand").category == "nightstand
+"
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:27:def test_wardrobe_not_desk():
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:28:    assert mapper("Wardrobe").category == "wardrobe"
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:31:def test_bookcase_not_desk():
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:32:    assert mapper("Bookcase / jewelry Armoire").categor
+y == "bookshelf"
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:35:def test_shelf_not_desk():
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:39:def test_drawer_chest_not_desk():
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:40:    assert mapper("Drawer Chest / Corner cabinet").cate
+gory == "cabinet"
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:43:def test_double_bed_requires_explicit_bed_type():
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:44:    assert mapper("Double Bed").category == "double_bed
+"
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:45:    assert mapper("Bed End Stool").category != "double_
+bed"
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:48:def test_super_category_does_not_trigger_desk():
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:49:    result = mapper("Nightstand", super_category="Cabin
+et/Shelf/Desk")
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:50:    assert result.category == "nightstand"
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:53:def test_unknown_does_not_guess_desk_or_bed():
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:54:    result = mapper("Unknown Furniture", super_category
+="Cabinet/Shelf/Desk")
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:58:def test_title_fallback_does_not_use_super_category():
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:59:    result = mapper("", raw_title="sofa/ottoman", super
+_category="Bed")
+tests\qwen_arch_control\test_raw_3dfront_category_mapping.py:71:    assert normalize_room_type("LivingDiningRoom") is N
+one
+tests\qwen_arch_control\test_raw_3dfront_probe.py:4:def test_probe_finds_scene_and_model_info(tiny_raw_3dfront_root):
+tests\qwen_arch_control\test_raw_3dfront_probe.py:7:    assert len(report["model_info_paths"]) == 1
+tests\qwen_arch_control\test_semantic_instance_extractor.py:67:    label_map[2:6, 2:6] = registry.name_to_id["desk"]
+tests\qwen_arch_control\test_semantic_instance_extractor.py:72:    assert summarize_instances_by_category(instances) ==
+ {"desk": 1, "stool": 1}
+tests\qwen_arch_control\test_semlayoutdiff_room_child_openings.py:4:from loreflection.qwen_arch_control.raw_3dfront_ada
+pter import collect_room_child_openings_sem_layoutdiff_style
+tests\qwen_arch_control\test_target_contains_architecture_audit.py:16:            target.putpixel((x, y), palette["desk
+"])
+
+

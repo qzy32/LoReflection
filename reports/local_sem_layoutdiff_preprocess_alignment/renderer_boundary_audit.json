@@ -1,0 +1,23 @@
+{
+  "renderer_not_modified": true,
+  "category_pollution_occurs_before_renderer": true,
+  "renderer_reads_raw_model_info_or_keyword_mapping": false,
+  "checked_files": [
+    {
+      "file": "loreflection\\qwen_arch_control\\semantic_topdown_renderer.py",
+      "exists": true,
+      "matches": []
+    },
+    {
+      "file": "loreflection\\qwen_arch_control\\render_full_semantic_target.py",
+      "exists": true,
+      "matches": []
+    },
+    {
+      "file": "loreflection\\qwen_arch_control\\render_target_semantic_layout.py",
+      "exists": true,
+      "matches": []
+    }
+  ],
+  "status": "pass"
+}

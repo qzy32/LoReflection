@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import json
 import math
+import re
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -12,38 +14,52 @@ from loreflection.qwen_arch_control.metric_transform import build_metric_transfo
 from loreflection.semantic_registry import SemanticRegistry, load_registry
 
 
-CATEGORY_RULES = [
-    ("kids_bed", ("kids bed", "bunk bed", "crib")),
+@dataclass(frozen=True)
+class CategoryMappingResult:
+    category: str | None
+    confidence: str
+    source: str
+    raw_category: str
+    raw_title: str = ""
+    super_category: str = ""
+    notes: list[str] | None = None
+
+
+# SemLayoutDiff-style category normalization: model_info.category is the
+# primary label. 3D-FUTURE super-category is diagnostic only; it is too coarse
+# for LoReflection semantic targets.
+CATEGORY_ALIASES = [
+    ("kids_bed", ("kids bed", "children bed", "bunk bed", "crib")),
     ("single_bed", ("single bed",)),
-    ("double_bed", ("king-size bed", "king size bed", "double bed", "bed")),
+    ("double_bed", ("king-size bed", "king size bed", "queen-size bed", "queen size bed", "double bed")),
+    ("nightstand", ("nightstand", "night stand", "bedside table", "bedside")),
+    ("wardrobe", ("wardrobe", "closet")),
+    ("bookshelf", ("bookcase / jewelry armoire", "bookcase", "jewelry armoire", "bookshelf")),
+    ("shelf", ("shelf",)),
+    ("wine_cabinet", ("wine cabinet",)),
+    ("children_cabinet", ("children cabinet",)),
+    ("cabinet", ("drawer chest / corner cabinet", "drawer chest", "corner cabinet", "cabinet", "sideboard", "side cabinet", "console")),
+    ("stool", ("footstool / sofastool / bed end stool / stool", "footstool", "sofastool", "sofa stool", "bed end stool", "stool", "ottoman")),
     ("corner_side_table", ("corner/side table", "corner side table", "side table")),
     ("round_end_table", ("round end table",)),
-    ("coffee_table", ("coffee table",)),
+    ("coffee_table", ("coffee table", "tea table")),
     ("console_table", ("console table",)),
-    ("tv_stand", ("tv stand", "media unit")),
+    ("tv_stand", ("tv stand", "media unit", "floor-based media unit", "floor based media unit")),
     ("dressing_table", ("dressing table",)),
     ("dining_table", ("dining table",)),
-    ("desk", ("desk",)),
-    ("stool", ("stool", "footstool")),
+    ("desk", ("writing desk", "computer desk", "desk")),
     ("dressing_chair", ("dressing chair",)),
     ("dining_chair", ("dining chair",)),
     ("chinese_chair", ("chinese chair",)),
     ("armchair", ("armchair",)),
     ("lounge_chair", ("lounge chair", "cafe chair", "office chair")),
     ("chair", ("chair",)),
-    ("loveseat_sofa", ("loveseat",)),
+    ("loveseat_sofa", ("loveseat sofa", "two-seat sofa", "two seat sofa", "loveseat")),
     ("lazy_sofa", ("lazy sofa",)),
     ("multi_seat_sofa", ("multi-seat sofa", "multi seat sofa")),
     ("chaise_longue_sofa", ("chaise longue",)),
     ("l_shaped_sofa", ("l-shaped sofa", "l shaped sofa")),
     ("sofa", ("sofa",)),
-    ("nightstand", ("nightstand", "night stand", "bedside")),
-    ("bookshelf", ("bookshelf", "bookcase")),
-    ("shelf", ("shelf",)),
-    ("children_cabinet", ("children cabinet",)),
-    ("wine_cabinet", ("wine cabinet",)),
-    ("wardrobe", ("wardrobe", "closet")),
-    ("cabinet", ("cabinet", "sideboard", "drawer chest")),
     ("pendant_lamp", ("pendant lamp", "pendant light")),
     ("ceiling_lamp", ("ceiling lamp", "ceiling light")),
     ("table", ("table",)),
@@ -67,23 +83,95 @@ def _text(*values: Any) -> str:
     return " ".join(str(value or "").lower().replace("_", " ") for value in values)
 
 
+def normalize_3dfuture_category(raw: Any) -> str:
+    text = str(raw or "").lower().replace("&", " and ")
+    text = text.replace("_", " ").replace("-", " ")
+    text = re.sub(r"\s*/\s*", " / ", text)
+    text = re.sub(r"[^a-z0-9/]+", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _label_parts(value: Any) -> list[str]:
+    text = normalize_3dfuture_category(value)
+    if not text:
+        return []
+    parts = [normalize_3dfuture_category(part) for part in text.split("/")]
+    return [text] + [part for part in parts if part and part != text]
+
+
+def _match_alias(value: Any, registry: SemanticRegistry) -> tuple[str | None, str | None]:
+    parts = _label_parts(value)
+    for category, aliases in CATEGORY_ALIASES:
+        if category not in registry.name_to_id:
+            continue
+        for alias in aliases:
+            canonical_alias = normalize_3dfuture_category(alias)
+            for part in parts:
+                if part == canonical_alias or canonical_alias in part:
+                    return category, alias
+    return None, None
+
+
+def map_3dfuture_category_to_semlayoutdiff(
+    raw_category: str | None,
+    *,
+    raw_title: str = "",
+    super_category: str = "",
+    registry: SemanticRegistry | None = None,
+) -> CategoryMappingResult:
+    registry = registry or load_registry()
+    raw_category_s = str(raw_category or "")
+    raw_title_s = str(raw_title or "")
+    super_category_s = str(super_category or "")
+
+    category, alias = _match_alias(raw_category_s, registry)
+    if category:
+        return CategoryMappingResult(
+            category=category,
+            confidence="exact_category" if normalize_3dfuture_category(raw_category_s) == normalize_3dfuture_category(alias) else "alias_category",
+            source="model_info.category",
+            raw_category=raw_category_s,
+            raw_title=raw_title_s,
+            super_category=super_category_s,
+            notes=[],
+        )
+
+    category, _ = _match_alias(raw_title_s, registry)
+    if category:
+        return CategoryMappingResult(
+            category=category,
+            confidence="weak_title_fallback",
+            source="title_fallback",
+            raw_category=raw_category_s,
+            raw_title=raw_title_s,
+            super_category=super_category_s,
+            notes=["model_info.category missing or unmapped; title fallback used"],
+        )
+
+    return CategoryMappingResult(
+        category=None,
+        confidence="unknown_drop",
+        source="drop",
+        raw_category=raw_category_s,
+        raw_title=raw_title_s,
+        super_category=super_category_s,
+        notes=["no explicit SemLayoutDiff-compatible category alias matched"],
+    )
+
+
 def map_frozen_category(
     furniture: dict[str, Any],
     model_info: dict[str, Any] | None,
     registry: SemanticRegistry,
 ) -> tuple[str | None, str | None]:
     model_info = model_info or {}
-    text = _text(
+    result = map_3dfuture_category_to_semlayoutdiff(
         model_info.get("category"),
-        model_info.get("super-category"),
-        model_info.get("super_category"),
-        furniture.get("title"),
-        furniture.get("type"),
+        raw_title=str(furniture.get("title") or furniture.get("name") or furniture.get("type") or ""),
+        super_category=str(model_info.get("super-category") or model_info.get("super_category") or ""),
+        registry=registry,
     )
-    for category, tokens in CATEGORY_RULES:
-        if category in registry.name_to_id and any(token in text for token in tokens):
-            return category, None
-    return None, None
+    return result.category, None
 
 
 def _mesh_points(mesh: dict[str, Any]) -> list[tuple[float, float]]:
@@ -217,17 +305,23 @@ def _size_m(furniture: dict[str, Any], transform: dict[str, Any], category: str)
     return max(0.15, prior[0] * abs(scale[0])), max(0.15, prior[1] * abs(scale[2]))
 
 
-def _room_type(raw: Any) -> str:
-    text = str(raw or "room").lower().replace(" ", "")
-    if "bed" in text:
+def normalize_room_type(raw_room_type: Any) -> str | None:
+    text = str(raw_room_type or "").strip().lower().replace(" ", "").replace("_", "")
+    if not text:
+        return None
+    if "livingdining" in text or "diningliving" in text:
+        return None
+    if text in {"bedroom", "masterbedroom", "secondbedroom", "guestbedroom"}:
         return "bedroom"
-    if "living" in text:
+    if text == "livingroom":
         return "livingroom"
-    if "dining" in text:
+    if text == "diningroom":
         return "diningroom"
-    if "library" in text or "study" in text:
-        return "study"
-    return text or "room"
+    return None
+
+
+def _room_type(raw: Any) -> str | None:
+    return normalize_room_type(raw)
 
 
 def adapt_scene_file(
@@ -249,6 +343,9 @@ def adapt_scene_file(
     adapted = []
     for room_index, room in enumerate(rooms if isinstance(rooms, list) else []):
         if not isinstance(room, dict) or room.get("empty") is True:
+            continue
+        normalized_room_type = normalize_room_type(room.get("type"))
+        if normalized_room_type is None:
             continue
         linked_furniture = []
         linked_meshes = []
@@ -351,7 +448,7 @@ def adapt_scene_file(
             "scene_id": scene_id,
             "house_id": scene.get("jobid"),
             "floorplan_id": scene_id,
-            "room_type": _room_type(room.get("type")),
+            "room_type": normalized_room_type,
             "image_size_px": [image_size, image_size],
             "boundary": {"polygon_m": boundary_m, "polygon_px": boundary_px, "source": boundary_source, "boundary_source": boundary_source},
             "metric_transform": metric_transform,
