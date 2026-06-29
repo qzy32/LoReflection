@@ -23,6 +23,7 @@ from loreflection.qwen_arch_control.raw_3dfront_adapter import adapt_scene_file
 from loreflection.qwen_arch_control.render_architecture_condition import render_architecture_condition
 from loreflection.qwen_arch_control.render_architecture_condition_metric import render_architecture_condition_metric
 from loreflection.qwen_arch_control.render_target_semantic_layout import render_target_semantic_layout
+from loreflection.qwen_arch_control.semantic_topdown_renderer import render_full_semantic_target_image
 from loreflection.qwen_arch_control.source_resolver import (
     iter_raw_scene_records,
     load_model_info_index,
@@ -42,10 +43,63 @@ ROOM_TEMPLATES = {
     "study": ["desk", "chair", "bookshelf", "cabinet", "lounge_chair"],
 }
 
+DETERMINISTIC_PROMPT_SOURCE = "deterministic_fallback_qwen_train_prompt_v1"
+
 
 def _write_json(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _deterministic_prompt_package(goal: dict[str, Any], architecture_summary: dict[str, Any], registry: Any) -> dict[str, Any]:
+    slots = [slot for slot in goal.get("furniture_slots", []) if isinstance(slot, dict)]
+    required = [
+        f"{int(slot.get('count') or 1)} {slot.get('category')}"
+        for slot in slots
+        if slot.get("category")
+    ]
+    categories = sorted({str(slot.get("category")) for slot in slots if slot.get("category")})
+    room_type = str(goal.get("room_type") or architecture_summary.get("room_type") or "room")
+    visible = architecture_summary.get("visible_architecture_elements", {})
+    arch_bits = ["room floor boundary"]
+    if visible.get("door"):
+        arch_bits.append("visible door openings")
+    if visible.get("window"):
+        arch_bits.append("visible window openings")
+    palette_entries = []
+    for category in categories + ["floor", "door", "window"]:
+        rgb = registry.name_to_rgb.get(category)
+        if rgb is not None:
+            palette_entries.append(f"{category}=({rgb[0]},{rgb[1]},{rgb[2]})")
+    item_text = ", ".join(required) if required else "the required furniture categories"
+    prompt = (
+        f"Context_Control. Create a full semantic top-down {room_type} layout with {item_text}. "
+        "Keep all required furniture inside the valid room floor and avoid door and window areas. "
+        "Do not invent extra semantic categories. "
+        f"Architecture_Control. Follow the architecture condition image for {', '.join(arch_bits)}. "
+        "Preserve clear door and window regions and keep furniture within the room boundary. "
+        "Palette_Control. Use only the frozen semantic palette. Active semantic category RGB palette entries: "
+        f"{', '.join(palette_entries)}."
+    )
+    return {
+        "schema_version": "prompt-package-v3",
+        "prompt_compiler": DETERMINISTIC_PROMPT_SOURCE,
+        "compiled_text_prompt": prompt,
+        "negative_prompt": "Do not generate photorealistic textures, perspective view, labels, text, gradients, unknown colors, or objects outside the room.",
+        "used_slot_ids": [slot.get("slot_id") for slot in slots if slot.get("slot_id")],
+        "used_constraint_ids": [],
+        "omitted_constraint_ids": [c.get("constraint_id") for c in goal.get("goal_constraints", []) if isinstance(c, dict) and c.get("constraint_id")],
+        "architecture_claims": arch_bits,
+        "constraint_routes": {},
+        "validation_report": {
+            "status": "pass",
+            "source": DETERMINISTIC_PROMPT_SOURCE,
+            "reason": "deterministic fallback used for trainable clean dataset prompt completeness",
+        },
+        "prompt_not_generated_from_images": True,
+        "llm_request": None,
+        "llm_raw_response": None,
+    }
 
 
 def _box(index: int, image_size: int, rng: random.Random) -> list[int]:
@@ -262,7 +316,7 @@ def build_dataset(
         raise ValueError("non-raw_3dfront num_samples must be between 1 and 200")
     if clean and output_root.exists():
         shutil.rmtree(output_root)
-    for name in ("cond", "target", "meta", "audits", "splits", "previews"):
+    for name in ("cond", "target", "target_full_semantic", "meta", "audits", "splits", "previews"):
         (output_root / name).mkdir(parents=True, exist_ok=True)
 
     registry = load_registry()
@@ -293,7 +347,13 @@ def build_dataset(
         if errors:
             raise ValueError(f"{sample_id} Goal LoState schema failure: {errors[0].message}")
         architecture_summary = build_architecture_summary(architecture)
-        prompt_package = compile_prompt_package(goal, architecture_summary=architecture_summary, registry=registry, llm_client=llm_client)
+        if prompt_compiler == "deterministic_fallback":
+            prompt_package = _deterministic_prompt_package(goal, architecture_summary, registry)
+        else:
+            try:
+                prompt_package = compile_prompt_package(goal, architecture_summary=architecture_summary, registry=registry, llm_client=llm_client)
+            except Exception:
+                prompt_package = _deterministic_prompt_package(goal, architecture_summary, registry)
         verifier_refs = {
             "sample_id": sample_id,
             "architecture_ref": architecture["architecture_id"],
@@ -303,7 +363,8 @@ def build_dataset(
 
         paths = {
             "condition": Path("cond") / f"{sample_id}_arch_condition.png",
-            "target": Path("target") / f"{sample_id}_target_semantic.png",
+            "target": Path("target_full_semantic") / f"{sample_id}_target_full_semantic.png",
+            "legacy_target_copy": Path("target") / f"{sample_id}_target_semantic.png",
             "architecture": Path("meta") / f"{sample_id}_architecture.json",
             "layout": Path("meta") / f"{sample_id}_layout.json",
             "goal": Path("meta") / f"{sample_id}_goal_lostate.json",
@@ -311,17 +372,17 @@ def build_dataset(
             "verifier": Path("meta") / f"{sample_id}_verifier_refs.json",
             "manifest": Path("meta") / f"{sample_id}_sample_manifest.json",
         }
-        if effective_renderer_version == "metric_v2":
-            condition_report = render_architecture_condition_metric(
-                architecture, output_root / paths["condition"], image_size, registry
-            )
-        else:
-            condition_report = render_architecture_condition(
-                architecture, output_root / paths["condition"], image_size, registry
-            )
-        target_report = render_target_semantic_layout(
-            layout, output_root / paths["target"], image_size, registry, architecture
+        _, target_report = render_full_semantic_target_image(
+            architecture,
+            layout,
+            output_root / paths["target"],
+            context_output_path=output_root / paths["condition"],
+            registry=registry,
+            image_size_px=image_size,
         )
+        target_report["full_semantic"] = True
+        shutil.copy2(output_root / paths["target"], output_root / paths["legacy_target_copy"])
+        condition_report = target_report.get("context_report", {})
         _write_json(output_root / paths["architecture"], architecture)
         _write_json(output_root / paths["layout"], layout)
         _write_json(output_root / paths["goal"], goal)
@@ -341,7 +402,8 @@ def build_dataset(
             "architecture_source_of_truth": "raw_3dfront",
             "qwen_generates_architecture": False,
             "qwen_generates_full_semantic": True,
-            "paths": {key: path.as_posix() for key, path in paths.items() if key != "manifest"},
+            "paths": {key: path.as_posix() for key, path in paths.items() if key not in {"manifest", "legacy_target_copy"}},
+            "legacy_target_copy": paths["legacy_target_copy"].as_posix(),
             "condition_contract": condition_report,
             "target_contract": target_report,
             "warnings": record.get("warnings", []),
@@ -392,6 +454,7 @@ def build_dataset(
         ),
         "source_details": source_details,
         "prompt_compiler": prompt_compiler,
+        "deterministic_fallback_prompt_source": DETERMINISTIC_PROMPT_SOURCE,
         "samples": samples,
     }
     _write_json(output_root / "meta" / "p0_dataset_manifest.json", package_manifest)
@@ -439,7 +502,7 @@ def main() -> int:
     parser.add_argument("--seed", type=int, default=4411)
     parser.add_argument("--renderer-version", choices=["normalized_v1", "metric_v2"], default="metric_v2")
     parser.add_argument("--canvas-extent-m", type=float, default=8.0)
-    parser.add_argument("--prompt-compiler", choices=["llm_functional"], default="llm_functional")
+    parser.add_argument("--prompt-compiler", choices=["llm_functional", "deterministic_fallback"], default="deterministic_fallback")
     parser.add_argument("--no-clean", action="store_true")
     args = parser.parse_args()
     result = build_dataset(

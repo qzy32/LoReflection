@@ -1,0 +1,159 @@
+{
+  "dataset_dir": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_raw3dfront_clean_512_oob050",
+  "metadata_csv": "/wuqingyaoa800/qiuziyan/LoReflection_arch_p0/data/loreflection_qwen_arch_control_raw3dfront_clean_512_oob050/metadata.csv",
+  "metadata_rows": 12467,
+  "image_size": [
+    512,
+    512
+  ],
+  "image_count": 12467,
+  "context_count": 12467,
+  "prompt_missing_count": 0,
+  "prompt_package_missing_count": 0,
+  "goal_lostate_missing_count": 0,
+  "verifier_refs_missing_count": 0,
+  "image_missing_count": 0,
+  "context_missing_count": 0,
+  "bad_size_count": 0,
+  "palette_exact_failed_count": 0,
+  "unknown_color_count": 0,
+  "room_type_distribution": {
+    "bedroom": 10058,
+    "livingroom": 1658,
+    "diningroom": 751
+  },
+  "category_distribution_top50": {
+    "nightstand": 12543,
+    "pendant_lamp": 9559,
+    "double_bed": 7704,
+    "wardrobe": 7671,
+    "dining_chair": 6238,
+    "ceiling_lamp": 3472,
+    "tv_stand": 3192,
+    "cabinet": 3074,
+    "corner_side_table": 2579,
+    "coffee_table": 1951,
+    "lounge_chair": 1948,
+    "stool": 1573,
+    "dining_table": 1541,
+    "armchair": 1451,
+    "desk": 1371,
+    "dressing_table": 1311,
+    "bookshelf": 1228,
+    "multi_seat_sofa": 1113,
+    "single_bed": 987,
+    "shelf": 721,
+    "loveseat_sofa": 527,
+    "children_cabinet": 508,
+    "kids_bed": 491,
+    "dressing_chair": 444,
+    "l_shaped_sofa": 328,
+    "wine_cabinet": 320,
+    "round_end_table": 216,
+    "lazy_sofa": 124,
+    "chinese_chair": 79,
+    "sofa": 44,
+    "chaise_longue_sofa": 28,
+    "chair": 20,
+    "table": 9
+  },
+  "category_total_objects": 74365,
+  "raw_filter_audit": {
+    "raw_scenes_scanned": 6813,
+    "rooms_kept": 12467,
+    "room_drop_reason": {
+      "unsupported_room_type": 41741,
+      "insufficient_mapped_objects": 1257,
+      "semlayoutdiff_invalid_scale": 164,
+      "severe_oob_footprint": 341
+    },
+    "severe_oob_dropped_room_count": 341,
+    "invalid_scale_dropped_room_count": 164,
+    "inter_object_collision_drop_count": 0,
+    "center_outside_boundary_bbox_audit_count": 130,
+    "severe_oob_outside_area_ratio": 0.5,
+    "top_severe_oob_categories": [
+      [
+        "wardrobe",
+        268
+      ],
+      [
+        "bookshelf",
+        50
+      ],
+      [
+        "pendant_lamp",
+        12
+      ],
+      [
+        "cabinet",
+        10
+      ],
+      [
+        "children_cabinet",
+        8
+      ],
+      [
+        "ceiling_lamp",
+        8
+      ],
+      [
+        "double_bed",
+        8
+      ],
+      [
+        "corner_side_table",
+        8
+      ],
+      [
+        "dining_chair",
+        8
+      ],
+      [
+        "coffee_table",
+        6
+      ],
+      [
+        "tv_stand",
+        6
+      ],
+      [
+        "dining_table",
+        6
+      ],
+      [
+        "nightstand",
+        5
+      ],
+      [
+        "wine_cabinet",
+        4
+      ],
+      [
+        "multi_seat_sofa",
+        3
+      ],
+      [
+        "stool",
+        3
+      ],
+      [
+        "armchair",
+        3
+      ],
+      [
+        "desk",
+        3
+      ],
+      [
+        "shelf",
+        3
+      ],
+      [
+        "single_bed",
+        1
+      ]
+    ]
+  },
+  "gate_pass": true
+}

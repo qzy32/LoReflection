@@ -1,0 +1,7 @@
+{
+  "prompt_missing_count": 0,
+  "prompt_package_missing_count": 0,
+  "goal_lostate_missing_count": 0,
+  "verifier_refs_missing_count": 0,
+  "prompt_source": "deterministic_fallback_qwen_train_prompt_v1"
+}
