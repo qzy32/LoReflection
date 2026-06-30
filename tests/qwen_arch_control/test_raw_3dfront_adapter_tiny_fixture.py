@@ -59,6 +59,80 @@ def test_unreferenced_furniture_is_not_collected(tiny_raw_3dfront_root):
     assert {obj["source_object_id"] for obj in records[0]["layout"]["objects"]} == {"table/model", "chair/model"}
 
 
+def test_3dfuture_size_uses_ground_axes_not_height(tiny_raw_3dfront_root):
+    scene = _load_scene(tiny_raw_3dfront_root)
+    scene["furniture"][0]["size"] = [4.2, 0.52, 2.78]
+    scene["furniture"][1]["size"] = [2.2, 0.23, 2.0]
+    _write_scene(tiny_raw_3dfront_root, scene)
+
+    records = adapt_scene_file(_scene_path(tiny_raw_3dfront_root), _load_model_index(tiny_raw_3dfront_root), image_size=128)
+    by_source = {obj["source_object_id"]: obj for obj in records[0]["layout"]["objects"]}
+
+    assert by_source["table/model"]["size_m"] == [4.2, 0.52]
+    assert by_source["chair/model"]["size_m"] == [2.2, 0.23]
+
+
+def test_3dfuture_size_applies_child_ground_scale(tiny_raw_3dfront_root):
+    scene = _load_scene(tiny_raw_3dfront_root)
+    scene["furniture"][0]["size"] = [4.2, 0.52, 2.78]
+    scene["scene"]["room"][0]["children"][0]["scale"] = [0.5, 1.0, 2.0]
+    _write_scene(tiny_raw_3dfront_root, scene)
+
+    records = adapt_scene_file(_scene_path(tiny_raw_3dfront_root), _load_model_index(tiny_raw_3dfront_root), image_size=128)
+    table = next(obj for obj in records[0]["layout"]["objects"] if obj["source_object_id"] == "table/model")
+
+    assert table["size_m"] == [2.1, 1.04]
+
+
+def test_non_finite_child_scale_drops_whole_room(tiny_raw_3dfront_root):
+    scene = _load_scene(tiny_raw_3dfront_root)
+    scene["scene"]["room"][0]["children"][1]["scale"] = [1, float("nan"), 1]
+    _write_scene(tiny_raw_3dfront_root, scene)
+    drop_reports = []
+
+    records = adapt_scene_file(_scene_path(tiny_raw_3dfront_root), _load_model_index(tiny_raw_3dfront_root), drop_reports=drop_reports)
+
+    assert records == []
+    assert drop_reports[-1]["room_drop_reason"] == "semlayoutdiff_invalid_scale"
+
+
+def test_non_finite_furniture_size_falls_back_to_bbox_ground_axes(tiny_raw_3dfront_root):
+    scene = _load_scene(tiny_raw_3dfront_root)
+    scene["furniture"][0]["size"] = [float("nan"), 0.52, 2.78]
+    scene["furniture"][0]["bbox"] = [0, 0, 0, 4.2, 0.52, 2.78]
+    _write_scene(tiny_raw_3dfront_root, scene)
+
+    records = adapt_scene_file(_scene_path(tiny_raw_3dfront_root), _load_model_index(tiny_raw_3dfront_root), image_size=128)
+    table = next(obj for obj in records[0]["layout"]["objects"] if obj["source_object_id"] == "table/model")
+
+    assert table["size_m"] == [4.2, 0.52]
+
+
+def test_non_finite_position_skips_object(tiny_raw_3dfront_root):
+    scene = _load_scene(tiny_raw_3dfront_root)
+    scene["scene"]["room"][0]["children"][1]["pos"] = [float("nan"), 0, 0]
+    _write_scene(tiny_raw_3dfront_root, scene)
+    drop_reports = []
+
+    records = adapt_scene_file(_scene_path(tiny_raw_3dfront_root), _load_model_index(tiny_raw_3dfront_root), drop_reports=drop_reports)
+
+    assert records == []
+    assert drop_reports[-1]["room_drop_reason"] == "insufficient_mapped_objects"
+    assert drop_reports[-1]["mapped_object_count"] == 1
+
+
+def test_non_finite_rotation_falls_back_to_zero_degrees(tiny_raw_3dfront_root):
+    scene = _load_scene(tiny_raw_3dfront_root)
+    scene["scene"]["room"][0]["children"][0]["rot"] = [0, float("nan"), 0, 1]
+    _write_scene(tiny_raw_3dfront_root, scene)
+
+    records = adapt_scene_file(_scene_path(tiny_raw_3dfront_root), _load_model_index(tiny_raw_3dfront_root), image_size=128)
+    table = next(obj for obj in records[0]["layout"]["objects"] if obj["source_object_id"] == "table/model")
+
+    assert table["orientation_deg"] == 0.0
+    assert all(all(value == value for value in point) for point in table["footprint_m"])
+
+
 def test_invalid_tiny_scale_drops_whole_room(tiny_raw_3dfront_root):
     scene = _load_scene(tiny_raw_3dfront_root)
     scene["scene"]["room"][0]["children"][1]["scale"] = [1e-6, 1, 1]

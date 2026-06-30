@@ -193,9 +193,12 @@ def _mesh_points(mesh: dict[str, Any]) -> list[tuple[float, float]]:
     for point in raw:
         if isinstance(point, list) and len(point) >= 3:
             try:
-                points.append((float(point[0]), float(point[2])))
+                x, z = float(point[0]), float(point[2])
             except (TypeError, ValueError):
                 pass
+            else:
+                if math.isfinite(x) and math.isfinite(z):
+                    points.append((x, z))
     return points
 
 
@@ -459,17 +462,36 @@ def _bbox_px_metric(center: tuple[float, float], size: tuple[float, float], orie
     return _bbox_from_px([tuple(point) for point in footprint_px], image_size), footprint_m, footprint_px
 
 
+def _finite_vec3(value: tuple[float, float, float] | None) -> tuple[float, float, float] | None:
+    if value is None:
+        return None
+    if all(math.isfinite(v) for v in value):
+        return value
+    return None
+
+
 def _size_m(furniture: dict[str, Any], transform: dict[str, Any], category: str) -> tuple[float, float]:
-    size = vec3(furniture.get("size"))
+    scale = _finite_vec3(vec3(transform.get("scale"))) or (1.0, 1.0, 1.0)
+    size = _finite_vec3(vec3(furniture.get("size")))
     if size:
-        return max(0.15, abs(size[0])), max(0.15, abs(size[2]))
+        return max(0.15, abs(size[0] * scale[0])), max(0.15, abs(size[1] * scale[2]))
     bbox = furniture.get("bbox")
     if isinstance(bbox, list) and len(bbox) == 3:
-        return max(0.15, abs(float(bbox[0]))), max(0.15, abs(float(bbox[2])))
+        try:
+            width, depth = float(bbox[0]), float(bbox[1])
+        except (TypeError, ValueError):
+            width = depth = float("nan")
+        if math.isfinite(width) and math.isfinite(depth):
+            return max(0.15, abs(width * scale[0])), max(0.15, abs(depth * scale[2]))
     if isinstance(bbox, list) and len(bbox) >= 6:
-        return max(0.15, abs(float(bbox[3]) - float(bbox[0]))), max(0.15, abs(float(bbox[5]) - float(bbox[2])))
+        try:
+            width = abs(float(bbox[3]) - float(bbox[0]))
+            depth = abs(float(bbox[4]) - float(bbox[1]))
+        except (TypeError, ValueError):
+            width = depth = float("nan")
+        if math.isfinite(width) and math.isfinite(depth):
+            return max(0.15, width * abs(scale[0])), max(0.15, depth * abs(scale[2]))
     prior = SIZE_PRIORS.get(category, (0.8, 0.6))
-    scale = vec3(transform.get("scale")) or (1.0, 1.0, 1.0)
     return max(0.15, prior[0] * abs(scale[0])), max(0.15, prior[1] * abs(scale[2]))
 
 
@@ -500,7 +522,12 @@ def _invalid_child_scale(child: dict[str, Any]) -> list[float] | None:
     scale = vec3(child.get("scale"))
     if scale is None:
         return None
-    if any(abs(value) < SEMLAYOUTDIFF_MIN_CHILD_SCALE or abs(value) > SEMLAYOUTDIFF_MAX_CHILD_SCALE for value in scale):
+    if any(
+        not math.isfinite(value)
+        or abs(value) < SEMLAYOUTDIFF_MIN_CHILD_SCALE
+        or abs(value) > SEMLAYOUTDIFF_MAX_CHILD_SCALE
+        for value in scale
+    ):
         return [float(value) for value in scale]
     return None
 
@@ -590,6 +617,9 @@ def adapt_scene_file(
             if not position:
                 skipped.append({"source_object_id": furniture.get("uid"), "reason": "missing_position"})
                 continue
+            if not all(math.isfinite(value) for value in position):
+                skipped.append({"source_object_id": furniture.get("uid"), "reason": "non_finite_position"})
+                continue
             center = (position[0], position[2])
             if not category:
                 skipped.append(
@@ -638,6 +668,8 @@ def adapt_scene_file(
         objects = []
         for object_index, (category, center, size, furniture, child) in enumerate(provisional):
             orientation_deg = math.degrees(yaw_from_rotation(child.get("rot") or child.get("rotation")))
+            if not math.isfinite(orientation_deg):
+                orientation_deg = 0.0
             if metric_transform:
                 bbox_px, footprint_m, footprint_px = _bbox_px_metric(center, size, orientation_deg, metric_transform, image_size)
             else:
